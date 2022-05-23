@@ -1,5 +1,5 @@
-﻿using HenryMod.SkillStates;
-using HenryMod.SkillStates.BaseStates;
+﻿using RimuruMod.SkillStates;
+using RimuruMod.SkillStates.BaseStates;
 using System.Collections.Generic;
 using System;
 

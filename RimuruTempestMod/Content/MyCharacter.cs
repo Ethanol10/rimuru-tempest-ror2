@@ -1,26 +1,26 @@
 ﻿using BepInEx.Configuration;
-using HenryMod.Modules.Characters;
+using RimuruMod.Modules.Characters;
 using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HenryMod.Modules.Survivors
+namespace RimuruMod.Modules.Survivors
 {
     internal class MyCharacter : SurvivorBase
     {
         public override string bodyName => "Henry";
 
-        public const string HENRY_PREFIX = HenryPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_";
+        public const string HENRY_PREFIX = RimuruPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_";
         //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => HENRY_PREFIX;
 
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
             bodyName = "HenryBody",
-            bodyNameToken = HenryPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_NAME",
-            subtitleNameToken = HenryPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_SUBTITLE",
+            bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_NAME",
+            subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texHenryIcon"),
             bodyColor = Color.white,
@@ -87,7 +87,7 @@ namespace HenryMod.Modules.Survivors
         public override void InitializeSkills()
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
-            string prefix = HenryPlugin.DEVELOPER_PREFIX;
+            string prefix = RimuruPlugin.DEVELOPER_PREFIX;
 
             #region Primary
             //Creates a skilldef for a typical primary 
@@ -203,7 +203,7 @@ namespace HenryMod.Modules.Survivors
             List<SkinDef> skins = new List<SkinDef>();
 
             #region DefaultSkin
-            SkinDef defaultSkin = Modules.Skins.CreateSkinDef(HenryPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_DEFAULT_SKIN_NAME",
+            SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_DEFAULT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
                 defaultRenderers,
                 mainRenderer,

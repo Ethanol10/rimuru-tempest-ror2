@@ -2,7 +2,7 @@
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
-using HenryMod.Modules.Characters;
+using RimuruMod.Modules.Characters;
 
 namespace RimuruMod.Modules {
     // module for creating body prefabs and whatnot

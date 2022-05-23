@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HenryMod.Modules.Characters
+namespace RimuruMod.Modules.Characters
 {
     internal abstract class CharacterBase
     {
@@ -109,7 +109,7 @@ namespace HenryMod.Modules.Characters
     internal class BodyInfo
     {
         #region Character
-        public string bodyName = "";
+        public string bodyName = "Rimuru Tempest";
         public string bodyNameToken = "";
         public string subtitleNameToken = "";
 

@@ -1,5 +1,5 @@
 ﻿using BepInEx;
-using HenryMod.Modules.Survivors;
+using RimuruMod.Modules.Survivors;
 using R2API.Utils;
 using RoR2;
 using System.Collections.Generic;

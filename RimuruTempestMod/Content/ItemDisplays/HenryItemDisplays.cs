@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HenryMod.Modules.Characters
+namespace RimuruMod.Modules.Characters
 {
     internal class HenryItemDisplays : ItemDisplaysBase
     {

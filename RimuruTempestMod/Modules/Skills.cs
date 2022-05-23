@@ -3,7 +3,7 @@ using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
-using HenryMod;
+using RimuruMod;
 using UnityEngine;
 
 namespace RimuruMod.Modules
