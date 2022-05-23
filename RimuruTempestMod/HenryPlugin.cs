@@ -9,7 +9,7 @@ using System.Security.Permissions;
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 
-namespace HenryMod
+namespace RimuruMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
@@ -22,19 +22,19 @@ namespace HenryMod
         "UnlockableAPI"
     })]
 
-    public class HenryPlugin : BaseUnityPlugin
+    public class RimuruPlugin : BaseUnityPlugin
     {
         // if you don't change these you're giving permission to deprecate the mod-
         //  please change the names to your own stuff, thanks
         //   this shouldn't even have to be said
-        public const string MODUID = "com.rob.HenryMod";
-        public const string MODNAME = "HenryMod";
-        public const string MODVERSION = "1.0.0";
+        public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
+        public const string MODNAME = "RimuruTempestMod";
+        public const string MODVERSION = "0.0.1";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
-        public const string DEVELOPER_PREFIX = "ROB";
+        public const string DEVELOPER_PREFIX = "POPCORN";
 
-        public static HenryPlugin instance;
+        public static RimuruPlugin instance;
 
         private void Awake()
         {

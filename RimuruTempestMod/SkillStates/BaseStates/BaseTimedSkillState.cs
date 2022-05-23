@@ -1,7 +1,7 @@
 ﻿using EntityStates;
 using System;
 
-namespace HenryMod.SkillStates.BaseStates
+namespace RimuruMod.SkillStates.BaseStates
 {
     //see example skills below
     public class BaseTimedSkillState : BaseSkillState

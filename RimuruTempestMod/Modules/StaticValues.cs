@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HenryMod.Modules
+namespace RimuruMod.Modules
 {
     internal static class StaticValues
     {

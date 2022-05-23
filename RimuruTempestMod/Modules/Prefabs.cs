@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HenryMod.Modules.Characters;
 
-namespace HenryMod.Modules {
+namespace RimuruMod.Modules {
     // module for creating body prefabs and whatnot
     // recommended to simply avoid touching this unless you REALLY need to
     // oh boy do I need to

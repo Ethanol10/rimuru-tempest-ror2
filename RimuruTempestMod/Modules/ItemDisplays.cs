@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HenryMod.Modules
+namespace RimuruMod.Modules
 {
     internal static class ItemDisplays
     {

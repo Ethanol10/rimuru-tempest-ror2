@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using HenryMod;
 using UnityEngine;
 
-namespace HenryMod.Modules
+namespace RimuruMod.Modules
 {
 
     internal static class Skills
@@ -42,7 +42,7 @@ namespace HenryMod.Modules
 
             skill._skillFamily = newFamily;
 
-            HenryMod.Modules.Content.AddSkillFamily(newFamily);
+            RimuruMod.Modules.Content.AddSkillFamily(newFamily);
             return skill;
         }
         #endregion
@@ -140,7 +140,7 @@ namespace HenryMod.Modules
 
             skillDef.keywordTokens = skillDefInfo.keywordTokens;
 
-            HenryMod.Modules.Content.AddSkillDef(skillDef);
+            RimuruMod.Modules.Content.AddSkillDef(skillDef);
 
 
             return skillDef;

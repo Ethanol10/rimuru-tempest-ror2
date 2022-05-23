@@ -3,7 +3,7 @@ using HenryMod.SkillStates.BaseStates;
 using System.Collections.Generic;
 using System;
 
-namespace HenryMod.Modules
+namespace RimuruMod.Modules
 {
     public static class States
     {
