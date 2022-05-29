@@ -30,9 +30,9 @@ namespace RimuruMod.Modules
         private static string[] assetNames = new string[0];
 
         // CHANGE THIS
-        private const string assetbundleName = "myassetbundle";
+        private const string assetbundleName = "RimuruAssetBundle";
         //change this to your project's name if/when you've renamed it
-        private const string csProjName = "RimuruMod";
+        private const string csProjName = "RimuruTempestMod";
         
         internal static void Initialize()
         {
@@ -71,7 +71,7 @@ namespace RimuruMod.Modules
         internal static void LoadSoundbank()
         {                                                                
             //soundbank currently broke, but this is how you should load yours
-            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.HenryBank.bnk"))
+            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.RimuruBank.bnk"))
             {
                 byte[] array = new byte[manifestResourceStream2.Length];
                 manifestResourceStream2.Read(array, 0, array.Length);

@@ -92,9 +92,9 @@ namespace RimuruMod.Modules
         /// pass in strings for mesh assets in your project. pass the same amount and order as you have renderers, filling with null as needed
         /// <code>
         /// myskindef.meshReplacements = Modules.Skins.getMeshReplacements(defaultRenderers,
-        ///    "meshHenrySword",
+        ///    "meshRimuruSword",
         ///    null,
-        ///    "meshHenry");
+        ///    "meshRimuru");
         /// </code>
         /// </summary>
         /// <param name="rendererinfos">your skindef's rendererinfos to access the renderers</param>

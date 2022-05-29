@@ -38,7 +38,7 @@ namespace RimuruMod.SkillStates
             if (!this.hasFired)
             {
                 this.hasFired = true;
-                Util.PlaySound("HenryBombThrow", base.gameObject);
+                Util.PlaySound("RimuruBombThrow", base.gameObject);
 
                 if (base.isAuthority)
                 {

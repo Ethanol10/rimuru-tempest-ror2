@@ -11,7 +11,7 @@ namespace RimuruMod.SkillStates
         public static float initialSpeedCoefficient = 5f;
         public static float finalSpeedCoefficient = 2.5f;
 
-        public static string dodgeSoundString = "HenryRoll";
+        public static string dodgeSoundString = "RimuruRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
 
         private float rollSpeed;
