@@ -1,17 +1,20 @@
 ﻿using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
+using RimuruMod.Modules;
 
 namespace RimuruMod.Modules
 {
     public static class Buffs
     {
-        // armor buff gained during roll
-        internal static BuffDef armorBuff;
+        // spatialmovement armor buff 
+        internal static BuffDef SpatialMovementBuff;
+        internal static BuffDef CritDebuff;
 
         internal static void RegisterBuffs()
         {
-            armorBuff = AddNewBuff("RimuruArmorBuff", RoR2.LegacyResourcesAPI.Load<Sprite>("Textures/BuffIcons/texBuffGenericShield"), Color.white, false, false);
+            SpatialMovementBuff = AddNewBuff("SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
+            CritDebuff = AddNewBuff("CritDebuff", Assets.critBuffIcon, Color.red, false, true);
         }
 
         // simple helper method

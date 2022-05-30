@@ -15,5 +15,8 @@ namespace RimuruMod.Modules
         internal const float gunDamageCoefficient = 4.2f;
 
         internal const float bombDamageCoefficient = 16f;
+
+        internal const int spatialmovementbuffDuration = 3;
+        internal const int analyzedebuffDuration = 6;
     }
 }

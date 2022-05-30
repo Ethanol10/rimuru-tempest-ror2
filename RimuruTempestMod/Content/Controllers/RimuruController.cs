@@ -126,9 +126,7 @@ namespace RimuruMod.Modules.Survivors
         {
             child = GetComponentInChildren<ChildLocator>();
 
-            indicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/RecyclerIndicator"));
-            passiveindicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/EngiMissileTrackingIndicator"));
-            activeindicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/HuntressTrackingIndicator"));
+            indicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/HuntressTrackingIndicator"));
             //On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             characterBody = gameObject.GetComponent<CharacterBody>();
             inputBank = gameObject.GetComponent<InputBankTest>();
@@ -202,6 +200,7 @@ namespace RimuruMod.Modules.Survivors
                 Rimurumastercon = characterMaster.gameObject.AddComponent<RimuruMasterController>();
             }
 
+            characterBody.skillLocator.special.RemoveAllStocks();
 
             alphacontructpassiveDef = false;
             beetlepassiveDef = false;

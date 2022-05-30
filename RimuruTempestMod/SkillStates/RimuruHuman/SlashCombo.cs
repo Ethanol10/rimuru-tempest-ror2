@@ -21,7 +21,7 @@ namespace RimuruMod.SkillStates
             this.baseEarlyExitTime = 0.4f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 4f;
+            this.hitHopVelocity = 10f;
 
             this.swingSoundString = "RimuruSwordSwing";
             this.hitSoundString = "";

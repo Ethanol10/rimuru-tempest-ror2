@@ -14,6 +14,7 @@ namespace RimuruMod.SkillStates.BaseStates
         {
             base.OnEnter();
             
+
         }
 
         public override void OnExit()
@@ -28,7 +29,7 @@ namespace RimuruMod.SkillStates.BaseStates
         {
             base.FixedUpdate();
 
-            if (base.fixedAge > 0 && base.isAuthority)
+            if (base.fixedAge > 0.1f && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
                 return;

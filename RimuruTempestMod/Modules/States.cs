@@ -14,6 +14,9 @@ namespace RimuruMod.Modules
 
             Modules.Content.AddEntityState(typeof(Shoot));
 
+            Modules.Content.AddEntityState(typeof(SpatialMovement));
+
+            Modules.Content.AddEntityState(typeof(TransformHuman));
             Modules.Content.AddEntityState(typeof(TransformSlime));
 
             Modules.Content.AddEntityState(typeof(ThrowBomb));

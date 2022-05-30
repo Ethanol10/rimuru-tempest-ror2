@@ -190,12 +190,10 @@ namespace RimuruMod.Modules.Survivors
 
 
 			if (self.master.gameObject.GetComponent<RimuruMasterController>())
-			{
+            {
 
-			}
-		}
-
-
+            }
+        }
 
 
 		public void FixedUpdate()

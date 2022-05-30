@@ -5,6 +5,7 @@ using RoR2;
 using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
+using UnityEngine;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -63,6 +64,31 @@ namespace RimuruMod
         {
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+            On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy; ;
+        }
+
+        private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victim)
+        {
+            orig.Invoke(self, damageInfo, victim);
+            var attacker = damageInfo.attacker;
+            if (attacker)
+            {
+                var body = attacker.GetComponent<CharacterBody>();
+                var victimBody = victim.GetComponent<CharacterBody>();
+                if (body && victimBody)
+                {
+                    //crit buff
+                    if (victimBody.HasBuff(Modules.Buffs.CritDebuff))
+                    {
+                        if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                        {
+                            damageInfo.crit = true;
+
+                        }
+                    }
+                }
+            }
         }
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
@@ -72,10 +98,37 @@ namespace RimuruMod
             // a simple stat hook, adds armor after stats are recalculated
             if (self)
             {
-                if (self.HasBuff(Modules.Buffs.armorBuff))
+                if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
                 {
                     self.armor += 300f;
                 }
+            }
+        }
+        private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
+        {
+            orig(self);
+
+            if (self)
+            {
+                if (self.body)
+                {
+                    this.OverlayFunction(Modules.Assets.SpatialMovementBuffMaterial, self.body.HasBuff(Modules.Buffs.SpatialMovementBuff), self);
+                }
+            }
+        }
+
+        private void OverlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
+        {
+            if (model.activeOverlayCount >= CharacterModel.maxOverlays)
+            {
+                return;
+            }
+            if (condition)
+            {
+                Material[] array = model.currentOverlays;
+                int num = model.activeOverlayCount;
+                model.activeOverlayCount = num + 1;
+                array[num] = overlayMaterial;
             }
         }
     }

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2140528869
+CRC: 2883805440
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4e49c5ae1fd9cb95f867bf826c5bb276
+    Hash: 0921d7145373eec3cd5f3c6073fc73e3
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -76,10 +76,10 @@ Assets:
 - Assets/HenryAssets/VFX/Textures/texHenrySwing2.png
 - Assets/HenryAssets/Icons/texBazookaIcon.png
 - Assets/HenryAssets/Icons/texMasteryAchievement.png
-- Assets/HenryAssets/Mesh/meshHenry.mesh
+- Assets/HenryAssets/Textures/Mesh/meshHenry.mesh
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
 - Assets/HenryAssets/RimuruDisplay.prefab
-- Assets/HenryAssets/VFX/Mesh/meshBoxingGlove.mesh
+- Assets/HenryAssets/Mesh/meshBoxingGlove.mesh
 - Assets/HenryAssets/Materials/matHenry.mat
 - Assets/HenryAssets/VFX/FistBarrageEffect.prefab
 - Assets/HenryAssets/Textures/texHenryAlt.png
@@ -87,7 +87,7 @@ Assets:
 - Assets/HenryAssets/Icons/texPassiveIcon.png
 - Assets/HenryAssets/VFX/Textures/texFire.tga
 - Assets/HenryAssets/Animation/clips/Jump.anim
-- Assets/HenryAssets/Mesh/meshHenryNeo.mesh
+- Assets/HenryAssets/Textures/Mesh/meshHenryNeo.mesh
 - Assets/HenryAssets/Animation/clips/WalkR.anim
 - Assets/HenryAssets/VFX/HenryDustEffect.prefab
 - Assets/HenryAssets/Animation/clips/SprintL.anim
@@ -105,18 +105,18 @@ Assets:
 - Assets/HenryAssets/Textures/texBazooka.png
 - Assets/HenryAssets/VFX/Textures/texRipple.png
 - Assets/HenryAssets/VFX/ImpactHenrySlash.prefab
-- Assets/HenryAssets/VFX/Mesh/meshSwing.asset
+- Assets/HenryAssets/Mesh/meshSwing.asset
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Land.anim
 - Assets/HenryAssets/VFX/HenryBazookaMuzzleFlash.prefab
 - Assets/HenryAssets/VFX/HenryFistSwingEffect.prefab
-- Assets/HenryAssets/Mesh/meshVergil.mesh
+- Assets/HenryAssets/Textures/Mesh/meshVergil.mesh
 - Assets/HenryAssets/VFX/Textures/texFistSwing.png
 - Assets/HenryAssets/Animation/clips/LightImpact.anim
 - Assets/HenryAssets/Icons/texHenryAchievement.png
 - Assets/HenryAssets/Animation/clips/WalkB.anim
 - Assets/HenryAssets/Animation/maskGesture.mask
 - Assets/HenryAssets/VFX/Materials/matPunchImpact.mat
-- Assets/HenryAssets/Mesh/meshHenryAlt.mesh
+- Assets/HenryAssets/Textures/Mesh/meshHenryAlt.mesh
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
 - Assets/HenryAssets/Textures/texHenryJedi.png
 - Assets/HenryAssets/Animation/clips/SprintR.anim
@@ -131,7 +131,7 @@ Assets:
 - Assets/HenryAssets/VFX/BombExplosionEffect.prefab
 - Assets/HenryAssets/Animation/clips/Slash2.anim
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempestAvatar.asset
-- Assets/HenryAssets/Mesh/meshYamato.mesh
+- Assets/HenryAssets/Textures/Mesh/meshYamato.mesh
 - Assets/HenryAssets/VFX/Textures/texDust.png
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Walk.anim
 - Assets/HenryAssets/VFX/Textures/texHitSpark.png
@@ -144,26 +144,27 @@ Assets:
 - Assets/HenryAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/HenryAssets/Materials/matDante.mat
 - Assets/HenryAssets/Animation/maskLeftArm.mask
-- Assets/HenryAssets/Mesh/MeshHenryGun.mesh
+- Assets/HenryAssets/Textures/Mesh/MeshHenryGun.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_AAIdle.anim
 - Assets/HenryAssets/Animation/clips/DescendFast.anim
 - Assets/HenryAssets/HenryBazookaRocketGhost.prefab
 - Assets/HenryAssets/Icons/texScepterSpecialIcon.png
 - Assets/HenryAssets/VFX/Materials/matFistSwing.mat
-- Assets/HenryAssets/Mesh/meshDante.mesh
+- Assets/HenryAssets/Textures/Mesh/meshDante.mesh
 - Assets/HenryAssets/VFX/Materials/matTrail.mat
 - Assets/HenryAssets/Materials/matHenryJedi.mat
 - Assets/HenryAssets/VFX/Materials/matHitSpark.mat
-- Assets/HenryAssets/Mesh/meshNeoCoat.mesh
+- Assets/HenryAssets/Textures/Mesh/meshNeoCoat.mesh
 - Assets/HenryAssets/Animation/clips/ShootGun.anim
 - Assets/HenryAssets/Animation/clips/SprintF.anim
-- Assets/HenryAssets/Mesh/meshHenrySwordAlt.mesh
+- Assets/HenryAssets/Textures/Mesh/meshHenrySwordAlt.mesh
 - Assets/HenryAssets/Textures/texHenry.png
 - Assets/HenryAssets/Icons/texBazookaOutIcon.png
+- Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
 - Assets/HenryAssets/Animation/maskAimPitch.mask
 - Assets/HenryAssets/Icons/texUziIcon.png
 - Assets/HenryAssets/Materials/matHenryNeo.mat
-- Assets/HenryAssets/VFX/Mesh/meshPunchShockwave.mesh
+- Assets/HenryAssets/Mesh/meshPunchShockwave.mesh
 - Assets/HenryAssets/Materials/matRoy.mat
 - Assets/HenryAssets/Icons/texBazookaIconScepter.png
 - Assets/HenryAssets/Textures/texHenryNeo.png
@@ -175,7 +176,7 @@ Assets:
 - Assets/HenryAssets/Animation/clips/IdleIn.anim
 - Assets/HenryAssets/VFX/Materials/matSwingShadow.mat
 - Assets/HenryAssets/Textures/texHenryJediEmission.png
-- Assets/HenryAssets/Mesh/meshDanteCoat.mesh
+- Assets/HenryAssets/Textures/Mesh/meshDanteCoat.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
 - Assets/HenryAssets/Animation/clips/RestIdle.anim
@@ -187,24 +188,24 @@ Assets:
 - Assets/HenryAssets/VFX/Materials/matPunchEffect.mat
 - Assets/HenryAssets/VFX/Textures/texPunchImpact.png
 - Assets/HenryAssets/mdlRimuru.prefab
-- Assets/HenryAssets/Mesh/meshRebellion.mesh
+- Assets/HenryAssets/Textures/Mesh/meshRebellion.mesh
 - Assets/HenryAssets/VFX/Materials/matHitSparkPunch.mat
 - Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
 - Assets/HenryAssets/VFX/Materials/matSwingEffect.mat
-- Assets/HenryAssets/Mesh/meshHenrySword.mesh
+- Assets/HenryAssets/Textures/Mesh/meshHenrySword.mesh
 - Assets/HenryAssets/VFX/Materials/matEmbers.mat
 - Assets/HenryAssets/Animation/clips/AimYaw.anim
 - Assets/HenryAssets/HenryBombGhost.prefab
-- Assets/HenryAssets/Mesh/meshPistol.mesh
+- Assets/HenryAssets/Textures/Mesh/meshPistol.mesh
 - Assets/HenryAssets/Icons/texStingerIcon.png
 - Assets/HenryAssets/Textures/texHenryVergil.png
-- Assets/HenryAssets/Mesh/meshUzi.mesh
+- Assets/HenryAssets/Textures/Mesh/meshUzi.mesh
 - Assets/HenryAssets/VFX/Materials/matSlash.mat
 - Assets/HenryAssets/Icons/texPistolIcon.png
 - Assets/HenryAssets/VFX/Materials/matDust.mat
 - Assets/HenryAssets/VFX/Textures/texSmoke.png
 - Assets/HenryAssets/VFX/Textures/texEmbers.png
-- Assets/HenryAssets/Mesh/meshVergilCoat.mesh
+- Assets/HenryAssets/Textures/Mesh/meshVergilCoat.mesh
 - Assets/HenryAssets/VFX/Textures/texLightning.tif
 - Assets/HenryAssets/Animation/clips/RestIdleIn.anim
 - Assets/HenryAssets/VFX/Materials/matRipple.mat
