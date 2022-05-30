@@ -30,7 +30,6 @@ namespace RimuruMod.Modules.Survivors
 
             InitializeSurvivor();
         }
-
         protected override void InitializeCharacterBodyAndModel()
         {
             base.InitializeCharacterBodyAndModel();

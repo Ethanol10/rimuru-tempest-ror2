@@ -68,6 +68,7 @@ namespace RimuruMod.Modules.Survivors
         public override void InitializeCharacter()
         {
             base.InitializeCharacter();
+            bodyPrefab.AddComponent<RimuruController>();
         }
 
         public override void InitializeUnlockables()

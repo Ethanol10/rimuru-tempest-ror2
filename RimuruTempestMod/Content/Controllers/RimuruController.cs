@@ -1,278 +1,393 @@
-﻿using BepInEx.Configuration;
-using RimuruMod.Modules.Characters;
+﻿using EntityStates;
+using R2API;
 using RoR2;
-using RoR2.Skills;
+using RoR2.Orbs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using EntityStates.LunarExploderMonster;
+using RoR2.Projectile;
+using EntityStates.MiniMushroom;
+using UnityEngine.Networking;
 
 namespace RimuruMod.Modules.Survivors
 {
-    internal class RimuruHuman : SurvivorBase
+    public class RimuruController : MonoBehaviour
     {
-        //public override string bodyName => "RimuruHuman";
-        public override string bodyName => "Rimuru";
+        string prefix = RimuruSlime.RIMURU_PREFIX;
 
-        public const string RIMURU_PREFIX = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_";
-        //used when registering your survivor's language tokens
-        public override string survivorTokenPrefix => RIMURU_PREFIX;
+        public float strengthMultiplier;
+        public float rangedMultiplier;
 
-        public override BodyInfo bodyInfo { get; set; } = new BodyInfo
+        public float AFOTimer;
+        public float overloadingtimer;
+        public float magmawormtimer;
+        public float vagranttimer;
+        public float alphaconstructshieldtimer;
+        public float lunarTimer;
+        public float larvaTimer;
+        public float attackSpeedGain;
+        public float mortarTimer;
+        private float voidmortarTimer;
+        private float voidjailerTimer;
+        private float roboballTimer;
+
+        private Ray downRay;
+        public Transform mortarIndicatorInstance;
+        public Transform voidmortarIndicatorInstance;
+
+        public float maxTrackingDistance = 60f;
+        public float maxTrackingAngle = 60f;
+        public float trackerUpdateFrequency = 10f;
+        private Indicator indicator;
+        private Indicator passiveindicator;
+        private Indicator activeindicator;
+        private HurtBox trackingTarget;
+        public HurtBox Target;
+
+        private CharacterBody characterBody;
+        private InputBankTest inputBank;
+        private float trackerUpdateStopwatch;
+        private ChildLocator child;
+        private readonly BullseyeSearch search = new BullseyeSearch();
+        private CharacterMaster characterMaster;
+
+        public RimuruMasterController Rimurumastercon;
+        public RimuruController Rimurucon;
+
+        public bool larvabuffGiven;
+        public bool verminjumpbuffGiven;
+        private uint minimushrumsoundID;
+        public GameObject mushroomWard;
+        public GameObject magmawormWard;
+        public GameObject overloadingWard;
+
+        public bool alphacontructpassiveDef;
+        public bool beetlepassiveDef;
+        public bool pestpassiveDef;
+        public bool verminpassiveDef;
+        public bool guppassiveDef;
+        public bool hermitcrabpassiveDef;
+        public bool larvapassiveDef;
+        public bool lesserwisppassiveDef;
+        public bool lunarexploderpassiveDef;
+        public bool minimushrumpassiveDef;
+        public bool roboballminibpassiveDef;
+        public bool voidbarnaclepassiveDef;
+        public bool voidjailerpassiveDef;
+        public bool impbosspassiveDef;
+        public bool stonetitanpassiveDef;
+        public bool magmawormpassiveDef;
+        public bool overloadingwormpassiveDef;
+
+        public bool alloyvultureflyDef;
+        public bool beetleguardslamDef;
+        public bool bisonchargeDef;
+        public bool bronzongballDef;
+        public bool clayapothecarymortarDef;
+        public bool claytemplarminigunDef;
+        public bool greaterwispballDef;
+        public bool impblinkDef;
+        public bool jellyfishnovaDef;
+        public bool lemurianfireballDef;
+        public bool lunargolemshotsDef;
+        public bool lunarwispminigunDef;
+        public bool parentteleportDef;
+        public bool stonegolemlaserDef;
+        public bool voidreaverportalDef;
+        public bool beetlequeenshotgunDef;
+        public bool grandparentsunDef;
+        public bool grovetenderhookDef;
+        public bool claydunestriderballDef;
+        public bool soluscontrolunityknockupDef;
+        public bool xiconstructbeamDef;
+        public bool voiddevastatorhomingDef;
+        public bool scavengerthqwibDef;
+
+        public bool hasExtra1;
+        public bool hasExtra2;
+        public bool hasExtra3;
+        public bool hasExtra4;
+        public bool hasQuirk;
+        public float quirkTimer;
+
+        public float shiggyDamage;
+        public int projectileCount;
+        public int decayCount;
+        public int captainitemcount;
+        private DamageType damageType;
+        private DamageType damageType2;
+        private float effecttimer1;
+        private float effecttimer2;
+        private float effecttimer3;
+
+        public void Awake()
         {
-            //bodyName = "RimuruBody",
-            bodyName = "RimuruHumanBody",
-            bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME",
-            subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_SUBTITLE",
+            child = GetComponentInChildren<ChildLocator>();
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
-            bodyColor = Color.white,
+            indicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/RecyclerIndicator"));
+            passiveindicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/EngiMissileTrackingIndicator"));
+            activeindicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/HuntressTrackingIndicator"));
+            //On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            characterBody = gameObject.GetComponent<CharacterBody>();
+            inputBank = gameObject.GetComponent<InputBankTest>();
 
-            crosshair = Modules.Assets.LoadCrosshair("Standard"),
-            podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
+            larvabuffGiven = false;
+            verminjumpbuffGiven = false;
+            strengthMultiplier = 1f;
+            rangedMultiplier = 1f;
 
-            maxHealth = 110f,
-            healthRegen = 1.5f,
-            armor = 0f,
+            alphacontructpassiveDef = false;
+            beetlepassiveDef = false;
+            pestpassiveDef = false;
+            verminpassiveDef = false;
+            guppassiveDef = false;
+            hermitcrabpassiveDef = false;
+            larvapassiveDef = false;
+            lesserwisppassiveDef = false;
+            lunarexploderpassiveDef = false;
+            minimushrumpassiveDef = false;
+            roboballminibpassiveDef = false;
+            voidbarnaclepassiveDef = false;
+            voidjailerpassiveDef = false;
 
-            jumpCount = 1,
-        };
 
-        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
+            impbosspassiveDef = false;
+            stonetitanpassiveDef = false;
+            magmawormpassiveDef = false;
+            overloadingwormpassiveDef = false;
+
+
+            alloyvultureflyDef = false;
+            beetleguardslamDef = false;
+            bisonchargeDef = false;
+            bronzongballDef = false;
+            clayapothecarymortarDef = false;
+            claytemplarminigunDef = false;
+            greaterwispballDef = false;
+            impblinkDef = false;
+            jellyfishnovaDef = false;
+            lemurianfireballDef = false;
+            lunargolemshotsDef = false;
+            lunarwispminigunDef = false;
+            parentteleportDef = false;
+            stonegolemlaserDef = false;
+            voidreaverportalDef = false;
+
+            beetlequeenshotgunDef = false;
+            grovetenderhookDef = false;
+            grandparentsunDef = false;
+            claydunestriderballDef = false;
+            soluscontrolunityknockupDef = false;
+            xiconstructbeamDef = false;
+            voiddevastatorhomingDef = false;
+            scavengerthqwibDef = false;
+
+            hasQuirk = false;
+            hasExtra1 = false;
+            hasExtra2 = false;
+            hasExtra3 = false;
+            hasExtra4 = false;
+
+        }
+
+
+        public void Start()
         {
-                new CustomRendererInfo
+
+            characterMaster = characterBody.master;
+            if (!characterMaster.gameObject.GetComponent<RimuruMasterController>())
+            {
+                Rimurumastercon = characterMaster.gameObject.AddComponent<RimuruMasterController>();
+            }
+
+
+            alphacontructpassiveDef = false;
+            beetlepassiveDef = false;
+            pestpassiveDef = false;
+            verminpassiveDef = false;
+            guppassiveDef = false;
+            hermitcrabpassiveDef = false;
+            larvapassiveDef = false;
+            lesserwisppassiveDef = false;
+            lunarexploderpassiveDef = false;
+            minimushrumpassiveDef = false;
+            roboballminibpassiveDef = false;
+            voidbarnaclepassiveDef = false;
+            voidjailerpassiveDef = false;
+
+            impbosspassiveDef = false;
+            stonetitanpassiveDef = false;
+            magmawormpassiveDef = false;
+            overloadingwormpassiveDef = false;
+
+
+            alloyvultureflyDef = false;
+            beetleguardslamDef = false;
+            bisonchargeDef = false;
+            bronzongballDef = false;
+            clayapothecarymortarDef = false;
+            claytemplarminigunDef = false;
+            greaterwispballDef = false;
+            impblinkDef = false;
+            jellyfishnovaDef = false;
+            lemurianfireballDef = false;
+            lunargolemshotsDef = false;
+            lunarwispminigunDef = false;
+            parentteleportDef = false;
+            stonegolemlaserDef = false;
+            voidreaverportalDef = false;
+
+            beetlequeenshotgunDef = false;
+            grovetenderhookDef = false;
+            grandparentsunDef = false;
+            claydunestriderballDef = false;
+            soluscontrolunityknockupDef = false;
+            xiconstructbeamDef = false;
+            voiddevastatorhomingDef = false;
+            scavengerthqwibDef = false;
+
+        }
+
+        public HurtBox GetTrackingTarget()
+        {
+            return this.trackingTarget;
+        }
+
+        private void OnEnable()
+        {
+            this.indicator.active = true;
+            this.passiveindicator.active = true;
+            this.activeindicator.active = true;
+        }
+
+        private void OnDisable()
+        {
+            this.indicator.active = false;
+            this.passiveindicator.active = false;
+            this.activeindicator.active = false;
+        }
+
+        private void OnDestroy()
+        {
+            if (mortarIndicatorInstance) EntityState.Destroy(mortarIndicatorInstance.gameObject);
+        }
+
+        public void FixedUpdate()
+        {
+
+            this.trackerUpdateStopwatch += Time.fixedDeltaTime;
+            if (this.trackerUpdateStopwatch >= 1f / this.trackerUpdateFrequency)
+            {
+                this.trackerUpdateStopwatch -= 1f / this.trackerUpdateFrequency;
+                Ray aimRay = new Ray(this.inputBank.aimOrigin, this.inputBank.aimDirection);
+                this.SearchForTarget(aimRay);
+                HurtBox hurtBox = this.trackingTarget;
+                if (hurtBox)
                 {
-                    childName = "SwordModel",
-                    material = Materials.CreateHopooMaterial("matHenry"),
-                },
-                new CustomRendererInfo
-                {
-                    childName = "GunModel",
-                },
-                new CustomRendererInfo
-                {
-                    childName = "Model",
+                    this.activeindicator.active = false;
+                    this.passiveindicator.active = false;
+                    this.indicator.active = true;
+                    this.indicator.targetTransform = this.trackingTarget.transform;
+
                 }
-        };
 
-        public override UnlockableDef characterUnlockableDef => null;
+            }
+                      
 
-        public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
 
-        public override ItemDisplaysBase itemDisplays => new RimuruItemDisplays();
-
-                                                                          //if you have more than one character, easily create a config to enable/disable them like this
-        public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
-
-        private static UnlockableDef masterySkinUnlockableDef;
-
-        public override void InitializeCharacter()
-        {
-            base.InitializeCharacter();
         }
 
-        public override void InitializeUnlockables()
+        private void SearchForTarget(Ray aimRay)
         {
-            //uncomment this when you have a mastery skin. when you do, make sure you have an icon too
-            //masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>();
+            this.search.teamMaskFilter = TeamMask.all;
+            this.search.filterByLoS = true;
+            this.search.searchOrigin = aimRay.origin;
+            this.search.searchDirection = aimRay.direction;
+            this.search.sortMode = BullseyeSearch.SortMode.Distance;
+            this.search.maxDistanceFilter = this.maxTrackingDistance;
+            this.search.maxAngleFilter = this.maxTrackingAngle;
+            this.search.RefreshCandidates();
+            this.search.FilterOutGameObject(base.gameObject);
+            this.trackingTarget = this.search.GetResults().FirstOrDefault<HurtBox>();
         }
 
-        public override void InitializeHitboxes()
-        {
-            ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
-            GameObject model = childLocator.gameObject;
-
-            //example of how to create a hitbox
-            //Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
-            //Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
-        }
-
-        public override void InitializeSkills()
-        {
-            Modules.Skills.CreateSkillFamilies(bodyPrefab);
-            string prefix = RimuruPlugin.DEVELOPER_PREFIX;
-
-            #region Primary
-            //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_SLASH_NAME",
-                                                                                      prefix + "_RIMURU_BODY_PRIMARY_SLASH_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
-                                                                                      "Weapon",
-                                                                                      true));
-
-
-            Modules.Skills.AddPrimarySkills(bodyPrefab, primarySkillDef);
-            #endregion
-
-            #region Secondary
-            SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Shoot)),
-                activationStateMachineName = "Slide",
-                baseMaxStock = 1,
-                baseRechargeInterval = 1f,
-                beginSkillCooldownOnSkillEnd = false,
-                canceledFromSprinting = false,
-                forceSprintDuringState = false,
-                fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Skill,
-                resetCooldownTimerOnUse = false,
-                isCombatSkill = true,
-                mustKeyPress = false,
-                cancelSprintingOnActivation = false,
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
-            });
-
-            Modules.Skills.AddSecondarySkills(bodyPrefab, shootSkillDef);
-            #endregion
-
-            #region Utility
-            SkillDef rollSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Roll)),
-                activationStateMachineName = "Body",
-                baseMaxStock = 1,
-                baseRechargeInterval = 4f,
-                beginSkillCooldownOnSkillEnd = false,
-                canceledFromSprinting = false,
-                forceSprintDuringState = true,
-                fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
-                resetCooldownTimerOnUse = false,
-                isCombatSkill = false,
-                mustKeyPress = false,
-                cancelSprintingOnActivation = false,
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1
-            });
-
-            Modules.Skills.AddUtilitySkills(bodyPrefab, rollSkillDef);
-            #endregion
-
-            #region Special
-            SkillDef bombSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ThrowBomb)),
-                activationStateMachineName = "Slide",
-                baseMaxStock = 1,
-                baseRechargeInterval = 10f,
-                beginSkillCooldownOnSkillEnd = false,
-                canceledFromSprinting = false,
-                forceSprintDuringState = false,
-                fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Skill,
-                resetCooldownTimerOnUse = false,
-                isCombatSkill = true,
-                mustKeyPress = false,
-                cancelSprintingOnActivation = true,
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1
-            });
-
-            Modules.Skills.AddSpecialSkills(bodyPrefab, bombSkillDef);
-            #endregion
-        }
-
-        public override void InitializeSkins()
-        {
-            GameObject model = bodyPrefab.GetComponentInChildren<ModelLocator>().modelTransform.gameObject;
-            CharacterModel characterModel = model.GetComponent<CharacterModel>();
-
-            ModelSkinController skinController = model.AddComponent<ModelSkinController>();
-            ChildLocator childLocator = model.GetComponent<ChildLocator>();
-
-            SkinnedMeshRenderer mainRenderer = characterModel.mainSkinnedMeshRenderer;
-
-            CharacterModel.RendererInfo[] defaultRenderers = characterModel.baseRendererInfos;
-
-            List<SkinDef> skins = new List<SkinDef>();
-
-            #region DefaultSkin
-            SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
-                defaultRenderers,
-                mainRenderer,
-                model);
-
-            defaultSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenrySword"),
-                    renderer = defaultRenderers[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenryGun"),
-                    renderer = defaultRenderers[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenry"),
-                    renderer = defaultRenderers[2].renderer
-                }
-            };
-
-            skins.Add(defaultSkin);
-            #endregion
-
-            //uncomment this when you have a mastery skin
-            #region MasterySkin
-            /*
-            Material masteryMat = Modules.Materials.CreateHopooMaterial("matRimuruAlt");
-            CharacterModel.RendererInfo[] masteryRendererInfos = SkinRendererInfos(defaultRenderers, new Material[]
-            {
-                masteryMat,
-                masteryMat,
-                masteryMat,
-                masteryMat
-            });
-
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASTERY_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
-                masteryRendererInfos,
-                mainRenderer,
-                model,
-                masterySkinUnlockableDef);
-
-            masterySkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruSwordAlt"),
-                    renderer = defaultRenderers[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruAlt"),
-                    renderer = defaultRenderers[2].renderer
-                }
-            };
-
-            skins.Add(masterySkin);
-            */
-            #endregion
-
-            skinController.skins = skins.ToArray();
-        }
     }
+
+
+
+
+    //mortar orb
+    public class MortarOrb : Orb
+    {
+        public override void Begin()
+        {
+            base.duration = 0.5f;
+            EffectData effectData = new EffectData
+            {
+                origin = this.origin,
+                genericFloat = base.duration
+            };
+            effectData.SetHurtBoxReference(this.target);
+            GameObject effectPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/SquidOrbEffect");
+            EffectManager.SpawnEffect(effectPrefab, effectData, true);
+        }
+        public HurtBox PickNextTarget(Vector3 position, float range)
+        {
+            BullseyeSearch bullseyeSearch = new BullseyeSearch();
+            bullseyeSearch.searchOrigin = position;
+            bullseyeSearch.searchDirection = Vector3.zero;
+            bullseyeSearch.teamMaskFilter = TeamMask.allButNeutral;
+            bullseyeSearch.teamMaskFilter.RemoveTeam(this.teamIndex);
+            bullseyeSearch.filterByLoS = false;
+            bullseyeSearch.sortMode = BullseyeSearch.SortMode.Distance;
+            bullseyeSearch.maxDistanceFilter = range;
+            bullseyeSearch.RefreshCandidates();
+            List<HurtBox> list = bullseyeSearch.GetResults().ToList<HurtBox>();
+            if (list.Count <= 0)
+            {
+                return null;
+            }
+            return list[UnityEngine.Random.Range(0, list.Count)];
+        }
+        public override void OnArrival()
+        {
+            if (this.target)
+            {
+                HealthComponent healthComponent = this.target.healthComponent;
+                if (healthComponent)
+                {
+                    DamageInfo damageInfo = new DamageInfo
+                    {
+                        damage = this.damageValue,
+                        attacker = this.attacker,
+                        inflictor = null,
+                        force = Vector3.zero,
+                        crit = this.isCrit,
+                        procChainMask = this.procChainMask,
+                        procCoefficient = this.procCoefficient,
+                        position = this.target.transform.position,
+                        damageColorIndex = this.damageColorIndex
+                    };
+                    healthComponent.TakeDamage(damageInfo);
+                    GlobalEventManager.instance.OnHitEnemy(damageInfo, healthComponent.gameObject);
+                    GlobalEventManager.instance.OnHitAll(damageInfo, healthComponent.gameObject);
+                }
+            }
+        }
+
+        public float damageValue;
+        public GameObject attacker;
+        public TeamIndex teamIndex;
+        public bool isCrit;
+        public ProcChainMask procChainMask;
+        public float procCoefficient = 1f;
+        public DamageColorIndex damageColorIndex;
+    }
+
+
+
 }
+
+

@@ -1,278 +1,210 @@
-﻿using BepInEx.Configuration;
-using RimuruMod.Modules.Characters;
+﻿using EntityStates;
 using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RimuruMod.Modules.Survivors
 {
-    internal class RimuruHuman : SurvivorBase
-    {
-        //public override string bodyName => "RimuruHuman";
-        public override string bodyName => "Rimuru";
+	[RequireComponent(typeof(CharacterBody))]
+	[RequireComponent(typeof(TeamComponent))]
+	[RequireComponent(typeof(InputBankTest))]
+	public class RimuruMasterController : MonoBehaviour
+	{
+		string prefix = RimuruSlime.RIMURU_PREFIX;
 
-        public const string RIMURU_PREFIX = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_";
-        //used when registering your survivor's language tokens
-        public override string survivorTokenPrefix => RIMURU_PREFIX;
+		public RimuruMasterController Rimurumastercon;
+		public RimuruController Rimurucon;
+		private CharacterMaster characterMaster;
+		private CharacterBody characterBody;
 
-        public override BodyInfo bodyInfo { get; set; } = new BodyInfo
-        {
-            //bodyName = "RimuruBody",
-            bodyName = "RimuruHumanBody",
-            bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME",
-            subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_SUBTITLE",
+		public bool alphacontructpassiveDef;
+		public bool beetlepassiveDef;
+		public bool pestpassiveDef;
+		public bool verminpassiveDef;
+		public bool guppassiveDef;
+		public bool hermitcrabpassiveDef;
+		public bool larvapassiveDef;
+		public bool lesserwisppassiveDef;
+		public bool lunarexploderpassiveDef;
+		public bool minimushrumpassiveDef;
+		public bool roboballminibpassiveDef;
+		public bool voidbarnaclepassiveDef;
+		public bool voidjailerpassiveDef;
+		public bool impbosspassiveDef;
+		public bool stonetitanpassiveDef;
+		public bool magmawormpassiveDef;
+		public bool overloadingwormpassiveDef;
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
-            bodyColor = Color.white,
-
-            crosshair = Modules.Assets.LoadCrosshair("Standard"),
-            podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
-
-            maxHealth = 110f,
-            healthRegen = 1.5f,
-            armor = 0f,
-
-            jumpCount = 1,
-        };
-
-        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
-        {
-                new CustomRendererInfo
-                {
-                    childName = "SwordModel",
-                    material = Materials.CreateHopooMaterial("matHenry"),
-                },
-                new CustomRendererInfo
-                {
-                    childName = "GunModel",
-                },
-                new CustomRendererInfo
-                {
-                    childName = "Model",
-                }
-        };
-
-        public override UnlockableDef characterUnlockableDef => null;
-
-        public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
-
-        public override ItemDisplaysBase itemDisplays => new RimuruItemDisplays();
-
-                                                                          //if you have more than one character, easily create a config to enable/disable them like this
-        public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
-
-        private static UnlockableDef masterySkinUnlockableDef;
-
-        public override void InitializeCharacter()
-        {
-            base.InitializeCharacter();
-        }
-
-        public override void InitializeUnlockables()
-        {
-            //uncomment this when you have a mastery skin. when you do, make sure you have an icon too
-            //masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>();
-        }
-
-        public override void InitializeHitboxes()
-        {
-            ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
-            GameObject model = childLocator.gameObject;
-
-            //example of how to create a hitbox
-            //Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
-            //Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
-        }
-
-        public override void InitializeSkills()
-        {
-            Modules.Skills.CreateSkillFamilies(bodyPrefab);
-            string prefix = RimuruPlugin.DEVELOPER_PREFIX;
-
-            #region Primary
-            //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_SLASH_NAME",
-                                                                                      prefix + "_RIMURU_BODY_PRIMARY_SLASH_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
-                                                                                      "Weapon",
-                                                                                      true));
+		public bool alloyvultureflyDef;
+		public bool beetleguardslamDef;
+		public bool bisonchargeDef;
+		public bool bronzongballDef;
+		public bool clayapothecarymortarDef;
+		public bool claytemplarminigunDef;
+		public bool greaterwispballDef;
+		public bool impblinkDef;
+		public bool jellyfishnovaDef;
+		public bool lemurianfireballDef;
+		public bool lunargolemshotsDef;
+		public bool lunarwispminigunDef;
+		public bool parentteleportDef;
+		public bool stonegolemlaserDef;
+		public bool voidreaverportalDef;
+		public bool beetlequeenshotgunDef;
+		public bool grandparentsunDef;
+		public bool grovetenderhookDef;
+		public bool claydunestriderballDef;
+		public bool soluscontrolunityknockupDef;
+		public bool xiconstructbeamDef;
+		public bool voiddevastatorhomingDef;
+		public bool scavengerthqwibDef;
 
 
-            Modules.Skills.AddPrimarySkills(bodyPrefab, primarySkillDef);
-            #endregion
 
-            #region Secondary
-            SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Shoot)),
-                activationStateMachineName = "Slide",
-                baseMaxStock = 1,
-                baseRechargeInterval = 1f,
-                beginSkillCooldownOnSkillEnd = false,
-                canceledFromSprinting = false,
-                forceSprintDuringState = false,
-                fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Skill,
-                resetCooldownTimerOnUse = false,
-                isCombatSkill = true,
-                mustKeyPress = false,
-                cancelSprintingOnActivation = false,
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
-            });
+		public void Awake()
+		{
 
-            Modules.Skills.AddSecondarySkills(bodyPrefab, shootSkillDef);
-            #endregion
+			On.RoR2.CharacterBody.Start += CharacterBody_Start;
+			//On.RoR2.Run.Start += Run_Start;
+			alphacontructpassiveDef = false;
+			beetlepassiveDef = false;
+			pestpassiveDef = false;
+			verminpassiveDef = false;
+			guppassiveDef = false;
+			hermitcrabpassiveDef = false;
+			larvapassiveDef = false;
+			lesserwisppassiveDef = false;
+			lunarexploderpassiveDef = false;
+			minimushrumpassiveDef = false;
+			roboballminibpassiveDef = false;
+			voidbarnaclepassiveDef = false;
+			voidjailerpassiveDef = false;
 
-            #region Utility
-            SkillDef rollSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Roll)),
-                activationStateMachineName = "Body",
-                baseMaxStock = 1,
-                baseRechargeInterval = 4f,
-                beginSkillCooldownOnSkillEnd = false,
-                canceledFromSprinting = false,
-                forceSprintDuringState = true,
-                fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
-                resetCooldownTimerOnUse = false,
-                isCombatSkill = false,
-                mustKeyPress = false,
-                cancelSprintingOnActivation = false,
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1
-            });
+			impbosspassiveDef = false;
+			stonetitanpassiveDef = false;
+			magmawormpassiveDef = false;
+			overloadingwormpassiveDef = false;
 
-            Modules.Skills.AddUtilitySkills(bodyPrefab, rollSkillDef);
-            #endregion
 
-            #region Special
-            SkillDef bombSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ThrowBomb)),
-                activationStateMachineName = "Slide",
-                baseMaxStock = 1,
-                baseRechargeInterval = 10f,
-                beginSkillCooldownOnSkillEnd = false,
-                canceledFromSprinting = false,
-                forceSprintDuringState = false,
-                fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Skill,
-                resetCooldownTimerOnUse = false,
-                isCombatSkill = true,
-                mustKeyPress = false,
-                cancelSprintingOnActivation = true,
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1
-            });
+			alloyvultureflyDef = false;
+			beetleguardslamDef = false;
+			bisonchargeDef = false;
+			bronzongballDef = false;
+			clayapothecarymortarDef = false;
+			claytemplarminigunDef = false;
+			greaterwispballDef = false;
+			impblinkDef = false;
+			jellyfishnovaDef = false;
+			lemurianfireballDef = false;
+			lunargolemshotsDef = false;
+			lunarwispminigunDef = false;
+			parentteleportDef = false;
+			stonegolemlaserDef = false;
+			voidreaverportalDef = false;
 
-            Modules.Skills.AddSpecialSkills(bodyPrefab, bombSkillDef);
-            #endregion
-        }
+			beetlequeenshotgunDef = false;
+			grovetenderhookDef = false;
+			claydunestriderballDef = false;
+			soluscontrolunityknockupDef = false;
+			xiconstructbeamDef = false;
+			voiddevastatorhomingDef = false;
+			scavengerthqwibDef = false;
 
-        public override void InitializeSkins()
-        {
-            GameObject model = bodyPrefab.GetComponentInChildren<ModelLocator>().modelTransform.gameObject;
-            CharacterModel characterModel = model.GetComponent<CharacterModel>();
+		}
 
-            ModelSkinController skinController = model.AddComponent<ModelSkinController>();
-            ChildLocator childLocator = model.GetComponent<ChildLocator>();
+		//public void Run_Start(On.RoR2.Run.orig_Start orig, Run self)
+		//{
+		//	orig.Invoke(self);
 
-            SkinnedMeshRenderer mainRenderer = characterModel.mainSkinnedMeshRenderer;
+		//	writeToSkillList(null, 0);
+		//	writeToSkillList(null, 1);
+		//	writeToSkillList(null, 2);
+		//	writeToSkillList(null, 3);
+		//	writeToSkillList(null, 4);
+		//	writeToSkillList(null, 5);
+		//	writeToSkillList(null, 6);
+		//	writeToSkillList(null, 7);
+		//}
 
-            CharacterModel.RendererInfo[] defaultRenderers = characterModel.baseRendererInfos;
+		public void Start()
+		{
+			characterMaster = gameObject.GetComponent<CharacterMaster>();
+			characterBody = characterMaster.GetBody();
 
-            List<SkinDef> skins = new List<SkinDef>();
+			Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
+			Rimurucon = characterBody.gameObject.GetComponent<RimuruController>();
 
-            #region DefaultSkin
-            SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
-                defaultRenderers,
-                mainRenderer,
-                model);
+			alphacontructpassiveDef = false;
+			beetlepassiveDef = false;
+			pestpassiveDef = false;
+			verminpassiveDef = false;
+			guppassiveDef = false;
+			hermitcrabpassiveDef = false;
+			larvapassiveDef = false;
+			lesserwisppassiveDef = false;
+			lunarexploderpassiveDef = false;
+			minimushrumpassiveDef = false;
+			roboballminibpassiveDef = false;
+			voidbarnaclepassiveDef = false;
+			voidjailerpassiveDef = false;
 
-            defaultSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenrySword"),
-                    renderer = defaultRenderers[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenryGun"),
-                    renderer = defaultRenderers[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenry"),
-                    renderer = defaultRenderers[2].renderer
-                }
-            };
+			impbosspassiveDef = false;
+			stonetitanpassiveDef = false;
+			magmawormpassiveDef = false;
+			overloadingwormpassiveDef = false;
 
-            skins.Add(defaultSkin);
-            #endregion
 
-            //uncomment this when you have a mastery skin
-            #region MasterySkin
-            /*
-            Material masteryMat = Modules.Materials.CreateHopooMaterial("matRimuruAlt");
-            CharacterModel.RendererInfo[] masteryRendererInfos = SkinRendererInfos(defaultRenderers, new Material[]
-            {
-                masteryMat,
-                masteryMat,
-                masteryMat,
-                masteryMat
-            });
+			alloyvultureflyDef = false;
+			beetleguardslamDef = false;
+			bisonchargeDef = false;
+			bronzongballDef = false;
+			clayapothecarymortarDef = false;
+			claytemplarminigunDef = false;
+			greaterwispballDef = false;
+			impblinkDef = false;
+			jellyfishnovaDef = false;
+			lemurianfireballDef = false;
+			lunargolemshotsDef = false;
+			lunarwispminigunDef = false;
+			parentteleportDef = false;
+			stonegolemlaserDef = false;
+			voidreaverportalDef = false;
 
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASTERY_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
-                masteryRendererInfos,
-                mainRenderer,
-                model,
-                masterySkinUnlockableDef);
+			beetlequeenshotgunDef = false;
+			grovetenderhookDef = false;
+			claydunestriderballDef = false;
+			soluscontrolunityknockupDef = false;
+			xiconstructbeamDef = false;
+			voiddevastatorhomingDef = false;
+			scavengerthqwibDef = false;
+		}
 
-            masterySkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruSwordAlt"),
-                    renderer = defaultRenderers[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruAlt"),
-                    renderer = defaultRenderers[2].renderer
-                }
-            };
 
-            skins.Add(masterySkin);
-            */
-            #endregion
+		public void CharacterBody_Start(On.RoR2.CharacterBody.orig_Start orig, CharacterBody self)
+		{
+			orig.Invoke(self);
 
-            skinController.skins = skins.ToArray();
-        }
-    }
+
+			if (self.master.gameObject.GetComponent<RimuruMasterController>())
+			{
+
+			}
+		}
+
+
+
+
+		public void FixedUpdate()
+		{
+			characterMaster = gameObject.GetComponent<CharacterMaster>();
+			CharacterBody self = characterMaster.GetBody();
+
+
+		}
+
+	}
 }

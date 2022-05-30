@@ -25,7 +25,7 @@ namespace RimuruMod.Modules.Survivors
             subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
-            bodyColor = Color.white,
+            bodyColor = Color.cyan,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
@@ -68,6 +68,7 @@ namespace RimuruMod.Modules.Survivors
         public override void InitializeCharacter()
         {
             base.InitializeCharacter();
+            bodyPrefab.AddComponent<RimuruController>();
         }
 
         public override void InitializeUnlockables()
