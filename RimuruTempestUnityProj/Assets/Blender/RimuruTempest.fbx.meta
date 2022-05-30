@@ -41,6 +41,18 @@ ModelImporter:
   - first:
       74: 1564211395476713901
     second: RimuruTempest_arm.001|T pose
+  - first:
+      74: 2126467181420549379
+    second: RimuruTempest Sword_mesh|RimuruTempest Sword_mesh.001Action
+  - first:
+      74: 263820088142906564
+    second: RimuruTempest Sword_mesh|RimuruTempest Sword_meshAction
+  - first:
+      74: -1818625632503725484
+    second: RimuruTempest Sword_mesh.001|RimuruTempest Sword_mesh.001Action
+  - first:
+      74: 5958964047844696126
+    second: RimuruTempest Sword_mesh.001|RimuruTempest Sword_meshAction
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -120,7 +132,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: Root
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -128,7 +140,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

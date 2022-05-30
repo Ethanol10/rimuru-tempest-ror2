@@ -14,7 +14,7 @@ namespace RimuruMod.Modules
 
             Modules.Content.AddEntityState(typeof(Shoot));
 
-            Modules.Content.AddEntityState(typeof(Roll));
+            Modules.Content.AddEntityState(typeof(TransformSlime));
 
             Modules.Content.AddEntityState(typeof(ThrowBomb));
         }
