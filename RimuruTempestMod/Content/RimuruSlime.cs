@@ -10,7 +10,8 @@ namespace RimuruMod.Modules.Survivors
 {
     internal class RimuruSlime : SurvivorBase
     {
-        public override string bodyName => "RimuruSlime";
+        //public override string bodyName => "RimuruSlime";
+        public override string bodyName => "Rimuru";
 
         public const string RIMURU_PREFIX = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_";
         //used when registering your survivor's language tokens
@@ -18,9 +19,10 @@ namespace RimuruMod.Modules.Survivors
 
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
+            //bodyName = "RimuruBody",
             bodyName = "RimuruSlimeBody",
-            bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_NAME",
-            subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_SUBTITLE",
+            bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME",
+            subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
             bodyColor = Color.white,
@@ -213,21 +215,21 @@ namespace RimuruMod.Modules.Survivors
             {
                 //place your mesh replacements here
                 //unnecessary if you don't have multiple skins
-                //new SkinDef.MeshReplacement
-                //{
-                //    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruSword"),
-                //    renderer = defaultRenderers[0].renderer
-                //},
-                //new SkinDef.MeshReplacement
-                //{
-                //    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruGun"),
-                //    renderer = defaultRenderers[1].renderer
-                //},
-                //new SkinDef.MeshReplacement
-                //{
-                //    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuru"),
-                //    renderer = defaultRenderers[2].renderer
-                //}
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenrySword"),
+                    renderer = defaultRenderers[0].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenryGun"),
+                    renderer = defaultRenderers[1].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenry"),
+                    renderer = defaultRenderers[2].renderer
+                }
             };
 
             skins.Add(defaultSkin);
