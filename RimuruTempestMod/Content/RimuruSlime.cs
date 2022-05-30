@@ -168,7 +168,7 @@ namespace RimuruMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformSlime)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
-                baseRechargeInterval = 6f,
+                baseRechargeInterval = 4f,
                 beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,

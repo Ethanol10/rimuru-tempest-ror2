@@ -257,21 +257,13 @@ namespace RimuruMod.Modules.Survivors
         private void OnEnable()
         {
             this.indicator.active = true;
-            this.passiveindicator.active = true;
-            this.activeindicator.active = true;
         }
 
         private void OnDisable()
         {
             this.indicator.active = false;
-            this.passiveindicator.active = false;
-            this.activeindicator.active = false;
         }
 
-        private void OnDestroy()
-        {
-            if (mortarIndicatorInstance) EntityState.Destroy(mortarIndicatorInstance.gameObject);
-        }
 
         public void FixedUpdate()
         {
@@ -283,15 +275,9 @@ namespace RimuruMod.Modules.Survivors
                 Ray aimRay = new Ray(this.inputBank.aimOrigin, this.inputBank.aimDirection);
                 this.SearchForTarget(aimRay);
                 HurtBox hurtBox = this.trackingTarget;
-                if (hurtBox)
-                {
-                    this.activeindicator.active = false;
-                    this.passiveindicator.active = false;
-                    this.indicator.active = true;
-                    this.indicator.targetTransform = this.trackingTarget.transform;
+                this.indicator.targetTransform = (this.trackingTarget ? this.trackingTarget.transform : null);
 
-                }
-
+                
             }
                       
 

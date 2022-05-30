@@ -29,7 +29,7 @@ namespace RimuruMod.SkillStates.BaseStates
         {
             base.FixedUpdate();
 
-            if (base.fixedAge > 0.1f && base.isAuthority)
+            if (base.fixedAge > 0f && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
                 return;

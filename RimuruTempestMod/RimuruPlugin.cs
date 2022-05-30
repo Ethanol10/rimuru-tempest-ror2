@@ -65,12 +65,31 @@ namespace RimuruMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
-            On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy; ;
+            On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage; ;
+        }
+
+        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+
+            if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+            {
+                //crit buff
+                if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
+                {
+                    if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                    {
+                        damageInfo.crit = true;
+
+                    }
+                }
+            }
+
+            orig.Invoke(self, damageInfo);
         }
 
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victim)
         {
-            orig.Invoke(self, damageInfo, victim);
             var attacker = damageInfo.attacker;
             if (attacker)
             {
@@ -79,16 +98,18 @@ namespace RimuruMod
                 if (body && victimBody)
                 {
                     //crit buff
-                    if (victimBody.HasBuff(Modules.Buffs.CritDebuff))
-                    {
-                        if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-                        {
-                            damageInfo.crit = true;
+                    //if (victimBody.HasBuff(Modules.Buffs.CritDebuff))
+                    //{
+                    //    if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                    //    {
+                    //        damageInfo.crit = true;
 
-                        }
-                    }
+                    //    }
+                    //}
                 }
             }
+
+            orig.Invoke(self, damageInfo, victim);
         }
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
