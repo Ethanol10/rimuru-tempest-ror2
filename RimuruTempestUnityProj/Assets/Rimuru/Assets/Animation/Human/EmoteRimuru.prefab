@@ -8069,7 +8069,7 @@ GameObject:
   - component: {fileID: 3305255261797495221}
   - component: {fileID: 7556674295709095838}
   m_Layer: 0
-  m_Name: mdlRimuruHuman
+  m_Name: EmoteRimuru
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8084,7 +8084,7 @@ Transform:
   m_GameObject: {fileID: 8103484663666028917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4956500140621390698}
   - {fileID: 6207993234554832049}
@@ -8102,8 +8102,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8103484663666028917}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8457d8a53999dfc4cb51a2bb52fbdd58, type: 2}
-  m_Controller: {fileID: 9100000, guid: af718b65132e99d4ba86cb8714d4a228, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 1decd87ece373e14abcfb2c9bfe4bbd8, type: 3}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -8137,7 +8137,7 @@ MonoBehaviour:
     transform: {fileID: 4914347967384716012}
   - name: SwordHitbox
     transform: {fileID: 1722405606549742569}
-  - name: MainHurtbox
+  - name: Mainhurtbox
     transform: {fileID: 6043820266290802508}
   - name: Armature
     transform: {fileID: 6207993234554832049}

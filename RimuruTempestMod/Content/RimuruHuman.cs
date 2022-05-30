@@ -10,8 +10,7 @@ namespace RimuruMod.Modules.Survivors
 {
     internal class RimuruHuman : SurvivorBase
     {
-        //public override string bodyName => "RimuruHuman";
-        public override string bodyName => "Rimuru";
+        public override string bodyName => "RimuruHuman";
 
         public const string RIMURU_PREFIX = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_";
         //used when registering your survivor's language tokens
@@ -19,38 +18,48 @@ namespace RimuruMod.Modules.Survivors
 
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
-            //bodyName = "RimuruBody",
             bodyName = "RimuruHumanBody",
             bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME",
             subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
-            bodyColor = Color.white,
+            bodyColor = Color.cyan,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 110f,
-            healthRegen = 1.5f,
+            maxHealth = 120f,
+            healthRegen = 1f,
             armor = 0f,
-
-            jumpCount = 1,
+            damage = 5f,
+            healthGrowth = 20f,
+            jumpCount = 2,
+            moveSpeed = 7f,
         };
 
-        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
+        //internal static Material RimuruHumanMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
+        internal static Material RimuruHumanMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
+        public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
                 {
-                    childName = "SwordModel",
-                    material = Materials.CreateHopooMaterial("matHenry"),
+                    childName = "Mask",
+                    material = RimuruHumanMat,
                 },
                 new CustomRendererInfo
                 {
-                    childName = "GunModel",
+                    childName = "Wing",
+                    material = RimuruHumanMat,
+                },
+                new CustomRendererInfo
+                {
+                    childName = "Sword",
+                    material = RimuruHumanMat,
                 },
                 new CustomRendererInfo
                 {
                     childName = "Model",
+                    material = RimuruHumanMat,
                 }
         };
 
@@ -83,8 +92,8 @@ namespace RimuruMod.Modules.Survivors
             GameObject model = childLocator.gameObject;
 
             //example of how to create a hitbox
-            //Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
-            //Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
+            Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
+            Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
         }
 
         public override void InitializeSkills()
@@ -141,7 +150,7 @@ namespace RimuruMod.Modules.Survivors
                 skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Roll)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformSlime)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
                 baseRechargeInterval = 4f,
@@ -206,9 +215,17 @@ namespace RimuruMod.Modules.Survivors
             List<SkinDef> skins = new List<SkinDef>();
 
             #region DefaultSkin
+            Material defaultMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
+            Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+            CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
+                emptyMat,
+                defaultMat,
+                defaultMat,
+                defaultMat,
+            });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
-                defaultRenderers,
+                defaultRendererInfo,
                 mainRenderer,
                 model);
 
@@ -218,62 +235,121 @@ namespace RimuruMod.Modules.Survivors
                 //unnecessary if you don't have multiple skins
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenrySword"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
                     renderer = defaultRenderers[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenryGun"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
                     renderer = defaultRenderers[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshHenry"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
                     renderer = defaultRenderers[2].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
+                    renderer = defaultRenderers[3].renderer
                 }
             };
 
             skins.Add(defaultSkin);
             #endregion
 
-            //uncomment this when you have a mastery skin
-            #region MasterySkin
-            /*
-            Material masteryMat = Modules.Materials.CreateHopooMaterial("matRimuruAlt");
-            CharacterModel.RendererInfo[] masteryRendererInfos = SkinRendererInfos(defaultRenderers, new Material[]
-            {
-                masteryMat,
-                masteryMat,
-                masteryMat,
-                masteryMat
+            //masked skin
+            #region maskedSkin
+            CharacterModel.RendererInfo[] maskedrendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
+                defaultMat,
+                defaultMat,
+                defaultMat,
+                defaultMat,
             });
-
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASTERY_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
-                masteryRendererInfos,
+            SkinDef maskedSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASKED_SKIN_NAME",
+                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
+                maskedrendererInfos,
                 mainRenderer,
-                model,
-                masterySkinUnlockableDef);
+                model);
 
-            masterySkin.meshReplacements = new SkinDef.MeshReplacement[]
+            maskedSkin.meshReplacements = new SkinDef.MeshReplacement[]
             {
+                //place your mesh replacements here
+                //unnecessary if you don't have multiple skins
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruSwordAlt"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
                     renderer = defaultRenderers[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruAlt"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
+                    renderer = defaultRenderers[1].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
                     renderer = defaultRenderers[2].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
+                    renderer = defaultRenderers[3].renderer
                 }
             };
 
-            skins.Add(masterySkin);
-            */
+            skins.Add(maskedSkin);
+            #endregion
+            //uncomment this when you have a mastery skin
+            #region MasterySkin
+
+            //Material masteryMat = Modules.Materials.CreateHopooMaterial("matRimuruAlt");
+            //CharacterModel.RendererInfo[] masteryRendererInfos = SkinRendererInfos(defaultRenderers, new Material[]
+            //{
+            //    masteryMat,
+            //    masteryMat,
+            //    masteryMat,
+            //    masteryMat
+            //});
+
+            //SkinDef masterySkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASTERY_SKIN_NAME",
+            //    Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
+            //    masteryRendererInfos,
+            //    mainRenderer,
+            //    model,
+            //    masterySkinUnlockableDef);
+
+            //masterySkin.meshReplacements = new SkinDef.MeshReplacement[]
+            //{
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruSwordAlt"),
+            //        renderer = defaultRenderers[0].renderer
+            //    },
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruAlt"),
+            //        renderer = defaultRenderers[2].renderer
+            //    }
+            //};
+
+            //skins.Add(masterySkin);
+
             #endregion
 
             skinController.skins = skins.ToArray();
+
+
+        }
+
+        private static CharacterModel.RendererInfo[] SkinRendererInfos(CharacterModel.RendererInfo[] defaultRenderers, Material[] materials)
+        {
+            CharacterModel.RendererInfo[] newRendererInfos = new CharacterModel.RendererInfo[defaultRenderers.Length];
+            defaultRenderers.CopyTo(newRendererInfos, 0);
+
+            newRendererInfos[0].defaultMaterial = materials[0];
+
+            return newRendererInfos;
         }
     }
 }

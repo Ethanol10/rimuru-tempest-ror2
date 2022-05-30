@@ -227,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 3263742245975216819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 6534760140817717399}
   - {fileID: 1393761052665680212}
@@ -278,6 +278,10 @@ MonoBehaviour:
     transform: {fileID: 7348486885402282784}
   - name: MainHurtbox
     transform: {fileID: 2452370123352638148}
+  - name: Armature
+    transform: {fileID: 6534760140817717399}
+  - name: Model
+    transform: {fileID: 1393761052665680212}
 --- !u!1 &3899188587046317176
 GameObject:
   m_ObjectHideFlags: 0
