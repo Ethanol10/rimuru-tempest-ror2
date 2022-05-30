@@ -24,7 +24,7 @@ namespace RimuruMod.SkillStates.BaseStates
         protected float baseEarlyExitTime = 0.4f;
         protected float hitStopDuration = 0.012f;
         protected float attackRecoil = 0.75f;
-        protected float hitHopVelocity = 4f;
+        protected float hitHopVelocity = 10f;
         protected bool cancelled = false;
 
         protected string swingSoundString = "";
@@ -109,7 +109,7 @@ namespace RimuruMod.SkillStates.BaseStates
             {
                 if (base.characterMotor && !base.characterMotor.isGrounded && this.hitHopVelocity > 0f)
                 {
-                    base.SmallHop(base.characterMotor, this.hitHopVelocity);
+                    base.SmallHop(base.characterMotor, this.hitHopVelocity/attackSpeedStat);
                 }
 
                 this.hasHopped = true;

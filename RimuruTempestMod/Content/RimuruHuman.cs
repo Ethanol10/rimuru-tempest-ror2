@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using EntityStates;
 using RimuruMod.Modules.Characters;
 using RoR2;
 using RoR2.Skills;
@@ -78,6 +79,8 @@ namespace RimuruMod.Modules.Survivors
         {
             base.InitializeCharacter();
             bodyPrefab.AddComponent<RimuruController>();
+            EntityStateMachine rimuruEntityStateMachine = bodyPrefab.GetComponent<EntityStateMachine>();
+            rimuruEntityStateMachine.initialStateType = new SerializableEntityStateType(typeof(SkillStates.BaseStates.SpawnState));
         }
 
         public override void InitializeUnlockables()

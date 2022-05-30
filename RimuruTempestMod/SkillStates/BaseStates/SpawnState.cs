@@ -1,17 +1,25 @@
 ﻿using EntityStates;
 using RoR2;
+using RoR2.Audio;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RimuruMod.SkillStates
+namespace RimuruMod.SkillStates.BaseStates
 {
-    public class TransformSlime : BaseSkillState
+    public class SpawnState : BaseSkillState
     {
+
         public override void OnEnter()
         {
             base.OnEnter();
+            
+        }
 
-            characterBody.master.TransformBody("RimuruHumanBody");
+        public override void OnExit()
+        {
+
+            base.OnExit();
 
         }
 
@@ -25,12 +33,6 @@ namespace RimuruMod.SkillStates
                 this.outer.SetNextStateToMain();
                 return;
             }
-        }
-
-        public override void OnExit()
-        {
-            base.OnExit();
-
         }
 
     }

@@ -8149,6 +8149,10 @@ MonoBehaviour:
     transform: {fileID: 2562079779276531867}
   - name: Wing
     transform: {fileID: 5693848860281482060}
+  - name: FootR
+    transform: {fileID: 2419441721848906853}
+  - name: FootL
+    transform: {fileID: 3267595553643110298}
 --- !u!1 &8135417362879505027
 GameObject:
   m_ObjectHideFlags: 0

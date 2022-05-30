@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using EntityStates;
 using RimuruMod.Modules.Characters;
 using RoR2;
 using RoR2.Skills;
@@ -62,6 +63,8 @@ namespace RimuruMod.Modules.Survivors
         {
             base.InitializeCharacter();
             bodyPrefab.AddComponent<RimuruController>();
+            EntityStateMachine rimuruEntityStateMachine = bodyPrefab.GetComponent<EntityStateMachine>();
+            rimuruEntityStateMachine.initialStateType = new SerializableEntityStateType(typeof(SkillStates.BaseStates.SpawnState));
         }
 
         public override void InitializeUnlockables()
@@ -162,7 +165,7 @@ namespace RimuruMod.Modules.Survivors
                 skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ThrowBomb)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformSlime)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
                 baseRechargeInterval = 10f,
