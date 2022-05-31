@@ -44,7 +44,7 @@ namespace RimuruMod.SkillStates
                 {
                     Ray aimRay = base.GetAimRay();
 
-                    ProjectileManager.instance.FireProjectile(Modules.Projectiles.bombPrefab, 
+                    ProjectileManager.instance.FireProjectile(Modules.Projectiles.waterbladeProjectile, 
                         aimRay.origin, 
                         Util.QuaternionSafeLookRotation(aimRay.direction), 
                         base.gameObject, 

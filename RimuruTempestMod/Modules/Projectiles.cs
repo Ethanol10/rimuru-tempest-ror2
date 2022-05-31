@@ -14,7 +14,8 @@ namespace RimuruMod.Modules
         internal static void RegisterProjectiles()
         {
             CreateBomb();
-
+            CreateWaterBlade();
+            AddProjectile(waterbladeProjectile);
             AddProjectile(bombPrefab);
         }
 
@@ -49,22 +50,37 @@ namespace RimuruMod.Modules
             Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(1), "waterblade");
             waterbladeProjectile.AddComponent<NetworkIdentity>();
             ProjectileController waterbladeProjectileCon = waterbladeProjectile.AddComponent<ProjectileController>();
+           
             ProjectileDamage waterbladeProjectileDamage = waterbladeProjectile.AddComponent<ProjectileDamage>();
-            ProjectileImpactExplosion waterbladeProjectileImpactExplosion = waterbladeProjectile.AddComponent<ProjectileImpactExplosion>();
-            Modules.Projectiles.InitializeImpactExplosion(waterbladeProjectileImpactExplosion);
+            InitializeWaterBladeDamage(waterbladeProjectileDamage);
+            
+            ProjectileSimple waterbladeProjectileTrajectory = waterbladeProjectile.AddComponent<ProjectileSimple>();
+            InitializeWaterBladeTrajectory(waterbladeProjectileTrajectory);
+
+            ProjectileOverlapAttack waterbladeoverlapAttack = waterbladeProjectile.AddComponent<ProjectileOverlapAttack>();
+            InitializeWaterBladeOverlapAttack(waterbladeoverlapAttack);
+            waterbladeProjectile.AddComponent<WaterbladeOnHit>();
+
+            //ProjectileImpactExplosion waterbladeProjectileImpactExplosion = waterbladeProjectile.AddComponent<ProjectileImpactExplosion>();
+            //Modules.Projectiles.InitializeImpactExplosion(waterbladeProjectileImpactExplosion);
 
             //Waterblade Damage
             waterbladeProjectileCon.procCoefficient = 1.0f;
+            waterbladeProjectileCon.canImpactOnTrigger = true;
 
             PrefabAPI.RegisterNetworkPrefab(waterbladeProjectile);
+        }
 
+        internal static void InitializeWaterBladeOverlapAttack(ProjectileOverlapAttack overlap) 
+        {
+            overlap.overlapProcCoefficient = 1.0f;
+        }
 
-            /*
-                Creating projectile:
-                - needs ProjectileController
-                - needs projectileOverlapAttack
-                
-             */
+        internal static void InitializeWaterBladeTrajectory(ProjectileSimple simple) 
+        {
+            simple.lifetime = Modules.StaticValues.waterbladeProjectileLifetime;
+            simple.desiredForwardSpeed = Modules.StaticValues.waterbladeProjectileSpeed;
+
         }
 
         internal static void InitializeWaterBladeDamage(ProjectileDamage damageComponent) 
@@ -113,6 +129,22 @@ namespace RimuruMod.Modules
         {
             GameObject newPrefab = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Projectiles/" + prefabName), newPrefabName);
             return newPrefab;
+        }
+
+        internal class WaterbladeOnHit : MonoBehaviour, IProjectileImpactBehavior
+        {
+            public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
+            {
+                if (impactInfo.collider) 
+                {
+                    GameObject collidedObject = impactInfo.collider.gameObject;
+                    CharacterBody body = collidedObject.GetComponent<CharacterBody>();
+                    if (body) 
+                    {
+                        Chat.AddMessage($"{impactInfo.collider.gameObject.name}");
+                    }
+                }
+            }
         }
     }
 }
