@@ -13,6 +13,7 @@ namespace RimuruMod.Modules
             Modules.Content.AddEntityState(typeof(SlashCombo));
 
             Modules.Content.AddEntityState(typeof(Shoot));
+            Modules.Content.AddEntityState(typeof(BlackLightning));
 
             Modules.Content.AddEntityState(typeof(SpatialMovement));
 

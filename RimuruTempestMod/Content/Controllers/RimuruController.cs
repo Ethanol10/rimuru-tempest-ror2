@@ -38,7 +38,7 @@ namespace RimuruMod.Modules.Survivors
         public Transform voidmortarIndicatorInstance;
 
         public float maxTrackingDistance = 60f;
-        public float maxTrackingAngle = 60f;
+        public float maxTrackingAngle = 30f;
         public float trackerUpdateFrequency = 10f;
         private Indicator indicator;
         private Indicator passiveindicator;

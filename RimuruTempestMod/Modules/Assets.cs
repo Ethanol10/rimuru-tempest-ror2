@@ -19,6 +19,8 @@ namespace RimuruMod.Modules
         // particle effects
         internal static GameObject swordSwingEffect;
         internal static GameObject swordHitImpactEffect;
+        internal static GameObject blacklightning;
+        internal static List<GameObject> networkObjDefs = new List<GameObject>();
 
         internal static GameObject bombExplosionEffect;
 
@@ -128,6 +130,12 @@ namespace RimuruMod.Modules
 
             //SpatialMovementBuff effect
             SpatialMovementBuffMaterial = mainAssetBundle.LoadAsset<Material>("SpatialMovementMat");
+
+            //blacklightning beam effect
+            blacklightning = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("BlackLightning");
+            blacklightning.AddComponent<NetworkIdentity>();
+            networkObjDefs.Add(blacklightning);
+            PrefabAPI.RegisterNetworkPrefab(blacklightning);
 
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 

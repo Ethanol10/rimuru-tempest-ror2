@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1046068379
+CRC: 3338817172
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cf68ffabd615f53a6e9594fa3a5f499a
+    Hash: eb4f43f484f903a5ddc3f868674a337d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -111,6 +111,7 @@ Assets:
 - Assets/HenryAssets/VFX/HenryFistSwingEffect.prefab
 - Assets/HenryAssets/Textures/Mesh/meshVergil.mesh
 - Assets/HenryAssets/VFX/Textures/texFistSwing.png
+- Assets/Rimuru/Assets/VFX/Texture/blacklightning.tif
 - Assets/HenryAssets/Animation/clips/LightImpact.anim
 - Assets/HenryAssets/Icons/texHenryAchievement.png
 - Assets/HenryAssets/Animation/clips/WalkB.anim
@@ -143,6 +144,8 @@ Assets:
 - Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh
 - Assets/HenryAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/HenryAssets/Materials/matDante.mat
+- Assets/Rimuru/Assets/VFX/SecondaryBeam.prefab
+- Assets/Rimuru/Assets/VFX/Material/blacklightning.mat
 - Assets/HenryAssets/Animation/maskLeftArm.mask
 - Assets/HenryAssets/Textures/Mesh/MeshHenryGun.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_AAIdle.anim
@@ -155,6 +158,7 @@ Assets:
 - Assets/HenryAssets/Materials/matHenryJedi.mat
 - Assets/HenryAssets/VFX/Materials/matHitSpark.mat
 - Assets/HenryAssets/Textures/Mesh/meshNeoCoat.mesh
+- Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
 - Assets/HenryAssets/Animation/clips/ShootGun.anim
 - Assets/HenryAssets/Animation/clips/SprintF.anim
 - Assets/HenryAssets/Textures/Mesh/meshHenrySwordAlt.mesh
@@ -210,6 +214,7 @@ Assets:
 - Assets/HenryAssets/Animation/clips/RestIdleIn.anim
 - Assets/HenryAssets/VFX/Materials/matRipple.mat
 - Assets/HenryAssets/Animation/clips/DefaultPose.anim
+- Assets/Rimuru/Assets/VFX/Texture/blacklightningouter.tif
 - Assets/HenryAssets/Materials/matShotgun.mat
 - Assets/HenryAssets/Animation/clips/IdleAdditive.anim
 - Assets/Rimuru/Assets/Animation/Human/EmoteRimuru.prefab
@@ -233,6 +238,7 @@ Assets:
 - Assets/HenryAssets/Textures/texHenryDanteEmission.png
 - Assets/HenryAssets/Animation/clips/MenuIdleIn.anim
 - Assets/HenryAssets/VFX/ImpactHenryPunch.prefab
+- Assets/Rimuru/Assets/VFX/BlackLightning.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
 - Assets/HenryAssets/Animation/clips/Slash1.anim
 - Assets/HenryAssets/VFX/HenryBazookaExplosionEffect.prefab
