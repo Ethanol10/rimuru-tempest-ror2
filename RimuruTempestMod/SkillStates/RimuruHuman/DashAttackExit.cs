@@ -1,10 +1,14 @@
-﻿using RimuruMod.SkillStates.BaseStates;
+﻿using EntityStates;
+using RimuruMod.Modules.Survivors;
+using RimuruMod.SkillStates.BaseStates;
 using RoR2;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RimuruMod.SkillStates
 {
-    public class SlashCombo : BaseMeleeAttack
+    public class DashAttackExit : BaseMeleeAttack
     {
         public override void OnEnter()
         {
@@ -14,7 +18,7 @@ namespace RimuruMod.SkillStates
             this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
             this.procCoefficient = 1f;
             this.pushForce = 300f;
-            this.bonusForce = new Vector3(0f, -300f, 0f);
+            this.bonusForce = new Vector3(0f, -500f, 0f);
             this.baseDuration = 1f;
             this.attackStartTime = 0.2f;
             this.attackEndTime = 0.4f;
@@ -64,6 +68,10 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+        }
+        public override InterruptPriority GetMinimumInterruptPriority()
+        {
+            return InterruptPriority.Frozen;
         }
     }
 }
