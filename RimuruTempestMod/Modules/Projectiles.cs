@@ -74,6 +74,7 @@ namespace RimuruMod.Modules
         internal static void InitializeWaterBladeOverlapAttack(ProjectileOverlapAttack overlap) 
         {
             overlap.overlapProcCoefficient = 1.0f;
+            overlap.damageCoefficient = 1.0f;
         }
 
         internal static void InitializeWaterBladeTrajectory(ProjectileSimple simple) 

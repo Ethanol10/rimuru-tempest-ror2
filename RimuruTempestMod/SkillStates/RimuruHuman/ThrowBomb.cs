@@ -49,7 +49,7 @@ namespace RimuruMod.SkillStates
                         Util.QuaternionSafeLookRotation(aimRay.direction), 
                         base.gameObject, 
                         ThrowBomb.damageCoefficient * this.damageStat, 
-                        4000f, 
+                        0f, 
                         base.RollCrit(), 
                         DamageColorIndex.Default, 
                         null, 
