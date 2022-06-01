@@ -10,8 +10,6 @@ namespace RimuruMod.SkillStates
 {
     public class BlackLightning : BaseSkillState
     {
-        public float baseDuration = 0.3f;
-        public float duration;
         public RimuruController Rimurucon;
         private DamageType damageType;
         private Ray aimRay;
@@ -19,7 +17,7 @@ namespace RimuruMod.SkillStates
 
         private bool beamPlay;
         private float radius = 10f;
-        private float range = 50f;
+        private float range = 60f;
         private float damageCoefficient = 1f;
         private float procCoefficient = 1f;
         private float force = 100f;
@@ -39,8 +37,7 @@ namespace RimuruMod.SkillStates
         {
             base.OnEnter();
             updateAimRay();
-            this.duration = this.baseDuration / this.attackSpeedStat;
-            base.characterBody.SetAimTimer(this.duration);
+            base.characterBody.SetAimTimer(2f);
             damageType = DamageType.Generic;
             Rimurucon = gameObject.GetComponent<RimuruController>();
 
@@ -90,7 +87,7 @@ namespace RimuruMod.SkillStates
                 procCoefficient = procCoefficient,
                 radius = 1f,
                 sniper = false,
-                stopperMask = LayerIndex.world.mask,
+                stopperMask = LayerIndex.noCollision.mask,
                 weapon = null,
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
@@ -155,7 +152,7 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             this.animator.SetBool("attacking", false);
-            PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
+            //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             //PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             base.OnExit();
             //LoopSoundManager.StopSoundLoopLocal(this.loopPtr);

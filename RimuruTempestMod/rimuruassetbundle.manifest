@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3338817172
+CRC: 3002095544
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eb4f43f484f903a5ddc3f868674a337d
+    Hash: 9eaf50a695e9f855dec4affdbef3add2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -73,6 +73,7 @@ Assets:
 - Assets/HenryAssets/VFX/Textures/texPunchImpactShadow.png
 - Assets/HenryAssets/Materials/matBazookaRocket.mat
 - Assets/HenryAssets/Icons/texPrimaryIcon.png
+- Assets/Rimuru/Assets/VFX/BlackLightning.prefab
 - Assets/HenryAssets/VFX/Textures/texHenrySwing2.png
 - Assets/HenryAssets/Icons/texBazookaIcon.png
 - Assets/HenryAssets/Icons/texMasteryAchievement.png
@@ -88,9 +89,12 @@ Assets:
 - Assets/HenryAssets/VFX/Textures/texFire.tga
 - Assets/HenryAssets/Animation/clips/Jump.anim
 - Assets/HenryAssets/Textures/Mesh/meshHenryNeo.mesh
+- Assets/Rimuru/Assets/VFX/BlackLightningParticle 1.mat
 - Assets/HenryAssets/Animation/clips/WalkR.anim
 - Assets/HenryAssets/VFX/HenryDustEffect.prefab
+- Assets/Rimuru/Assets/VFX/BlackLightningParticleBlack.mat
 - Assets/HenryAssets/Animation/clips/SprintL.anim
+- Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
 - Assets/HenryAssets/Materials/matRebellion.mat
 - Assets/Rimuru/Assets/Animation/Human/animMenuRimuruHuman.controller
 - Assets/HenryAssets/VFX/Materials/matSmoke.mat
@@ -105,6 +109,7 @@ Assets:
 - Assets/HenryAssets/Textures/texBazooka.png
 - Assets/HenryAssets/VFX/Textures/texRipple.png
 - Assets/HenryAssets/VFX/ImpactHenrySlash.prefab
+- Assets/Rimuru/Assets/VFX/BlacklightningLight.prefab
 - Assets/HenryAssets/Mesh/meshSwing.asset
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Land.anim
 - Assets/HenryAssets/VFX/HenryBazookaMuzzleFlash.prefab
@@ -131,6 +136,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
 - Assets/HenryAssets/VFX/BombExplosionEffect.prefab
 - Assets/HenryAssets/Animation/clips/Slash2.anim
+- Assets/Rimuru/Assets/VFX/MainLightning2.prefab
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempestAvatar.asset
 - Assets/HenryAssets/Textures/Mesh/meshYamato.mesh
 - Assets/HenryAssets/VFX/Textures/texDust.png
@@ -231,14 +237,16 @@ Assets:
 - Assets/HenryAssets/Textures/texHenryDante.png
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
 - Assets/HenryAssets/Animation/clips/AimPitch.anim
+- Assets/Rimuru/Assets/VFX/MainLightning.prefab
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
+- Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
 - Assets/HenryAssets/VFX/Textures/texSlash.png
 - Assets/HenryAssets/Icons/texSpecialIcon.png
 - Assets/HenryAssets/Textures/texHenryDanteEmission.png
 - Assets/HenryAssets/Animation/clips/MenuIdleIn.anim
 - Assets/HenryAssets/VFX/ImpactHenryPunch.prefab
-- Assets/Rimuru/Assets/VFX/BlackLightning.prefab
+- Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
 - Assets/HenryAssets/Animation/clips/Slash1.anim
 - Assets/HenryAssets/VFX/HenryBazookaExplosionEffect.prefab
