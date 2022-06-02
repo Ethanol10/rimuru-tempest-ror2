@@ -30,7 +30,6 @@ namespace RimuruMod.SkillStates
             this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
-
             base.OnEnter();
         }
 

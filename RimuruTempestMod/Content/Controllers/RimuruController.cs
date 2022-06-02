@@ -10,6 +10,7 @@ using EntityStates.LunarExploderMonster;
 using RoR2.Projectile;
 using EntityStates.MiniMushroom;
 using UnityEngine.Networking;
+using R2API.Networking;
 
 namespace RimuruMod.Modules.Survivors
 {
@@ -279,11 +280,32 @@ namespace RimuruMod.Modules.Survivors
 
                 
             }
-                      
+
+            CheckBuffs();
 
 
         }
 
+        public void CheckBuffs()
+        {
+            if (Rimurumastercon.beetle)
+            {
+                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
+            }
+            else
+            {
+                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, -1);
+            }
+            if (Rimurumastercon.lemurian)
+            {
+                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
+            }
+            else
+            {
+                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, -1);
+            }            
+
+        }
         private void SearchForTarget(Ray aimRay)
         {
             this.search.teamMaskFilter = TeamMask.all;

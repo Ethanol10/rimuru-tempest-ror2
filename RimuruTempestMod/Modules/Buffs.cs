@@ -11,6 +11,8 @@ namespace RimuruMod.Modules
         internal static BuffDef CritDebuff;
         internal static BuffDef WetLightningDebuff;
         internal static BuffDef wetDebuff;
+        internal static BuffDef BeetleBuff;
+        internal static BuffDef LemurianBuff;
 
         internal static void RegisterBuffs()
         {
@@ -18,6 +20,9 @@ namespace RimuruMod.Modules
             CritDebuff = AddNewBuff("CritDebuff", Assets.critBuffIcon, Color.red, false, true);
             WetLightningDebuff = AddNewBuff("WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
             wetDebuff = AddNewBuff("Wet Debuff", Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdBleeding.asset").WaitForCompletion().iconSprite, Color.cyan, false, true);
+
+            BeetleBuff = AddNewBuff("BeetleBuff", Assets.boostBuffIcon, Color.gray, false, false);
+            LemurianBuff = AddNewBuff("LemurianBuff", Assets.fireBuffIcon, Color.red, false, false);
         }
 
         // simple helper method

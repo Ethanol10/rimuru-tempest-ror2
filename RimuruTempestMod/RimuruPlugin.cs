@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -37,6 +38,9 @@ namespace RimuruMod
 
         public static RimuruPlugin instance;
 
+        public RimuruController Rimurucon;
+        public RimuruMasterController Rimurumastercon;
+
         private void Awake()
         {
             instance = this;
@@ -66,29 +70,9 @@ namespace RimuruMod
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
-            On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage; ;
         }
 
-        private void GlobalEventManager_OnCharacterDeath(On.RoR2.GlobalEventManager.orig_OnCharacterDeath orig, GlobalEventManager self, DamageReport damageReport)
-        {
-            orig.Invoke(self, damageReport);
-            //devour check
-            if(damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
-            {
-                if(damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
-                {
-                    var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
-                    GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
-                    if (newbodyPrefab.name == "BeetleBody")
-                    {
-                        Chat.AddMessage("<style=cIsUtility>Beetle Skill</style> Get!");
-                    }
-                }
-
-            }
-
-        }
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
