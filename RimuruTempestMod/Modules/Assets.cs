@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using RoR2.UI;
 using System;
 using UnityEngine.AddressableAssets;
+using RoR2.Projectile;
 
 namespace RimuruMod.Modules
 {

@@ -1,7 +1,6 @@
 ﻿using RoR2;
-using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
 using UnityEngine;
-using RimuruMod.Modules;
 
 namespace RimuruMod.Modules
 {
@@ -11,12 +10,14 @@ namespace RimuruMod.Modules
         internal static BuffDef SpatialMovementBuff;
         internal static BuffDef CritDebuff;
         internal static BuffDef WetLightningDebuff;
+        internal static BuffDef wetDebuff;
 
         internal static void RegisterBuffs()
         {
             SpatialMovementBuff = AddNewBuff("SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
             CritDebuff = AddNewBuff("CritDebuff", Assets.critBuffIcon, Color.red, false, true);
             WetLightningDebuff = AddNewBuff("WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
+            wetDebuff = AddNewBuff("Wet Debuff", Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdBleeding.asset").WaitForCompletion().iconSprite, Color.cyan, false, true);
         }
 
         // simple helper method

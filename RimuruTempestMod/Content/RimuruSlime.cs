@@ -108,7 +108,7 @@ namespace RimuruMod.Modules.Survivors
                 skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Shoot)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Waterblade)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
                 baseRechargeInterval = 1f,

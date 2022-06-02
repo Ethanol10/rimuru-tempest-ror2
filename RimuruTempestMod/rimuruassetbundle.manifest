@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3002095544
+CRC: 2146919840
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9eaf50a695e9f855dec4affdbef3add2
+    Hash: f83303e21a923c908cab043ca20548fb
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -186,6 +186,7 @@ Assets:
 - Assets/HenryAssets/Animation/clips/IdleIn.anim
 - Assets/HenryAssets/VFX/Materials/matSwingShadow.mat
 - Assets/HenryAssets/Textures/texHenryJediEmission.png
+- Assets/Rimuru/Assets/Prefabs/WaterBlade.prefab
 - Assets/HenryAssets/Textures/Mesh/meshDanteCoat.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
