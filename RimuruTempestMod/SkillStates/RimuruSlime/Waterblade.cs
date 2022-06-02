@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace RimuruMod.SkillStates
 {
-    public class ThrowBomb : BaseSkillState
+    public class Waterblade : BaseSkillState
     {
-        public static float damageCoefficient = 16f;
+        public static float damageCoefficient = Modules.StaticValues.waterbladeDamageCoefficient;
         public static float procCoefficient = 1f;
         public static float baseDuration = 0.65f;
         public static float throwForce = 80f;
@@ -20,7 +20,7 @@ namespace RimuruMod.SkillStates
         public override void OnEnter()
         {
             base.OnEnter();
-            this.duration = ThrowBomb.baseDuration / this.attackSpeedStat;
+            this.duration = Waterblade.baseDuration / this.attackSpeedStat;
             this.fireTime = 0.35f * this.duration;
             base.characterBody.SetAimTimer(2f);
             this.animator = base.GetModelAnimator();
@@ -47,13 +47,13 @@ namespace RimuruMod.SkillStates
                     ProjectileManager.instance.FireProjectile(Modules.Projectiles.waterbladeProjectile, 
                         aimRay.origin, 
                         Util.QuaternionSafeLookRotation(aimRay.direction), 
-                        base.gameObject, 
-                        ThrowBomb.damageCoefficient * this.damageStat, 
+                        base.gameObject,
+                        Waterblade.damageCoefficient * this.damageStat, 
                         0f, 
                         base.RollCrit(), 
                         DamageColorIndex.Default, 
-                        null, 
-                        ThrowBomb.throwForce);
+                        null,
+                        Waterblade.throwForce);
                 }
             }
         }
