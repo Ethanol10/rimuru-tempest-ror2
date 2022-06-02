@@ -18,5 +18,8 @@ namespace RimuruMod.Modules
         internal const float waterbladeForce = 100f;
         internal const float waterbladeProjectileLifetime = 2.0f;
         internal const float waterbladeProjectileSpeed = 20f;
+
+        //Wet debuff Params
+        internal const float wetDebuffLen = 6.0f;
     }
 }

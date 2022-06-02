@@ -142,7 +142,20 @@ namespace RimuruMod.Modules
                     CharacterBody body = collidedObject.GetComponent<CharacterBody>();
                     if (body) 
                     {
-                        Chat.AddMessage($"{impactInfo.collider.gameObject.name}");
+                        if (body.teamComponent)
+                        {
+                            if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
+                                || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
+                            {
+                                //do something to enemy
+                                if (NetworkServer.active)
+                                {
+                                    body.AddTimedBuff(Modules.Buffs.wetDebuff, Modules.StaticValues.wetDebuffLen);
+                                }
+                                //MIGHT need to do some more networking if the projectile doesn't register debuffs.
+                                //This is as simple as getting the masterobjectID from the body and applying the debuff in a network call. No bigs.
+                            }
+                        }
                     }
                 }
             }
