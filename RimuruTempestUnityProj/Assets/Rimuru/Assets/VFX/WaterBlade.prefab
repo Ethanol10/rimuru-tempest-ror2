@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2743788343034682579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.14, y: 0, z: 1.89}
-  m_LocalScale: {x: 4, y: 2.5, z: 4}
+  m_LocalScale: {x: 5, y: 4, z: 5}
   m_Children:
   - {fileID: 6589543174818177626}
   m_Father: {fileID: 7625403617700074350}
@@ -2678,7 +2678,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7627083556607199129}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2866,7 +2866,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.5
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5278,8 +5278,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.586877, y: 1.5262699, z: 4.584427}
-  m_Center: {x: 0.25920248, y: 0.011793137, z: 1.8188289}
+  m_Size: {x: 5, y: 4, z: 5}
+  m_Center: {x: 0.25920248, y: 0.01874137, z: 1.818829}
 --- !u!54 &8601371020470129038
 Rigidbody:
   m_ObjectHideFlags: 0

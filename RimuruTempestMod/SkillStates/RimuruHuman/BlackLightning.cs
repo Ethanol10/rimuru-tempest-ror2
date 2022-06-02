@@ -30,7 +30,7 @@ namespace RimuruMod.SkillStates
         private ParticleSystem mainBlacklightning;
         private BulletAttack attack;
         private BlastAttack blastAttack;
-        private float fireInterval = 0.1f;
+        private float fireInterval = 0.25f;
         private Animator animator;
 
         public override void OnEnter()
@@ -56,13 +56,7 @@ namespace RimuruMod.SkillStates
 
             base.characterBody.SetAimTimer(2f);
 
-            blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
-            if (NetworkServer.active)
-            {
-                NetworkServer.Spawn(blacklightning);
-            }
-            mainBlacklightning = blacklightning.GetComponent<ParticleSystem>();
-            mainBlacklightning.Stop();
+            //mainBlacklightning.Stop();
             beamPlay = false;
 
             attack = new BulletAttack
@@ -165,31 +159,40 @@ namespace RimuruMod.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (base.IsKeyDownAuthority())
+            if(base.fixedAge > fireInterval)
             {
-                if (!beamPlay)
+                if (base.IsKeyDownAuthority())
                 {
-                    mainBlacklightning.Play();
-                    beamPlay = true;
+                    if (!beamPlay)
+                    {
+                        blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
+                        if (NetworkServer.active)
+                        {
+                            NetworkServer.Spawn(blacklightning);
+                        }
+                        mainBlacklightning = blacklightning.GetComponent<ParticleSystem>();
+                        mainBlacklightning.Play();
+                        beamPlay = true;
+                    }
+                    fireTimer += Time.fixedDeltaTime;
+                    //Fire the laser
+                    if (fireTimer > fireInterval)
+                    {
+                        //PlayCrossfade("LeftArm, Override", "LeftArmOut", "Attack.playbackRate", fireInterval, 0.1f);
+                        base.characterBody.SetAimTimer(2f);
+                        attack.muzzleName = muzzleString;
+                        attack.aimVector = aimRay.direction;
+                        attack.origin = FindModelChild(this.muzzleString).position;
+                        attack.Fire();
+                        fireTimer = 0f;
+                    }
+
                 }
-                fireTimer += Time.fixedDeltaTime;
-                //Fire the laser
-                if (fireTimer > fireInterval)
+                else
                 {
-                    //PlayCrossfade("LeftArm, Override", "LeftArmOut", "Attack.playbackRate", fireInterval, 0.1f);
-                    base.characterBody.SetAimTimer(2f);
-                    attack.muzzleName = muzzleString;
-                    attack.aimVector = aimRay.direction;
-                    attack.origin = FindModelChild(this.muzzleString).position;
-                    attack.Fire();
-                    fireTimer = 0f;
+                    base.outer.SetNextStateToMain();
                 }
 
-            }
-            else
-            {
-                base.outer.SetNextStateToMain();
             }
 
         }

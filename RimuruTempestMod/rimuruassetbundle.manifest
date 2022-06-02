@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2146919840
+CRC: 2131291749
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f83303e21a923c908cab043ca20548fb
+    Hash: a69853354f50386f80db77a96e08dc7c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -89,10 +89,10 @@ Assets:
 - Assets/HenryAssets/VFX/Textures/texFire.tga
 - Assets/HenryAssets/Animation/clips/Jump.anim
 - Assets/HenryAssets/Textures/Mesh/meshHenryNeo.mesh
-- Assets/Rimuru/Assets/VFX/BlackLightningParticle 1.mat
+- Assets/Rimuru/Assets/VFX/Material/BlackLightningParticle 1.mat
 - Assets/HenryAssets/Animation/clips/WalkR.anim
 - Assets/HenryAssets/VFX/HenryDustEffect.prefab
-- Assets/Rimuru/Assets/VFX/BlackLightningParticleBlack.mat
+- Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
 - Assets/HenryAssets/Animation/clips/SprintL.anim
 - Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
 - Assets/HenryAssets/Materials/matRebellion.mat
@@ -186,7 +186,7 @@ Assets:
 - Assets/HenryAssets/Animation/clips/IdleIn.anim
 - Assets/HenryAssets/VFX/Materials/matSwingShadow.mat
 - Assets/HenryAssets/Textures/texHenryJediEmission.png
-- Assets/Rimuru/Assets/Prefabs/WaterBlade.prefab
+- Assets/Rimuru/Assets/VFX/WaterBlade.prefab
 - Assets/HenryAssets/Textures/Mesh/meshDanteCoat.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh

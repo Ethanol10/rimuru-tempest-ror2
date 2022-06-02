@@ -251,6 +251,9 @@ namespace RimuruMod.Modules.Survivors
 
 		public void SetEverythingFalse()
 		{
+			characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
+			characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
+
 			alloyvulture = false;
 			alphacontruct = false;
 			beetle = false;

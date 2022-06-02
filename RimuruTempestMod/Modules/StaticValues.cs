@@ -10,7 +10,7 @@ namespace RimuruMod.Modules
         internal const float gunDamageCoefficient = 4.2f;
         internal const float blacklightningDamageCoefficient = 1f;
         internal const float blacklightningProcCoefficient = 0.5f;
-        internal const float blacklightningRadius = 5f;
+        internal const float blacklightningRadius = 10f;
 
         internal const float bombDamageCoefficient = 16f;
 

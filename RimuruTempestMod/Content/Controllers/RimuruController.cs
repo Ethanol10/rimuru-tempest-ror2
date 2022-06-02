@@ -281,7 +281,7 @@ namespace RimuruMod.Modules.Survivors
                 
             }
 
-            CheckBuffs();
+            //CheckBuffs();
 
 
         }
@@ -294,7 +294,7 @@ namespace RimuruMod.Modules.Survivors
             }
             else
             {
-                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, -1);
+                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
             }
             if (Rimurumastercon.lemurian)
             {
@@ -302,7 +302,7 @@ namespace RimuruMod.Modules.Survivors
             }
             else
             {
-                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, -1);
+                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
             }            
 
         }

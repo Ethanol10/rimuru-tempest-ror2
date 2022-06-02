@@ -7,6 +7,7 @@ using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.Networking;
+using R2API.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -70,7 +71,7 @@ namespace RimuruMod
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
-            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage; ;
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage; 
         }
 
 
@@ -103,11 +104,11 @@ namespace RimuruMod
                 if (body && victimBody)
                 {
                     //wet and shock interaction
-                    if (victimBody.HasBuff(Modules.Buffs.WetLightningDebuff) && !victimBody.HasBuff(Modules.Buffs.WetLightningDebuff))
+                    if (victimBody.HasBuff(Modules.Buffs.WetDebuff) && !victimBody.HasBuff(Modules.Buffs.WetLightningDebuff))
                     {
                         if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
                         {
-                            victimBody.AddTimedBuffAuthority(Modules.Buffs.WetLightningDebuff.buffIndex, 1);
+                            victimBody.ApplyBuff(Modules.Buffs.WetLightningDebuff.buffIndex, 1, 1);
 
                             EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
                             {
