@@ -31,8 +31,8 @@ namespace RimuruMod.Modules.Survivors
 
             maxHealth = 120f,
             healthRegen = 1f,
-            armor = 0f,
-            damage = 5f,
+            armor = 10f,
+            damage = 12f,
             healthGrowth = 20f,
             jumpCount = 2,
             moveSpeed = 7f,

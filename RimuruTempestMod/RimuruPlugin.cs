@@ -66,7 +66,28 @@ namespace RimuruMod
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
+            On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage; ;
+        }
+
+        private void GlobalEventManager_OnCharacterDeath(On.RoR2.GlobalEventManager.orig_OnCharacterDeath orig, GlobalEventManager self, DamageReport damageReport)
+        {
+            orig.Invoke(self, damageReport);
+            //devour check
+            if(damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+            {
+                if(damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
+                {
+                    var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
+                    GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
+                    if (newbodyPrefab.name == "BeetleBody")
+                    {
+                        Chat.AddMessage("<style=cIsUtility>Beetle Skill</style> Get!");
+                    }
+                }
+
+            }
+
         }
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
@@ -97,15 +118,37 @@ namespace RimuruMod
                 var victimBody = victim.GetComponent<CharacterBody>();
                 if (body && victimBody)
                 {
-                    //crit buff
-                    //if (victimBody.HasBuff(Modules.Buffs.CritDebuff))
-                    //{
-                    //    if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-                    //    {
-                    //        damageInfo.crit = true;
+                    //wet and shock interaction
+                    if (victimBody.HasBuff(Modules.Buffs.WetLightningDebuff) && !victimBody.HasBuff(Modules.Buffs.WetLightningDebuff))
+                    {
+                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
+                        {
+                            victimBody.AddTimedBuffAuthority(Modules.Buffs.WetLightningDebuff.buffIndex, 1);
 
-                    //    }
-                    //}
+                            EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
+                            {
+                                origin = victimBody.transform.position,
+                                scale = Modules.StaticValues.blacklightningRadius * body.attackSpeed/2
+                            }, true);
+                                
+                            new BlastAttack
+                            {
+                                attacker = damageInfo.attacker.gameObject,
+                                teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
+                                falloffModel = BlastAttack.FalloffModel.None,
+                                baseDamage = body.damage * Modules.StaticValues.blacklightningDamageCoefficient,
+                                damageType = DamageType.Shock5s,
+                                damageColorIndex = DamageColorIndex.WeakPoint,
+                                baseForce = 0,
+                                position = victimBody.transform.position,
+                                radius = Modules.StaticValues.blacklightningRadius * body.attackSpeed/2,
+                                procCoefficient = 1f,
+                                attackerFiltering = AttackerFiltering.NeverHitSelf,
+                            }.Fire();
+                            
+
+                        }
+                    }
                 }
             }
 

@@ -10,11 +10,13 @@ namespace RimuruMod.Modules
         // spatialmovement armor buff 
         internal static BuffDef SpatialMovementBuff;
         internal static BuffDef CritDebuff;
+        internal static BuffDef WetLightningDebuff;
 
         internal static void RegisterBuffs()
         {
             SpatialMovementBuff = AddNewBuff("SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
             CritDebuff = AddNewBuff("CritDebuff", Assets.critBuffIcon, Color.red, false, true);
+            WetLightningDebuff = AddNewBuff("WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
         }
 
         // simple helper method

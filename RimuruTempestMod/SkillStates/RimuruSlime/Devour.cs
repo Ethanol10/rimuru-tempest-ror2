@@ -4,28 +4,28 @@ using UnityEngine;
 
 namespace RimuruMod.SkillStates
 {
-    public class SlashCombo : BaseMeleeAttack
+    public class Devour : BaseMeleeAttack
     {
         public override void OnEnter()
         {
-            this.hitboxName = "Sword";
+            this.hitboxName = "Devour";
 
-            this.damageType = DamageType.Generic;
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
+            this.damageType = DamageType.BonusToLowHealth;
+            this.damageCoefficient = Modules.StaticValues.devourDamageCoefficient;
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
-            this.baseDuration = 1f;
-            this.attackStartTime = 0.2f;
-            this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.4f;
-            this.hitStopDuration = 0.012f;
-            this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 10f;
+            this.baseDuration = 0.5f;
+            this.attackStartTime = 0.1f;
+            this.attackEndTime = 0.25f;
+            this.baseEarlyExitTime = 0.25f;
+            this.hitStopDuration = 0.01f;
+            this.attackRecoil = 0.2f;
+            this.hitHopVelocity = 4f;
 
             this.swingSoundString = "RimuruSwordSwing";
             this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
+            this.muzzleString = "Spine";
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
             this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
 
@@ -51,15 +51,10 @@ namespace RimuruMod.SkillStates
 
         protected override void SetNextState()
         {
-            int index = this.swingIndex;
-            if (index == 0) index = 1;
-            else index = 0;
 
-            this.outer.SetNextState(new SlashCombo
+            this.outer.SetNextState(new Devour
             {
-                swingIndex = index
             });
-
         }
 
         public override void OnExit()

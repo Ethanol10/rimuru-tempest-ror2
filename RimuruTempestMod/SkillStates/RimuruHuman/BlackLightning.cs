@@ -18,8 +18,8 @@ namespace RimuruMod.SkillStates
         private bool beamPlay;
         private float radius = 10f;
         private float range = 60f;
-        private float damageCoefficient = 1f;
-        private float procCoefficient = 1f;
+        private float damageCoefficient = Modules.StaticValues.blacklightningDamageCoefficient;
+        private float procCoefficient = Modules.StaticValues.blacklightningProcCoefficient;
         private float force = 100f;
         private float fireTimer;
         public string muzzleString = "RWrist";
@@ -38,7 +38,7 @@ namespace RimuruMod.SkillStates
             base.OnEnter();
             updateAimRay();
             base.characterBody.SetAimTimer(2f);
-            damageType = DamageType.Generic;
+            damageType = DamageType.Shock5s;
             Rimurucon = gameObject.GetComponent<RimuruController>();
 
 
@@ -97,45 +97,43 @@ namespace RimuruMod.SkillStates
             };
         }
 
-        public bool laserHitCallback(BulletAttack bulletRef, ref BulletHit hitInfo)
-        {
-            var hurtbox = hitInfo.hitHurtBox;
-            if (hurtbox)
-            {
-                var healthComponent = hurtbox.healthComponent;
-                if (healthComponent)
-                {
-                    var body = healthComponent.body;
-                    if (body)
-                    {
-                        //Ray aimRay = base.GetAimRay();
-                        //EffectManager.SpawnEffect(Modules.Assets.xiconstructexplosionEffect, new EffectData
-                        //{
-                        //    origin = healthComponent.body.corePosition,
-                        //    scale = 1f,
-                        //    rotation = Quaternion.LookRotation(aimRay.direction)
+        //public bool laserHitCallback(BulletAttack bulletRef, ref BulletHit hitInfo)
+        //{
+        //    var hurtbox = hitInfo.hitHurtBox;
+        //    if (hurtbox)
+        //    {
+        //        var healthComponent = hurtbox.healthComponent;
+        //        if (healthComponent)
+        //        {
+        //            var body = healthComponent.body;
+        //            if (body)
+        //            {
+        //                new BlastAttack
+        //                {
+        //                    attacker = base.gameObject,
+        //                    teamIndex = TeamComponent.GetObjectTeam(base.gameObject),
+        //                    falloffModel = BlastAttack.FalloffModel.None,
+        //                    baseDamage = damageStat * Modules.StaticValues.blacklightningDamageCoefficient,
+        //                    damageType = DamageType.Shock5s,
+        //                    damageColorIndex = DamageColorIndex.Default,
+        //                    baseForce = 0,
+        //                    position = body.transform.position,
+        //                    radius = 1f,
+        //                    procCoefficient = 1f,
+        //                    attackerFiltering = AttackerFiltering.NeverHitSelf,
+        //                }.Fire();
 
-                        //}, true);
+        //                if (body.HasBuff(Modules.Buffs.WetLightningDebuff))
+        //                {
+        //                    body.RemoveBuff(Modules.Buffs.WetLightningDebuff);
 
-                        //blastAttack = new BlastAttack();
-                        //blastAttack.radius = radius;
-                        //blastAttack.procCoefficient = procCoefficient;
-                        //blastAttack.position = healthComponent.body.corePosition;
-                        //blastAttack.attacker = base.gameObject;
-                        //blastAttack.crit = base.RollCrit();
-                        //blastAttack.baseDamage = damageStat * damageCoefficient;
-                        //blastAttack.falloffModel = BlastAttack.FalloffModel.None;
-                        //blastAttack.baseForce = force;
-                        //blastAttack.teamIndex = TeamComponent.GetObjectTeam(blastAttack.attacker);
-                        //blastAttack.damageType = damageType;
-                        //blastAttack.attackerFiltering = AttackerFiltering.Default;
-
-                        //blastAttack.Fire();
-                    }
-                }
-            }
-            return false;
-        }
+        //                }
+                        
+        //            }
+        //        }
+        //    }
+        //    return false;
+        //}
         public override void Update()
         {
             base.Update();
