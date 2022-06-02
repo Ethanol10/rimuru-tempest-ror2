@@ -1,4 +1,5 @@
-﻿using RimuruMod.SkillStates.BaseStates;
+﻿using RimuruMod.Modules.Survivors;
+using RimuruMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ namespace RimuruMod.SkillStates
 {
     public class SlashCombo : BaseMeleeAttack
     {
+        public RimuruController Rimurucon;
+        public RimuruMasterController Rimurumastercon;
+        public HurtBox Target;
         public override void OnEnter()
         {
             this.hitboxName = "Sword";
@@ -31,6 +35,12 @@ namespace RimuruMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
+            Rimurucon = base.GetComponent<RimuruController>();
+            Rimurumastercon = characterBody.master.gameObject.GetComponent<RimuruMasterController>();
+            if (Rimurucon && base.isAuthority)
+            {
+                Target = Rimurucon.GetTrackingTarget();
+            }
             base.OnEnter();
         }
 
@@ -55,11 +65,37 @@ namespace RimuruMod.SkillStates
             if (index == 0) index = 1;
             else index = 0;
 
-            this.outer.SetNextState(new SlashCombo
+            if (Target)
             {
-                swingIndex = index
-            });
+                float num = 10f;
+                if (!base.isGrounded)
+                {
+                    num = 7f;
+                }
+                float num2 = Vector3.Distance(base.transform.position, Target.transform.position);
+                if (num2 >= num)
+                {
+                    this.outer.SetNextState(new DashAttack
+                    {
 
+                    });
+                }
+                else
+                {
+                    this.outer.SetNextState(new SlashCombo
+                    {
+                        swingIndex = index
+                    });
+
+                }
+            }
+            else if (!Target)
+            {
+                this.outer.SetNextState(new SlashCombo
+                {
+                    swingIndex = index
+                });
+            }
         }
 
         public override void OnExit()

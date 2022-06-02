@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using R2API.Networking;
 
 namespace RimuruMod.Modules.Survivors
 {
@@ -21,47 +22,48 @@ namespace RimuruMod.Modules.Survivors
 		private CharacterMaster characterMaster;
 		private CharacterBody characterBody;
 
-		public bool alphacontructpassiveDef;
-		public bool beetlepassiveDef;
-		public bool pestpassiveDef;
-		public bool verminpassiveDef;
-		public bool guppassiveDef;
-		public bool hermitcrabpassiveDef;
-		public bool larvapassiveDef;
-		public bool lesserwisppassiveDef;
-		public bool lunarexploderpassiveDef;
-		public bool minimushrumpassiveDef;
-		public bool roboballminibpassiveDef;
-		public bool voidbarnaclepassiveDef;
-		public bool voidjailerpassiveDef;
-		public bool impbosspassiveDef;
-		public bool stonetitanpassiveDef;
-		public bool magmawormpassiveDef;
-		public bool overloadingwormpassiveDef;
 
-		public bool alloyvultureflyDef;
-		public bool beetleguardslamDef;
-		public bool bisonchargeDef;
-		public bool bronzongballDef;
-		public bool clayapothecarymortarDef;
-		public bool claytemplarminigunDef;
-		public bool greaterwispballDef;
-		public bool impblinkDef;
-		public bool jellyfishnovaDef;
-		public bool lemurianfireballDef;
-		public bool lunargolemshotsDef;
-		public bool lunarwispminigunDef;
-		public bool parentteleportDef;
-		public bool stonegolemlaserDef;
-		public bool voidreaverportalDef;
-		public bool beetlequeenshotgunDef;
-		public bool grandparentsunDef;
-		public bool grovetenderhookDef;
-		public bool claydunestriderballDef;
-		public bool soluscontrolunityknockupDef;
-		public bool xiconstructbeamDef;
-		public bool voiddevastatorhomingDef;
-		public bool scavengerthqwibDef;
+		public bool alloyvulture;
+		public bool alphacontruct;
+		public bool beetle;
+		public bool beetleguard;
+		public bool blindpest;
+		public bool blindvermin;
+		public bool bison;
+		public bool bronzong;
+		public bool clayapothecary;
+		public bool claytemplar;
+		public bool greaterwisp;
+		public bool gup;
+		public bool hermitcrab;
+		public bool imp;
+		public bool jellyfish;
+		public bool larva;
+		public bool lemurian;
+		public bool lesserwisp;
+		public bool lunarexploder;
+		public bool lunargolem;
+		public bool lunarwisp;
+		public bool minimushrum;
+		public bool parent;
+		public bool roboballminib;
+		public bool stonegolem;
+		public bool voidbarnacle;
+		public bool voidjailer;
+		public bool voidreaver;
+
+		public bool beetlequeen;
+		public bool claydunestrider;
+		public bool grandparent;
+		public bool grovetender;
+		public bool impboss;
+		public bool magmaworm;
+		public bool overloadingworm;
+		public bool scavenger;
+		public bool soluscontrolunit;
+		public bool stonetitan;
+		public bool voiddevastator;
+		public bool xiconstruct;
 
 
 
@@ -69,50 +71,49 @@ namespace RimuruMod.Modules.Survivors
 		{
 
 			On.RoR2.CharacterBody.Start += CharacterBody_Start;
+			On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
 			//On.RoR2.Run.Start += Run_Start;
-			alphacontructpassiveDef = false;
-			beetlepassiveDef = false;
-			pestpassiveDef = false;
-			verminpassiveDef = false;
-			guppassiveDef = false;
-			hermitcrabpassiveDef = false;
-			larvapassiveDef = false;
-			lesserwisppassiveDef = false;
-			lunarexploderpassiveDef = false;
-			minimushrumpassiveDef = false;
-			roboballminibpassiveDef = false;
-			voidbarnaclepassiveDef = false;
-			voidjailerpassiveDef = false;
+			alloyvulture = false;
+			 alphacontruct = false;
+			 beetle = false;
+			 beetleguard = false;
+			 blindpest = false;
+			 blindvermin = false;
+			 bison = false;
+			 bronzong = false;
+			 clayapothecary = false;
+			 claytemplar = false;
+			 greaterwisp = false;
+			 gup = false;
+			 hermitcrab = false;
+			 imp = false;
+			 jellyfish = false;
+			 larva = false;
+			 lemurian = false;
+			 lesserwisp = false;
+			 lunarexploder = false;
+			 lunargolem = false;
+			 lunarwisp = false;
+			 minimushrum = false;
+			 parent = false;
+			 roboballminib = false;
+			 stonegolem = false;
+			 voidbarnacle = false;
+			 voidjailer = false;
+			 voidreaver = false;
 
-			impbosspassiveDef = false;
-			stonetitanpassiveDef = false;
-			magmawormpassiveDef = false;
-			overloadingwormpassiveDef = false;
-
-
-			alloyvultureflyDef = false;
-			beetleguardslamDef = false;
-			bisonchargeDef = false;
-			bronzongballDef = false;
-			clayapothecarymortarDef = false;
-			claytemplarminigunDef = false;
-			greaterwispballDef = false;
-			impblinkDef = false;
-			jellyfishnovaDef = false;
-			lemurianfireballDef = false;
-			lunargolemshotsDef = false;
-			lunarwispminigunDef = false;
-			parentteleportDef = false;
-			stonegolemlaserDef = false;
-			voidreaverportalDef = false;
-
-			beetlequeenshotgunDef = false;
-			grovetenderhookDef = false;
-			claydunestriderballDef = false;
-			soluscontrolunityknockupDef = false;
-			xiconstructbeamDef = false;
-			voiddevastatorhomingDef = false;
-			scavengerthqwibDef = false;
+			 beetlequeen = false;
+			 claydunestrider = false;
+			 grandparent = false;
+			 grovetender = false;
+			 impboss = false;
+			 magmaworm = false;
+			 overloadingworm = false;
+			 scavenger = false;
+			 soluscontrolunit = false;
+			 stonetitan = false;
+			 voiddevastator = false;
+			 xiconstruct = false;
 
 		}
 
@@ -138,49 +139,47 @@ namespace RimuruMod.Modules.Survivors
 			Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
 			Rimurucon = characterBody.gameObject.GetComponent<RimuruController>();
 
-			alphacontructpassiveDef = false;
-			beetlepassiveDef = false;
-			pestpassiveDef = false;
-			verminpassiveDef = false;
-			guppassiveDef = false;
-			hermitcrabpassiveDef = false;
-			larvapassiveDef = false;
-			lesserwisppassiveDef = false;
-			lunarexploderpassiveDef = false;
-			minimushrumpassiveDef = false;
-			roboballminibpassiveDef = false;
-			voidbarnaclepassiveDef = false;
-			voidjailerpassiveDef = false;
+			alloyvulture = false;
+			alphacontruct = false;
+			beetle = false;
+			beetleguard = false;
+			blindpest = false;
+			blindvermin = false;
+			bison = false;
+			bronzong = false;
+			clayapothecary = false;
+			claytemplar = false;
+			greaterwisp = false;
+			gup = false;
+			hermitcrab = false;
+			imp = false;
+			jellyfish = false;
+			larva = false;
+			lemurian = false;
+			lesserwisp = false;
+			lunarexploder = false;
+			lunargolem = false;
+			lunarwisp = false;
+			minimushrum = false;
+			parent = false;
+			roboballminib = false;
+			stonegolem = false;
+			voidbarnacle = false;
+			voidjailer = false;
+			voidreaver = false;
 
-			impbosspassiveDef = false;
-			stonetitanpassiveDef = false;
-			magmawormpassiveDef = false;
-			overloadingwormpassiveDef = false;
-
-
-			alloyvultureflyDef = false;
-			beetleguardslamDef = false;
-			bisonchargeDef = false;
-			bronzongballDef = false;
-			clayapothecarymortarDef = false;
-			claytemplarminigunDef = false;
-			greaterwispballDef = false;
-			impblinkDef = false;
-			jellyfishnovaDef = false;
-			lemurianfireballDef = false;
-			lunargolemshotsDef = false;
-			lunarwispminigunDef = false;
-			parentteleportDef = false;
-			stonegolemlaserDef = false;
-			voidreaverportalDef = false;
-
-			beetlequeenshotgunDef = false;
-			grovetenderhookDef = false;
-			claydunestriderballDef = false;
-			soluscontrolunityknockupDef = false;
-			xiconstructbeamDef = false;
-			voiddevastatorhomingDef = false;
-			scavengerthqwibDef = false;
+			beetlequeen = false;
+			claydunestrider = false;
+			grandparent = false;
+			grovetender = false;
+			impboss = false;
+			magmaworm = false;
+			overloadingworm = false;
+			scavenger = false;
+			soluscontrolunit = false;
+			stonetitan = false;
+			voiddevastator = false;
+			xiconstruct = false;
 		}
 
 
@@ -191,6 +190,14 @@ namespace RimuruMod.Modules.Survivors
 
 			if (self.master.gameObject.GetComponent<RimuruMasterController>())
             {
+				if(beetle == true)
+                {
+					self.AddBuff(Modules.Buffs.BeetleBuff);
+                }
+				if(lemurian == true)
+                {
+					self.AddBuff(Modules.Buffs.LemurianBuff);
+                }
 
             }
         }
@@ -198,11 +205,94 @@ namespace RimuruMod.Modules.Survivors
 
 		public void FixedUpdate()
 		{
-			characterMaster = gameObject.GetComponent<CharacterMaster>();
-			CharacterBody self = characterMaster.GetBody();
-
 
 		}
 
+		private void GlobalEventManager_OnCharacterDeath(On.RoR2.GlobalEventManager.orig_OnCharacterDeath orig, GlobalEventManager self, DamageReport damageReport)
+		{
+			orig.Invoke(self, damageReport);
+			//devour check
+			if (damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+			{
+				if (damageReport.attackerBody && damageReport.victimBody)
+				{
+					if (damageReport.attackerBody == characterBody)
+					{
+						if (damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
+						{
+							var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
+							GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
+							if (newbodyPrefab.name == "BeetleBody")
+							{
+								Chat.AddMessage("<style=cIsUtility>Beetle Skill</style> aquisition successful.");
+								SetEverythingFalse();
+
+								characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
+
+								beetle = true;
+							}
+							if (newbodyPrefab.name == "LemurianBody")
+							{
+								Chat.AddMessage("<style=cIsUtility>Lemurian Skill</style> aquisition successful.");
+								SetEverythingFalse();
+
+								characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
+								lemurian = true;
+							}
+						}
+
+					}
+				}
+
+
+			}
+
+		}
+
+		public void SetEverythingFalse()
+		{
+			alloyvulture = false;
+			alphacontruct = false;
+			beetle = false;
+			beetleguard = false;
+			blindpest = false;
+			blindvermin = false;
+			bison = false;
+			bronzong = false;
+			clayapothecary = false;
+			claytemplar = false;
+			greaterwisp = false;
+			gup = false;
+			hermitcrab = false;
+			imp = false;
+			jellyfish = false;
+			larva = false;
+			lemurian = false;
+			lesserwisp = false;
+			lunarexploder = false;
+			lunargolem = false;
+			lunarwisp = false;
+			minimushrum = false;
+			parent = false;
+			roboballminib = false;
+			stonegolem = false;
+			voidbarnacle = false;
+			voidjailer = false;
+			voidreaver = false;
+
+			beetlequeen = false;
+			claydunestrider = false;
+			grandparent = false;
+			grovetender = false;
+			impboss = false;
+			magmaworm = false;
+			overloadingworm = false;
+			scavenger = false;
+			soluscontrolunit = false;
+			stonetitan = false;
+			voiddevastator = false;
+			xiconstruct = false;
+
+		}
 	}
 }
