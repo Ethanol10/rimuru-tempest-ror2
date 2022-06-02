@@ -1,7 +1,5 @@
 ﻿using RimuruMod.SkillStates;
 using RimuruMod.SkillStates.BaseStates;
-using System.Collections.Generic;
-using System;
 
 namespace RimuruMod.Modules
 {
@@ -19,7 +17,7 @@ namespace RimuruMod.Modules
             Modules.Content.AddEntityState(typeof(TransformHuman));
             Modules.Content.AddEntityState(typeof(TransformSlime));
 
-            Modules.Content.AddEntityState(typeof(ThrowBomb));
+            Modules.Content.AddEntityState(typeof(Waterblade));
         }
     }
 }
