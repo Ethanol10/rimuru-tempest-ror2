@@ -26,7 +26,7 @@ namespace RimuruMod.SkillStates
         //public LoopSoundDef loopSoundDef = Modules.Assets.xiconstructsound;
         //private LoopSoundManager.SoundLoopPtr loopPtr;
 
-        private GameObject blacklightning;
+        private GameObject blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
         private ParticleSystem mainBlacklightning;
         private BulletAttack attack;
         private BlastAttack blastAttack;
@@ -56,7 +56,6 @@ namespace RimuruMod.SkillStates
 
             base.characterBody.SetAimTimer(2f);
 
-            blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
             //mainBlacklightning.Stop();
             beamPlay = false;
 
@@ -133,7 +132,7 @@ namespace RimuruMod.SkillStates
         {
             base.Update();
             updateAimRay();
-            if(blacklightning)
+            if(beamPlay)
             {
                 base.characterDirection.forward = aimRay.direction;
                 blacklightning.transform.position = FindModelChild(this.muzzleString).transform.position;

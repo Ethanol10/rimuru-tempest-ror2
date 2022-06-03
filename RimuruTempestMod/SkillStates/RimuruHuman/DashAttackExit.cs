@@ -15,6 +15,10 @@ namespace RimuruMod.SkillStates
             this.hitboxName = "Sword";
 
             this.damageType = DamageType.Generic;
+            if (base.characterBody.HasBuff(Modules.Buffs.LemurianBuff))
+            {
+                damageType |= DamageType.IgniteOnHit;
+            }
             this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
             this.procCoefficient = 1f;
             this.pushForce = 300f;

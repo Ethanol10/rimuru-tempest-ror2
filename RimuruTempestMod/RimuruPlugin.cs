@@ -103,7 +103,7 @@ namespace RimuruMod
                 var victimBody = victim.GetComponent<CharacterBody>();
                 if (body && victimBody)
                 {
-                    //wet and shock interaction
+                    //shock on wet interaction
                     if (victimBody.HasBuff(Modules.Buffs.WetDebuff) && !victimBody.HasBuff(Modules.Buffs.WetLightningDebuff))
                     {
                         if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
@@ -134,7 +134,7 @@ namespace RimuruMod
 
                         }
                     }
-                    //wet and fire interaction
+                    //fire on wet interaction
                     if (victimBody.HasBuff(Modules.Buffs.WetDebuff))
                     {
                         if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.IgniteOnHit)
@@ -165,14 +165,36 @@ namespace RimuruMod
 
                         }
                     }
-                    //fire buff
-                    if (body.HasBuff(Modules.Buffs.LemurianBuff))
+                    //lightning on fire interaction
+                    if (victimBody.HasBuff(RoR2Content.Buffs.OnFire))
                     {
-                        if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
                         {
-                            damageInfo.damageType |= DamageType.IgniteOnHit;
-                        }
+                            int buffcount = victimBody.GetBuffCount(RoR2Content.Buffs.OnFire);
 
+                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            {
+                                origin = victimBody.transform.position,
+                                scale = Modules.StaticValues.lemurianfireRadius/5 * buffcount
+                            }, true);
+
+                            new BlastAttack
+                            {
+                                attacker = damageInfo.attacker.gameObject,
+                                teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
+                                falloffModel = BlastAttack.FalloffModel.None,
+                                baseDamage = body.damage * buffcount,
+                                damageType = DamageType.Stun1s,
+                                damageColorIndex = DamageColorIndex.WeakPoint,
+                                baseForce = 0,
+                                position = victimBody.transform.position,
+                                radius = Modules.StaticValues.lemurianfireRadius/5 * buffcount,
+                                procCoefficient = 1f,
+                                attackerFiltering = AttackerFiltering.NeverHitSelf,
+                            }.Fire();
+
+
+                        }
                     }
 
                 }

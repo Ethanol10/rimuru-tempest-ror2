@@ -249,8 +249,11 @@ namespace RimuruMod.Modules.Survivors
 
 		public void SetEverythingFalse(CharacterBody characterBody)
 		{
-			characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
-			characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
+			//characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
+			//characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
+
+			characterBody.RemoveBuff(Buffs.BeetleBuff);
+			characterBody.RemoveBuff(Buffs.LemurianBuff);
 
 			alloyvulture = false;
 			alphacontruct = false;

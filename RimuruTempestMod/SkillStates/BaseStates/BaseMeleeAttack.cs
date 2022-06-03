@@ -49,6 +49,7 @@ namespace RimuruMod.SkillStates.BaseStates
         public override void OnEnter()
         {
             base.OnEnter();
+
             this.duration = this.baseDuration / this.attackSpeedStat;
             this.earlyExitTime = this.baseEarlyExitTime / this.attackSpeedStat;
             this.hasFired = false;
