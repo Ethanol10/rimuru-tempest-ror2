@@ -7,17 +7,16 @@ namespace RimuruMod.SkillStates
 {
     public class TransformSlime : BaseSkillState
     {
-        private CharacterBody oldBody;
-        private float oldHealth;
+        public CharacterBody oldBody;
+        public float oldHealth;
 
         public override void OnEnter()
         {
             base.OnEnter();
             oldBody = base.characterBody;
-            oldHealth = oldBody.healthComponent.health / oldBody.healthComponent.fullHealth;
-            Debug.Log(oldHealth);
-
+            oldHealth = oldBody.healthComponent.health;
             characterBody.master.TransformBody("RimuruHumanBody");
+
 
         }
 
@@ -36,10 +35,7 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            characterMotor.velocity = oldBody.characterMotor.velocity;
-
-            characterBody.healthComponent.health = oldHealth * characterBody.healthComponent.fullHealth;
-            Debug.Log(characterBody.healthComponent.health);
+            characterBody.master.GetBody().healthComponent.health = oldHealth;
 
         }
 

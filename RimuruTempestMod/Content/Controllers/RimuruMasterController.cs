@@ -216,32 +216,30 @@ namespace RimuruMod.Modules.Survivors
 			{
 				if (damageReport.attackerBody && damageReport.victimBody)
 				{
-					if (damageReport.attackerBody == characterBody)
+					if (damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					{
-						if (damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
+						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
+						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
+						if (newbodyPrefab.name == "BeetleBody")
 						{
-							var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
-							GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
-							if (newbodyPrefab.name == "BeetleBody")
-							{
-								Chat.AddMessage("<style=cIsUtility>Beetle Skill</style> aquisition successful.");
-								SetEverythingFalse();
+							Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+							SetEverythingFalse(damageReport.attackerBody);
 
-								characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
+							damageReport.attackerBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
 
-								beetle = true;
-							}
-							if (newbodyPrefab.name == "LemurianBody")
-							{
-								Chat.AddMessage("<style=cIsUtility>Lemurian Skill</style> aquisition successful.");
-								SetEverythingFalse();
-
-								characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
-								lemurian = true;
-							}
+							beetle = true;
 						}
+						if (newbodyPrefab.name == "LemurianBody")
+						{
+							Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
+							SetEverythingFalse(damageReport.attackerBody);
 
+							damageReport.attackerBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
+							lemurian = true;
+						}
 					}
+
+					
 				}
 
 
@@ -249,7 +247,7 @@ namespace RimuruMod.Modules.Survivors
 
 		}
 
-		public void SetEverythingFalse()
+		public void SetEverythingFalse(CharacterBody characterBody)
 		{
 			characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
 			characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);

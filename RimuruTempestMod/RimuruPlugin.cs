@@ -134,6 +134,47 @@ namespace RimuruMod
 
                         }
                     }
+                    //wet and fire interaction
+                    if (victimBody.HasBuff(Modules.Buffs.WetDebuff))
+                    {
+                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.IgniteOnHit)
+                        {
+                            victimBody.ApplyBuff(Modules.Buffs.WetDebuff.buffIndex, 0, 0);
+
+                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            {
+                                origin = victimBody.transform.position,
+                                scale = Modules.StaticValues.lemurianfireRadius * body.attackSpeed / 2
+                            }, true);
+
+                            new BlastAttack
+                            {
+                                attacker = damageInfo.attacker.gameObject,
+                                teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
+                                falloffModel = BlastAttack.FalloffModel.None,
+                                baseDamage = body.damage * Modules.StaticValues.lemurianfireDamageCoefficient,
+                                damageType = DamageType.IgniteOnHit,
+                                damageColorIndex = DamageColorIndex.WeakPoint,
+                                baseForce = 0,
+                                position = victimBody.transform.position,
+                                radius = Modules.StaticValues.lemurianfireRadius * body.attackSpeed / 2,
+                                procCoefficient = 1f,
+                                attackerFiltering = AttackerFiltering.NeverHitSelf,
+                            }.Fire();
+
+
+                        }
+                    }
+                    //fire buff
+                    if (body.HasBuff(Modules.Buffs.LemurianBuff))
+                    {
+                        if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                        {
+                            damageInfo.damageType |= DamageType.IgniteOnHit;
+                        }
+
+                    }
+
                 }
             }
 
@@ -150,6 +191,10 @@ namespace RimuruMod
                 if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
                 {
                     self.armor += 300f;
+                }
+                if (self.HasBuff(Modules.Buffs.BeetleBuff))
+                {
+                    self.damage *= 1.5f;
                 }
             }
         }

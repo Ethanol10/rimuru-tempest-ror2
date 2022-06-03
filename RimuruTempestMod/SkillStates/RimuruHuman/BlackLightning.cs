@@ -56,6 +56,7 @@ namespace RimuruMod.SkillStates
 
             base.characterBody.SetAimTimer(2f);
 
+            blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
             //mainBlacklightning.Stop();
             beamPlay = false;
 
@@ -132,9 +133,13 @@ namespace RimuruMod.SkillStates
         {
             base.Update();
             updateAimRay();
-            base.characterDirection.forward = aimRay.direction;
-            blacklightning.transform.position = FindModelChild(this.muzzleString).transform.position;
-            blacklightning.transform.rotation = Quaternion.LookRotation(aimRay.direction);
+            if(blacklightning)
+            {
+                base.characterDirection.forward = aimRay.direction;
+                blacklightning.transform.position = FindModelChild(this.muzzleString).transform.position;
+                blacklightning.transform.rotation = Quaternion.LookRotation(aimRay.direction);
+
+            }
         }
         public void updateAimRay()
         {
@@ -165,7 +170,6 @@ namespace RimuruMod.SkillStates
                 {
                     if (!beamPlay)
                     {
-                        blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
                         if (NetworkServer.active)
                         {
                             NetworkServer.Spawn(blacklightning);

@@ -4,17 +4,19 @@ namespace RimuruMod.Modules
 {
     internal static class StaticValues
     {
+        //melee attacks
         internal const float swordDamageCoefficient = 2f;
         internal const float devourDamageCoefficient = 1.5f;
 
-        internal const float gunDamageCoefficient = 4.2f;
+        //blacklightning
         internal const float blacklightningDamageCoefficient = 1f;
         internal const float blacklightningProcCoefficient = 0.5f;
         internal const float blacklightningRadius = 10f;
 
-        internal const float bombDamageCoefficient = 16f;
-
+        //spatial movement
         internal const int spatialmovementbuffDuration = 3;
+
+        //analyze
         internal const int analyzedebuffDuration = 6;
 
         //Waterblade parameters
@@ -25,5 +27,10 @@ namespace RimuruMod.Modules
 
         //Wet debuff Params
         internal const float wetDebuffLen = 6.0f;
+
+        //lemurian fire buff
+        internal const float lemurianfireDamageCoefficient = 6f;
+        internal const float lemurianfireProcCoefficient = 1f;
+        internal const float lemurianfireRadius = 15f;
     }
 }

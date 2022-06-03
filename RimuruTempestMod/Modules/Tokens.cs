@@ -43,7 +43,7 @@ namespace RimuruMod.Modules
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Handgun");
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Helpers.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * StaticValues.gunDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Helpers.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * StaticValues.waterbladeDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Utility
@@ -53,7 +53,7 @@ namespace RimuruMod.Modules
 
             #region Special
             LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Bomb");
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", $"Throw a bomb for <style=cIsDamage>{100f * StaticValues.bombDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", $"Throw a bomb for <style=cIsDamage>{100f * StaticValues.waterbladeDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Achievements
