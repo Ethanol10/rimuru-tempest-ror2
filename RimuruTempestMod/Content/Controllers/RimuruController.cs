@@ -17,6 +17,7 @@ namespace RimuruMod.Modules.Survivors
     public class RimuruController : MonoBehaviour
     {
         string prefix = RimuruSlime.RIMURU_PREFIX;
+        public GameObject devoureffectObj;
 
         public float strengthMultiplier;
         public float rangedMultiplier;
@@ -60,6 +61,11 @@ namespace RimuruMod.Modules.Survivors
         public void Awake()
         {
             child = GetComponentInChildren<ChildLocator>();
+
+            if (devoureffectObj)
+            {
+                Destroy(devoureffectObj);
+            }
 
             indicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/HuntressTrackingIndicator"));
             //On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
@@ -118,8 +124,39 @@ namespace RimuruMod.Modules.Survivors
             CheckBuffs();
 
 
+            //devour effect
+            if (characterBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+            {
+                if (characterBody.inputBank.skill1.down)
+                {
+                    if (!devoureffectObj)
+                    {
+                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, this.transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                    }
+
+                }
+                else
+                {
+                    if (devoureffectObj)
+                    {
+                        Destroy(devoureffectObj);
+                    }
+
+                }
+
+            }
+
         }
 
+
+        public void Update()
+        {
+            if (devoureffectObj)
+            {
+                devoureffectObj.transform.position = characterBody.transform.position;
+                devoureffectObj.transform.rotation = Quaternion.LookRotation(characterBody.characterDirection.forward);
+            }
+        }
         public void CheckBuffs()
         {
             if (Rimurumastercon.beetle)
@@ -152,6 +189,11 @@ namespace RimuruMod.Modules.Survivors
             this.search.RefreshCandidates();
             this.search.FilterOutGameObject(base.gameObject);
             this.trackingTarget = this.search.GetResults().FirstOrDefault<HurtBox>();
+        }
+
+        public void OnDestroy()
+        {
+            Destroy(devoureffectObj);
         }
 
     }
