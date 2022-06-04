@@ -130,7 +130,7 @@ namespace RimuruMod.Modules.Survivors
                 {
                     if (!devoureffectObj)
                     {
-                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, characterBody.corePosition, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
                     }
 
                 }
@@ -152,7 +152,7 @@ namespace RimuruMod.Modules.Survivors
         {
             if (devoureffectObj)
             {
-                devoureffectObj.transform.position = characterBody.corePosition;
+                devoureffectObj.transform.position = child.FindChild("Spine").transform.position;
                 devoureffectObj.transform.rotation = Quaternion.LookRotation(characterBody.characterDirection.forward);
             }
         }
