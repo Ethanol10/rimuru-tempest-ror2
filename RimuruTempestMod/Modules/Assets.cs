@@ -21,6 +21,7 @@ namespace RimuruMod.Modules
         internal static GameObject swordSwingEffect;
         internal static GameObject swordHitImpactEffect;
         internal static GameObject blacklightning;
+        internal static GameObject devour;
         internal static List<GameObject> networkObjDefs = new List<GameObject>();
 
         internal static GameObject bombExplosionEffect;
@@ -140,6 +141,11 @@ namespace RimuruMod.Modules
             blacklightning.AddComponent<NetworkIdentity>();
             networkObjDefs.Add(blacklightning);
             PrefabAPI.RegisterNetworkPrefab(blacklightning);
+            //devour effect
+            devour = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
+            devour.AddComponent<NetworkIdentity>();
+            networkObjDefs.Add(devour);
+            PrefabAPI.RegisterNetworkPrefab(devour);
 
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 

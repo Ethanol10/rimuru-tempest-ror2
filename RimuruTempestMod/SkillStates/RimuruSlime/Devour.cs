@@ -1,11 +1,15 @@
-﻿using RimuruMod.SkillStates.BaseStates;
+﻿using RimuruMod.Modules.Survivors;
+using RimuruMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RimuruMod.SkillStates
 {
     public class Devour : BaseMeleeAttack
     {
+        private GameObject devour = UnityEngine.Object.Instantiate(Modules.Assets.devour);
+        private ParticleSystem mainDevour;
         public override void OnEnter()
         {
             this.hitboxName = "Devour";
@@ -31,16 +35,29 @@ namespace RimuruMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
+            if (NetworkServer.active)
+            {
+                NetworkServer.Spawn(devour);
+            }
+            mainDevour = devour.GetComponent<ParticleSystem>();
+            mainDevour.Play();
+
         }
 
+        public override void Update()
+        {
+            base.Update();
+            devour.transform.position = FindModelChild(this.muzzleString).transform.position;
+            devour.transform.rotation = Quaternion.LookRotation(base.characterDirection.forward);            
+        }
         protected override void PlayAttackAnimation()
         {
-            base.PlayAttackAnimation();
+
         }
 
         protected override void PlaySwingEffect()
         {
-            base.PlaySwingEffect();
+
         }
 
         protected override void OnHitEnemyAuthority()
@@ -59,6 +76,16 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            if (!base.IsKeyDownAuthority())
+            {
+                mainDevour.Stop();
+                if (NetworkServer.active)
+                {
+                    NetworkServer.Destroy(devour);
+                }
+
+            }
         }
     }
 }

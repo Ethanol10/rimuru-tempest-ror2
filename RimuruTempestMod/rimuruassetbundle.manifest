@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2131291749
+CRC: 2812404081
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a69853354f50386f80db77a96e08dc7c
+    Hash: d13cda4077e68c23e1a25f6482da9509
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -155,6 +155,7 @@ Assets:
 - Assets/HenryAssets/Animation/maskLeftArm.mask
 - Assets/HenryAssets/Textures/Mesh/MeshHenryGun.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_AAIdle.anim
+- Assets/Rimuru/Assets/VFX/Devour.prefab
 - Assets/HenryAssets/Animation/clips/DescendFast.anim
 - Assets/HenryAssets/HenryBazookaRocketGhost.prefab
 - Assets/HenryAssets/Icons/texScepterSpecialIcon.png
@@ -206,6 +207,7 @@ Assets:
 - Assets/HenryAssets/Textures/Mesh/meshHenrySword.mesh
 - Assets/HenryAssets/VFX/Materials/matEmbers.mat
 - Assets/HenryAssets/Animation/clips/AimYaw.anim
+- Assets/Rimuru/Assets/VFX/Devour3.prefab
 - Assets/HenryAssets/HenryBombGhost.prefab
 - Assets/HenryAssets/Textures/Mesh/meshPistol.mesh
 - Assets/HenryAssets/Icons/texStingerIcon.png
@@ -241,6 +243,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
+- Assets/Rimuru/Assets/VFX/Devour2.prefab
 - Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
 - Assets/HenryAssets/VFX/Textures/texSlash.png
 - Assets/HenryAssets/Icons/texSpecialIcon.png

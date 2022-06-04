@@ -68,7 +68,16 @@ namespace RimuruMod.SkillStates
                 swingIndex = index
             });
         }
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
 
+            if (this.stopwatch >= this.duration && base.isAuthority)
+            {
+                this.outer.SetNextStateToMain();
+                return;
+            }
+        }
         public override void OnExit()
         {
             base.OnExit();

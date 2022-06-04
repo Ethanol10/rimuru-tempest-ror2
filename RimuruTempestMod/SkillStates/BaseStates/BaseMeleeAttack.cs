@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using RimuruMod.Modules.Survivors;
 using RoR2;
 using RoR2.Audio;
 using System;
@@ -45,6 +46,8 @@ namespace RimuruMod.SkillStates.BaseStates
         protected Animator animator;
         private BaseState.HitStopCachedState hitStopCachedState;
         private Vector3 storedVelocity;
+
+        public RimuruController Rimurucon;
 
         public override void OnEnter()
         {
