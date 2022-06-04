@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1387120685
+CRC: 4107951518
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 59a1fd5b126e145c767f50d72db2ca88
+    Hash: 98798b66dacbb117793e83d98e797725
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -151,6 +151,7 @@ Assets:
 - Assets/HenryAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/HenryAssets/Materials/matDante.mat
 - Assets/Rimuru/Assets/VFX/SecondaryBeam.prefab
+- Assets/Rimuru/Assets/Animation/Human/Run.anim
 - Assets/Rimuru/Assets/VFX/Material/blacklightning.mat
 - Assets/HenryAssets/Animation/maskLeftArm.mask
 - Assets/HenryAssets/Textures/Mesh/MeshHenryGun.mesh
@@ -210,6 +211,7 @@ Assets:
 - Assets/HenryAssets/Animation/clips/AimYaw.anim
 - Assets/Rimuru/Assets/VFX/Devour3.prefab
 - Assets/HenryAssets/HenryBombGhost.prefab
+- Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/HenryAssets/Textures/Mesh/meshPistol.mesh
 - Assets/HenryAssets/Icons/texStingerIcon.png
 - Assets/HenryAssets/Textures/texHenryVergil.png
@@ -233,6 +235,7 @@ Assets:
 - Assets/HenryAssets/VFX/Materials/matFire.mat
 - Assets/HenryAssets/Icons/texGrandMasteryAchievement.png
 - Assets/HenryAssets/Animation/maskBandana.mask
+- Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/HenryAssets/Animation/clips/MenuIdle.anim
 - Assets/HenryAssets/Materials/matBazooka.mat
 - Assets/HenryAssets/VFX/HenrySwordSwingEffect.prefab
