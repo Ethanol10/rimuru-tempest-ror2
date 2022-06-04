@@ -8,6 +8,8 @@ using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Networking;
+using EmotesAPI;
+using BepInEx.Bootstrap;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -15,6 +17,7 @@ using R2API.Networking;
 namespace RimuruMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
     [R2APISubmoduleDependency(new string[]
@@ -56,8 +59,8 @@ namespace RimuruMod
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
 
             // survivor initialization
-            new RimuruHuman().Initialize();
-            new RimuruSlime().Initialize();
+            new RimuruHuman().Initialize(false);
+            new RimuruSlime().Initialize(true);
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
@@ -71,9 +74,28 @@ namespace RimuruMod
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
-            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage; 
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+
+            if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
+            {
+                On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
+            }
         }
 
+
+        //EMOTES
+        private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
+        {
+            orig();
+            foreach (var item in SurvivorCatalog.allSurvivorDefs)
+            {
+                Debug.Log(item.bodyPrefab.name);
+                if (item.bodyPrefab.name == "ShiggyBody")
+                {
+                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("EmoteRimuru"));
+                }
+            }
+        }
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
@@ -154,7 +176,7 @@ namespace RimuruMod
                                 falloffModel = BlastAttack.FalloffModel.None,
                                 baseDamage = body.damage * Modules.StaticValues.lemurianfireDamageCoefficient,
                                 damageType = DamageType.IgniteOnHit,
-                                damageColorIndex = DamageColorIndex.WeakPoint,
+                                damageColorIndex = DamageColorIndex.Fragile,
                                 baseForce = 0,
                                 position = victimBody.transform.position,
                                 radius = Modules.StaticValues.lemurianfireRadius * body.attackSpeed / 2,
@@ -175,7 +197,7 @@ namespace RimuruMod
                             EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                             {
                                 origin = victimBody.transform.position,
-                                scale = Modules.StaticValues.lemurianfireRadius/5 * buffcount
+                                scale = Modules.StaticValues.lemurianfireRadius/15 * buffcount
                             }, true);
 
                             new BlastAttack
@@ -188,7 +210,7 @@ namespace RimuruMod
                                 damageColorIndex = DamageColorIndex.WeakPoint,
                                 baseForce = 0,
                                 position = victimBody.transform.position,
-                                radius = Modules.StaticValues.lemurianfireRadius/5 * buffcount,
+                                radius = Modules.StaticValues.lemurianfireRadius/15 * buffcount,
                                 procCoefficient = 1f,
                                 attackerFiltering = AttackerFiltering.NeverHitSelf,
                             }.Fire();

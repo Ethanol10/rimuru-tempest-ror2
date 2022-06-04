@@ -24,13 +24,13 @@ namespace RimuruMod.Modules.Characters
         public virtual CharacterModel characterBodyModel { get; set; }
         public string fullBodyName => bodyName + "Body";
 
-        public virtual void Initialize()
+        public virtual void Initialize(bool isHidden)
         {
             instance = this;
-            InitializeCharacter();
+            InitializeCharacter(isHidden);
         }
 
-        public virtual void InitializeCharacter()
+        public virtual void InitializeCharacter(bool isHidden)
         {
             InitializeCharacterBodyAndModel();
             InitializeCharacterMaster();

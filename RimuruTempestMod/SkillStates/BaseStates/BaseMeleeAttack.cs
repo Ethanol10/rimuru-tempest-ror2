@@ -57,7 +57,8 @@ namespace RimuruMod.SkillStates.BaseStates
             this.earlyExitTime = this.baseEarlyExitTime / this.attackSpeedStat;
             this.hasFired = false;
             this.animator = base.GetModelAnimator();
-            base.StartAimMode(0.5f + this.duration, false);
+            Ray aimray = base.GetAimRay();
+            base.characterBody.SetAimTimer(0.5f + this.duration);
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
 

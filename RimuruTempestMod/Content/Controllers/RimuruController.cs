@@ -17,6 +17,7 @@ namespace RimuruMod.Modules.Survivors
     public class RimuruController : MonoBehaviour
     {
         string prefix = RimuruSlime.RIMURU_PREFIX;
+        public GameObject devoureffectObj;
 
         public float strengthMultiplier;
         public float rangedMultiplier;
@@ -60,6 +61,11 @@ namespace RimuruMod.Modules.Survivors
         public void Awake()
         {
             child = GetComponentInChildren<ChildLocator>();
+
+            if (devoureffectObj)
+            {
+                Destroy(devoureffectObj);
+            }
 
             indicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/HuntressTrackingIndicator"));
             //On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
@@ -115,31 +121,42 @@ namespace RimuruMod.Modules.Survivors
                 
             }
 
-            CheckBuffs();
 
+
+            //devour effect
+            if (characterBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+            {
+                if (characterBody.inputBank.skill1.down)
+                {
+                    if (!devoureffectObj)
+                    {
+                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, characterBody.corePosition, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                    }
+
+                }
+                else
+                {
+                    if (devoureffectObj)
+                    {
+                        Destroy(devoureffectObj);
+                    }
+
+                }
+
+            }
 
         }
 
-        public void CheckBuffs()
+
+        public void Update()
         {
-            if (Rimurumastercon.beetle)
+            if (devoureffectObj)
             {
-                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
+                devoureffectObj.transform.position = characterBody.corePosition;
+                devoureffectObj.transform.rotation = Quaternion.LookRotation(characterBody.characterDirection.forward);
             }
-            else
-            {
-                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
-            }
-            if (Rimurumastercon.lemurian)
-            {
-                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
-            }
-            else
-            {
-                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
-            }            
-
         }
+
         private void SearchForTarget(Ray aimRay)
         {
             this.search.teamMaskFilter = TeamMask.all;
@@ -152,6 +169,11 @@ namespace RimuruMod.Modules.Survivors
             this.search.RefreshCandidates();
             this.search.FilterOutGameObject(base.gameObject);
             this.trackingTarget = this.search.GetResults().FirstOrDefault<HurtBox>();
+        }
+
+        public void OnDestroy()
+        {
+            Destroy(devoureffectObj);
         }
 
     }

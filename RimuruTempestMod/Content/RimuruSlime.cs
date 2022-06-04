@@ -32,7 +32,7 @@ namespace RimuruMod.Modules.Survivors
             maxHealth = 120f,
             healthRegen = 1f,
             armor = 10f,
-            damage = 12f,
+            damage = 10f,
             healthGrowth = 20f,
             jumpCount = 2,
             moveSpeed = 7f,
@@ -59,9 +59,9 @@ namespace RimuruMod.Modules.Survivors
 
         private static UnlockableDef masterySkinUnlockableDef;
 
-        public override void InitializeCharacter()
+        public override void InitializeCharacter(bool isHidden)
         {
-            base.InitializeCharacter();
+            base.InitializeCharacter(isHidden);
             bodyPrefab.AddComponent<RimuruController>();
             EntityStateMachine rimuruEntityStateMachine = bodyPrefab.GetComponent<EntityStateMachine>();
             rimuruEntityStateMachine.initialStateType = new SerializableEntityStateType(typeof(SkillStates.BaseStates.SpawnState));

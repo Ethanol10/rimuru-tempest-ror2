@@ -117,20 +117,6 @@ namespace RimuruMod.Modules.Survivors
 
 		}
 
-		//public void Run_Start(On.RoR2.Run.orig_Start orig, Run self)
-		//{
-		//	orig.Invoke(self);
-
-		//	writeToSkillList(null, 0);
-		//	writeToSkillList(null, 1);
-		//	writeToSkillList(null, 2);
-		//	writeToSkillList(null, 3);
-		//	writeToSkillList(null, 4);
-		//	writeToSkillList(null, 5);
-		//	writeToSkillList(null, 6);
-		//	writeToSkillList(null, 7);
-		//}
-
 		public void Start()
 		{
 			characterMaster = gameObject.GetComponent<CharacterMaster>();
@@ -216,13 +202,17 @@ namespace RimuruMod.Modules.Survivors
 			{
 				if (damageReport.attackerBody && damageReport.victimBody)
 				{
-					if (damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
+					//if (damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
+					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					{
 						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
 						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
 						if (newbodyPrefab.name == "BeetleBody")
 						{
-							Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+                            if (!damageReport.attackerBody.HasBuff(Buffs.BeetleBuff))
+							{
+								Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+							}
 							SetEverythingFalse(damageReport.attackerBody);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
@@ -231,7 +221,10 @@ namespace RimuruMod.Modules.Survivors
 						}
 						if (newbodyPrefab.name == "LemurianBody")
 						{
-							Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
+							if (!damageReport.attackerBody.HasBuff(Buffs.LemurianBuff))
+							{
+								Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
+							}
 							SetEverythingFalse(damageReport.attackerBody);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
