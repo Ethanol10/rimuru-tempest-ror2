@@ -68,7 +68,7 @@ namespace RimuruMod.SkillStates
             {
                 bulletCount = 1,
                 aimVector = aimRay.direction,
-                origin = FindModelChild(this.muzzleString).transform.position,
+                origin = aimRay.origin,
                 damage = damageStat * damageCoefficient,
                 damageColorIndex = DamageColorIndex.Default,
                 damageType = damageType,
