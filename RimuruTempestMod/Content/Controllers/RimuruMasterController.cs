@@ -203,13 +203,16 @@ namespace RimuruMod.Modules.Survivors
 				if (damageReport.attackerBody && damageReport.victimBody)
 				{
 					//if (damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
-					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType != DamageType.Generic && damageReport.damageInfo.damageType != DamageType.DoT)
+					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					{
 						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
 						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
 						if (newbodyPrefab.name == "BeetleBody")
 						{
-							Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+                            if (!damageReport.attackerBody.HasBuff(Buffs.BeetleBuff))
+							{
+								Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+							}
 							SetEverythingFalse(damageReport.attackerBody);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
@@ -218,7 +221,10 @@ namespace RimuruMod.Modules.Survivors
 						}
 						if (newbodyPrefab.name == "LemurianBody")
 						{
-							Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
+							if (!damageReport.attackerBody.HasBuff(Buffs.LemurianBuff))
+							{
+								Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
+							}
 							SetEverythingFalse(damageReport.attackerBody);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);

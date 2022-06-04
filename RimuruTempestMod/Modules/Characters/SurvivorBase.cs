@@ -17,8 +17,9 @@ namespace RimuruMod.Modules.Survivors
         public virtual ConfigEntry<bool> characterEnabledConfig { get; }
 
         public virtual GameObject displayPrefab { get; set; }
+               
 
-        public override void InitializeCharacter()
+        public override void InitializeCharacter(bool isHidden)
         {
 
             if (characterEnabledConfig != null && !characterEnabledConfig.Value)
@@ -26,9 +27,9 @@ namespace RimuruMod.Modules.Survivors
 
             InitializeUnlockables();
 
-            base.InitializeCharacter();
+            base.InitializeCharacter(isHidden);
 
-            InitializeSurvivor();
+            InitializeSurvivor(isHidden);
         }
         protected override void InitializeCharacterBodyAndModel()
         {
@@ -36,9 +37,9 @@ namespace RimuruMod.Modules.Survivors
             InitializeDisplayPrefab();
         }
 
-        protected virtual void InitializeSurvivor()
+        protected virtual void InitializeSurvivor(bool isHidden)
         {
-            RegisterNewSurvivor(bodyPrefab, displayPrefab, Color.grey, survivorTokenPrefix, characterUnlockableDef, bodyInfo.sortPosition);
+            RegisterNewSurvivor(bodyPrefab, displayPrefab, Color.grey, survivorTokenPrefix, characterUnlockableDef, bodyInfo.sortPosition, isHidden);
         }
 
         protected virtual void InitializeDisplayPrefab()
@@ -49,10 +50,10 @@ namespace RimuruMod.Modules.Survivors
         {
         }
 
-        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix) { RegisterNewSurvivor(bodyPrefab, displayPrefab, charColor, tokenPrefix, null, 100f); }
-        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix, float sortPosition) { RegisterNewSurvivor(bodyPrefab, displayPrefab, charColor, tokenPrefix, null, sortPosition); }
-        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix, UnlockableDef unlockableDef) { RegisterNewSurvivor(bodyPrefab, displayPrefab, charColor, tokenPrefix, unlockableDef, 100f); }
-        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix, UnlockableDef unlockableDef, float sortPosition)
+        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix) { RegisterNewSurvivor(bodyPrefab, displayPrefab, charColor, tokenPrefix, null, 100f, false); }
+        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix, float sortPosition) { RegisterNewSurvivor(bodyPrefab, displayPrefab, charColor, tokenPrefix, null, sortPosition, false); }
+        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix, UnlockableDef unlockableDef) { RegisterNewSurvivor(bodyPrefab, displayPrefab, charColor, tokenPrefix, unlockableDef, 100f, false); }
+        public static void RegisterNewSurvivor(GameObject bodyPrefab, GameObject displayPrefab, Color charColor, string tokenPrefix, UnlockableDef unlockableDef, float sortPosition, bool isHidden)
         {
             SurvivorDef survivorDef = ScriptableObject.CreateInstance<SurvivorDef>();
             survivorDef.bodyPrefab = bodyPrefab;
@@ -66,6 +67,8 @@ namespace RimuruMod.Modules.Survivors
 
             survivorDef.desiredSortPosition = sortPosition;
             survivorDef.unlockableDef = unlockableDef;
+
+            survivorDef.hidden = isHidden;
 
             Modules.Content.AddSurvivorDef(survivorDef);
         }

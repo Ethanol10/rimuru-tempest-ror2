@@ -121,7 +121,6 @@ namespace RimuruMod.Modules.Survivors
                 
             }
 
-            CheckBuffs();
 
 
             //devour effect
@@ -131,7 +130,7 @@ namespace RimuruMod.Modules.Survivors
                 {
                     if (!devoureffectObj)
                     {
-                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, this.transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, characterBody.corePosition, Quaternion.LookRotation(characterBody.characterDirection.forward));
                     }
 
                 }
@@ -153,30 +152,11 @@ namespace RimuruMod.Modules.Survivors
         {
             if (devoureffectObj)
             {
-                devoureffectObj.transform.position = characterBody.transform.position;
+                devoureffectObj.transform.position = characterBody.corePosition;
                 devoureffectObj.transform.rotation = Quaternion.LookRotation(characterBody.characterDirection.forward);
             }
         }
-        public void CheckBuffs()
-        {
-            if (Rimurumastercon.beetle)
-            {
-                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
-            }
-            else
-            {
-                characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
-            }
-            if (Rimurumastercon.lemurian)
-            {
-                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
-            }
-            else
-            {
-                characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
-            }            
 
-        }
         private void SearchForTarget(Ray aimRay)
         {
             this.search.teamMaskFilter = TeamMask.all;

@@ -22,7 +22,7 @@ namespace RimuruMod.SkillStates
         private float procCoefficient = Modules.StaticValues.blacklightningProcCoefficient;
         private float force = 100f;
         private float fireTimer;
-        public string muzzleString = "RWrist";
+        public string muzzleString = "LWrist";
         //public LoopSoundDef loopSoundDef = Modules.Assets.xiconstructsound;
         //private LoopSoundManager.SoundLoopPtr loopPtr;
 

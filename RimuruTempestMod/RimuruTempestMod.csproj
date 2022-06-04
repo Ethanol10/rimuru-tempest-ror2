@@ -35,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="CustomEmotesAPI">
+      <HintPath>bin\Debug\netstandard2.0\CustomEmotesAPI.dll</HintPath>
+    </Reference>
     <Reference Include="R2API">
       <HintPath>..\libs\R2API.dll</HintPath>
     </Reference>

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2812404081
+CRC: 1387120685
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d13cda4077e68c23e1a25f6482da9509
+    Hash: 59a1fd5b126e145c767f50d72db2ca88
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -162,6 +162,7 @@ Assets:
 - Assets/HenryAssets/VFX/Materials/matFistSwing.mat
 - Assets/HenryAssets/Textures/Mesh/meshDante.mesh
 - Assets/HenryAssets/VFX/Materials/matTrail.mat
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempestHumanoid.asset
 - Assets/HenryAssets/Materials/matHenryJedi.mat
 - Assets/HenryAssets/VFX/Materials/matHitSpark.mat
 - Assets/HenryAssets/Textures/Mesh/meshNeoCoat.mesh
@@ -235,7 +236,6 @@ Assets:
 - Assets/HenryAssets/Animation/clips/MenuIdle.anim
 - Assets/HenryAssets/Materials/matBazooka.mat
 - Assets/HenryAssets/VFX/HenrySwordSwingEffect.prefab
-- Assets/Rimuru/Assets/Animation/Human/RimuruHumanoidAvatar.asset
 - Assets/HenryAssets/Animation/clips/Descend.anim
 - Assets/HenryAssets/Textures/texHenryDante.png
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
