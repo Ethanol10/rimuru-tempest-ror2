@@ -91,11 +91,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2805849058512864549, guid: 9316e70504a883a49873c63e318ecbee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3305255261797495221, guid: 9316e70504a883a49873c63e318ecbee,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f6923bc16902bdf4aaa502765fd1e712, type: 2}
+    - target: {fileID: 3425783565533996772, guid: 9316e70504a883a49873c63e318ecbee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912941617977813065, guid: 9316e70504a883a49873c63e318ecbee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647673368547844101, guid: 9316e70504a883a49873c63e318ecbee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949353959208211455, guid: 9316e70504a883a49873c63e318ecbee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8103484663666028917, guid: 9316e70504a883a49873c63e318ecbee,
         type: 3}
       propertyPath: m_Name
