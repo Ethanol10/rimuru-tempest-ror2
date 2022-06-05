@@ -16,7 +16,10 @@ namespace RimuruMod.SkillStates
 
 
         private bool beamPlay;
-        private float radius = 10f;
+        private float basefireInterval = 0.25f;
+        private float fireInterval;
+        private float basetotalDuration = Modules.StaticValues.blacklightningtotalDuration;
+        private float totalDuration;
         private float range = 60f;
         private float damageCoefficient = Modules.StaticValues.blacklightningDamageCoefficient;
         private float procCoefficient = Modules.StaticValues.blacklightningProcCoefficient;
@@ -30,7 +33,6 @@ namespace RimuruMod.SkillStates
         private ParticleSystem mainBlacklightning;
         private BulletAttack attack;
         private BlastAttack blastAttack;
-        private float fireInterval = 0.25f;
         private Animator animator;
 
         public override void OnEnter()
@@ -38,6 +40,9 @@ namespace RimuruMod.SkillStates
             base.OnEnter();
             updateAimRay();
             base.characterBody.SetAimTimer(2f);
+            totalDuration = basetotalDuration / attackSpeedStat;
+            fireInterval = basefireInterval / attackSpeedStat;
+
             damageType = DamageType.Shock5s;
             Rimurucon = gameObject.GetComponent<RimuruController>();
 
@@ -63,7 +68,7 @@ namespace RimuruMod.SkillStates
             {
                 bulletCount = 1,
                 aimVector = aimRay.direction,
-                origin = FindModelChild(this.muzzleString).transform.position,
+                origin = aimRay.origin,
                 damage = damageStat * damageCoefficient,
                 damageColorIndex = DamageColorIndex.Default,
                 damageType = damageType,
@@ -87,47 +92,9 @@ namespace RimuruMod.SkillStates
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
                 hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
-                //hitCallback = laserHitCallback
             };
         }
 
-        //public bool laserHitCallback(BulletAttack bulletRef, ref BulletHit hitInfo)
-        //{
-        //    var hurtbox = hitInfo.hitHurtBox;
-        //    if (hurtbox)
-        //    {
-        //        var healthComponent = hurtbox.healthComponent;
-        //        if (healthComponent)
-        //        {
-        //            var body = healthComponent.body;
-        //            if (body)
-        //            {
-        //                new BlastAttack
-        //                {
-        //                    attacker = base.gameObject,
-        //                    teamIndex = TeamComponent.GetObjectTeam(base.gameObject),
-        //                    falloffModel = BlastAttack.FalloffModel.None,
-        //                    baseDamage = damageStat * Modules.StaticValues.blacklightningDamageCoefficient,
-        //                    damageType = DamageType.Shock5s,
-        //                    damageColorIndex = DamageColorIndex.Default,
-        //                    baseForce = 0,
-        //                    position = body.transform.position,
-        //                    radius = 1f,
-        //                    procCoefficient = 1f,
-        //                    attackerFiltering = AttackerFiltering.NeverHitSelf,
-        //                }.Fire();
-
-        //                if (body.HasBuff(Modules.Buffs.WetLightningDebuff))
-        //                {
-        //                    body.RemoveBuff(Modules.Buffs.WetLightningDebuff);
-
-        //                }
-                        
-        //            }
-        //        }
-        //    }
-        //    return false;
-        //}
         public override void Update()
         {
             base.Update();
@@ -165,37 +132,33 @@ namespace RimuruMod.SkillStates
             base.FixedUpdate();
             if(base.fixedAge > fireInterval)
             {
-                if (base.IsKeyDownAuthority())
+                if (!beamPlay)
                 {
-                    if (!beamPlay)
+                    if (NetworkServer.active)
                     {
-                        if (NetworkServer.active)
-                        {
-                            NetworkServer.Spawn(blacklightning);
-                        }
-                        mainBlacklightning = blacklightning.GetComponent<ParticleSystem>();
-                        mainBlacklightning.Play();
-                        beamPlay = true;
+                        NetworkServer.Spawn(blacklightning);
                     }
-                    fireTimer += Time.fixedDeltaTime;
-                    //Fire the laser
-                    if (fireTimer > fireInterval)
-                    {
-                        //PlayCrossfade("LeftArm, Override", "LeftArmOut", "Attack.playbackRate", fireInterval, 0.1f);
-                        base.characterBody.SetAimTimer(2f);
-                        attack.muzzleName = muzzleString;
-                        attack.aimVector = aimRay.direction;
-                        attack.origin = FindModelChild(this.muzzleString).position;
-                        attack.Fire();
-                        fireTimer = 0f;
-                    }
-
+                    mainBlacklightning = blacklightning.GetComponent<ParticleSystem>();
+                    mainBlacklightning.Play();
+                    beamPlay = true;
                 }
-                else
+                fireTimer += Time.fixedDeltaTime;
+                //Fire the laser
+                if (fireTimer > fireInterval)
                 {
-                    base.outer.SetNextStateToMain();
+                    //PlayCrossfade("LeftArm, Override", "LeftArmOut", "Attack.playbackRate", fireInterval, 0.1f);
+                    base.characterBody.SetAimTimer(2f);
+                    attack.muzzleName = muzzleString;
+                    attack.aimVector = aimRay.direction;
+                    attack.origin = FindModelChild(this.muzzleString).position;
+                    attack.Fire();
+                    fireTimer = 0f;
                 }
 
+            }
+            if (base.fixedAge > totalDuration && base.isAuthority)
+            {
+                this.outer.SetNextStateToMain();
             }
 
         }

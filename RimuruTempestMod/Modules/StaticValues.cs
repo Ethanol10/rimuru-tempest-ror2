@@ -9,6 +9,7 @@ namespace RimuruMod.Modules
         internal const float devourDamageCoefficient = 1f;
 
         //blacklightning
+        internal const float blacklightningtotalDuration = 4f;
         internal const float blacklightningDamageCoefficient = 1f;
         internal const float blacklightningProcCoefficient = 0.5f;
         internal const float blacklightningRadius = 10f;
