@@ -30,6 +30,9 @@ ModelImporter:
   - first:
       74: -6743882616659560093
     second: Armature|Slime.001Action
+  - first:
+      74: -1633946463112626913
+    second: Armature|Entrance2
   externalObjects: {}
   materials:
     materialImportMode: 1
