@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_Jump
+  m_Name: RimuruSlime_Jump
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -2940,7 +2940,448 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 3160000220
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2885461733
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 468485751
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3351784156
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1563765204
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2381921598
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1251741579
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 8
+      script: {fileID: 0}
+      typeID: 95
+      customType: 8
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2104266162
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 691600912
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2104266162
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3160000220
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2885461733
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 468485751
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 691600912
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3351784156
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1563765204
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2381921598
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1251741579
+      attribute: 2
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2104266162
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3160000220
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2885461733
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 468485751
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 691600912
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3351784156
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1563765204
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2381921598
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1251741579
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1032915194
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1765932549
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 651853718
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2300852092
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1018283972
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2670321009
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1701728247
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 3986280670
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2064225510
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2197331155
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1039912544
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1976302829
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2628278744
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1923496180
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2501776883
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2064676063
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 35832346
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2839477996
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 878088156
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 27797857
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 543246314
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2014068367
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1739205762
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2492775825
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 2638842210
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 3931027956
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 720059435
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 501025999
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4207191443
+      attribute: 1740173230
+      script: {fileID: 0}
+      typeID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 7
+      script: {fileID: 0}
+      typeID: 95
+      customType: 8
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 9
+      script: {fileID: 0}
+      typeID: 95
+      customType: 8
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 10
+      script: {fileID: 0}
+      typeID: 95
+      customType: 8
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 11
+      script: {fileID: 0}
+      typeID: 95
+      customType: 8
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 12
+      script: {fileID: 0}
+      typeID: 95
+      customType: 8
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 13
+      script: {fileID: 0}
+      typeID: 95
+      customType: 8
+      isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2

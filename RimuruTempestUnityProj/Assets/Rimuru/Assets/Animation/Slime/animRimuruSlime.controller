@@ -112,7 +112,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BonusJump
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 393128649546067190}
@@ -125,7 +125,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c05c0f22e29a5b749b8a6eee11f718f6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 60926f48793b8f54ba80c69b2c85566b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -3165,7 +3165,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c05c0f22e29a5b749b8a6eee11f718f6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 60926f48793b8f54ba80c69b2c85566b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -3274,7 +3274,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c4ef929942a4f9e4bbdc72aa93cdf5f8, type: 2}
+  m_Motion: {fileID: 7400000, guid: b37860b995d9c4148939d1c07eebf4fa, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -3953,10 +3953,10 @@ AnimatorStateMachine:
     m_Position: {x: -10, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102286842317571118}
-    m_Position: {x: -12, y: 36, z: 0}
+    m_Position: {x: -10, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102718974041935366}
-    m_Position: {x: -12, y: 300, z: 0}
+    m_Position: {x: -10, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6396793269702893276}
     m_Position: {x: 240, y: 230, z: 0}

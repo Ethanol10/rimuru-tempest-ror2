@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1387120685
+CRC: 3304348827
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 59a1fd5b126e145c767f50d72db2ca88
+    Hash: 9250a0e690f8e1b80979fe2e1dffa29e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -77,6 +77,7 @@ Assets:
 - Assets/HenryAssets/VFX/Textures/texHenrySwing2.png
 - Assets/HenryAssets/Icons/texBazookaIcon.png
 - Assets/HenryAssets/Icons/texMasteryAchievement.png
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempest_Entrance.anim
 - Assets/HenryAssets/Textures/Mesh/meshHenry.mesh
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
 - Assets/HenryAssets/RimuruDisplay.prefab
@@ -90,6 +91,7 @@ Assets:
 - Assets/HenryAssets/Animation/clips/Jump.anim
 - Assets/HenryAssets/Textures/Mesh/meshHenryNeo.mesh
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticle 1.mat
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
 - Assets/HenryAssets/Animation/clips/WalkR.anim
 - Assets/HenryAssets/VFX/HenryDustEffect.prefab
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
@@ -102,7 +104,6 @@ Assets:
 - Assets/HenryAssets/Textures/texBoxingGlove.png
 - Assets/HenryAssets/Animation/maskAimYaw.mask
 - Assets/HenryAssets/Icons/texDanteAchievement.png
-- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
 - Assets/HenryAssets/Icons/texSecondaryIcon.png
 - Assets/HenryAssets/Animation/animHenry.controller
 - Assets/HenryAssets/VFX/Materials/matHenrySwing2.mat
@@ -111,6 +112,7 @@ Assets:
 - Assets/HenryAssets/VFX/ImpactHenrySlash.prefab
 - Assets/Rimuru/Assets/VFX/BlacklightningLight.prefab
 - Assets/HenryAssets/Mesh/meshSwing.asset
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempest_EntranceLoop.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Land.anim
 - Assets/HenryAssets/VFX/HenryBazookaMuzzleFlash.prefab
 - Assets/HenryAssets/VFX/HenryFistSwingEffect.prefab
@@ -145,7 +147,6 @@ Assets:
 - Assets/HenryAssets/Materials/matBoxingGlove.mat
 - Assets/Rimuru/Assets/Materials/EmptyMat.mat
 - Assets/HenryAssets/Materials/matHenryAlt.mat
-- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
 - Assets/HenryAssets/Animation/clips/WalkF.anim
 - Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh
 - Assets/HenryAssets/VFX/Materials/matPunchImpactShadow.mat
@@ -175,7 +176,9 @@ Assets:
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
 - Assets/HenryAssets/Animation/maskAimPitch.mask
 - Assets/HenryAssets/Icons/texUziIcon.png
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
 - Assets/HenryAssets/Materials/matHenryNeo.mat
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempestAvatar2.asset
 - Assets/HenryAssets/Mesh/meshPunchShockwave.mesh
 - Assets/HenryAssets/Materials/matRoy.mat
 - Assets/HenryAssets/Icons/texBazookaIconScepter.png
@@ -184,15 +187,16 @@ Assets:
 - Assets/HenryAssets/Icons/texMainSkin.png
 - Assets/HenryAssets/Icons/texBoxingGlovesIcon.png
 - Assets/HenryAssets/Materials/matVergil.mat
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance2.anim
 - Assets/HenryAssets/Materials/matHitboxPreview.mat
 - Assets/HenryAssets/Animation/clips/IdleIn.anim
 - Assets/HenryAssets/VFX/Materials/matSwingShadow.mat
 - Assets/HenryAssets/Textures/texHenryJediEmission.png
 - Assets/Rimuru/Assets/VFX/WaterBlade.prefab
 - Assets/HenryAssets/Textures/Mesh/meshDanteCoat.mesh
-- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
 - Assets/HenryAssets/Animation/clips/RestIdle.anim
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/HenryAssets/Animation/clips/ThrowBomb.anim
 - Assets/HenryAssets/Icons/texHenryIcon.png
 - Assets/HenryAssets/Icons/texUtilityIcon.png

@@ -77,6 +77,12 @@ ModelImporter:
   - first:
       74: 4435196380009176088
     second: RimuruTempest_arm|Run.001
+  - first:
+      74: -8207616796661645441
+    second: Entrance.001
+  - first:
+      74: -3572175820087439787
+    second: EntranceLoop
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -92,17 +98,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'RimuruTempest_arm|Entrance' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'WaistCancel.L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'WaistCancel.L'
-      has scale animation that will be discarded.\n\t'WaistCancel.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'WaistCancel.R'
-      has scale animation that will be discarded.\n\nClip 'RimuruTempest_arm|Entrance2'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'WaistCancel.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'WaistCancel.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
