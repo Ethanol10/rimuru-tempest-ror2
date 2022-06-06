@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2332649563
+CRC: 70415108
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a93c660170e4e7ce1cf2ed33012a3d98
+    Hash: e86fdb2c4e28d70070362f5b7de1a24b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -72,8 +72,9 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
 - Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
 - Assets/Rimuru/Assets/Animation/Human/animMenuRimuruHuman.controller
-- Assets/Rimuru/Assets/Animation/Human/MaskLeftArm.mask
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempest_Entrance.anim
+- Assets/Rimuru/Assets/Animation/Human/MaskLeftArm.mask
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempest_EntranceOLD.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
 - Assets/Rimuru/Assets/VFX/BlacklightningLight.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Land.anim
