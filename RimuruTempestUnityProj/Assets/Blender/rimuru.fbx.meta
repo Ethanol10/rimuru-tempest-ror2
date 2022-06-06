@@ -18,6 +18,12 @@ ModelImporter:
   - first:
       74: -3572175820087439787
     second: EntranceLoop
+  - first:
+      74: 3207533169962819223
+    second: BlackLightning
+  - first:
+      74: -5252475759492285371
+    second: BlackLightningLoop
   externalObjects: {}
   materials:
     materialImportMode: 1
