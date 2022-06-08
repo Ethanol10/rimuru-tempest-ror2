@@ -10,6 +10,7 @@ using UnityEngine.Networking;
 using R2API.Networking;
 using EmotesAPI;
 using BepInEx.Bootstrap;
+using RimuruMod.SkillStates;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -239,6 +240,15 @@ namespace RimuruMod
                 if (self.HasBuff(Modules.Buffs.BeetleBuff))
                 {
                     self.damage *= 1.5f;
+                }
+                if (self.HasBuff(Modules.Buffs.CritDebuff))
+                {
+                    AnalyzeEffectController controller = self.gameObject.GetComponent<AnalyzeEffectController>();
+                    if (!controller)
+                    {
+                        controller = self.gameObject.AddComponent<AnalyzeEffectController>();
+                        controller.charbody = self;
+                    }
                 }
             }
         }

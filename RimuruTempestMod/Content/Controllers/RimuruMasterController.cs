@@ -214,6 +214,13 @@ namespace RimuruMod.Modules.Survivors
 								Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
+							EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new EffectData
+							{
+								origin = damageReport.attackerBody.corePosition + Vector3.up * 2f,
+								scale = 1f,
+								rotation = Quaternion.LookRotation(damageReport.attackerBody.characterDirection.forward)
+
+							}, true);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
 
@@ -226,6 +233,13 @@ namespace RimuruMod.Modules.Survivors
 								Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
+							EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new EffectData
+							{
+								origin = damageReport.attackerBody.corePosition + Vector3.up * 2f,
+								scale = 1f,
+								rotation = Quaternion.LookRotation(damageReport.attackerBody.characterDirection.forward)
+
+							}, true);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
 							lemurian = true;

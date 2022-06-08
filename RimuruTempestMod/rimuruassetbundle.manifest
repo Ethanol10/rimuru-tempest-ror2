@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 70415108
+CRC: 1741823963
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e86fdb2c4e28d70070362f5b7de1a24b
+    Hash: c9bd7dd8495003c415a048ac3fe586bc
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -65,20 +65,26 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Rimuru/Assets/VFX/Material/StarFlare.mat
 - Assets/Rimuru/Assets/VFX/BlackLightning.prefab
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
 - Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquarered.mat
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticle 1.mat
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
 - Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
 - Assets/Rimuru/Assets/Animation/Human/animMenuRimuruHuman.controller
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempest_Entrance.anim
+- Assets/Rimuru/Assets/VFX/SkillGet.prefab
 - Assets/Rimuru/Assets/Animation/Human/MaskLeftArm.mask
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempest_EntranceOLD.anim
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquare.mat
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquaregreen.mat
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
 - Assets/Rimuru/Assets/VFX/BlacklightningLight.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Land.anim
 - Assets/Rimuru/Assets/VFX/Texture/blacklightning.tif
+- Assets/Rimuru/Assets/VFX/Square.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
@@ -94,16 +100,21 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Devour.prefab
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempestHumanoid.asset
 - Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
+- Assets/Rimuru/Assets/VFX/Analyze.prefab
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquareblue.mat
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
 - Assets/Rimuru/Assets/Animation/Human/BlackLightning.anim
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempestAvatar2.asset
+- Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
 - Assets/Rimuru/Assets/Materials/RimuruSlimeMat.mat
 - Assets/Rimuru/Assets/VFX/WaterBlade.prefab
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh2.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
+- Assets/Rimuru/Assets/VFX/Circling.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
 - Assets/Rimuru/Assets/VFX/Devour3.prefab
+- Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
 - Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
@@ -119,6 +130,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
 - Assets/Rimuru/Assets/Animation/Human/BlackLightningLoop.anim
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
+- Assets/Rimuru/Assets/VFX/DevourSkillGet.prefab
 - Assets/Rimuru/Assets/VFX/Devour2.prefab
 - Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
 - Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
