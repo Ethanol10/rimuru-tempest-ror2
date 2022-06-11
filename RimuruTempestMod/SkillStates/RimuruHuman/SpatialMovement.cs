@@ -17,7 +17,6 @@ namespace RimuruMod.SkillStates
         {
             base.OnEnter();
             this.aimSphere = Object.Instantiate<GameObject>(ArrowRain.areaIndicatorPrefab);
-
         }
         public override void Update()
         {
@@ -68,7 +67,6 @@ namespace RimuruMod.SkillStates
             base.OnExit();
             EntityState.Destroy(this.aimSphere.gameObject);
             characterBody.AddTimedBuffAuthority(Modules.Buffs.SpatialMovementBuff.buffIndex, Modules.StaticValues.spatialmovementbuffDuration);
-            
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

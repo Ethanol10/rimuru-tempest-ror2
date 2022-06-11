@@ -72,7 +72,6 @@ namespace RimuruMod.Modules.Survivors
 
 			On.RoR2.CharacterBody.Start += CharacterBody_Start;
 			On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
-			//On.RoR2.Run.Start += Run_Start;
 			alloyvulture = false;
 			 alphacontruct = false;
 			 beetle = false;
@@ -202,7 +201,6 @@ namespace RimuruMod.Modules.Survivors
 			{
 				if (damageReport.attackerBody && damageReport.victimBody)
 				{
-					//if (damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					{
 						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);

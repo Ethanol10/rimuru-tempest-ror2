@@ -31,11 +31,7 @@ namespace RimuruMod.Modules.Survivors
         public float larvaTimer;
         public float attackSpeedGain;
         public float mortarTimer;
-        private float voidmortarTimer;
-        private float voidjailerTimer;
-        private float roboballTimer;
 
-        private Ray downRay;
         public Transform mortarIndicatorInstance;
         public Transform voidmortarIndicatorInstance;
 
@@ -43,8 +39,6 @@ namespace RimuruMod.Modules.Survivors
         public float maxTrackingAngle = 30f;
         public float trackerUpdateFrequency = 10f;
         private Indicator indicator;
-        private Indicator passiveindicator;
-        private Indicator activeindicator;
         private HurtBox trackingTarget;
         public HurtBox Target;
 

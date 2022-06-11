@@ -16,8 +16,6 @@ namespace RimuruMod.SkillStates
             oldBody = base.characterBody;
             oldHealth = oldBody.healthComponent.health;
             characterBody.master.TransformBody("RimuruSlimeBody");
-
-
         }
 
 
@@ -36,7 +34,6 @@ namespace RimuruMod.SkillStates
         {
             base.OnExit();
             characterBody.master.GetBody().healthComponent.health = oldHealth;
-
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

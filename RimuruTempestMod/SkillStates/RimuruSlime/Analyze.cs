@@ -27,6 +27,7 @@ namespace RimuruMod.SkillStates
             {
                 return;
             }
+
             if (Target)
             {
                 Target.healthComponent.body.AddTimedBuffAuthority(Modules.Buffs.CritDebuff.buffIndex, Modules.StaticValues.analyzedebuffDuration);

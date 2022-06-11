@@ -36,7 +36,6 @@ namespace RimuruMod.Modules
             bombImpactExplosion.destroyOnEnemy = true;
             bombImpactExplosion.lifetime = 12f;
             bombImpactExplosion.impactEffect = Modules.Assets.bombExplosionEffect;
-            //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("RimuruBombExplosion");
             bombImpactExplosion.timerAfterImpact = true;
             bombImpactExplosion.lifetimeAfterImpact = 0.1f;
 
@@ -61,9 +60,6 @@ namespace RimuruMod.Modules
             ProjectileOverlapAttack waterbladeoverlapAttack = waterbladeProjectile.AddComponent<ProjectileOverlapAttack>();
             InitializeWaterBladeOverlapAttack(waterbladeoverlapAttack);
             waterbladeProjectile.AddComponent<WaterbladeOnHit>();
-
-            //ProjectileImpactExplosion waterbladeProjectileImpactExplosion = waterbladeProjectile.AddComponent<ProjectileImpactExplosion>();
-            //Modules.Projectiles.InitializeImpactExplosion(waterbladeProjectileImpactExplosion);
 
             //Waterblade Damage
             waterbladeProjectileCon.procCoefficient = 1.0f;
