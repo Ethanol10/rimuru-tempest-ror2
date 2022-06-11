@@ -91,7 +91,7 @@ namespace RimuruMod
             foreach (var item in SurvivorCatalog.allSurvivorDefs)
             {
                 Debug.Log(item.bodyPrefab.name);
-                if (item.bodyPrefab.name == "ShiggyBody")
+                if (item.bodyPrefab.name == "RimuruHumanBody")
                 {
                     CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("EmoteRimuru"));
                 }

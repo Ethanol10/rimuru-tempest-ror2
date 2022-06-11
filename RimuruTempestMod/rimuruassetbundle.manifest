@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1741823963
+CRC: 1015480745
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c9bd7dd8495003c415a048ac3fe586bc
+    Hash: a78fab11d3522ebded7b60a4c5b0cf51
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -120,7 +120,6 @@ Assets:
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
 - Assets/Rimuru/Assets/VFX/Texture/blacklightningouter.tif
 - Assets/Rimuru/Assets/Animation/Human/MaskRightArm.mask
-- Assets/Rimuru/Assets/Animation/Human/EmoteRimuru.prefab
 - Assets/Rimuru/Assets/Animation/Slime/animRimuruSlime.controller
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance2.anim
@@ -129,6 +128,7 @@ Assets:
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
 - Assets/Rimuru/Assets/Animation/Human/BlackLightningLoop.anim
+- Assets/Rimuru/Assets/Animation/Human/EmoteRimuru.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
 - Assets/Rimuru/Assets/VFX/DevourSkillGet.prefab
 - Assets/Rimuru/Assets/VFX/Devour2.prefab
