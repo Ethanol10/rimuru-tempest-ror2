@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 70415108
+CRC: 344578053
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e86fdb2c4e28d70070362f5b7de1a24b
+    Hash: f1688ab2a2358776d7324f4313fc4e17
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -65,6 +65,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Rimuru/Assets/Animation/Human/Sprint.anim
 - Assets/Rimuru/Assets/VFX/BlackLightning.prefab
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
 - Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller

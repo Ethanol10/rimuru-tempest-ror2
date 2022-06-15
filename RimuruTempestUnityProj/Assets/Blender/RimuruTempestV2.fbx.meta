@@ -24,6 +24,9 @@ ModelImporter:
   - first:
       74: -5252475759492285371
     second: BlackLightningLoop
+  - first:
+      74: -8086047558812005389
+    second: Sprint
   externalObjects: {}
   materials:
     materialImportMode: 1
