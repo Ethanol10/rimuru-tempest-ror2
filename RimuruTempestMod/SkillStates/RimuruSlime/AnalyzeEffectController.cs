@@ -26,7 +26,7 @@ namespace RimuruMod.SkillStates
             //Handle transform of effectObj
             if (effectObj)
             {
-                effectObj.transform.position = charbody.corePosition + Vector3.up * 1f;
+                effectObj.transform.position = charbody.corePosition + Vector3.up * 3f;
                 effectObj.transform.rotation = Quaternion.LookRotation(charbody.characterDirection.forward);
             }
         }

@@ -19,7 +19,7 @@ namespace RimuruMod.SkillStates
         public void Start()
         {
             charbody = this.gameObject.GetComponent<CharacterBody>();
-            effectObj = Instantiate(Modules.Assets.devourskillgetEffect, charbody.corePosition + Vector3.up * 3f, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = Instantiate(Modules.Assets.devourskillgetEffect, charbody.corePosition + Vector3.up * 1f, Quaternion.LookRotation(charbody.characterDirection.forward));
         }
 
         public void Update()
