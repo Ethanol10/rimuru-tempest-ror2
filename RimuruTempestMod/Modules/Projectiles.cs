@@ -76,6 +76,7 @@ namespace RimuruMod.Modules
         {
             overlap.overlapProcCoefficient = 1.0f;
             overlap.damageCoefficient = 1.0f;
+            overlap.impactEffect = Modules.Assets.waterbladeimpactEffect;
         }
 
         internal static void InitializeWaterBladeTrajectory(ProjectileSimple simple) 

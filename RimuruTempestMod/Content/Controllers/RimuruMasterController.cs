@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Networking;
+using RimuruMod.SkillStates;
 
 namespace RimuruMod.Modules.Survivors
 {
@@ -117,6 +118,12 @@ namespace RimuruMod.Modules.Survivors
 
 		}
 
+		public void OnDestroy()
+		{
+			On.RoR2.CharacterBody.Start -= CharacterBody_Start;
+			On.RoR2.GlobalEventManager.OnCharacterDeath -= GlobalEventManager_OnCharacterDeath;
+		}
+
 		public void Start()
 		{
 			characterMaster = gameObject.GetComponent<CharacterMaster>();
@@ -214,13 +221,6 @@ namespace RimuruMod.Modules.Survivors
 								Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
-							EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new EffectData
-							{
-								origin = damageReport.attackerBody.corePosition + Vector3.up * 2f,
-								scale = 1f,
-								rotation = Quaternion.LookRotation(damageReport.attackerBody.characterDirection.forward)
-
-							}, true);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 1, -1);
 
@@ -233,13 +233,6 @@ namespace RimuruMod.Modules.Survivors
 								Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
-							EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new EffectData
-							{
-								origin = damageReport.attackerBody.corePosition + Vector3.up * 2f,
-								scale = 1f,
-								rotation = Quaternion.LookRotation(damageReport.attackerBody.characterDirection.forward)
-
-							}, true);
 
 							damageReport.attackerBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 1, -1);
 							lemurian = true;
@@ -256,8 +249,13 @@ namespace RimuruMod.Modules.Survivors
 
 		public void SetEverythingFalse(CharacterBody characterBody)
 		{
-			//characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
-			//characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
+
+			DevourEffectController controller = characterBody.gameObject.GetComponent<DevourEffectController>();
+			if (!controller)
+			{
+				controller = characterBody.gameObject.AddComponent<DevourEffectController>();
+				controller.charbody = characterBody;
+			}
 
 			characterBody.RemoveBuff(Buffs.BeetleBuff);
 			characterBody.RemoveBuff(Buffs.LemurianBuff);

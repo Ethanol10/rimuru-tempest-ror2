@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1015480745
+CRC: 2342856387
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a78fab11d3522ebded7b60a4c5b0cf51
+    Hash: fe7889d22e680c31367549cc51064da2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -67,6 +67,7 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.mat
 - Assets/Rimuru/Assets/VFX/BlackLightning.prefab
+- Assets/Rimuru/Assets/VFX/WaterBladeImpact.prefab
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
 - Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquarered.mat
@@ -88,6 +89,7 @@ Assets:
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
+- Assets/Rimuru/Assets/VFX/WetEffect.prefab
 - Assets/Rimuru/Assets/VFX/MainLightning2.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Walk.anim
 - Assets/Rimuru/Assets/Materials/EmptyMat.mat
@@ -115,6 +117,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
 - Assets/Rimuru/Assets/VFX/Devour3.prefab
 - Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
+- Assets/Rimuru/Assets/VFX/BlackLightningImpact.prefab
 - Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
