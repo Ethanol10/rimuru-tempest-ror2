@@ -4467,7 +4467,6 @@ MonoBehaviour:
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 1399150637666403677}
-  - {fileID: 0}
   m_Exclusions:
   - {fileID: 1993223759137743483}
   - {fileID: 8243872888311398598}
@@ -5909,15 +5908,7 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.001, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders:
-  - {fileID: 5651316473906874322}
-  - {fileID: 8356618662610825882}
-  - {fileID: 6813297343969221378}
-  - {fileID: 3911592810401936670}
-  - {fileID: 6813297343969221378}
-  - {fileID: 8356618662610825882}
-  - {fileID: 2275074845138106087}
-  - {fileID: 1244509838194962362}
+  m_Colliders: []
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0

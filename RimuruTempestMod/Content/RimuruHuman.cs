@@ -40,7 +40,7 @@ namespace RimuruMod.Modules.Survivors
 
         //internal static Material RimuruHumanMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
         internal static Material RimuruHumanMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
-        internal static Material RimuruHumanEmptyMat = Modules.Materials.CreateHopooMaterial("EmptyMat");
+        internal static Material RimuruHumanEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
@@ -219,14 +219,13 @@ namespace RimuruMod.Modules.Survivors
             List<SkinDef> skins = new List<SkinDef>();
 
             #region DefaultSkin
-            Material defaultMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
-            //Material emptyMat = Modules.Materials.CreateHopooMaterial("EmptyMat");
-            Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+            //Material defaultMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
+            //Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
-                emptyMat,
-                defaultMat,
-                defaultMat,
-                defaultMat,
+                RimuruHumanEmptyMat,
+                RimuruHumanMat,
+                RimuruHumanMat,
+                RimuruHumanMat,
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
@@ -266,10 +265,10 @@ namespace RimuruMod.Modules.Survivors
             //masked skin
             #region maskedSkin
             CharacterModel.RendererInfo[] maskedrendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultMat,
-                defaultMat,
-                defaultMat,
+                RimuruHumanMat,
+                RimuruHumanMat,
+                RimuruHumanMat,
+                RimuruHumanMat,
             });
             SkinDef maskedSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASKED_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),

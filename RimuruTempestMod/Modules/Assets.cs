@@ -150,7 +150,7 @@ namespace RimuruMod.Modules
             blacklightningimpactEffect = LoadEffect("BlackLightningImpact");
             //devour effect
             devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
-            devourskillgetEffect = LoadEffect("DevourSkillGet");
+            devourskillgetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DevourSkillGet");
             //analyze effect
             analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
             //waterblade impact effect

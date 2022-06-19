@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 461281734
+CRC: 3869701630
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 34091e4e569b76fb51ceca9ef2b253d0
+    Hash: 28b7eeb046c419f71082b25436d7bb0d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -71,6 +71,7 @@ Assets:
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
 - Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquarered.mat
+- Assets/Rimuru/Assets/Animation/Human/Jump.anim
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticle 1.mat
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
 - Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
@@ -114,6 +115,8 @@ Assets:
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh2.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/VFX/Circling.prefab
+- Assets/Rimuru/Assets/Animation/Human/Falling.anim
+- Assets/Rimuru/Assets/Animation/Human/RunToSprintTransition.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
 - Assets/Rimuru/Assets/VFX/Devour3.prefab
 - Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
@@ -127,6 +130,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance2.anim
 - Assets/Rimuru/Assets/Human/mdlRimuruHuman.prefab
+- Assets/Rimuru/Assets/Animation/Human/Sprint.anim
 - Assets/Rimuru/Assets/Animation/Human/FacialExpression.anim
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
@@ -136,6 +140,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/DevourSkillGet.prefab
 - Assets/Rimuru/Assets/VFX/Devour2.prefab
 - Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
+- Assets/Rimuru/Assets/Animation/Human/Sprint1.anim
 - Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
 Dependencies: []
