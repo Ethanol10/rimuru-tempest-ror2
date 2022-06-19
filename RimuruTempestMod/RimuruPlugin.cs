@@ -10,6 +10,7 @@ using UnityEngine.Networking;
 using R2API.Networking;
 using EmotesAPI;
 using BepInEx.Bootstrap;
+using RimuruMod.SkillStates;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -89,8 +90,7 @@ namespace RimuruMod
             orig();
             foreach (var item in SurvivorCatalog.allSurvivorDefs)
             {
-                Debug.Log(item.bodyPrefab.name);
-                if (item.bodyPrefab.name == "ShiggyBody")
+                if (item.bodyPrefab.name == "RimuruHumanBody")
                 {
                     CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("EmoteRimuru"));
                 }
@@ -229,7 +229,6 @@ namespace RimuruMod
         {
             orig(self);
 
-            // a simple stat hook, adds armor after stats are recalculated
             if (self)
             {
                 if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
@@ -240,6 +239,26 @@ namespace RimuruMod
                 {
                     self.damage *= 1.5f;
                 }
+                if (self.HasBuff(Modules.Buffs.CritDebuff))
+                {
+                    AnalyzeEffectController analyzecontroller = self.gameObject.GetComponent<AnalyzeEffectController>();
+                    if (!analyzecontroller)
+                    {
+                        analyzecontroller = self.gameObject.AddComponent<AnalyzeEffectController>();
+                        analyzecontroller.charbody = self;
+                    }
+                }
+                if (self.HasBuff(Modules.Buffs.WetDebuff))
+                {
+                    WetEffectController wetcontroller = self.gameObject.GetComponent<WetEffectController>();
+                    if (!wetcontroller)
+                    {
+                        wetcontroller = self.gameObject.AddComponent<WetEffectController>();
+                        wetcontroller.charbody = self;
+                    }
+                }
+                
+
             }
         }
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)

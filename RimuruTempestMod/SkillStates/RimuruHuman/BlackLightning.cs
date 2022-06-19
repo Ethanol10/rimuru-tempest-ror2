@@ -93,7 +93,7 @@ namespace RimuruMod.SkillStates
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
+                hitEffectPrefab = Modules.Assets.blacklightningimpactEffect,
             };
         }
 

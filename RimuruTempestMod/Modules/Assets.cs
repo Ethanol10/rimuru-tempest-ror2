@@ -21,7 +21,12 @@ namespace RimuruMod.Modules
         internal static GameObject swordSwingEffect;
         internal static GameObject swordHitImpactEffect;
         internal static GameObject blacklightning;
+        internal static GameObject blacklightningimpactEffect;
         internal static GameObject devourEffect;
+        public static GameObject devourskillgetEffect;
+        public static GameObject analyzeEffect;
+        public static GameObject waterbladeimpactEffect;
+        public static GameObject wetEffect;
         internal static List<GameObject> networkObjDefs = new List<GameObject>();
 
         internal static GameObject bombExplosionEffect;
@@ -141,8 +146,19 @@ namespace RimuruMod.Modules
             blacklightning.AddComponent<NetworkIdentity>();
             networkObjDefs.Add(blacklightning);
             PrefabAPI.RegisterNetworkPrefab(blacklightning);
+            //blacklightningimpact effect
+            blacklightningimpactEffect = LoadEffect("BlackLightningImpact");
             //devour effect
             devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
+            devourskillgetEffect = LoadEffect("DevourSkillGet");
+            //analyze effect
+            //analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
+            analyzeEffect = LoadEffect("Analyze");
+            //waterblade impact effect
+            waterbladeimpactEffect = LoadEffect("WaterBladeImpact");
+            //wet effect
+            //wetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WetEffect");
+            wetEffect = LoadEffect("WetEffect");
 
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
