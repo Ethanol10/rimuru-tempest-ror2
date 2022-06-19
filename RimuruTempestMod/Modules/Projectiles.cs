@@ -48,7 +48,7 @@ namespace RimuruMod.Modules
         private static void CreateWaterBlade() 
         {
             waterbladeProjectile = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WaterBlade");
-            Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(1), "waterblade");
+            Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(0), "waterblade");
             waterbladeProjectile.AddComponent<NetworkIdentity>();
             ProjectileController waterbladeProjectileCon = waterbladeProjectile.AddComponent<ProjectileController>();
            

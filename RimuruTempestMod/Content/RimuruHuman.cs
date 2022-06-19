@@ -40,12 +40,13 @@ namespace RimuruMod.Modules.Survivors
 
         //internal static Material RimuruHumanMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
         internal static Material RimuruHumanMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
+        internal static Material RimuruHumanEmptyMat = Modules.Materials.CreateHopooMaterial("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
                 {
                     childName = "Mask",
-                    material = RimuruHumanMat,
+                    material = RimuruHumanEmptyMat,
                 },
                 new CustomRendererInfo
                 {
@@ -219,6 +220,7 @@ namespace RimuruMod.Modules.Survivors
 
             #region DefaultSkin
             Material defaultMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
+            //Material emptyMat = Modules.Materials.CreateHopooMaterial("EmptyMat");
             Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
                 emptyMat,
@@ -351,6 +353,9 @@ namespace RimuruMod.Modules.Survivors
             defaultRenderers.CopyTo(newRendererInfos, 0);
 
             newRendererInfos[0].defaultMaterial = materials[0];
+            newRendererInfos[1].defaultMaterial = materials[1];
+            newRendererInfos[2].defaultMaterial = materials[2];
+            newRendererInfos[3].defaultMaterial = materials[3];
 
             return newRendererInfos;
         }
