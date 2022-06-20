@@ -19,18 +19,10 @@ namespace RimuruMod.SkillStates
         public void Start()
         {
             charbody = this.gameObject.GetComponent<CharacterBody>();
-            effectObj = Instantiate(Modules.Assets.devourskillgetEffect, charbody.corePosition + Vector3.up * 1f, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = Object.Instantiate<GameObject>(Modules.Assets.devourskillgetEffect, charbody.corePosition + Vector3.up * 1f, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj.transform.parent = charbody.gameObject.transform;
         }
 
-        public void Update()
-        {
-            //Handle transform of effectObj
-            if (effectObj)
-            {
-                effectObj.transform.position = charbody.corePosition + Vector3.up * 1f;
-                effectObj.transform.rotation = Quaternion.LookRotation(charbody.characterDirection.forward);
-            }
-        }
         public void FixedUpdate()
         {
             timer += Time.fixedDeltaTime;

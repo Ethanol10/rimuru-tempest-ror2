@@ -229,37 +229,35 @@ namespace RimuruMod
         {
             orig(self);
 
-            if (self)
+            if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
             {
-                if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
+                self.armor += 300f;
+            }
+            if (self.HasBuff(Modules.Buffs.BeetleBuff))
+            {
+                self.damage *= 1.5f;
+            }
+            if (self.HasBuff(Modules.Buffs.CritDebuff))
+            {
+                AnalyzeEffectController analyzecontroller = self.gameObject.GetComponent<AnalyzeEffectController>();
+                if (!analyzecontroller)
                 {
-                    self.armor += 300f;
+                    analyzecontroller = self.gameObject.AddComponent<AnalyzeEffectController>();
+                    analyzecontroller.charbody = self;
                 }
-                if (self.HasBuff(Modules.Buffs.BeetleBuff))
+            }
+            if (self.HasBuff(Modules.Buffs.WetDebuff))
+            {
+                WetEffectController wetcontroller = self.gameObject.GetComponent<WetEffectController>();
+                if (!wetcontroller)
                 {
-                    self.damage *= 1.5f;
+                    wetcontroller = self.gameObject.AddComponent<WetEffectController>();
+                    wetcontroller.charbody = self;
                 }
-                if (self.HasBuff(Modules.Buffs.CritDebuff))
-                {
-                    AnalyzeEffectController analyzecontroller = self.gameObject.GetComponent<AnalyzeEffectController>();
-                    if (!analyzecontroller)
-                    {
-                        analyzecontroller = self.gameObject.AddComponent<AnalyzeEffectController>();
-                        analyzecontroller.charbody = self;
-                    }
-                }
-                if (self.HasBuff(Modules.Buffs.WetDebuff))
-                {
-                    WetEffectController wetcontroller = self.gameObject.GetComponent<WetEffectController>();
-                    if (!wetcontroller)
-                    {
-                        wetcontroller = self.gameObject.AddComponent<WetEffectController>();
-                        wetcontroller.charbody = self;
-                    }
-                }
+            }
                 
 
-            }
+            
         }
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
         {

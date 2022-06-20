@@ -4947,6 +4947,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3489248171492966990, guid: 06b885a38b78ac940b5d9cfcefc28feb,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4203191352288778979, guid: 06b885a38b78ac940b5d9cfcefc28feb,
         type: 3}
       propertyPath: m_Name
@@ -4966,6 +4971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448437352734993206, guid: 06b885a38b78ac940b5d9cfcefc28feb,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 4.712389
       objectReference: {fileID: 0}
     - target: {fileID: 6448437352734993206, guid: 06b885a38b78ac940b5d9cfcefc28feb,
         type: 3}

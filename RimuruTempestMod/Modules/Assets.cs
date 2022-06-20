@@ -150,15 +150,13 @@ namespace RimuruMod.Modules
             blacklightningimpactEffect = LoadEffect("BlackLightningImpact");
             //devour effect
             devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
-            devourskillgetEffect = LoadEffect("DevourSkillGet");
+            devourskillgetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DevourSkillGet");
             //analyze effect
-            //analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
-            analyzeEffect = LoadEffect("Analyze");
+            analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
             //waterblade impact effect
             waterbladeimpactEffect = LoadEffect("WaterBladeImpact");
             //wet effect
-            //wetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WetEffect");
-            wetEffect = LoadEffect("WetEffect");
+            wetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WetEffect");
 
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
