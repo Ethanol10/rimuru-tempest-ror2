@@ -351,10 +351,7 @@ namespace RimuruMod.Modules.Survivors
             CharacterModel.RendererInfo[] newRendererInfos = new CharacterModel.RendererInfo[defaultRenderers.Length];
             defaultRenderers.CopyTo(newRendererInfos, 0);
 
-            newRendererInfos[0].defaultMaterial = materials[0];
-            newRendererInfos[1].defaultMaterial = materials[1];
-            newRendererInfos[2].defaultMaterial = materials[2];
-            newRendererInfos[3].defaultMaterial = materials[3];
+            newRendererInfos[0].defaultMaterial = materials[0]; 
 
             return newRendererInfos;
         }

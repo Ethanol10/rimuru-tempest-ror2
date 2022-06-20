@@ -24,6 +24,27 @@ ModelImporter:
   - first:
       74: -5252475759492285371
     second: BlackLightningLoop
+  - first:
+      74: -8086047558812005389
+    second: Sprint
+  - first:
+      74: -3341397618141321554
+    second: RunToSprintTransition
+  - first:
+      74: 4984832322764748973
+    second: Sprint1
+  - first:
+      74: 5539831331247536789
+    second: Jump
+  - first:
+      74: -1500354584072067147
+    second: Falling
+  - first:
+      74: 4357390319608967656
+    second: SprintToRunTransition
+  - first:
+      74: 373344647740410536
+    second: DoubleJump
   externalObjects: {}
   materials:
     materialImportMode: 1

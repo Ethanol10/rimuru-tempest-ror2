@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3869701630
+CRC: 1529556336
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 28b7eeb046c419f71082b25436d7bb0d
+    Hash: 91a74c3609cb0a2935b0ed61cbeaff0e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -91,10 +91,10 @@ Assets:
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
 - Assets/Rimuru/Assets/VFX/WetEffect.prefab
+- Assets/Rimuru/Assets/Animation/Human/DoubleJump.anim
 - Assets/Rimuru/Assets/VFX/MainLightning2.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Walk.anim
 - Assets/Rimuru/Assets/Materials/EmptyMat.mat
-- Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh
 - Assets/Rimuru/Assets/VFX/SecondaryBeam.prefab
 - Assets/Rimuru/Assets/Animation/Human/Run.anim
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempest_EntranceLoop.anim
@@ -112,15 +112,16 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
 - Assets/Rimuru/Assets/Materials/RimuruSlimeMat.mat
 - Assets/Rimuru/Assets/VFX/WaterBlade.prefab
-- Assets/Rimuru/Assets/Human/RimuruHumanMesh2.mesh
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/VFX/Circling.prefab
 - Assets/Rimuru/Assets/Animation/Human/Falling.anim
+- Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh
 - Assets/Rimuru/Assets/Animation/Human/RunToSprintTransition.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
 - Assets/Rimuru/Assets/VFX/Devour3.prefab
 - Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
 - Assets/Rimuru/Assets/VFX/BlackLightningImpact.prefab
+- Assets/Rimuru/Assets/Animation/Human/SprintToRunTransition.anim
 - Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
