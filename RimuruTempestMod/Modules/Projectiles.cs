@@ -48,6 +48,7 @@ namespace RimuruMod.Modules
         private static void CreateWaterBlade() 
         {
             waterbladeProjectile = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WaterBlade");
+            // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(0), "waterblade");
             waterbladeProjectile.AddComponent<NetworkIdentity>();
             ProjectileController waterbladeProjectileCon = waterbladeProjectile.AddComponent<ProjectileController>();
