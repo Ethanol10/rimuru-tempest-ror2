@@ -283,22 +283,22 @@ namespace RimuruMod.Modules.Survivors
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
-                    renderer = defaultRenderers[0].renderer
+                    renderer = maskedrendererInfos[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
-                    renderer = defaultRenderers[1].renderer
+                    renderer = maskedrendererInfos[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
-                    renderer = defaultRenderers[2].renderer
+                    renderer = maskedrendererInfos[2].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
-                    renderer = defaultRenderers[3].renderer
+                    renderer = maskedrendererInfos[3].renderer
                 }
             };
 
