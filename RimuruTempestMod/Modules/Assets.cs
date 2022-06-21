@@ -179,7 +179,7 @@ namespace RimuruMod.Modules
             }
 
             swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
-            swordHitImpactEffect = Assets.LoadEffect("ImpactHenrySlash");
+            swordHitImpactEffect = Assets.LoadEffect("ImpactRimuruSlash");
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

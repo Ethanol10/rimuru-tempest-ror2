@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3321561116
+CRC: 3003782113
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e3c5838563d9241f37647d8bdfba6e18
+    Hash: aa414d5f2230691a0eae3da1c4065166
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -79,7 +79,6 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempest_Entrance.anim
 - Assets/Rimuru/Assets/VFX/SkillGet.prefab
 - Assets/Rimuru/Assets/Animation/Human/MaskLeftArm.mask
-- Assets/Rimuru/Assets/Animation/Human/RimuruTempest_EntranceOLD.anim
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquare.mat
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquaregreen.mat
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
@@ -104,12 +103,14 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempestHumanoid.asset
 - Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
 - Assets/Rimuru/Assets/VFX/Analyze.prefab
+- Assets/Rimuru/Assets/Human/RimuruTempestMask.prefab
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquareblue.mat
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
 - Assets/Rimuru/Assets/Animation/Human/BlackLightning.anim
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempestAvatar2.asset
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
+- Assets/Rimuru/Assets/VFX/ImpactRimuruSlash.prefab
 - Assets/Rimuru/Assets/Materials/RimuruSlimeMat.mat
 - Assets/Rimuru/Assets/VFX/WaterBlade.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim

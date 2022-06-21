@@ -74,6 +74,7 @@ namespace RimuruMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+            On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
@@ -83,6 +84,31 @@ namespace RimuruMod
             }
         }
 
+
+
+        //swordPosition
+        private void CharacterModel_Start(On.RoR2.CharacterModel.orig_Start orig, CharacterModel self)
+        {
+            orig(self);
+            if (self.gameObject.name.Contains("RimuruHumanDisplay"))
+            {
+                RimuruSwordDisplayController displayHandler = self.gameObject.GetComponent<RimuruSwordDisplayController>();
+                if (!displayHandler)
+                {
+                    ChildLocator childLoc = self.gameObject.GetComponent<ChildLocator>();
+
+                    if (childLoc)
+                    {
+                        Transform swordMesh = childLoc.FindChild("Sword");
+                        Transform swordsheatheTrans = childLoc.FindChild("SwordPosition");
+
+                        displayHandler = self.gameObject.AddComponent<RimuruSwordDisplayController>();
+                        displayHandler.swordTargetTransform = swordsheatheTrans;
+                        displayHandler.swordTransform = swordMesh;
+                    }
+                }
+            }
+        }
 
         //EMOTES
         private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
