@@ -99,7 +99,7 @@ namespace RimuruMod
 
                     if (childLoc)
                     {
-                        Transform swordMesh = childLoc.FindChild("Sword");
+                        Transform swordMesh = childLoc.FindChild("SwordMeshPosition");
                         Transform swordsheatheTrans = childLoc.FindChild("SwordPosition");
 
                         displayHandler = self.gameObject.AddComponent<RimuruSwordDisplayController>();
