@@ -9,15 +9,15 @@ namespace RimuruMod.Modules
 {
     internal static class Projectiles
     {
-        internal static GameObject bombPrefab;
+        //internal static GameObject bombPrefab;
         internal static GameObject waterbladeProjectile;
 
         internal static void RegisterProjectiles()
         {
-            CreateBomb();
+            //CreateBomb();
             CreateWaterBlade();
             AddProjectile(waterbladeProjectile);
-            AddProjectile(bombPrefab);
+            //AddProjectile(bombPrefab);
         }
 
         internal static void AddProjectile(GameObject projectileToAdd)
@@ -25,25 +25,25 @@ namespace RimuruMod.Modules
             Modules.Content.AddProjectilePrefab(projectileToAdd);
         }
 
-        private static void CreateBomb()
-        {
-            bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "RimuruBombProjectile");
+        //private static void CreateBomb()
+        //{
+        //    bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "RimuruBombProjectile");
 
-            ProjectileImpactExplosion bombImpactExplosion = bombPrefab.GetComponent<ProjectileImpactExplosion>();
-            InitializeImpactExplosion(bombImpactExplosion);
+        //    ProjectileImpactExplosion bombImpactExplosion = bombPrefab.GetComponent<ProjectileImpactExplosion>();
+        //    InitializeImpactExplosion(bombImpactExplosion);
 
-            bombImpactExplosion.blastRadius = 16f;
-            bombImpactExplosion.destroyOnEnemy = true;
-            bombImpactExplosion.lifetime = 12f;
-            bombImpactExplosion.impactEffect = Modules.Assets.bombExplosionEffect;
-            //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("RimuruBombExplosion");
-            bombImpactExplosion.timerAfterImpact = true;
-            bombImpactExplosion.lifetimeAfterImpact = 0.1f;
+        //    bombImpactExplosion.blastRadius = 16f;
+        //    bombImpactExplosion.destroyOnEnemy = true;
+        //    bombImpactExplosion.lifetime = 12f;
+        //    bombImpactExplosion.impactEffect = Modules.Assets.bombExplosionEffect;
+        //    //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("RimuruBombExplosion");
+        //    bombImpactExplosion.timerAfterImpact = true;
+        //    bombImpactExplosion.lifetimeAfterImpact = 0.1f;
 
-            ProjectileController bombController = bombPrefab.GetComponent<ProjectileController>();
-            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("RimuruBombGhost") != null) bombController.ghostPrefab = CreateGhostPrefab("RimuruBombGhost");
-            bombController.startSound = "";
-        }
+        //    ProjectileController bombController = bombPrefab.GetComponent<ProjectileController>();
+        //    if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("RimuruBombGhost") != null) bombController.ghostPrefab = CreateGhostPrefab("RimuruBombGhost");
+        //    bombController.startSound = "";
+        //}
 
         private static void CreateWaterBlade() 
         {

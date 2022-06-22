@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3003782113
+CRC: 1123286498
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aa414d5f2230691a0eae3da1c4065166
+    Hash: 80845c0f9c1747405dd6e5a23d3b2b18
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f24a19e90670432b929aeb3a42117fc
@@ -103,7 +103,6 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/RimuruTempestHumanoid.asset
 - Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
 - Assets/Rimuru/Assets/VFX/Analyze.prefab
-- Assets/Rimuru/Assets/Human/RimuruTempestMask.prefab
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquareblue.mat
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim

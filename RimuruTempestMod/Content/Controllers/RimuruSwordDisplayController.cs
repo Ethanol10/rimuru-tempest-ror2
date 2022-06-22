@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
-using On.RoR2;
-using RoR2;
-using static RoR2.Loadout;
+﻿using UnityEngine;
 
 namespace RimuruMod.Modules.Survivors
 {
@@ -16,7 +10,11 @@ namespace RimuruMod.Modules.Survivors
 
         public void Update()
         {
-            swordTransform = swordTargetTransform;
+            if (swordTargetTransform && swordTargetTransform)
+            {
+                swordTransform.position = swordTargetTransform.position;
+                swordTransform.rotation = swordTargetTransform.rotation;
+            }
         }
 
     }

@@ -29,7 +29,7 @@ namespace RimuruMod.Modules
         public static GameObject wetEffect;
         internal static List<GameObject> networkObjDefs = new List<GameObject>();
 
-        internal static GameObject bombExplosionEffect;
+        //internal static GameObject bombExplosionEffect;
 
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
@@ -160,23 +160,23 @@ namespace RimuruMod.Modules
 
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
-            bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
+            //bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
 
-            if (bombExplosionEffect)
-            {
-                ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
-                shakeEmitter.amplitudeTimeDecay = true;
-                shakeEmitter.duration = 0.5f;
-                shakeEmitter.radius = 200f;
-                shakeEmitter.scaleShakeRadiusWithLocalScale = false;
+            //if (bombExplosionEffect)
+            //{
+            //    ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
+            //    shakeEmitter.amplitudeTimeDecay = true;
+            //    shakeEmitter.duration = 0.5f;
+            //    shakeEmitter.radius = 200f;
+            //    shakeEmitter.scaleShakeRadiusWithLocalScale = false;
 
-                shakeEmitter.wave = new Wave
-                {
-                    amplitude = 1f,
-                    frequency = 40f,
-                    cycleOffset = 0f
-                };
-            }
+            //    shakeEmitter.wave = new Wave
+            //    {
+            //        amplitude = 1f,
+            //        frequency = 40f,
+            //        cycleOffset = 0f
+            //    };
+            //}
 
             swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
             swordHitImpactEffect = Assets.LoadEffect("ImpactRimuruSlash");
