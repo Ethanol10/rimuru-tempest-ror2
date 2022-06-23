@@ -13,15 +13,11 @@ namespace RimuruMod.SkillStates.BaseStates
         public override void OnEnter()
         {
             base.OnEnter();
-            
-
         }
 
         public override void OnExit()
         {
-
             base.OnExit();
-
         }
 
 

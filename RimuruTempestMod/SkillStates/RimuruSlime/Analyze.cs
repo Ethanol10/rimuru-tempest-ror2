@@ -22,7 +22,6 @@ namespace RimuruMod.SkillStates
             {
                 Target = Rimurucon.GetTrackingTarget();
             }
-
         }
 
 

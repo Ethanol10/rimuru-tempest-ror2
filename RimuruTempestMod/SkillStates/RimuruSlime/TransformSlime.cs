@@ -16,8 +16,6 @@ namespace RimuruMod.SkillStates
             oldBody = base.characterBody;
             oldHealth = oldBody.healthComponent.health;
             characterBody.master.TransformBody("RimuruHumanBody");
-
-
         }
 
 

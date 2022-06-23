@@ -24,7 +24,7 @@ namespace RimuruMod.Modules
         {
             Modules.Content.AddProjectilePrefab(projectileToAdd);
         }
-
+        
         //private static void CreateBomb()
         //{
         //    bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "RimuruBombProjectile");
@@ -45,6 +45,7 @@ namespace RimuruMod.Modules
         //    bombController.startSound = "";
         //}
 
+
         private static void CreateWaterBlade() 
         {
             waterbladeProjectile = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WaterBlade");
@@ -62,9 +63,6 @@ namespace RimuruMod.Modules
             ProjectileOverlapAttack waterbladeoverlapAttack = waterbladeProjectile.AddComponent<ProjectileOverlapAttack>();
             InitializeWaterBladeOverlapAttack(waterbladeoverlapAttack);
             waterbladeProjectile.AddComponent<WaterbladeOnHit>();
-
-            //ProjectileImpactExplosion waterbladeProjectileImpactExplosion = waterbladeProjectile.AddComponent<ProjectileImpactExplosion>();
-            //Modules.Projectiles.InitializeImpactExplosion(waterbladeProjectileImpactExplosion);
 
             //Waterblade Damage
             waterbladeProjectileCon.procCoefficient = 1.0f;

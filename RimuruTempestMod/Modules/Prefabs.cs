@@ -108,7 +108,6 @@ namespace RimuruMod.Modules {
 
             SetupCameraTargetParams(newBodyPrefab, bodyInfo);
             SetupModelLocator(newBodyPrefab, modelBaseTransform, model.transform);
-            //SetupRigidbody(newPrefab);
             SetupCapsuleCollider(newBodyPrefab);
             SetupMainHurtbox(newBodyPrefab, model);
 
