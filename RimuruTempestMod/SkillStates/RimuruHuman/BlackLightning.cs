@@ -49,7 +49,9 @@ namespace RimuruMod.SkillStates
 
             this.animator = base.GetModelAnimator();
             base.GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
-            //PlayCrossfade("RightArm, Override", "RightArmOut", "Attack.playbackRate", duration, 0.1f);
+            this.animator.SetBool("attacking", true);
+
+            PlayCrossfade("LeftArm, Override", "BlackLightning", "Attack.playbackRate", fireInterval/2, 0.05f);
             //AkSoundEngine.PostEvent(3660048432, base.gameObject);
 
             //EffectManager.SimpleMuzzleFlash(Modules.Assets.blacklightning, base.gameObject, muzzleString, false);
@@ -91,7 +93,7 @@ namespace RimuruMod.SkillStates
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
+                hitEffectPrefab = Modules.Assets.blacklightningimpactEffect,
             };
         }
 
@@ -116,7 +118,7 @@ namespace RimuruMod.SkillStates
         {
             this.animator.SetBool("attacking", false);
             //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
-            //PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
+            PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             base.OnExit();
             //LoopSoundManager.StopSoundLoopLocal(this.loopPtr);
             mainBlacklightning.Stop();
@@ -146,7 +148,7 @@ namespace RimuruMod.SkillStates
                 //Fire the laser
                 if (fireTimer > fireInterval)
                 {
-                    //PlayCrossfade("LeftArm, Override", "LeftArmOut", "Attack.playbackRate", fireInterval, 0.1f);
+                    PlayCrossfade("LeftArm, Override", "BlackLightningLoop", "Attack.playbackRate", fireInterval, 0.05f);
                     base.characterBody.SetAimTimer(2f);
                     attack.muzzleName = muzzleString;
                     attack.aimVector = aimRay.direction;

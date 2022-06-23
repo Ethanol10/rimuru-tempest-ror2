@@ -22,16 +22,6 @@ namespace RimuruMod.SkillStates
             {
                 Target = Rimurucon.GetTrackingTarget();
             }
-
-            if (!Target)
-            {
-                return;
-            }
-
-            if (Target)
-            {
-                Target.healthComponent.body.AddTimedBuffAuthority(Modules.Buffs.CritDebuff.buffIndex, Modules.StaticValues.analyzedebuffDuration);
-            }
         }
 
 
@@ -49,6 +39,17 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            if (!Target)
+            {
+                return;
+                base.skillLocator.utility.AddOneStock();
+
+            }
+            if (Target)
+            {
+                Target.healthComponent.body.AddTimedBuffAuthority(Modules.Buffs.CritDebuff.buffIndex, Modules.StaticValues.analyzedebuffDuration);
+            }
 
         }
 

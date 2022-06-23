@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Networking;
+using RimuruMod.SkillStates;
 
 namespace RimuruMod.Modules.Survivors
 {
@@ -114,6 +115,12 @@ namespace RimuruMod.Modules.Survivors
 			 voiddevastator = false;
 			 xiconstruct = false;
 
+		}
+
+		public void OnDestroy()
+		{
+			On.RoR2.CharacterBody.Start -= CharacterBody_Start;
+			On.RoR2.GlobalEventManager.OnCharacterDeath -= GlobalEventManager_OnCharacterDeath;
 		}
 
 		public void Start()
@@ -240,8 +247,13 @@ namespace RimuruMod.Modules.Survivors
 
 		public void SetEverythingFalse(CharacterBody characterBody)
 		{
-			//characterBody.ApplyBuff(Buffs.BeetleBuff.buffIndex, 0, 0);
-			//characterBody.ApplyBuff(Buffs.LemurianBuff.buffIndex, 0, 0);
+
+			DevourEffectController controller = characterBody.gameObject.GetComponent<DevourEffectController>();
+			if (!controller)
+			{
+				controller = characterBody.gameObject.AddComponent<DevourEffectController>();
+				controller.charbody = characterBody;
+			}
 
 			characterBody.RemoveBuff(Buffs.BeetleBuff);
 			characterBody.RemoveBuff(Buffs.LemurianBuff);

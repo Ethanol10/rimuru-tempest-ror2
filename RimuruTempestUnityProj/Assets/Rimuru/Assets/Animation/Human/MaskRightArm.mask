@@ -1,0 +1,521 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MaskRightArm
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: RimuruTempest
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/LeftWingMiddle3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/LeftWingRing3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/operational center
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/RightWingMiddle3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/RightWingRing3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/_shadow_waist_cancel.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/_shadow_waist_cancel.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/_dummy_waist_cancel.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/_dummy_waist_cancel.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/_shadow_LegD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/_dummy_LegD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/_shadow_ThighD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/Thigh.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/Thigh.L/_dummy_ThighD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/Thigh.L/_shadow_AnkleD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/Thigh.L/Ankle.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/Thigh.L/Ankle.L/_dummy_AnkleD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/Leg.L/Thigh.L/Ankle.L/Foot.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/LegD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/LegD.L/ThighD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/LegD.L/ThighD.L/AnkleD.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.L/LegD.L/ThighD.L/AnkleD.L/ToesEX.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/_shadow_LegD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/_dummy_FootD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/_shadow_ThighD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/Thigh.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/Thigh.R/_dummy_ThighD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/Thigh.R/_shadow_AnkleD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/Thigh.R/Ankle.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/Thigh.R/Ankle.R/_dummy_AnkleD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/Leg.R/Thigh.R/Ankle.R/Foot.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/LegD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/LegD.R/ThighD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/LegD.R/ThighD.R/AnkleD.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/Lower Body/WaistCancel.R/LegD.R/ThighD.R/AnkleD.R/ToesEX.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_0
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_0/Coat_1_0
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_0/Coat_1_0/Coat_2_0
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_0/Coat_1_0/Coat_2_0/Coat_3_0
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_1/Coat_1_1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_1/Coat_1_1/Coat_2_1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_1/Coat_1_1/Coat_2_1/Coat_3_1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_2/Coat_1_2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_2/Coat_1_2/Coat_2_2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_2/Coat_1_2/Coat_2_2/Coat_3_2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_3/Coat_1_3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_3/Coat_1_3/Coat_2_3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_3/Coat_1_3/Coat_2_3/Coat_3_3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_4
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_4/Coat_1_4
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_4/Coat_1_4/Coat_2_4
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_4/Coat_1_4/Coat_2_4/Coat_3_4
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_5
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_5/Coat_1_5
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_5/Coat_1_5/Coat_2_5
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_5/Coat_1_5/Coat_2_5/Coat_3_5
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_6
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_6/Coat_1_6
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_6/Coat_1_6/Coat_2_6
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_6/Coat_1_6/Coat_2_6/Coat_3_6
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_7
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_7/Coat_1_7
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_7/Coat_1_7/Coat_2_7
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_7/Coat_1_7/Coat_2_7/Coat_3_7
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_8
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_8/Coat_1_8
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_8/Coat_1_8/Coat_2_8
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_8/Coat_1_8/Coat_2_8/Coat_3_8
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_9
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_9/Coat_1_9
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_9/Coat_1_9/Coat_2_9
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Coat_0_9/Coat_1_9/Coat_2_9/Coat_3_9
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/_shadow_eye.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/_shadow_eye.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Cat
+      Ears
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Cat
+      Ears.001
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Eye.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Eye.L/eyetip.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Eye.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Eye.R/eyetip.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Eyes
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Eyes/_dummy_eye.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Eyes/_dummy_eye.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/FrontHair1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/FrontHair1/FrontHair2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/LeftBackHair1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/LeftBackHair1/LeftBackHair2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/LeftBackHair1/LeftBackHair2/LeftBackHair3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/LeftBackHair1/LeftBackHair2/LeftBackHair3/LeftBackHair4
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/LeftHair1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/LeftHair1/LeftHair2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/LeftHair1/LeftHair2/LeftHair3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Mask1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/Mask1/Mask2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/RightBackHair1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/RightBackHair1/RightBackHair2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/RightBackHair1/RightBackHair2/RightBackHair3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/RightBackHair1/RightBackHair2/RightBackHair3/RightBackHair4
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/RightHair1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/RightHair1/RightHair2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/ Neck/Head/RightHair1/RightHair2/RightHair3
+    m_Weight: 0
+  - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/_shadow_\u80A9C.L"
+    m_Weight: 0
+  - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/_shadow_\u80A9C.R"
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/_dummy_ShoulderC.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/_shadow_ArmControl1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/_shadow_ArmControl2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/_shadow_ArmControl3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/_dummy_ArmControl1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/_dummy_ArmControl2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/_dummy_ArmControl3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/_shadow_HandControl1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/_shadow_HandControl2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/_shadow_HandControl3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/_dummy_WristControl1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/_dummy_WristControl2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/_dummy_WristControl3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/dummy.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/IndexFinger1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/IndexFinger1.L/IndexFinger2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/IndexFinger1.L/IndexFinger2.L/IndexFinger3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/IndexFinger1.L/IndexFinger2.L/IndexFinger3.L/IndexFingerTip.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/MiddleFinger1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/MiddleFinger1.L/MiddleFinger2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/MiddleFinger1.L/MiddleFinger2.L/MiddleFinger3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/MiddleFinger1.L/MiddleFinger2.L/MiddleFinger3.L/MiddleFingerTip.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Pinkie1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Pinkie1.L/Pinkie2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Pinkie1.L/Pinkie2.L/Pinkie3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Pinkie1.L/Pinkie2.L/Pinkie3.L/PinkieTip.L
+    m_Weight: 0
+  - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/RingFinger\uFF11.L"
+    m_Weight: 0
+  - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/RingFinger\uFF11.L/RingFinger2.L"
+    m_Weight: 0
+  - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/RingFinger\uFF11.L/RingFinger2.L/RingFinger3.L"
+    m_Weight: 0
+  - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/RingFinger\uFF11.L/RingFinger2.L/RingFinger3.L/RingFingerTip.L"
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Thumb1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Thumb1.L/Thumb2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Thumb1.L/Thumb2.L/Thumb3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl.L/Wrist.L/Thumb1.L/Thumb2.L/Thumb3.L/ThumbTip.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl.L/Elbow.L/HandControl3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl1.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L/Arm.L/ArmControl3.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R
+    m_Weight: 1
+  - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/_dummy_\u80A9C.R"
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/_shadow_ArmControl1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/_shadow_ArmControl2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/_shadow_ArmControl3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/_dummy_ArmControl1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/_dummy_ArmControl2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/_dummy_ArmControl3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/_shadow_HandControl1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/_shadow_HandControl2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/_shadow_HandControl3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/_dummy_WristControl1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/_dummy_WristControl2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/_dummy_WristControl3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Dummy.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/IndexFinger1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/IndexFinger1.R/IndexFinger2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/IndexFinger1.R/IndexFinger2.R/IndexFinger3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/IndexFinger1.R/IndexFinger2.R/IndexFinger3.R/IndexFingerTip.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/MiddleFinger1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/MiddleFinger1.R/MiddleFinger2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/MiddleFinger1.R/MiddleFinger2.R/MiddleFinger3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/MiddleFinger1.R/MiddleFinger2.R/MiddleFinger3.R/MiddleFingerTip.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Pinkie1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Pinkie1.R/Pinkie2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Pinkie1.R/Pinkie2.R/Pinkie3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Pinkie1.R/Pinkie2.R/Pinkie3.R/PinkieTip.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/RingFInger1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/RingFInger1.R/RingFInger2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/RingFInger1.R/RingFInger2.R/RingFInger3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/RingFInger1.R/RingFInger2.R/RingFInger3.R/RingFIngerTip.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Thumb1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Thumb1.R/Thumb2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Thumb1.R/Thumb2.R/Thumb3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl.R/Wrist.R/Thumb1.R/Thumb2.R/Thumb3.R/ThumbTip.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl.R/Elbow.R/HandControl3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl1.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl2.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.R/Shoulder.R/ShoulderC.R/Arm.R/ArmControl3.R
+    m_Weight: 1
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftMuffler1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftMuffler1/LeftMuffler2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftMuffler1/LeftMuffler2/LeftMuffler3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb/LeftWingMiddle1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb/LeftWingMiddle1/LeftWingMiddle2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb/LeftWingPinky1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb/LeftWingPinky1/LeftWingPinky2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb/LeftWingPinky1/LeftWingPinky2/LeftWingPinky3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb/LeftWingRing1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/LeftWingShoulder/LeftWingArm/LeftWingThumb/LeftWingRing1/LeftWingRing2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightMuffler1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightMuffler1/RightMuffler2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightMuffler1/RightMuffler2/RightMuffler3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb/RightWingMiddle1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb/RightWingMiddle1/RightWingMiddle2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb/RightWingPinky1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb/RightWingPinky1/RightWingPinky2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb/RightWingPinky1/RightWingPinky2/RightWingPinky3
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb/RightWingRing1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/RightWingShoulder/RightWingArm/RightWingThumb/RightWingRing1/RightWingRing2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/Sword1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/Sword1/Charm1
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/Sword1/Charm1/Charm2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/Sword1/Sword2
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/LegIK.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/LegIK.L/LegIK2.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/LegIK.L/LegIK2.L/FootIK.L
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/LegIK.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/LegIK.R/LegIK2.R
+    m_Weight: 0
+  - m_Path: RimuruTempest_arm/Root/LegIK.R/LegIK2.R/FootIK.R
+    m_Weight: 0

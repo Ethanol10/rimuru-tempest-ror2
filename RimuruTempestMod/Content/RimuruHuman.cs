@@ -40,6 +40,7 @@ namespace RimuruMod.Modules.Survivors
 
         //internal static Material RimuruHumanMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
         internal static Material RimuruHumanMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
+        internal static Material RimuruHumanEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
@@ -225,6 +226,7 @@ namespace RimuruMod.Modules.Survivors
                 defaultMat,
                 defaultMat,
                 defaultMat,
+
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
@@ -239,22 +241,22 @@ namespace RimuruMod.Modules.Survivors
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
-                    renderer = defaultRenderers[0].renderer
+                    renderer = defaultRendererInfo[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
-                    renderer = defaultRenderers[1].renderer
+                    renderer = defaultRendererInfo[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
-                    renderer = defaultRenderers[2].renderer
+                    renderer = defaultRendererInfo[2].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
-                    renderer = defaultRenderers[3].renderer
+                    renderer = defaultRendererInfo[3].renderer
                 }
             };
 
@@ -282,22 +284,22 @@ namespace RimuruMod.Modules.Survivors
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
-                    renderer = defaultRenderers[0].renderer
+                    renderer = maskedrendererInfos[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
-                    renderer = defaultRenderers[1].renderer
+                    renderer = maskedrendererInfos[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
-                    renderer = defaultRenderers[2].renderer
+                    renderer = maskedrendererInfos[2].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
-                    renderer = defaultRenderers[3].renderer
+                    renderer = maskedrendererInfos[3].renderer
                 }
             };
 
@@ -351,6 +353,9 @@ namespace RimuruMod.Modules.Survivors
             defaultRenderers.CopyTo(newRendererInfos, 0);
 
             newRendererInfos[0].defaultMaterial = materials[0];
+            newRendererInfos[1].defaultMaterial = materials[1];
+            newRendererInfos[2].defaultMaterial = materials[2];
+            newRendererInfos[3].defaultMaterial = materials[3];
 
             return newRendererInfos;
         }

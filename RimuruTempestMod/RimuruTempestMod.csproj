@@ -36,7 +36,7 @@
 
   <ItemGroup>
     <Reference Include="CustomEmotesAPI">
-      <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\testing\BepInEx\plugins\MetrosexualFruitcake-CustomEmotesAPI\CustomEmotesAPI.dll</HintPath>
+      <HintPath>..\libs\CustomEmotesAPI.dll</HintPath>
     </Reference>
     <Reference Include="R2API">
       <HintPath>..\libs\R2API.dll</HintPath>

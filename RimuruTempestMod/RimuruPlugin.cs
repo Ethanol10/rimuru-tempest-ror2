@@ -10,6 +10,7 @@ using UnityEngine.Networking;
 using R2API.Networking;
 using EmotesAPI;
 using BepInEx.Bootstrap;
+using RimuruMod.SkillStates;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -73,6 +74,7 @@ namespace RimuruMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+            On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
@@ -83,14 +85,38 @@ namespace RimuruMod
         }
 
 
+
+        //swordPosition
+        private void CharacterModel_Start(On.RoR2.CharacterModel.orig_Start orig, CharacterModel self)
+        {
+            orig(self);
+            if (self.gameObject.name.Contains("RimuruHumanDisplay"))
+            {
+                RimuruSwordDisplayController displayHandler = self.gameObject.GetComponent<RimuruSwordDisplayController>();
+                if (!displayHandler)
+                {
+                    ChildLocator childLoc = self.gameObject.GetComponent<ChildLocator>();
+
+                    if (childLoc)
+                    {
+                        Transform swordMesh = childLoc.FindChild("SwordMeshPosition");
+                        Transform swordsheatheTrans = childLoc.FindChild("SwordPosition");
+
+                        displayHandler = self.gameObject.AddComponent<RimuruSwordDisplayController>();
+                        displayHandler.swordTargetTransform = swordsheatheTrans;
+                        displayHandler.swordTransform = swordMesh;
+                    }
+                }
+            }
+        }
+
         //EMOTES
         private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
         {
             orig();
             foreach (var item in SurvivorCatalog.allSurvivorDefs)
             {
-                Debug.Log(item.bodyPrefab.name);
-                if (item.bodyPrefab.name == "ShiggyBody")
+                if (item.bodyPrefab.name == "RimuruHumanBody")
                 {
                     CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("EmoteRimuru"));
                 }
@@ -229,18 +255,35 @@ namespace RimuruMod
         {
             orig(self);
 
-            // a simple stat hook, adds armor after stats are recalculated
-            if (self)
+            if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
             {
-                if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
+                self.armor += 300f;
+            }
+            if (self.HasBuff(Modules.Buffs.BeetleBuff))
+            {
+                self.damage *= 1.5f;
+            }
+            if (self.HasBuff(Modules.Buffs.CritDebuff))
+            {
+                AnalyzeEffectController analyzecontroller = self.gameObject.GetComponent<AnalyzeEffectController>();
+                if (!analyzecontroller)
                 {
-                    self.armor += 300f;
-                }
-                if (self.HasBuff(Modules.Buffs.BeetleBuff))
-                {
-                    self.damage *= 1.5f;
+                    analyzecontroller = self.gameObject.AddComponent<AnalyzeEffectController>();
+                    analyzecontroller.charbody = self;
                 }
             }
+            if (self.HasBuff(Modules.Buffs.WetDebuff))
+            {
+                WetEffectController wetcontroller = self.gameObject.GetComponent<WetEffectController>();
+                if (!wetcontroller)
+                {
+                    wetcontroller = self.gameObject.AddComponent<WetEffectController>();
+                    wetcontroller.charbody = self;
+                }
+            }
+                
+
+            
         }
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
         {

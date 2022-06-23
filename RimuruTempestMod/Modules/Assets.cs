@@ -21,10 +21,15 @@ namespace RimuruMod.Modules
         internal static GameObject swordSwingEffect;
         internal static GameObject swordHitImpactEffect;
         internal static GameObject blacklightning;
+        internal static GameObject blacklightningimpactEffect;
         internal static GameObject devourEffect;
+        public static GameObject devourskillgetEffect;
+        public static GameObject analyzeEffect;
+        public static GameObject waterbladeimpactEffect;
+        public static GameObject wetEffect;
         internal static List<GameObject> networkObjDefs = new List<GameObject>();
 
-        internal static GameObject bombExplosionEffect;
+        //internal static GameObject bombExplosionEffect;
 
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
@@ -141,31 +146,40 @@ namespace RimuruMod.Modules
             blacklightning.AddComponent<NetworkIdentity>();
             networkObjDefs.Add(blacklightning);
             PrefabAPI.RegisterNetworkPrefab(blacklightning);
+            //blacklightningimpact effect
+            blacklightningimpactEffect = LoadEffect("BlackLightningImpact");
             //devour effect
             devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
+            devourskillgetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DevourSkillGet");
+            //analyze effect
+            analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
+            //waterblade impact effect
+            waterbladeimpactEffect = LoadEffect("WaterBladeImpact");
+            //wet effect
+            wetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WetEffect");
 
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
-            bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
+            //bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
 
-            if (bombExplosionEffect)
-            {
-                ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
-                shakeEmitter.amplitudeTimeDecay = true;
-                shakeEmitter.duration = 0.5f;
-                shakeEmitter.radius = 200f;
-                shakeEmitter.scaleShakeRadiusWithLocalScale = false;
+            //if (bombExplosionEffect)
+            //{
+            //    ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
+            //    shakeEmitter.amplitudeTimeDecay = true;
+            //    shakeEmitter.duration = 0.5f;
+            //    shakeEmitter.radius = 200f;
+            //    shakeEmitter.scaleShakeRadiusWithLocalScale = false;
 
-                shakeEmitter.wave = new Wave
-                {
-                    amplitude = 1f,
-                    frequency = 40f,
-                    cycleOffset = 0f
-                };
-            }
+            //    shakeEmitter.wave = new Wave
+            //    {
+            //        amplitude = 1f,
+            //        frequency = 40f,
+            //        cycleOffset = 0f
+            //    };
+            //}
 
             swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
-            swordHitImpactEffect = Assets.LoadEffect("ImpactHenrySlash");
+            swordHitImpactEffect = Assets.LoadEffect("ImpactRimuruSlash");
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)
