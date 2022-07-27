@@ -90,8 +90,8 @@ namespace RimuruMod.Modules.Survivors
 
             #region Primary
             //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_SLASH_NAME",
-                                                                                      prefix + "_RIMURU_BODY_PRIMARY_SLASH_DESCRIPTION",
+            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_DEVOUR_NAME",
+                                                                                      prefix + "_RIMURU_BODY_PRIMARY_DEVOUR_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.Devour)),
                                                                                       "Weapon",
@@ -104,9 +104,9 @@ namespace RimuruMod.Modules.Survivors
             #region Secondary
             SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_DESCRIPTION",
+                skillName = prefix + "_RIMURU_BODY_SECONDARY_WATERBLADE_NAME",
+                skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_WATERBLADE_NAME",
+                skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_WATERBLADE_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Waterblade)),
                 activationStateMachineName = "Slide",
@@ -133,9 +133,9 @@ namespace RimuruMod.Modules.Survivors
             #region Utility
             SkillDef analyzeSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_DESCRIPTION",
+                skillName = prefix + "_RIMURU_BODY_UTILITY_ANALYZE_NAME",
+                skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ANALYZE_NAME",
+                skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ANALYZE_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Analyze)),
                 activationStateMachineName = "Slide",
@@ -161,9 +161,9 @@ namespace RimuruMod.Modules.Survivors
             #region Special
             SkillDef transformSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_DESCRIPTION",
+                skillName = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMSLIME_NAME",
+                skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMSLIME_NAME",
+                skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMSLIME_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformSlime)),
                 activationStateMachineName = "Slide",

@@ -15,7 +15,7 @@ namespace RimuruMod.SkillStates
             this.hitboxName = "Sword";
 
             this.damageType = DamageType.Generic;
-            if (base.characterBody.HasBuff(Modules.Buffs.LemurianBuff))
+            if (base.characterBody.HasBuff(Modules.Buffs.FireBuff))
             {
                 damageType |= DamageType.IgniteOnHit;
             }

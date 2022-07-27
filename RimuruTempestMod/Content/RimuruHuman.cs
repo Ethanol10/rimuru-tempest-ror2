@@ -45,11 +45,6 @@ namespace RimuruMod.Modules.Survivors
         {
                 new CustomRendererInfo
                 {
-                    childName = "Mask",
-                    material = RimuruHumanMat,
-                },
-                new CustomRendererInfo
-                {
                     childName = "Wing",
                     material = RimuruHumanMat,
                 },
@@ -105,6 +100,14 @@ namespace RimuruMod.Modules.Survivors
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = RimuruPlugin.DEVELOPER_PREFIX;
 
+            #region Passive
+            SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
+            skillloc.passiveSkill.enabled = true;
+            skillloc.passiveSkill.skillNameToken = prefix + "_RIMURU_BODY_PASSIVE_NAME";
+            skillloc.passiveSkill.skillDescriptionToken = prefix + "_RIMURU_BODY_PASSIVE_DESCRIPTION";
+            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+            #endregion
+
             #region Primary
             //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_SLASH_NAME",
@@ -121,9 +124,9 @@ namespace RimuruMod.Modules.Survivors
             #region Secondary
             SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_DESCRIPTION",
+                skillName = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
+                skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
+                skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.BlackLightning)),
                 activationStateMachineName = "Slide",
@@ -150,9 +153,9 @@ namespace RimuruMod.Modules.Survivors
             #region Utility
             SkillDef spatialSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_DESCRIPTION",
+                skillName = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_NAME",
+                skillNameToken = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_NAME",
+                skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.SpatialMovement)),
                 activationStateMachineName = "Slide",
@@ -178,9 +181,9 @@ namespace RimuruMod.Modules.Survivors
             #region Special
             SkillDef transformSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_DESCRIPTION",
+                skillName = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
+                skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
+                skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformHuman)),
                 activationStateMachineName = "Slide",
@@ -222,7 +225,6 @@ namespace RimuruMod.Modules.Survivors
             Material defaultMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
             Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
-                emptyMat,
                 defaultMat,
                 defaultMat,
                 defaultMat,
@@ -240,71 +242,66 @@ namespace RimuruMod.Modules.Survivors
                 //unnecessary if you don't have multiple skins
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
                     renderer = defaultRendererInfo[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
                     renderer = defaultRendererInfo[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
-                    renderer = defaultRendererInfo[2].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
-                    renderer = defaultRendererInfo[3].renderer
+                    renderer = defaultRendererInfo[2].renderer
                 }
             };
 
             skins.Add(defaultSkin);
             #endregion
 
-            //masked skin
-            #region maskedSkin
-            CharacterModel.RendererInfo[] maskedrendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultMat,
-                defaultMat,
-                defaultMat,
-            });
-            SkinDef maskedSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASKED_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
-                maskedrendererInfos,
-                mainRenderer,
-                model);
+            //masked skin, removed since mask is wack
+            //#region maskedSkin
+            //CharacterModel.RendererInfo[] maskedrendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
+            //    defaultMat,
+            //    defaultMat,
+            //    defaultMat,
+            //    defaultMat,
+            //});
+            //SkinDef maskedSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASKED_SKIN_NAME",
+            //    Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
+            //    maskedrendererInfos,
+            //    mainRenderer,
+            //    model);
 
-            maskedSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
-                    renderer = maskedrendererInfos[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
-                    renderer = maskedrendererInfos[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
-                    renderer = maskedrendererInfos[2].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
-                    renderer = maskedrendererInfos[3].renderer
-                }
-            };
+            //maskedSkin.meshReplacements = new SkinDef.MeshReplacement[]
+            //{
+            //    //place your mesh replacements here
+            //    //unnecessary if you don't have multiple skins
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
+            //        renderer = maskedrendererInfos[0].renderer
+            //    },
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
+            //        renderer = maskedrendererInfos[1].renderer
+            //    },
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
+            //        renderer = maskedrendererInfos[2].renderer
+            //    },
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
+            //        renderer = maskedrendererInfos[3].renderer
+            //    }
+            //};
 
-            skins.Add(maskedSkin);
-            #endregion
+            //skins.Add(maskedSkin);
+            //#endregion
             //uncomment this when you have a mastery skin
             #region MasterySkin
 
@@ -355,7 +352,6 @@ namespace RimuruMod.Modules.Survivors
             newRendererInfos[0].defaultMaterial = materials[0];
             newRendererInfos[1].defaultMaterial = materials[1];
             newRendererInfos[2].defaultMaterial = materials[2];
-            newRendererInfos[3].defaultMaterial = materials[3];
 
             return newRendererInfos;
         }
