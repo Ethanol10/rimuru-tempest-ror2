@@ -36,7 +36,7 @@ namespace RimuruMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
         public const string MODNAME = "RimuruTempestMod";
-        public const string MODVERSION = "0.0.1";
+        public const string MODVERSION = "0.1.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -90,24 +90,25 @@ namespace RimuruMod
         private void CharacterModel_Start(On.RoR2.CharacterModel.orig_Start orig, CharacterModel self)
         {
             orig(self);
-            if (self.gameObject.name.Contains("RimuruHumanDisplay"))
-            {
-                RimuruSwordDisplayController displayHandler = self.gameObject.GetComponent<RimuruSwordDisplayController>();
-                if (!displayHandler)
-                {
-                    ChildLocator childLoc = self.gameObject.GetComponent<ChildLocator>();
+            //glitching out sword position, maybe one day
+            //if (self.gameObject.name.Contains("RimuruHumanDisplay"))
+            //{
+            //    RimuruSwordDisplayController displayHandler = self.gameObject.GetComponent<RimuruSwordDisplayController>();
+            //    if (!displayHandler)
+            //    {
+            //        ChildLocator childLoc = self.gameObject.GetComponent<ChildLocator>();
 
-                    if (childLoc)
-                    {
-                        Transform swordMesh = childLoc.FindChild("SwordMeshPosition");
-                        Transform swordsheatheTrans = childLoc.FindChild("SwordPosition");
+            //        if (childLoc)
+            //        {
+            //            Transform swordMesh = childLoc.FindChild("SwordMeshPosition");
+            //            Transform swordsheatheTrans = childLoc.FindChild("SwordPosition");
 
-                        displayHandler = self.gameObject.AddComponent<RimuruSwordDisplayController>();
-                        displayHandler.swordTargetTransform = swordsheatheTrans;
-                        displayHandler.swordTransform = swordMesh;
-                    }
-                }
-            }
+            //            displayHandler = self.gameObject.AddComponent<RimuruSwordDisplayController>();
+            //            displayHandler.swordTargetTransform = swordsheatheTrans;
+            //            displayHandler.swordTransform = swordMesh;
+            //        }
+            //    }
+            //}
         }
 
         //EMOTES
@@ -136,6 +137,55 @@ namespace RimuruMod
                         damageInfo.crit = true;
 
                     }
+                }
+
+                if (self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME" || 
+                    self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+                {
+                    bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
+                    if (!flag && damageInfo.damage > 0f)
+                    {
+                        //resistance buff
+                        if (self.body.HasBuff(Modules.Buffs.ResistanceBuff.buffIndex))
+                        {
+                            if (self.combinedHealthFraction < 0.5f && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                            {
+                                damageInfo.force = Vector3.zero;
+                                damageInfo.damage -= self.body.armor;
+                                if (damageInfo.damage < 0f)
+                                {
+                                    self.Heal(Mathf.Abs(damageInfo.damage), default(RoR2.ProcChainMask), true);
+                                    damageInfo.damage = 0f;
+
+                                }
+
+                            }
+                            else
+                            {
+                                damageInfo.force = Vector3.zero;
+                                damageInfo.damage = Mathf.Max(1f, damageInfo.damage - self.body.armor);
+                            }
+                        }
+                        //regen buff
+                        if (self.body.HasBuff(Modules.Buffs.RegenerationBuff.buffIndex))
+                        {
+                            if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                            {
+                                int missinghealth = Mathf.RoundToInt((damageInfo.damage * 5)/ self.combinedHealth); 
+                                if (missinghealth > 0)
+                                {
+                                    self.body.ApplyBuff(Modules.Buffs.RegenstackBuff.buffIndex, missinghealth, -1);
+                                }
+
+                            }
+                            else
+                            {
+                                damageInfo.force = Vector3.zero;
+                                damageInfo.damage = Mathf.Max(1f, damageInfo.damage - self.body.armor);
+                            }
+                        }
+                    }
+
                 }
             }
 
@@ -255,11 +305,15 @@ namespace RimuruMod
         {
             orig(self);
 
+            if (self.HasBuff(Modules.Buffs.ResistanceBuff))
+            {
+                self.armor += 10f;
+            }
             if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
             {
                 self.armor += 300f;
             }
-            if (self.HasBuff(Modules.Buffs.BeetleBuff))
+            if (self.HasBuff(Modules.Buffs.StrengthBuff))
             {
                 self.damage *= 1.5f;
             }

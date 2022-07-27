@@ -9,20 +9,22 @@ namespace RimuruMod.Modules
         {
             #region Rimuru
             string prefix = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_";
+            string humanPrefix = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_";
+            string slimePrefix = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_";
 
-            string desc = "Rimuru is a skilled fighter who makes use of a wide arsenal of weaponry to take down his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Pistol is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
+            string desc = "Rimuru is a form-changing character that alternates between utility and damage.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > His sword attack can dash towards enemies ." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > He has elemental interactions when an enemy is wet, shocked, or ignited." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Aim to switch between his forms to maximise his damage output." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Different enemies grant different passive buffs from Slime form's Devour." + Environment.NewLine + Environment.NewLine;
 
-            string outro = "..and so he left, searching for a new identity.";
-            string outroFailure = "..and so he vanished, forever a blank slate.";
+            string outro = "..and so he left, continuing on his comfortable life.";
+            string outroFailure = "..and so he went on, making sure to put his hard drive into the bath.";
 
-            LanguageAPI.Add(prefix + "NAME", "Rimuru");
+            LanguageAPI.Add(prefix + "NAME", "Rimuru Tempest");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
-            LanguageAPI.Add(prefix + "SUBTITLE", "The Chosen One");
-            LanguageAPI.Add(prefix + "LORE", "sample lore");
+            LanguageAPI.Add(prefix + "SUBTITLE", "Great Demon Lord");
+            LanguageAPI.Add(prefix + "LORE", "I am the slime Rimuru Tempest. I'm not a bad slime!");
             LanguageAPI.Add(prefix + "OUTRO_FLAVOR", outro);
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
 
@@ -31,31 +33,59 @@ namespace RimuruMod.Modules
             LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Alternate");
             #endregion
 
+            #region HumanSkills
             #region Passive
-            LanguageAPI.Add(prefix + "PASSIVE_NAME", "Rimuru passive");
-            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Sample text.");
+            LanguageAPI.Add(prefix + "PASSIVE_NAME", "Magicule Properties");
+            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Hitting burning enemies with shock damage stuns and creates an explosion. " + Environment.NewLine +
+                "Hitting wet enemies with fire damage ignites nearby enemies and removes the wet debuff. " + Environment.NewLine +
+                "Hitting wet enemies with shock damage shocks nearby enemies.");
             #endregion
 
             #region Primary
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Sword");
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Sword of Tempest");
+            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>, dashing to distant enemies.");
             #endregion
 
             #region Secondary
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Handgun");
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Helpers.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * StaticValues.waterbladeDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_NAME", "Black Lightning");
+            LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_DESCRIPTION", Helpers.agilePrefix + $"Shock all enemies in front of you for <style=cIsDamage>{100f * StaticValues.blacklightningDamageCoefficient}% damage per tick</style>" +
+                $"for {StaticValues.blacklightningtotalDuration} seconds.");
             #endregion
 
             #region Utility
-            LanguageAPI.Add(prefix + "UTILITY_ROLL_NAME", "Roll");
-            LanguageAPI.Add(prefix + "UTILITY_ROLL_DESCRIPTION", "Roll a short distance, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
+            LanguageAPI.Add(prefix + "UTILITY_SPATIALMOVEMENT_NAME", "Spatial Movement");
+            LanguageAPI.Add(prefix + "UTILITY_SPATIALMOVEMENT_DESCRIPTION", Helpers.agilePrefix + $"Hold to aim and release to teleport, gaining <style=cIsUtility>300 armor</style>.");
             #endregion
 
             #region Special
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Bomb");
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", $"Throw a bomb for <style=cIsDamage>{100f * StaticValues.waterbladeDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SPECIAL_TRANSFORMHUMAN_NAME", "Transform");
+            LanguageAPI.Add(prefix + "SPECIAL_TRANSFORMHUMAN_DESCRIPTION", $"Transform into your slime form.");
+            #endregion
             #endregion
 
+            #region SlimeSkills
+
+            #region Primary
+            LanguageAPI.Add(prefix + "PRIMARY_DEVOUR_NAME", "Devour");
+            LanguageAPI.Add(prefix + "PRIMARY_DEVOUR_DESCRIPTION", Helpers.agilePrefix + "<style=cIsUtility>Slayer.</style> " + $"Devour all enemies in front of you for <style=cIsDamage>{100f * StaticValues.devourDamageCoefficient}% damage</style>. " +
+                $"Gain buffs depending on which enemy type is killed.");
+            #endregion
+
+            #region Secondary
+            LanguageAPI.Add(prefix + "SECONDARY_WATERBLADE_NAME", "Waterblade");
+            LanguageAPI.Add(prefix + "SECONDARY_WATERBLADE_DESCRIPTION", Helpers.agilePrefix + $"Fire a Waterblade for <style=cIsDamage>{100f * StaticValues.waterbladeDamageCoefficient}% damage</style>, applying a wet debuff on them.");
+            #endregion
+
+            #region Utility
+            LanguageAPI.Add(prefix + "UTILITY_ANALYZE_NAME", "Analyze");
+            LanguageAPI.Add(prefix + "UTILITY_ANALYZE_DESCRIPTION", Helpers.agilePrefix + $"Analyze the target, gaining <style=cIsDamage>guaranteed crits</style> on them for {StaticValues.analyzedebuffDuration} seconds.");
+            #endregion
+
+            #region Special
+            LanguageAPI.Add(prefix + "SPECIAL_TRANSFORMSLIME_NAME", "Transform");
+            LanguageAPI.Add(prefix + "SPECIAL_TRANSFORMSLIME_DESCRIPTION", $"Transform into your human form.");
+            #endregion
+            #endregion
             #region Achievements
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_NAME", "Rimuru: Mastery");
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_DESC", "As Rimuru, beat the game or obliterate on Monsoon.");

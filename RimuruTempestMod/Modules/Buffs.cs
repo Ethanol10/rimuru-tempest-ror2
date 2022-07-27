@@ -11,8 +11,14 @@ namespace RimuruMod.Modules
         internal static BuffDef CritDebuff;
         internal static BuffDef WetLightningDebuff;
         internal static BuffDef WetDebuff;
-        internal static BuffDef BeetleBuff;
-        internal static BuffDef LemurianBuff;
+
+        internal static BuffDef StrengthBuff;
+        internal static BuffDef FireBuff;
+        internal static BuffDef ResistanceBuff;
+        internal static BuffDef ShockBuff;
+        internal static BuffDef PoisonBuff;
+        internal static BuffDef RegenerationBuff;
+        internal static BuffDef RegenstackBuff;
 
         internal static void RegisterBuffs()
         {
@@ -21,8 +27,13 @@ namespace RimuruMod.Modules
             WetLightningDebuff = AddNewBuff("WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
             WetDebuff = AddNewBuff("Wet Debuff", Assets.bleedBuffIcon, Color.cyan, false, true);
 
-            BeetleBuff = AddNewBuff("BeetleBuff", Assets.boostBuffIcon, Color.gray, false, false);
-            LemurianBuff = AddNewBuff("LemurianBuff", Assets.fireBuffIcon, Color.red, false, false);
+            StrengthBuff = AddNewBuff("StrengthBuff", Assets.boostBuffIcon, Color.gray, false, false);
+            FireBuff = AddNewBuff("FireBuff", Assets.fireBuffIcon, Color.red, false, false);
+            ResistanceBuff = AddNewBuff("ResistanceBuff", Assets.shieldBuffIcon, Color.yellow, false, false);
+            ShockBuff = AddNewBuff("ShockBuff", Assets.lightningBuffIcon, Color.yellow, false, false);
+            PoisonBuff = AddNewBuff("bleedBuffIcon", Assets.fireBuffIcon, Color.green, false, false);
+            RegenerationBuff = AddNewBuff("RegenerationBuff", Assets.healBuffIcon, Color.cyan, false, false);
+            RegenstackBuff = AddNewBuff("RegenstackBuff", Assets.healBuffIcon, Color.grey, true, false);
         }
 
         // simple helper method

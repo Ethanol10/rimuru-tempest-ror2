@@ -40,9 +40,13 @@ namespace RimuruMod.SkillStates
             base.OnEnter();
             updateAimRay();
             base.characterBody.SetAimTimer(2f);
-            totalDuration = basetotalDuration / attackSpeedStat;
+            totalDuration = basetotalDuration;
             fireInterval = basefireInterval / attackSpeedStat;
 
+            if (base.characterBody.HasBuff(Modules.Buffs.PoisonBuff))
+            {
+                damageType |= DamageType.BlightOnHit;
+            }
             damageType = DamageType.Shock5s;
             Rimurucon = gameObject.GetComponent<RimuruController>();
 
