@@ -48,7 +48,7 @@ namespace RimuruMod.Modules
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_NAME", "Black Lightning");
-            LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_DESCRIPTION", Helpers.agilePrefix + $"Shock all enemies in front of you for <style=cIsDamage>{100f * StaticValues.blacklightningDamageCoefficient}% damage per tick</style>" +
+            LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_DESCRIPTION", Helpers.agilePrefix + $"Shock all enemies in front of you for <style=cIsDamage>{100f * StaticValues.blacklightningDamageCoefficient}% damage per tick </style>" +
                 $"for {StaticValues.blacklightningtotalDuration} seconds.");
             #endregion
 
