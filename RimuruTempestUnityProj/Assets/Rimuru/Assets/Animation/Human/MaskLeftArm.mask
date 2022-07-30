@@ -13,6 +13,14 @@ AvatarMask:
     m_Weight: 1
   - m_Path: RimuruTempest
     m_Weight: 0
+  - m_Path: RimuruTempest Sword_arm
+    m_Weight: 0
+  - m_Path: RimuruTempest Sword_arm/Grip
+    m_Weight: 0
+  - m_Path: RimuruTempest Sword_arm/Grip/Charm
+    m_Weight: 0
+  - m_Path: RimuruTempest Sword_mesh.001
+    m_Weight: 0
   - m_Path: RimuruTempest_arm
     m_Weight: 0
   - m_Path: RimuruTempest_arm/LeftWingMiddle3
@@ -256,9 +264,9 @@ AvatarMask:
   - m_Path: "RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/_shadow_\u80A9C.R"
     m_Weight: 0
   - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/_dummy_ShoulderC.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L
     m_Weight: 1
   - m_Path: RimuruTempest_arm/Root/Center/Group/Waist/UpperBody/Upper Body 2/BustP.L/Shoulder.L/ShoulderC.L
@@ -518,4 +526,6 @@ AvatarMask:
   - m_Path: RimuruTempest_arm/Root/LegIK.R/LegIK2.R
     m_Weight: 0
   - m_Path: RimuruTempest_arm/Root/LegIK.R/LegIK2.R/FootIK.R
+    m_Weight: 0
+  - m_Path: RimuruTempestWing
     m_Weight: 0
