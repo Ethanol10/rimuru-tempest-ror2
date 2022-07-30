@@ -1427,14 +1427,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformPairs:
   - name: Chest
-    transform: {fileID: 1745054485133809454, guid: c8b710ace713f4645a1d4296add6d7f9,
-      type: 3}
+    transform: {fileID: 3198969619355732500}
   - name: SwordHitbox
-    transform: {fileID: 1747322205552266603, guid: c8b710ace713f4645a1d4296add6d7f9,
-      type: 3}
+    transform: {fileID: 8509914451484143122}
   - name: MainHurtbox
-    transform: {fileID: 6147756711214153237, guid: c8b710ace713f4645a1d4296add6d7f9,
-      type: 3}
+    transform: {fileID: 6395166502487723609}
   - name: Armature
     transform: {fileID: 3998878505273864545}
   - name: Model
@@ -1442,17 +1439,13 @@ MonoBehaviour:
   - name: Sword
     transform: {fileID: 7004599229528408043}
   - name: Wing
-    transform: {fileID: 1877951973040980902, guid: c8b710ace713f4645a1d4296add6d7f9,
-      type: 3}
+    transform: {fileID: 3340962270526529180}
   - name: FootR
-    transform: {fileID: 8401706365019319439, guid: c8b710ace713f4645a1d4296add6d7f9,
-      type: 3}
+    transform: {fileID: 4668670724296159669}
   - name: LWrist
-    transform: {fileID: 5431912171299635469, guid: c8b710ace713f4645a1d4296add6d7f9,
-      type: 3}
+    transform: {fileID: 9165018147496057911}
   - name: FootL
-    transform: {fileID: 8670443952992040816, guid: c8b710ace713f4645a1d4296add6d7f9,
-      type: 3}
+    transform: {fileID: 5476714641854523978}
   - name: SwingRight
     transform: {fileID: 3215208770083110790}
   - name: SwingLeft
