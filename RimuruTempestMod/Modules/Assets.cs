@@ -178,7 +178,7 @@ namespace RimuruMod.Modules
             //    };
             //}
 
-            swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
+            swordSwingEffect = Assets.LoadEffect("RimuruSwordSwing", true);
             swordHitImpactEffect = Assets.LoadEffect("ImpactRimuruSlash");
         }
 

@@ -61,6 +61,7 @@ namespace RimuruMod.SkillStates.BaseStates
             base.characterBody.SetAimTimer(0.5f + this.duration);
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
+            this.animator.SetFloat("Slash.playbackRate", base.attackSpeedStat);
 
             HitBoxGroup hitBoxGroup = null;
             Transform modelTransform = base.GetModelTransform();
@@ -89,7 +90,7 @@ namespace RimuruMod.SkillStates.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            base.PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+            base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
         }
 
         public override void OnExit()
@@ -184,7 +185,11 @@ namespace RimuruMod.SkillStates.BaseStates
             else
             {
                 if (base.characterMotor) base.characterMotor.velocity = Vector3.zero;
-                if (this.animator) this.animator.SetFloat("Swing.playbackRate", 0f);
+                if (this.animator)
+                {
+                    this.animator.SetFloat("Swing.playbackRate", 0f); 
+                    this.animator.SetFloat("Slash.playbackRate", 0f);
+                }
             }
 
             if (this.stopwatch >= (this.duration * this.attackStartTime) && this.stopwatch <= (this.duration * this.attackEndTime))

@@ -13,7 +13,7 @@ namespace RimuruMod.Modules
             string slimePrefix = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_";
 
             string desc = "Rimuru is a form-changing character that alternates between utility and damage.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > His sword attack can dash towards enemies ." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > His sword attack can dash towards enemies." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > He has elemental interactions when an enemy is wet, shocked, or ignited." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Aim to switch between his forms to maximise his damage output." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Different enemies grant different passive buffs from Slime form's Devour." + Environment.NewLine + Environment.NewLine;
