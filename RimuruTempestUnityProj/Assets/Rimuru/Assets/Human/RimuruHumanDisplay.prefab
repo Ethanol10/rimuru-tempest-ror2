@@ -7,10 +7,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4294492742060129644, guid: 49f926bff955e324982f7e1a502f8c7b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f6923bc16902bdf4aaa502765fd1e712, type: 2}
     - target: {fileID: 1237569034187424933, guid: 49f926bff955e324982f7e1a502f8c7b,
         type: 3}
       propertyPath: m_Name
-      value: mdlRimuruHuman
+      value: RimuruHumanDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 1902606836309401119, guid: 49f926bff955e324982f7e1a502f8c7b,
         type: 3}

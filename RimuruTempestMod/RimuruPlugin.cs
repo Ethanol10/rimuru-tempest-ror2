@@ -304,36 +304,39 @@ namespace RimuruMod
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
+            if (self)
+            {
+                if (self.HasBuff(Modules.Buffs.ResistanceBuff))
+                {
+                    self.armor += 10f;
+                }
+                if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
+                {
+                    self.armor += 300f;
+                }
+                if (self.HasBuff(Modules.Buffs.StrengthBuff))
+                {
+                    self.damage *= 1.5f;
+                }
+                if (self.HasBuff(Modules.Buffs.CritDebuff))
+                {
+                    AnalyzeEffectController analyzecontroller = self.gameObject.GetComponent<AnalyzeEffectController>();
+                    if (!analyzecontroller)
+                    {
+                        analyzecontroller = self.gameObject.AddComponent<AnalyzeEffectController>();
+                        analyzecontroller.charbody = self;
+                    }
+                }
+                if (self.HasBuff(Modules.Buffs.WetDebuff))
+                {
+                    WetEffectController wetcontroller = self.gameObject.GetComponent<WetEffectController>();
+                    if (!wetcontroller)
+                    {
+                        wetcontroller = self.gameObject.AddComponent<WetEffectController>();
+                        wetcontroller.charbody = self;
+                    }
+                }
 
-            if (self.HasBuff(Modules.Buffs.ResistanceBuff))
-            {
-                self.armor += 10f;
-            }
-            if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
-            {
-                self.armor += 300f;
-            }
-            if (self.HasBuff(Modules.Buffs.StrengthBuff))
-            {
-                self.damage *= 1.5f;
-            }
-            if (self.HasBuff(Modules.Buffs.CritDebuff))
-            {
-                AnalyzeEffectController analyzecontroller = self.gameObject.GetComponent<AnalyzeEffectController>();
-                if (!analyzecontroller)
-                {
-                    analyzecontroller = self.gameObject.AddComponent<AnalyzeEffectController>();
-                    analyzecontroller.charbody = self;
-                }
-            }
-            if (self.HasBuff(Modules.Buffs.WetDebuff))
-            {
-                WetEffectController wetcontroller = self.gameObject.GetComponent<WetEffectController>();
-                if (!wetcontroller)
-                {
-                    wetcontroller = self.gameObject.AddComponent<WetEffectController>();
-                    wetcontroller.charbody = self;
-                }
             }
                 
 
