@@ -170,21 +170,21 @@ MonoBehaviour:
   m_Root: {fileID: 5023174227590951171}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.169
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.033
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0.358
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -201,13 +201,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -362,21 +380,21 @@ MonoBehaviour:
   m_Root: {fileID: 3391021426327735042}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.169
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.033
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0.358
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -393,13 +411,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -970,28 +1006,28 @@ MonoBehaviour:
   m_Root: {fileID: 5195305935312702112}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.085
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.042
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Inert: 0.5
+  m_Inert: 0.489
   m_InertDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -1001,13 +1037,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -1652,7 +1706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.008
+  m_Radius: 0.005
   m_Height: 0.05
   m_Direction: 1
   m_Bound: 0
@@ -3540,28 +3594,28 @@ MonoBehaviour:
   m_Root: {fileID: 5535187519783859842}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.085
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.042
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Inert: 0.5
+  m_Inert: 0.489
   m_InertDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -3571,13 +3625,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: -0.001, y: -0.001, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -5646,28 +5718,28 @@ MonoBehaviour:
   m_Root: {fileID: 7266720761198760323}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.085
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.042
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Inert: 0.5
+  m_Inert: 0.489
   m_InertDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -5677,13 +5749,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0.001, y: -0.001, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -5773,7 +5863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.008
+  m_Radius: 0.006
   m_Height: 0.05
   m_Direction: 1
   m_Bound: 0
@@ -6527,21 +6617,21 @@ MonoBehaviour:
   m_Root: {fileID: 8420986185345826234}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.169
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.033
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0.358
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -6558,13 +6648,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -7055,7 +7163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.008
+  m_Radius: 0.005
   m_Height: 0.05
   m_Direction: 1
   m_Bound: 0
@@ -8571,28 +8679,28 @@ MonoBehaviour:
   m_Root: {fileID: 1617941573106097971}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.085
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.042
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Inert: 0.5
+  m_Inert: 0.489
   m_InertDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -8602,13 +8710,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -9089,21 +9215,21 @@ MonoBehaviour:
   m_Root: {fileID: 7452843460188172890}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.169
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.033
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0.358
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -9120,13 +9246,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -9277,21 +9421,21 @@ MonoBehaviour:
   m_Root: {fileID: 5824206404424334684}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.169
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.033
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0.358
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -9308,13 +9452,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
@@ -9465,7 +9627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.008
+  m_Radius: 0.005
   m_Height: 0.05
   m_Direction: 1
   m_Bound: 0
@@ -9478,7 +9640,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7628709040556776937}
-  - component: {fileID: 3702993074750982971}
   m_Layer: 0
   m_Name: Coat_1_3
   m_TagString: Untagged
@@ -9501,71 +9662,6 @@ Transform:
   m_Father: {fileID: 8420986185345826234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3702993074750982971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7175847182862562515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a68da65c907acb4eb4dbcd042f172e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Root: {fileID: 7628709040556776937}
-  m_UpdateRate: 60
-  m_UpdateMode: 0
-  m_Damping: 0.2
-  m_DampingDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Elasticity: 0.005
-  m_ElasticityDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Stiffness: 0.507
-  m_StiffnessDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Inert: 0.5
-  m_InertDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Radius: 0.005
-  m_RadiusDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_EndLength: 0
-  m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
-  m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders:
-  - {fileID: 6215652226012026353}
-  - {fileID: 8180747544546785016}
-  - {fileID: 657847695282524358}
-  - {fileID: 9108190389241420196}
-  - {fileID: 3950806611338877732}
-  m_Exclusions: []
-  m_FreezeAxis: 0
-  m_DistantDisable: 0
-  m_ReferenceObject: {fileID: 0}
-  m_DistanceToObject: 20
 --- !u!1 &7190775627828113581
 GameObject:
   m_ObjectHideFlags: 0
@@ -15291,21 +15387,21 @@ MonoBehaviour:
   m_Root: {fileID: 2712850019010211359}
   m_UpdateRate: 60
   m_UpdateMode: 0
-  m_Damping: 0.2
+  m_Damping: 0.169
   m_DampingDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Elasticity: 0.005
+  m_Elasticity: 0.033
   m_ElasticityDistrib:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Stiffness: 0.507
+  m_Stiffness: 0.358
   m_StiffnessDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -15322,13 +15418,31 @@ MonoBehaviour:
   m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.014923096
+      value: 0.49551392
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_EndLength: 0
   m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: -0.01, z: 0}
+  m_Gravity: {x: 0, y: 0, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
   m_Colliders:
   - {fileID: 6215652226012026353}
