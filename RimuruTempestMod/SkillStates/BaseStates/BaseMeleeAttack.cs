@@ -90,7 +90,14 @@ namespace RimuruMod.SkillStates.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+            if (base.characterBody.isSprinting) 
+            {
+                base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+                return;
+            }
+
+            base.PlayCrossfade("RightArm, Override", "SwingIdle" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+
         }
 
         public override void OnExit()
