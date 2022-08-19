@@ -355,7 +355,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -366,7 +366,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -781,6 +786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2449270859711889530}
+  - component: {fileID: 3950806611338877732}
   m_Layer: 0
   m_Name: Lower Body
   m_TagString: Untagged
@@ -804,6 +810,23 @@ Transform:
   m_Father: {fileID: 5161316780871610953}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3950806611338877732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368924059149965854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Center: {x: 0, y: 0.04, z: 0}
+  m_Radius: 0.01
+  m_Height: 0.05
+  m_Direction: 1
+  m_Bound: 0
 --- !u!1 &413073806884341727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5508527162114966567}
+  - component: {fileID: 9108190389241420196}
   m_Layer: 0
   m_Name: Thigh.R
   m_TagString: Untagged
@@ -1483,6 +1507,23 @@ Transform:
   m_Father: {fileID: 2524678928936322067}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9108190389241420196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243484259704116159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.008
+  m_Height: 0.05
+  m_Direction: 1
+  m_Bound: 0
 --- !u!1 &1246298374974500012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1787,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -1757,7 +1798,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -2024,7 +2070,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -2035,7 +2081,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -2116,7 +2167,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -2127,7 +2178,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -3051,7 +3107,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -3062,7 +3118,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -4619,7 +4680,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -4630,7 +4691,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -5495,7 +5561,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -5506,7 +5572,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -5770,7 +5841,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -5781,7 +5852,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -5857,6 +5933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8135088182833118470}
+  - component: {fileID: 6215652226012026353}
   m_Layer: 0
   m_Name: Leg.L
   m_TagString: Untagged
@@ -5881,6 +5958,23 @@ Transform:
   m_Father: {fileID: 6968247621568674070}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6215652226012026353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088551374201832195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.008
+  m_Height: 0.05
+  m_Direction: 1
+  m_Bound: 0
 --- !u!1 &5088763606537788236
 GameObject:
   m_ObjectHideFlags: 0
@@ -6876,7 +6970,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -6887,7 +6981,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0
@@ -7116,6 +7215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1496808271752690078}
+  - component: {fileID: 8180747544546785016}
   m_Layer: 0
   m_Name: Thigh.L
   m_TagString: Untagged
@@ -7140,6 +7240,23 @@ Transform:
   m_Father: {fileID: 8135088182833118470}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8180747544546785016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415328219257833269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.008
+  m_Height: 0.05
+  m_Direction: 1
+  m_Bound: 0
 --- !u!1 &5479433287563863734
 GameObject:
   m_ObjectHideFlags: 0
@@ -9310,6 +9427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2524678928936322067}
+  - component: {fileID: 657847695282524358}
   m_Layer: 0
   m_Name: Leg.R
   m_TagString: Untagged
@@ -9334,6 +9452,23 @@ Transform:
   m_Father: {fileID: 3476829156140874619}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &657847695282524358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122750946719525506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.008
+  m_Height: 0.05
+  m_Direction: 1
+  m_Bound: 0
 --- !u!1 &7175847182862562515
 GameObject:
   m_ObjectHideFlags: 0
@@ -9409,7 +9544,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Radius: 0
+  m_Radius: 0.005
   m_RadiusDistrib:
     serializedVersion: 2
     m_Curve: []
@@ -9420,7 +9555,12 @@ MonoBehaviour:
   m_EndOffset: {x: 0, y: 0, z: 0}
   m_Gravity: {x: 0, y: -0.01, z: 0}
   m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6215652226012026353}
+  - {fileID: 8180747544546785016}
+  - {fileID: 657847695282524358}
+  - {fileID: 9108190389241420196}
+  - {fileID: 3950806611338877732}
   m_Exclusions: []
   m_FreezeAxis: 0
   m_DistantDisable: 0

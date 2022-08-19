@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1256231078
+CRC: 119951340
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 411e7b2e365f2fe56466f0a6cbf24c93
+    Hash: 551c71f1b2b4ed3588f52640a6fca22d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -105,12 +105,14 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Material/blacklightning.mat
 - Assets/Rimuru/Assets/Animation/Human/Sprint.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_AAIdle.anim
+- Assets/Rimuru/Assets/Animation/Human/DashAttack.anim
 - Assets/Rimuru/Assets/VFX/Devour.prefab
 - Assets/Rimuru/Assets/Animation/Human/RunToSprintTransition.anim
 - Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
 - Assets/Rimuru/Assets/VFX/Analyze.prefab
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquareblue.mat
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
+- Assets/Rimuru/Assets/Animation/Human/SwingRightIdle.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
 - Assets/Rimuru/Assets/VFX/ImpactRimuruSlash.prefab
@@ -136,6 +138,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/Entrance.anim
 - Assets/Rimuru/Assets/VFX/RimuruSwordSwing.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance2.anim
+- Assets/Rimuru/Assets/Animation/Human/SwingLeftIdle.anim
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
 - Assets/Rimuru/Assets/Animation/Human/Emotion.anim
