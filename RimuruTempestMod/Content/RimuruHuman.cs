@@ -184,7 +184,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texTransformToSlime"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformHuman)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,

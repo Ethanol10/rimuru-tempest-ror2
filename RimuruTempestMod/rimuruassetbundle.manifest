@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1492317532
+CRC: 1425514964
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 97e01ca77ce671826af49cfe230e58d6
+    Hash: b1285677a90db69e77785d4922ec6d1d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -107,6 +107,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_AAIdle.anim
 - Assets/Rimuru/Assets/Animation/Human/DashAttack.anim
 - Assets/Rimuru/Assets/VFX/Devour.prefab
+- Assets/Rimuru/Assets/GUI/texTransformToHuman.png
 - Assets/Rimuru/Assets/Animation/Human/RunToSprintTransition.anim
 - Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
 - Assets/Rimuru/Assets/VFX/Analyze.prefab
@@ -149,6 +150,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
 - Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/Rimuru/Assets/Human/mdlRimuruHuman.prefab
+- Assets/Rimuru/Assets/GUI/texTransformToSlime.png
 - Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
 Dependencies: []
