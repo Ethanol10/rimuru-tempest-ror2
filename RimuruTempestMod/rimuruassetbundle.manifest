@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1425514964
+CRC: 910772144
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b1285677a90db69e77785d4922ec6d1d
+    Hash: 0c3022a6396aea05c9c98fb3023d4e0a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -153,4 +153,5 @@ Assets:
 - Assets/Rimuru/Assets/GUI/texTransformToSlime.png
 - Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
+- Assets/Rimuru/Assets/GUI/texSwordSwing.png
 Dependencies: []
