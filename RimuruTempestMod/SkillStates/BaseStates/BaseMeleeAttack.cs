@@ -90,7 +90,7 @@ namespace RimuruMod.SkillStates.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            if (base.characterMotor.velocity != Vector3.zero && base.isGrounded) 
+            if (animator.GetBool("isMoving")) 
             {
                 base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
                 return;

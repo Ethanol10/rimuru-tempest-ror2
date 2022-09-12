@@ -64,7 +64,7 @@ namespace RimuruMod.SkillStates
             this.attack.isCrit = base.RollCrit();
             this.attack.pushAwayForce = pushForce * 0.2f;
             //Util.PlaySound("Misc_StartDash", base.gameObject);
-            //base.PlayAnimation("Gesture, Override", "DashLunge");
+            base.PlayAnimation("FullBody, Override", "DashAttack");
 
             base.OnEnter();
         }
@@ -126,7 +126,7 @@ namespace RimuruMod.SkillStates
             base.OnExit();
             base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
             base.characterMotor.velocity *= 0.1f;
-            base.PlayAnimation("Gesture, Override", "BufferEmpty");
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
         public override InterruptPriority GetMinimumInterruptPriority()
         {
