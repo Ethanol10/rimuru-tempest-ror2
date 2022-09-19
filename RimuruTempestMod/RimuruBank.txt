@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	186852181	Thunder			\Default Work Unit\Thunder	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	347941923	Electricity	C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Electricity_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Thunder\Electricity		290536
+

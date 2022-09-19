@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3791779620">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2414834810" Language="SFX" Hash="643898048">
+			<ObjectPath>\SoundBanks\Default Work Unit\rimuruSoundbank</ObjectPath>
+			<ShortName>rimuruSoundbank</ShortName>
+			<Path>rimuruSoundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Thunder">
+					<IncludedMemoryFiles>
+						<File Id="347941923" Language="SFX">
+							<ShortName>Electricity.wav</ShortName>
+							<Path>SFX\Electricity_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
