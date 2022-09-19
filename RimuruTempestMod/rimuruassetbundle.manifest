@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1578323767
+CRC: 885649973
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c057bb72097168e5df47fc83dca8f38c
+    Hash: b2d3c9da42f139f9b1ae5b5f82a74ad1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9f24a19e90670432b929aeb3a42117fc
+    Hash: 740584176fc78b859e604f8258f4482c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -61,6 +61,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 199
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 - Class: 319
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
@@ -92,6 +94,7 @@ Assets:
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
+- Assets/Rimuru/Assets/GUI/texRimuruIcon.png
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
 - Assets/Rimuru/Assets/VFX/WetEffect.prefab
 - Assets/Rimuru/Assets/VFX/MainLightning2.prefab
@@ -102,12 +105,15 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Material/blacklightning.mat
 - Assets/Rimuru/Assets/Animation/Human/Sprint.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_AAIdle.anim
+- Assets/Rimuru/Assets/Animation/Human/DashAttack.anim
 - Assets/Rimuru/Assets/VFX/Devour.prefab
+- Assets/Rimuru/Assets/GUI/texTransformToHuman.png
 - Assets/Rimuru/Assets/Animation/Human/RunToSprintTransition.anim
 - Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
 - Assets/Rimuru/Assets/VFX/Analyze.prefab
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquareblue.mat
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
+- Assets/Rimuru/Assets/Animation/Human/SwingRightIdle.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
 - Assets/Rimuru/Assets/VFX/ImpactRimuruSlash.prefab
@@ -133,6 +139,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/Entrance.anim
 - Assets/Rimuru/Assets/VFX/RimuruSwordSwing.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance2.anim
+- Assets/Rimuru/Assets/Animation/Human/SwingLeftIdle.anim
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
 - Assets/Rimuru/Assets/Animation/Human/Emotion.anim
@@ -143,6 +150,8 @@ Assets:
 - Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
 - Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/Rimuru/Assets/Human/mdlRimuruHuman.prefab
+- Assets/Rimuru/Assets/GUI/texTransformToSlime.png
 - Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
+- Assets/Rimuru/Assets/GUI/texSwordSwing.png
 Dependencies: []

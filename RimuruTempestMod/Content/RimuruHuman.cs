@@ -112,7 +112,7 @@ namespace RimuruMod.Modules.Survivors
             //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_RIMURU_BODY_PRIMARY_SLASH_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSwordSwing"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.RimuruHumanPrimary)),
                                                                                       "Weapon",
                                                                                       true));
@@ -184,7 +184,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texTransformToSlime"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformHuman)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
