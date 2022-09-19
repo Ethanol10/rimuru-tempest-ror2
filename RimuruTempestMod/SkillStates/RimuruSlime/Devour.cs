@@ -8,6 +8,7 @@ namespace RimuruMod.SkillStates
 {
     public class Devour : BaseMeleeAttack
     {
+
         public override void OnEnter()
         {
             this.hitboxName = "Devour";
@@ -61,7 +62,6 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-
         }
     }
 }

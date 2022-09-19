@@ -52,6 +52,8 @@ namespace RimuruMod.Modules.Survivors
         public RimuruMasterController Rimurumastercon;
         public RimuruController Rimurucon;
 
+        public uint loopID;
+
         public void Awake()
         {
             child = GetComponentInChildren<ChildLocator>();
@@ -120,16 +122,20 @@ namespace RimuruMod.Modules.Survivors
             //devour effect
             if (characterBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
             {
-                if (characterBody.inputBank.skill1.down)
+                bool buttonHeld = false;
+                if (characterBody.inputBank.skill1.down )
                 {
-                    if (!devoureffectObj)
+                    buttonHeld = true;
+                    if (!devoureffectObj && buttonHeld)
                     {
+                        this.loopID = AkSoundEngine.PostEvent(1183893824, base.gameObject);
                         devoureffectObj = Instantiate(Modules.Assets.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
                     }
 
                 }
                 else
                 {
+                    AkSoundEngine.StopPlayingID(this.loopID);
                     if (devoureffectObj)
                     {
                         Destroy(devoureffectObj);

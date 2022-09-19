@@ -41,6 +41,7 @@ namespace RimuruMod.SkillStates
         public void OnDestroy()
         {
             Destroy(effectObj);
+            
         }
     }
 }

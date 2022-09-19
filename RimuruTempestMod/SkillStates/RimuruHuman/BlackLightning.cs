@@ -26,8 +26,7 @@ namespace RimuruMod.SkillStates
         private float force = 100f;
         private float fireTimer;
         public string muzzleString = "LWrist";
-        //public LoopSoundDef loopSoundDef = Modules.Assets.xiconstructsound;
-        //private LoopSoundManager.SoundLoopPtr loopPtr;
+        public uint loopID;
 
         private GameObject blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
         private ParticleSystem mainBlacklightning;
@@ -56,13 +55,10 @@ namespace RimuruMod.SkillStates
             this.animator.SetBool("attacking", true);
 
             PlayCrossfade("LeftArm, Override", "BlackLightning", "Attack.playbackRate", fireInterval/2, 0.05f);
-            //AkSoundEngine.PostEvent(3660048432, base.gameObject);
+            this.loopID = AkSoundEngine.PostEvent(186852181, base.gameObject);
 
-            //EffectManager.SimpleMuzzleFlash(Modules.Assets.blacklightning, base.gameObject, muzzleString, false);
-            //if (this.loopSoundDef)
-            //{
-            //    this.loopPtr = LoopSoundManager.PlaySoundLoopLocal(base.gameObject, this.loopSoundDef);
-            //}
+            EffectManager.SimpleMuzzleFlash(Modules.Assets.blacklightning, base.gameObject, muzzleString, false);
+
             this.fireTimer = 0f;
 
             base.characterBody.SetAimTimer(2f);
@@ -110,7 +106,6 @@ namespace RimuruMod.SkillStates
                 base.characterDirection.forward = aimRay.direction;
                 blacklightning.transform.position = FindModelChild(this.muzzleString).transform.position;
                 blacklightning.transform.rotation = Quaternion.LookRotation(aimRay.direction);
-
             }
         }
         public void updateAimRay()
@@ -124,7 +119,7 @@ namespace RimuruMod.SkillStates
             //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             base.OnExit();
-            //LoopSoundManager.StopSoundLoopLocal(this.loopPtr);
+            AkSoundEngine.StopPlayingID(loopID);
             mainBlacklightning.Stop();
             if (NetworkServer.active)
             {

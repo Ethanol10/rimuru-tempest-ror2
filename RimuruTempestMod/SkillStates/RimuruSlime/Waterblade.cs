@@ -38,7 +38,7 @@ namespace RimuruMod.SkillStates
             if (!this.hasFired)
             {
                 this.hasFired = true;
-                Util.PlaySound("RimuruBombThrow", base.gameObject);
+                AkSoundEngine.PostEvent(2654748154, base.gameObject);
 
                 if (base.isAuthority)
                 {

@@ -16,16 +16,48 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2414834810" Language="SFX" Hash="643898048">
+		<SoundBank Id="2414834810" Language="SFX" Hash="3207199820">
 			<ObjectPath>\SoundBanks\Default Work Unit\rimuruSoundbank</ObjectPath>
 			<ShortName>rimuruSoundbank</ShortName>
 			<Path>rimuruSoundbank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3379926649" Name="Blink" ObjectPath="\Events\Default Work Unit\Blink">
+					<IncludedMemoryFiles>
+						<File Id="203161346" Language="SFX">
+							<ShortName>Blink.wav</ShortName>
+							<Path>SFX\Blink_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1183893824" Name="Devour" ObjectPath="\Events\Default Work Unit\Devour">
+					<IncludedMemoryFiles>
+						<File Id="10585353" Language="SFX">
+							<ShortName>Devour.wav</ShortName>
+							<Path>SFX\Devour_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Thunder">
 					<IncludedMemoryFiles>
 						<File Id="347941923" Language="SFX">
 							<ShortName>Electricity.wav</ShortName>
-							<Path>SFX\Electricity_10C4C929.wem</Path>
+							<Path>SFX\Electricity_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1422622395" Name="Transform" ObjectPath="\Events\Default Work Unit\Transform">
+					<IncludedMemoryFiles>
+						<File Id="1036054571" Language="SFX">
+							<ShortName>Transform.wav</ShortName>
+							<Path>SFX\Transform_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2654748154" Name="Water" ObjectPath="\Events\Default Work Unit\Water">
+					<IncludedMemoryFiles>
+						<File Id="653688645" Language="SFX">
+							<ShortName>Water.wav</ShortName>
+							<Path>SFX\Water_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
