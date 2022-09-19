@@ -117,7 +117,6 @@ namespace RimuruMod.SkillStates
             }
             else
             {
-                base.skillLocator.secondary.AddOneStock();
                 this.outer.SetNextStateToMain();
             }
         }
