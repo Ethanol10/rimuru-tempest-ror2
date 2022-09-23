@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 5687434
+CRC: 1777678224
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a0713adf51580b57c63c5870b759078c
+    Hash: 51ec6f4844b75c252daf0f1f9fec0d0f
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -93,6 +93,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Square.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
+- Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
 - Assets/Rimuru/Assets/GUI/texRimuruIcon.png
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
 - Assets/Rimuru/Assets/VFX/WetEffect.prefab

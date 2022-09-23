@@ -291,7 +291,7 @@ namespace RimuruMod.Modules.Survivors
 		{
 			orig.Invoke(self, damageReport);
 			//devour check
-			if (damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+			if (damageReport.attackerBody?.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
 			{
 				if (damageReport.attackerBody && damageReport.victimBody)
 				{
