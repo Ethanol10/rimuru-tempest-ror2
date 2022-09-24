@@ -399,6 +399,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4294492742060129644, guid: 49f926bff955e324982f7e1a502f8c7b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 69304975615077598, guid: 49f926bff955e324982f7e1a502f8c7b,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -512,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 2062470452906043953, guid: 49f926bff955e324982f7e1a502f8c7b,
         type: 3}
       propertyPath: componentsToDisableOnRagdoll.Array.size
-      value: 19
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2419075785724615148, guid: 49f926bff955e324982f7e1a502f8c7b,
         type: 3}
