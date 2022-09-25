@@ -36,7 +36,7 @@ namespace RimuruMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
         public const string MODNAME = "RimuruTempestMod";
-        public const string MODVERSION = "0.1.0";
+        public const string MODVERSION = "0.9.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
