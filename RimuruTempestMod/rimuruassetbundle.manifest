@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1859595199
+CRC: 3950698532
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ecdf969a6ba9f13f4d762759c871409d
+    Hash: b487cbfa781b7a64750b8e15b9526827
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -72,6 +72,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/WaterBladeImpact.prefab
 - Assets/Rimuru/Assets/Animation/Human/Run.anim
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
+- Assets/Rimuru/Assets/GUI/spatialTeleportIcon.png
 - Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquarered.mat
@@ -82,8 +83,10 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/Jump.anim
 - Assets/Rimuru/Assets/VFX/SkillGet.prefab
 - Assets/Rimuru/Assets/Animation/Human/MaskLeftArm.mask
+- Assets/Rimuru/Assets/GUI/magiculePropertiesIcon.png
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquare.mat
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquaregreen.mat
+- Assets/Rimuru/Assets/GUI/analyseIcon.png
 - Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
 - Assets/Rimuru/Assets/VFX/BlacklightningLight.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Land.anim
@@ -92,7 +95,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Texture/blacklightning.tif
 - Assets/Rimuru/Assets/VFX/Square.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
-- Assets/Rimuru/Assets/GUI/blacklightning.png
+- Assets/Rimuru/Assets/GUI/blackLightningIcon.png
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
 - Assets/Rimuru/Assets/GUI/texRimuruIcon.png
@@ -102,6 +105,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Walk.anim
 - Assets/Rimuru/Assets/Materials/EmptyMat.mat
 - Assets/Rimuru/Assets/Animation/Human/Sprint1.anim
+- Assets/Rimuru/Assets/GUI/waterbladeIcon.png
 - Assets/Rimuru/Assets/VFX/SecondaryBeam.prefab
 - Assets/Rimuru/Assets/VFX/Material/blacklightning.mat
 - Assets/Rimuru/Assets/Animation/Human/Sprint.anim
@@ -121,6 +125,7 @@ Assets:
 - Assets/Rimuru/Assets/Materials/RimuruSlimeMat.mat
 - Assets/Rimuru/Assets/Animation/Human/DoubleJump.anim
 - Assets/Rimuru/Assets/VFX/WaterBlade.prefab
+- Assets/Rimuru/Assets/GUI/devourIcon.png
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/VFX/Circling.prefab
 - Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh

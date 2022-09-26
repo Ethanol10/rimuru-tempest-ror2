@@ -92,7 +92,7 @@ namespace RimuruMod.Modules.Survivors
             //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_DEVOUR_NAME",
                                                                                       prefix + "_RIMURU_BODY_PRIMARY_DEVOUR_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("devourIcon"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.Devour)),
                                                                                       "Weapon",
                                                                                       true));
@@ -107,7 +107,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_SECONDARY_WATERBLADE_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_WATERBLADE_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_WATERBLADE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("waterbladeIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Waterblade)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -136,7 +136,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_UTILITY_ANALYZE_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ANALYZE_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ANALYZE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("analyseIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Analyze)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
