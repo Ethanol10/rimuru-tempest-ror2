@@ -173,6 +173,7 @@ namespace RimuruMod.Modules.Survivors
 
         public void OnDestroy()
         {
+            AkSoundEngine.StopPlayingID(this.loopID);
             Destroy(devoureffectObj);
         }
 

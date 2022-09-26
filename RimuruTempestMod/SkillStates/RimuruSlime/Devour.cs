@@ -1,6 +1,7 @@
 ﻿using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -49,6 +50,20 @@ namespace RimuruMod.SkillStates
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
+        }
+
+        protected override void CheckIfDead(List<HurtBox> hurtboxes) 
+        {
+            bool playedSound = false;
+            base.CheckIfDead(hurtboxes);
+            foreach (HurtBox hurtbox in hurtboxes) 
+            {
+                if (hurtbox.healthComponent.health <= 0 && !playedSound) 
+                {
+                    playedSound = true;
+                    AkSoundEngine.PostEvent(100371988, base.gameObject);
+                }
+            }
         }
 
         protected override void SetNextState()

@@ -3,6 +3,7 @@ using RimuruMod.Modules.Survivors;
 using RoR2;
 using RoR2.Audio;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -138,6 +139,11 @@ namespace RimuruMod.SkillStates.BaseStates
             }
         }
 
+        protected virtual void CheckIfDead(List<HurtBox> hurtboxes) 
+        {
+            
+        }
+
         private void FireAttack()
         {
             if (!this.hasFired)
@@ -154,9 +160,12 @@ namespace RimuruMod.SkillStates.BaseStates
 
             if (base.isAuthority)
             {
-                if (this.attack.Fire())
+                List<HurtBox> hurtboxes = new List<HurtBox>();
+                bool result = this.attack.Fire(hurtboxes);
+                if (result)
                 {
                     this.OnHitEnemyAuthority();
+                    this.CheckIfDead(hurtboxes);
                 }
             }
         }
