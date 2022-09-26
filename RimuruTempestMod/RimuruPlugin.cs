@@ -77,6 +77,8 @@ namespace RimuruMod
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            On.RoR2.CharacterModel.Awake += CharacterModel_Awake;
+            On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
@@ -342,6 +344,26 @@ namespace RimuruMod
                 }
             }
         }
+
+        private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
+        {
+            orig(self);
+            if (self.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME" || self.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME")
+            {
+                AkSoundEngine.PostEvent(779278001, self.gameObject);
+            }
+        }
+
+        private void CharacterModel_Awake(On.RoR2.CharacterModel.orig_Awake orig, CharacterModel self)
+        {
+            orig(self);
+            Debug.Log(self.gameObject.name.Contains("RimuruHumanDisplay"));
+            if (self.gameObject.name.Contains("RimuruHumanDisplay"))
+            {
+                AkSoundEngine.PostEvent(2656882895, self.gameObject);
+            }
+        }
+
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
         {
             orig(self);

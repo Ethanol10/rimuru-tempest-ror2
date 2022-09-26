@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" SchemaVersion="97">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Thunder" ID="{93168284-487E-4CE7-9A0F-15C469590674}">
+					<ChildrenList>
+						<Action Name="" ID="{06840B36-D555-4C04-BB9E-A3481C771947}" ShortID="20538950">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Thunder" ID="{79820720-7A66-4BC1-AF87-D9877E8B4910}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Blink" ID="{D9F40737-7742-4C14-BAE2-F89DC3C35F81}">
+					<ChildrenList>
+						<Action Name="" ID="{1AEA8A29-0DC1-4925-B8F4-424A4541D101}" ShortID="722614874">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Blink" ID="{218087EB-108F-4D1C-8FE5-4FE741D8FE07}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Water" ID="{95CE5E12-7FDA-4CE2-B198-64D371EA49D7}">
+					<ChildrenList>
+						<Action Name="" ID="{127A7530-F41E-497A-BE1A-B293331E38A6}" ShortID="788417825">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Water" ID="{B230D085-20A9-477F-8211-8B1D89054488}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Devour" ID="{D05411C1-C899-41FF-98D0-AC4716F466C8}">
+					<ChildrenList>
+						<Action Name="" ID="{97779957-05BF-440D-8275-47CB0DAC7026}" ShortID="831338829">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Devour" ID="{48DCA531-D7B3-4E36-9790-26C89521EB6E}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Transform" ID="{F7B509E8-4094-46B8-B8D8-73C1325F6F68}">
+					<ChildrenList>
+						<Action Name="" ID="{9E80EC53-15DD-4665-9FE6-F8481CE773FE}" ShortID="95104244">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Transform" ID="{E12B7690-1708-40D3-BECA-5ECDD3E3CC18}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Death" ID="{06D466CA-E6E8-45A9-A88D-A0CA117D9325}">
+					<ChildrenList>
+						<Action Name="" ID="{B68A20A3-CED2-44E9-ABD3-A2500FDE1F50}" ShortID="618149541">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Death" ID="{298301F0-0B42-4C96-AD5F-34014571BBC8}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Analyse" ID="{B3FA7F78-2449-4652-B460-7F384D00E3A9}">
+					<ChildrenList>
+						<Action Name="" ID="{B39FC6AD-58A6-4C44-86BC-D733773D12DD}" ShortID="742658714">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Analyse" ID="{C43CDDEF-3D4B-48E1-9E63-C490245B9B88}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Sword" ID="{47ABF596-9EE5-486A-93D0-8F764A749838}">
+					<ChildrenList>
+						<Action Name="" ID="{A823A6F1-B2EF-4B48-8EE5-EDD865F264D9}" ShortID="892471831">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sword" ID="{DDA363C7-8A2C-4CAB-9D2D-505B11CC107A}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Entrance" ID="{E4FBCEFE-8010-4E64-8332-2786AD0FF52B}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

@@ -77,6 +77,7 @@ namespace RimuruMod.Modules.Survivors
 		public float shockTimer;
 
 		public bool isBodyInitialized;
+		public bool devourShoot;
 
 
 		public void Awake()
@@ -145,6 +146,8 @@ namespace RimuruMod.Modules.Survivors
 			characterMaster = gameObject.GetComponent<CharacterMaster>();
 
 			Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
+
+			this.devourShoot = false;
 
 			//alloyvulture = false;
 			//alphacontruct = false;
@@ -305,7 +308,9 @@ namespace RimuruMod.Modules.Survivors
 			//devour check
 			if (damageReport.attackerBody?.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
 			{
-				if (damageReport.attackerBody && damageReport.victimBody)
+				AkSoundEngine.PostEvent(100371988, base.gameObject);
+
+                if (damageReport.attackerBody && damageReport.victimBody)
 				{
 					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					{
@@ -427,14 +432,8 @@ namespace RimuruMod.Modules.Survivors
 
 					}
 				}
-
-					
 			}
-
-
 		}
-
-		
 
 		public void SetEverythingFalse(CharacterBody characterBody)
 		{

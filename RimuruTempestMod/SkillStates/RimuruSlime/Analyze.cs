@@ -49,6 +49,7 @@ namespace RimuruMod.SkillStates
             if (Target)
             {
                 Target.healthComponent.body.AddTimedBuffAuthority(Modules.Buffs.CritDebuff.buffIndex, Modules.StaticValues.analyzedebuffDuration);
+                AkSoundEngine.PostEvent(100371988, base.gameObject);
             }
 
         }
