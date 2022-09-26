@@ -117,12 +117,11 @@ namespace RimuruMod.SkillStates
             }
             else
             {
-                base.skillLocator.secondary.AddOneStock();
                 this.outer.SetNextStateToMain();
             }
         }
         public override void OnExit()
-        {
+        { 
             base.OnExit();
             base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
             base.characterMotor.velocity *= 0.1f;

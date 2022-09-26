@@ -22,6 +22,8 @@ namespace RimuruMod.Modules
             string outroFailure = "..and so he went on, making sure to put his hard drive into the bath.";
 
             LanguageAPI.Add(prefix + "NAME", "Rimuru Tempest");
+            LanguageAPI.Add(slimePrefix + "NAME", "Rimuru Tempest");
+            LanguageAPI.Add(humanPrefix + "NAME", "Rimuru Tempest");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
             LanguageAPI.Add(prefix + "SUBTITLE", "Great Demon Lord");
             LanguageAPI.Add(prefix + "LORE", "I am the slime Rimuru Tempest. I'm not a bad slime!");

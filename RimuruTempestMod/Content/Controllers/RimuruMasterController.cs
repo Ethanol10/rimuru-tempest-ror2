@@ -76,10 +76,12 @@ namespace RimuruMod.Modules.Survivors
 		public float regenTimer;
 		public float shockTimer;
 
+		public bool isBodyInitialized;
+
 
 		public void Awake()
 		{
-
+			isBodyInitialized = false;
 			On.RoR2.CharacterBody.Start += CharacterBody_Start;
 			On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
 			//alloyvulture = false;
@@ -141,10 +143,8 @@ namespace RimuruMod.Modules.Survivors
 		public void Start()
 		{
 			characterMaster = gameObject.GetComponent<CharacterMaster>();
-			characterBody = characterMaster.GetBody();
 
 			Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
-			Rimurucon = characterBody.gameObject.GetComponent<RimuruController>();
 
 			//alloyvulture = false;
 			//alphacontruct = false;
@@ -195,7 +195,7 @@ namespace RimuruMod.Modules.Survivors
 			orig.Invoke(self);
 
 
-			if (self.master.gameObject.GetComponent<RimuruMasterController>())
+			if (Rimurumastercon)
             {
 				if(strengthBuff == true)
                 {
@@ -228,70 +228,82 @@ namespace RimuruMod.Modules.Survivors
 
 		public void FixedUpdate()
 		{
-            if (characterBody.HasBuff(Buffs.RegenstackBuff))
-            {
-				if(regenTimer > 1f)
-                {
-					int buffcount = characterBody.GetBuffCount(Buffs.RegenstackBuff);
-					if (buffcount > 1)
-					{
-						if (buffcount >= 2)
-						{
-							regenTimer = 0;
-							characterBody.RemoveBuff(Modules.Buffs.RegenstackBuff.buffIndex);
-							characterBody.healthComponent.Heal(characterBody.maxHealth / 10, new ProcChainMask(), true);
-						}
-					}
-                    else
-					{
-						characterBody.RemoveBuff(Modules.Buffs.RegenstackBuff.buffIndex);
-						characterBody.healthComponent.Heal(characterBody.maxHealth / 10, new ProcChainMask(), true);
-					}
-                }
-                else
-                {
-					regenTimer += Time.fixedDeltaTime;
-                }
-			}
-			if (characterBody.HasBuff(Buffs.ShockBuff))
+
+			if (!isBodyInitialized)
 			{
-				if (shockTimer > 2f)
+				characterBody = characterMaster.GetBody();
+				if (characterBody)
 				{
-					shockTimer = 0;
-					EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
-					{
-						origin = characterBody.corePosition,
-						scale = Modules.StaticValues.blacklightningRadius * characterBody.attackSpeed / 2
-					}, true);
-
-					new BlastAttack
-					{
-						attacker = characterBody.gameObject,
-						teamIndex = TeamComponent.GetObjectTeam(characterBody.gameObject),
-						falloffModel = BlastAttack.FalloffModel.None,
-						baseDamage = characterBody.damage * Modules.StaticValues.blacklightningDamageCoefficient,
-						damageType = DamageType.Shock5s,
-						damageColorIndex = DamageColorIndex.WeakPoint,
-						baseForce = 0,
-						position = characterBody.transform.position,
-						radius = Modules.StaticValues.blacklightningRadius * characterBody.attackSpeed / 2,
-						procCoefficient = 1f,
-						attackerFiltering = AttackerFiltering.NeverHitSelf,
-					}.Fire();
-				}
-				else
-				{
-					shockTimer += Time.fixedDeltaTime;
+					Rimurucon = characterBody.GetComponent<RimuruController>();
+					isBodyInitialized = true;
 				}
 			}
+			else 
+			{
+                if (characterBody.HasBuff(Buffs.RegenstackBuff))
+                {
+                    if (regenTimer > 1f)
+                    {
+                        int buffcount = characterBody.GetBuffCount(Buffs.RegenstackBuff);
+                        if (buffcount > 1)
+                        {
+                            if (buffcount >= 2)
+                            {
+                                regenTimer = 0;
+                                characterBody.RemoveBuff(Modules.Buffs.RegenstackBuff.buffIndex);
+                                characterBody.healthComponent.Heal(characterBody.maxHealth / 10, new ProcChainMask(), true);
+                            }
+                        }
+                        else
+                        {
+                            characterBody.RemoveBuff(Modules.Buffs.RegenstackBuff.buffIndex);
+                            characterBody.healthComponent.Heal(characterBody.maxHealth / 10, new ProcChainMask(), true);
+                        }
+                    }
+                    else
+                    {
+                        regenTimer += Time.fixedDeltaTime;
+                    }
+                }
+                if (characterBody.HasBuff(Buffs.ShockBuff))
+                {
+                    if (shockTimer > 2f)
+                    {
+                        shockTimer = 0;
+                        EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
+                        {
+                            origin = characterBody.corePosition,
+                            scale = Modules.StaticValues.blacklightningRadius * characterBody.attackSpeed / 2
+                        }, true);
 
+                        new BlastAttack
+                        {
+                            attacker = characterBody.gameObject,
+                            teamIndex = TeamComponent.GetObjectTeam(characterBody.gameObject),
+                            falloffModel = BlastAttack.FalloffModel.None,
+                            baseDamage = characterBody.damage * Modules.StaticValues.blacklightningDamageCoefficient,
+                            damageType = DamageType.Shock5s,
+                            damageColorIndex = DamageColorIndex.WeakPoint,
+                            baseForce = 0,
+                            position = characterBody.transform.position,
+                            radius = Modules.StaticValues.blacklightningRadius * characterBody.attackSpeed / 2,
+                            procCoefficient = 1f,
+                            attackerFiltering = AttackerFiltering.NeverHitSelf,
+                        }.Fire();
+                    }
+                    else
+                    {
+                        shockTimer += Time.fixedDeltaTime;
+                    }
+                }
+            }
 		}
 
 		private void GlobalEventManager_OnCharacterDeath(On.RoR2.GlobalEventManager.orig_OnCharacterDeath orig, GlobalEventManager self, DamageReport damageReport)
 		{
 			orig.Invoke(self, damageReport);
 			//devour check
-			if (damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+			if (damageReport.attackerBody?.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
 			{
 				if (damageReport.attackerBody && damageReport.victimBody)
 				{
