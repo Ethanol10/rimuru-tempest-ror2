@@ -231,7 +231,7 @@ namespace RimuruMod.Modules.Survivors
 
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
+                Assets.mainAssetBundle.LoadAsset<Sprite>("skinIcon"),
                 defaultRendererInfo,
                 mainRenderer,
                 model);
