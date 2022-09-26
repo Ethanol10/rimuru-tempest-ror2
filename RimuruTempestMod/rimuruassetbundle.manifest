@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1540014253
+CRC: 1859595199
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1b4977b8250bf9f9b4acbdd024b74df8
+    Hash: ecdf969a6ba9f13f4d762759c871409d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -92,6 +92,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Texture/blacklightning.tif
 - Assets/Rimuru/Assets/VFX/Square.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
+- Assets/Rimuru/Assets/GUI/blacklightning.png
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
 - Assets/Rimuru/Assets/GUI/texRimuruIcon.png

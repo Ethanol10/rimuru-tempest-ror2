@@ -127,7 +127,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("blacklightning"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.BlackLightning)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
