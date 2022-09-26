@@ -105,7 +105,7 @@ namespace RimuruMod.Modules.Survivors
             skillloc.passiveSkill.enabled = true;
             skillloc.passiveSkill.skillNameToken = prefix + "_RIMURU_BODY_PASSIVE_NAME";
             skillloc.passiveSkill.skillDescriptionToken = prefix + "_RIMURU_BODY_PASSIVE_DESCRIPTION";
-            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("magiculePropertiesIcon");
             #endregion
 
             #region Primary
@@ -127,7 +127,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("blackLightningIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.BlackLightning)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -156,7 +156,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("spatialTeleportIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.SpatialMovement)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
