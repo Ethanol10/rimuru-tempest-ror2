@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3950698532
+CRC: 4291485096
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b487cbfa781b7a64750b8e15b9526827
+    Hash: 7438f79a028b9f17c9f3071c262c1b2f
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -70,6 +70,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.mat
 - Assets/Rimuru/Assets/VFX/BlackLightning.prefab
 - Assets/Rimuru/Assets/VFX/WaterBladeImpact.prefab
+- Assets/Rimuru/Assets/GUI/skinIcon.png
 - Assets/Rimuru/Assets/Animation/Human/Run.anim
 - Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
 - Assets/Rimuru/Assets/GUI/spatialTeleportIcon.png
