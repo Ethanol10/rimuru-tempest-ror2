@@ -14,6 +14,57 @@ Emote compatible.
 ## NOTE:
 This mod is not polished well and will most likely not be finished. This is due to the commissioner having financial issues and it'd be a waste to not release what we got. If you'd like to expand the mod further, you can contact me on Discord @Ethanol 10#6656.
 
+
+## Popcorn Factory
+
+<details>
+<summary>Check out other mods from the Popcorn Factory team!</summary>
+
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/DarthVaderMod/">
+      <img width="130" src="https://user-images.githubusercontent.com/93917577/180753359-4906ca0b-6ce5-4ff7-9962-bdec3329682c.png"/>
+      <p>Darth Vader Mod</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/DittoMod/">
+        <img src="https://user-images.githubusercontent.com/93917577/168004690-23b6d040-5f89-4b62-916b-c40d774bff02.png"><br>
+        <p>DittoMod (TeaL)</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/ShigarakiMod/">
+        <img src="https://user-images.githubusercontent.com/93917577/168004591-39480a52-c7fe-4962-997f-cd9460bb4d4a.png"><br>
+        <p>ShigarakiMod (TeaL)</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/TeaL/DekuMod/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043614036168784/TeaL-DekuMod-3.1.1.png.128x128_q95.png"><br>
+        <p>DekuMod (TeaL)</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/Ethanol10/Ganondorf_Mod/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613428011079/Ethanol10-Ganondorf_Mod-2.1.5.png.128x128_q95.png"><br>
+        <p>Ganondorf Mod (Ethanol 10)</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/BokChoyWithSoy/Phoenix_Wright_Mod/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960054458790850570/BokChoyWithSoy-Phoenix_Wright_Mod-1.6.2.png.128x128_q95.png"><br>
+        <p>Phoenix Wright Mod (BokChoyWithSoy)</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/Wisp_WarframeSurvivorMod/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613692239942/PopcornFactory-Wisp_WarframeSurvivorMod-1.0.2.png.128x128_q95.png"><br>
+        <p>Wisp Mod (Popcorn Factory Team)</p>
+    </a>
+</div>
+
+</details>
+
 ## Screenshots
 <img src="https://media.discordapp.net/attachments/928130606662049892/1024265447887081492/unknown.png"/>
 
@@ -106,48 +157,3 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
   - Super Smash Bros Ultimate
 - Model from SLIME ISEKAI memories by Bandai Namco
   - Once again, we did not make the model. ALL CREDITS TO BANDAI NAMCO.
-
-## Popcorn Factory
-<b>Check out other mods from the Popcorn Factory team!</b>
-<div>
-    <a href="https://thunderstore.io/package/PopcornFactory/DarthVaderMod/">
-      <img width="130" src="https://user-images.githubusercontent.com/93917577/180753359-4906ca0b-6ce5-4ff7-9962-bdec3329682c.png"/>
-      <p>Darth Vader Mod</p>
-    </a>
-</div>
-<div>
-    <a href="https://thunderstore.io/package/PopcornFactory/DittoMod/">
-        <img src="https://user-images.githubusercontent.com/93917577/168004690-23b6d040-5f89-4b62-916b-c40d774bff02.png"><br>
-        <p>DittoMod (TeaL)</p>
-    </a>
-</div>
-<div>
-    <a href="https://thunderstore.io/package/PopcornFactory/ShigarakiMod/">
-        <img src="https://user-images.githubusercontent.com/93917577/168004591-39480a52-c7fe-4962-997f-cd9460bb4d4a.png"><br>
-        <p>ShigarakiMod (TeaL)</p>
-    </a>
-</div>
-<div>
-    <a href="https://thunderstore.io/package/TeaL/DekuMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043614036168784/TeaL-DekuMod-3.1.1.png.128x128_q95.png"><br>
-        <p>DekuMod (TeaL)</p>
-    </a>
-</div>
-<div>
-    <a href="https://thunderstore.io/package/Ethanol10/Ganondorf_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613428011079/Ethanol10-Ganondorf_Mod-2.1.5.png.128x128_q95.png"><br>
-        <p>Ganondorf Mod (Ethanol 10)</p>
-    </a>
-</div>
-<div>
-    <a href="https://thunderstore.io/package/BokChoyWithSoy/Phoenix_Wright_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960054458790850570/BokChoyWithSoy-Phoenix_Wright_Mod-1.6.2.png.128x128_q95.png"><br>
-        <p>Phoenix Wright Mod (BokChoyWithSoy)</p>
-    </a>
-</div>
-<div>
-    <a href="https://thunderstore.io/package/PopcornFactory/Wisp_WarframeSurvivorMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613692239942/PopcornFactory-Wisp_WarframeSurvivorMod-1.0.2.png.128x128_q95.png"><br>
-        <p>Wisp Mod (Popcorn Factory Team)</p>
-    </a>
-</div>
