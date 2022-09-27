@@ -282,6 +282,11 @@ PrefabInstance:
       propertyPath: m_Elasticity
       value: 0.033
       objectReference: {fileID: 0}
+    - target: {fileID: 7233895799126541180, guid: 49f926bff955e324982f7e1a502f8c7b,
+        type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8468435514223353530, guid: 49f926bff955e324982f7e1a502f8c7b,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -371,6 +376,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Elasticity
       value: 0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728866985836902222, guid: 49f926bff955e324982f7e1a502f8c7b,
+        type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2062470452906043953, guid: 49f926bff955e324982f7e1a502f8c7b, type: 3}
