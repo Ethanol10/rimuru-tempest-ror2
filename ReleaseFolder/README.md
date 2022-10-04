@@ -14,6 +14,10 @@ Emote compatible.
 ## NOTE:
 This mod is not polished well and will most likely not be finished. This is due to the commissioner having financial issues and it'd be a waste to not release what we got. If you'd like to expand the mod further, you can contact me on Discord @Ethanol 10#6656.
 
+## Latest Changes
+
+- v0.9.1 -> Fixed Attenuation on all sounds so that players need to be in proximity to hear the sounds made by Rimuru.
+- v0.9.0 -> Initial Release
 
 ## Popcorn Factory
 
@@ -138,6 +142,7 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v0.9.1 -> Fixed Attenuation on all sounds so that players need to be in proximity to hear the sounds made by Rimuru.
 - v0.9.0 -> Initial release
 
 </details>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\</ProjectRoot>
+		<SourceFilesRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\BokChoyWithSoy\Documents\GitHub\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3791779620">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3701367528">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2414834810" Language="SFX" Hash="113945883">
+		<SoundBank Id="2414834810" Language="SFX" Hash="2658492904">
 			<ObjectPath>\SoundBanks\Default Work Unit\rimuruSoundbank</ObjectPath>
 			<ShortName>rimuruSoundbank</ShortName>
 			<Path>rimuruSoundbank.bnk</Path>
@@ -98,6 +98,10 @@
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
