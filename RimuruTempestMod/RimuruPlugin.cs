@@ -357,7 +357,6 @@ namespace RimuruMod
         private void CharacterModel_Awake(On.RoR2.CharacterModel.orig_Awake orig, CharacterModel self)
         {
             orig(self);
-            Debug.Log(self.gameObject.name.Contains("RimuruHumanDisplay"));
             if (self.gameObject.name.Contains("RimuruHumanDisplay"))
             {
                 AkSoundEngine.PostEvent(2656882895, self.gameObject);

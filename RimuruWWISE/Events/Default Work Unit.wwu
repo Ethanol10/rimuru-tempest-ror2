@@ -91,7 +91,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Entrance" ID="{E4FBCEFE-8010-4E64-8332-2786AD0FF52B}"/>
+				<Event Name="Entrance" ID="{E4FBCEFE-8010-4E64-8332-2786AD0FF52B}">
+					<ChildrenList>
+						<Action Name="" ID="{89CE272C-0B9B-4BEE-90A5-728C65253416}" ShortID="740827735">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Entrance" ID="{EC7A776A-0B0B-4666-8BF6-EEE671F31460}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
