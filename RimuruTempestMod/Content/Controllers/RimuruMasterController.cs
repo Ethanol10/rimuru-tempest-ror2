@@ -308,8 +308,6 @@ namespace RimuruMod.Modules.Survivors
 			//devour check
 			if (damageReport.attackerBody?.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
 			{
-				AkSoundEngine.PostEvent(100371988, base.gameObject);
-
                 if (damageReport.attackerBody && damageReport.victimBody)
 				{
 					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)

@@ -1,0 +1,27 @@
+Event	ID	Name			Wwise Object Path	Notes
+	100371988	Analyse			\Default Work Unit\Analyse	
+	186852181	Thunder			\Default Work Unit\Thunder	
+	779278001	Death			\Default Work Unit\Death	
+	1183893824	Devour			\Default Work Unit\Devour	
+	1422622395	Transform			\Default Work Unit\Transform	
+	2454616260	Sword			\Default Work Unit\Sword	
+	2654748154	Water			\Default Work Unit\Water	
+	2656882895	Entrance			\Default Work Unit\Entrance	
+	3379926649	Blink			\Default Work Unit\Blink	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	
+	3695994288	Volume_Master			\Default Work Unit\Volume_Master	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	10585353	Devour	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Devour_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Devour\Devour		1525032
+	76124911	se_common_swing_05	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\se_common_swing_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Sword\se_common_swing_05		23314
+	203161346	Blink	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Blink_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Blink\Blink		113148
+	283133327	Death	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Death\Death		320268
+	347941923	Electricity	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Electricity_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Thunder\Electricity		290536
+	505624353	Entrance	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Entrance_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Entrance\Entrance		711376
+	653688645	Water	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Water_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Water\Water		285956
+	980180611	se_common_swing_04	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\se_common_swing_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Sword\se_common_swing_04		25020
+	1001475546	Analyse	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Analyse_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Analyse\Analyse		194476
+	1036054571	Transform	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Transform_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Transform\Transform		548800
+
