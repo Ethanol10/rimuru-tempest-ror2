@@ -11,13 +11,18 @@ Network compatible.
 
 Emote compatible.
 
+Risk of options compatible.
+
 ## NOTE:
-This mod is not polished well and will most likely not be finished. This is due to the commissioner having financial issues and it'd be a waste to not release what we got. If you'd like to expand the mod further, you can contact me on Discord @Ethanol 10#6656.
+This mod is not polished well and will most likely not be finished. This is due to the commissioner having financial issues and it'd be a waste to not release what we got. 
+
+I've noticed many people are unsure of what is required for this mod to be classified as finished, this would require an animation overhaul, as well as implementing a system where each enemy devoured would have a unique effect. Currently this is not in development and I am not an animator, so simply paying me to do animations is not a solution ("I mean, have you seen my animations? They look like trash!" - Ethanol 10)
+
+Contact me by joining the Risk of Rain Modding Channel on Discord and you'll be able to DM me without friending me (@Ethanol 10#6656)
 
 ## Latest Changes
 
-- v0.9.1 -> Fixed Attenuation on all sounds so that players need to be in proximity to hear the sounds made by Rimuru.
-- v0.9.0 -> Initial Release
+- v0.9.4 -> Added Risk of options support for damage coefficients and other properties on each move, some options need a restart to apply. Text descriptions for options do not update until a restart, but if they are not cooldowns, they will be applied in the background.
 
 ## Popcorn Factory
 
@@ -142,6 +147,8 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v0.9.3 -> R2API submodule release.
+- v0.9.2 -> We forgot to write patch notes for this update, sorry.
 - v0.9.1 -> Fixed Attenuation on all sounds so that players need to be in proximity to hear the sounds made by Rimuru.
 - v0.9.0 -> Initial release
 

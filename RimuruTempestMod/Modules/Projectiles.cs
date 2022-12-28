@@ -87,7 +87,7 @@ namespace RimuruMod.Modules
 
         internal static void InitializeWaterBladeDamage(ProjectileDamage damageComponent) 
         {
-            damageComponent.damage = Modules.StaticValues.waterbladeDamageCoefficient;
+            damageComponent.damage = Modules.Config.waterbladeDamageCoefficient.Value;
             damageComponent.crit = false;
             damageComponent.force = Modules.StaticValues.waterbladeForce;
             damageComponent.damageType = DamageType.Generic;
@@ -148,11 +148,11 @@ namespace RimuruMod.Modules
                             if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
                                 || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
                             {
-                                body.ApplyBuff(Buffs.WetDebuff.buffIndex, 1, StaticValues.wetDebuffLen);
+                                body.ApplyBuff(Buffs.WetDebuff.buffIndex, 1, Config.waterbladeWetDebuffDuration.Value);
                                 //do something to enemy
                                 //if (NetworkServer.active)
                                 //{
-                                //    body.AddTimedBuff(Modules.Buffs.WetDebuff, Modules.StaticValues.wetDebuffLen);
+                                //    body.AddTimedBuff(Modules.Buffs.WetDebuff, Modules.Config.waterbladeWetDebuffDuration.Value);
                                 //}
                                 //MIGHT need to do some more networking if the projectile doesn't register debuffs.
                                 //This is as simple as getting the masterobjectID from the body and applying the debuff in a network call. No bigs.

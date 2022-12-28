@@ -45,13 +45,13 @@ namespace RimuruMod.Modules
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Sword of Tempest");
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>, dashing to distant enemies.");
+            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * Modules.Config.swordDamageCoefficient.Value}% damage</style>, dashing to distant enemies.");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_NAME", "Black Lightning");
-            LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_DESCRIPTION", Helpers.agilePrefix + $"Shock all enemies in front of you for <style=cIsDamage>{100f * StaticValues.blacklightningDamageCoefficient}% damage per tick </style>" +
-                $"for {StaticValues.blacklightningtotalDuration} seconds.");
+            LanguageAPI.Add(prefix + "SECONDARY_BLACKLIGHTNING_DESCRIPTION", Helpers.agilePrefix + $"Shock all enemies in front of you for <style=cIsDamage>{100f * Config.blackLightningDamageCoefficient.Value}% damage per tick </style>" +
+                $"for {Modules.Config.blackLightningTotalDuration.Value} seconds.");
             #endregion
 
             #region Utility
@@ -69,18 +69,18 @@ namespace RimuruMod.Modules
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_DEVOUR_NAME", "Devour");
-            LanguageAPI.Add(prefix + "PRIMARY_DEVOUR_DESCRIPTION", Helpers.agilePrefix + "<style=cIsUtility>Slayer.</style> " + $"Devour all enemies in front of you for <style=cIsDamage>{100f * StaticValues.devourDamageCoefficient}% damage</style>. " +
+            LanguageAPI.Add(prefix + "PRIMARY_DEVOUR_DESCRIPTION", Helpers.agilePrefix + "<style=cIsUtility>Slayer.</style> " + $"Devour all enemies in front of you for <style=cIsDamage>{100f * Modules.Config.devourDamageCoefficient.Value}% damage</style>. " +
                 $"Gain buffs depending on which enemy type is killed.");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_WATERBLADE_NAME", "Waterblade");
-            LanguageAPI.Add(prefix + "SECONDARY_WATERBLADE_DESCRIPTION", Helpers.agilePrefix + $"Fire a Waterblade for <style=cIsDamage>{100f * StaticValues.waterbladeDamageCoefficient}% damage</style>, applying a wet debuff on them.");
+            LanguageAPI.Add(prefix + "SECONDARY_WATERBLADE_DESCRIPTION", Helpers.agilePrefix + $"Fire a Waterblade for <style=cIsDamage>{100f * Config.waterbladeDamageCoefficient.Value}% damage</style>, applying a wet debuff on them.");
             #endregion
 
             #region Utility
             LanguageAPI.Add(prefix + "UTILITY_ANALYZE_NAME", "Analyze");
-            LanguageAPI.Add(prefix + "UTILITY_ANALYZE_DESCRIPTION", Helpers.agilePrefix + $"Analyze the target, gaining <style=cIsDamage>guaranteed crits</style> on them for {StaticValues.analyzedebuffDuration} seconds.");
+            LanguageAPI.Add(prefix + "UTILITY_ANALYZE_DESCRIPTION", Helpers.agilePrefix + $"Analyze the target, gaining <style=cIsDamage>guaranteed crits</style> on them for {(int)Modules.Config.analyseDebuffduration.Value} seconds.");
             #endregion
 
             #region Special

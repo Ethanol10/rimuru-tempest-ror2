@@ -19,7 +19,7 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.IgniteOnHit;
             }
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
+            this.damageCoefficient = Modules.Config.swordDamageCoefficient.Value;
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -500f, 0f);

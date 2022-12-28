@@ -67,7 +67,7 @@ namespace RimuruMod.SkillStates
         {
             base.OnExit();
             EntityState.Destroy(this.aimSphere.gameObject);
-            characterBody.AddTimedBuffAuthority(Modules.Buffs.SpatialMovementBuff.buffIndex, Modules.StaticValues.spatialmovementbuffDuration);
+            characterBody.AddTimedBuffAuthority(Modules.Buffs.SpatialMovementBuff.buffIndex, Modules.Config.spatialMovementBuffDuration.Value);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

@@ -18,11 +18,11 @@ namespace RimuruMod.SkillStates
         private bool beamPlay;
         private float basefireInterval = 0.25f;
         private float fireInterval;
-        private float basetotalDuration = Modules.StaticValues.blacklightningtotalDuration;
+        private float basetotalDuration = Modules.Config.blackLightningTotalDuration.Value;
         private float totalDuration;
         private float range = 60f;
-        private float damageCoefficient = Modules.StaticValues.blacklightningDamageCoefficient;
-        private float procCoefficient = Modules.StaticValues.blacklightningProcCoefficient;
+        private float damageCoefficient = Modules.Config.blackLightningDamageCoefficient.Value;
+        private float procCoefficient = Modules.Config.blackLightningProcCoefficient.Value;
         private float force = 100f;
         private float fireTimer;
         public string muzzleString = "LWrist";

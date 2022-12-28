@@ -276,7 +276,7 @@ namespace RimuruMod.Modules.Survivors
                         EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
                         {
                             origin = characterBody.corePosition,
-                            scale = Modules.StaticValues.blacklightningRadius * characterBody.attackSpeed / 2
+                            scale = Modules.Config.blackLightningRadius.Value * characterBody.attackSpeed / 2
                         }, true);
 
                         new BlastAttack
@@ -284,12 +284,12 @@ namespace RimuruMod.Modules.Survivors
                             attacker = characterBody.gameObject,
                             teamIndex = TeamComponent.GetObjectTeam(characterBody.gameObject),
                             falloffModel = BlastAttack.FalloffModel.None,
-                            baseDamage = characterBody.damage * Modules.StaticValues.blacklightningDamageCoefficient,
+                            baseDamage = characterBody.damage * Modules.Config.blackLightningDamageCoefficient.Value,
                             damageType = DamageType.Shock5s,
                             damageColorIndex = DamageColorIndex.WeakPoint,
                             baseForce = 0,
                             position = characterBody.transform.position,
-                            radius = Modules.StaticValues.blacklightningRadius * characterBody.attackSpeed / 2,
+                            radius = Modules.Config.blackLightningRadius.Value * characterBody.attackSpeed / 2,
                             procCoefficient = 1f,
                             attackerFiltering = AttackerFiltering.NeverHitSelf,
                         }.Fire();

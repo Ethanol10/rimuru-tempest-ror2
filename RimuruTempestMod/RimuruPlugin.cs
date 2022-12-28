@@ -18,16 +18,15 @@ using RimuruMod.SkillStates;
 namespace RimuruMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.prefab", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.language", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
-    [R2APISubmoduleDependency(new string[]
-    {
-        "PrefabAPI",
-        "LanguageAPI",
-        "SoundAPI",
-        "UnlockableAPI"
-    })]
 
     public class RimuruPlugin : BaseUnityPlugin
     {
@@ -36,7 +35,7 @@ namespace RimuruMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
         public const string MODNAME = "RimuruTempestMod";
-        public const string MODVERSION = "0.9.0";
+        public const string MODVERSION = "0.9.4";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -53,6 +52,10 @@ namespace RimuruMod
             Log.Init(Logger);
             Modules.Assets.Initialize(); // load assets and read config
             Modules.Config.ReadConfig();
+            if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions")) //risk of options support
+            {
+                Modules.Config.SetupRiskOfOptions();
+            }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
@@ -136,8 +139,15 @@ namespace RimuruMod
                 {
                     if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
                     {
-                        damageInfo.crit = true;
 
+                        if (Modules.Config.doubleInsteadOfCrit.Value)
+                        {
+                            damageInfo.damage *= 2.0f;
+                        }
+                        else 
+                        {
+                            damageInfo.crit = true;
+                        }
                     }
                 }
 
@@ -213,7 +223,7 @@ namespace RimuruMod
                             EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
                             {
                                 origin = victimBody.transform.position,
-                                scale = Modules.StaticValues.blacklightningRadius * body.attackSpeed/2
+                                scale = Modules.Config.blackLightningRadius.Value * body.attackSpeed/2
                             }, true);
                                 
                             new BlastAttack
@@ -221,12 +231,12 @@ namespace RimuruMod
                                 attacker = damageInfo.attacker.gameObject,
                                 teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
                                 falloffModel = BlastAttack.FalloffModel.None,
-                                baseDamage = body.damage * Modules.StaticValues.blacklightningDamageCoefficient,
+                                baseDamage = body.damage * Modules.Config.blackLightningDamageCoefficient.Value,
                                 damageType = DamageType.Shock5s,
                                 damageColorIndex = DamageColorIndex.WeakPoint,
                                 baseForce = 0,
                                 position = victimBody.transform.position,
-                                radius = Modules.StaticValues.blacklightningRadius * body.attackSpeed/2,
+                                radius = Modules.Config.blackLightningRadius.Value * body.attackSpeed/2,
                                 procCoefficient = 1f,
                                 attackerFiltering = AttackerFiltering.NeverHitSelf,
                             }.Fire();

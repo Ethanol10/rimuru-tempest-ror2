@@ -15,7 +15,7 @@ namespace RimuruMod.SkillStates
             this.hitboxName = "Devour";
 
             this.damageType = DamageType.BonusToLowHealth;
-            this.damageCoefficient = Modules.StaticValues.devourDamageCoefficient;
+            this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value;
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);

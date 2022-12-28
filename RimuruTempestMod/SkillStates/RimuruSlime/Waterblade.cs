@@ -7,7 +7,7 @@ namespace RimuruMod.SkillStates
 {
     public class Waterblade : BaseSkillState
     {
-        public static float damageCoefficient = Modules.StaticValues.waterbladeDamageCoefficient;
+        public static float damageCoefficient = Modules.Config.waterbladeDamageCoefficient.Value;
         public static float procCoefficient = 1f;
         public static float baseDuration = 0.65f;
         public static float throwForce = 80f;
