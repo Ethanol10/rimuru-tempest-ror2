@@ -42,25 +42,25 @@
       <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
     </Reference>
     <Reference Include="R2API.Core">
-      <HintPath>..\..\..\Users\ethan\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dependency-profile\BepInEx\plugins\RiskofThunder-R2API_Core\R2API.Core\R2API.Core.dll</HintPath>
+      <HintPath>..\libs\R2API.Core.dll</HintPath>
     </Reference>
     <Reference Include="R2API.Language">
-      <HintPath>..\..\..\Users\ethan\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dependency-profile\BepInEx\plugins\RiskofThunder-R2API_Language\R2API.Language\R2API.Language.dll</HintPath>
+      <HintPath>..\libs\R2API.Language.dll</HintPath>
     </Reference>
     <Reference Include="R2API.Networking">
-      <HintPath>..\..\..\Users\ethan\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dependency-profile\BepInEx\plugins\RiskofThunder-R2API_Networking\R2API.Networking\R2API.Networking.dll</HintPath>
+      <HintPath>..\libs\R2API.Networking.dll</HintPath>
     </Reference>
     <Reference Include="R2API.Prefab">
-      <HintPath>..\..\..\Users\ethan\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dependency-profile\BepInEx\plugins\RiskofThunder-R2API_Prefab\R2API.Prefab\R2API.Prefab.dll</HintPath>
+      <HintPath>..\libs\R2API.Prefab.dll</HintPath>
     </Reference>
     <Reference Include="R2API.Sound">
-      <HintPath>..\..\..\Users\ethan\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dependency-profile\BepInEx\plugins\RiskofThunder-R2API_Sound\R2API.Sound\R2API.Sound.dll</HintPath>
+      <HintPath>..\libs\R2API.Sound.dll</HintPath>
     </Reference>
     <Reference Include="R2API.Unlockable">
-      <HintPath>..\..\..\Users\ethan\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dependency-profile\BepInEx\plugins\RiskofThunder-R2API_Unlockable\R2API.Unlockable\R2API.Unlockable.dll</HintPath>
+      <HintPath>..\libs\R2API.Unlockable.dll</HintPath>
     </Reference>
     <Reference Include="RiskOfOptions">
-      <HintPath>..\..\..\Users\ethan\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\dependency-profile\BepInEx\plugins\Rune580-Risk_Of_Options\RiskOfOptions.dll</HintPath>
+      <HintPath>..\libs\RiskOfOptions.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -11,6 +11,7 @@ using R2API.Networking;
 using EmotesAPI;
 using BepInEx.Bootstrap;
 using RimuruMod.SkillStates;
+using RimuruMod.Modules;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -154,11 +155,13 @@ namespace RimuruMod
                 if (self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME" || 
                     self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
                 {
+                    RimuruMasterController rimuruMasterCon = self.GetComponent<RimuruMasterController>();
+
                     bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
                     if (!flag && damageInfo.damage > 0f)
                     {
                         //resistance buff
-                        if (self.body.HasBuff(Modules.Buffs.ResistanceBuff.buffIndex))
+                        if (self.body.HasBuff(Modules.Buffs.resistanceBuff.buffIndex))
                         {
                             if (self.combinedHealthFraction < 0.5f && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
                             {
@@ -179,14 +182,14 @@ namespace RimuruMod
                             }
                         }
                         //regen buff
-                        if (self.body.HasBuff(Modules.Buffs.RegenerationBuff.buffIndex))
+                        if (self.body.HasBuff(Modules.Buffs.ultraspeedRegenBuff.buffIndex))
                         {
                             if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
                             {
-                                int missinghealth = Mathf.RoundToInt((damageInfo.damage * 5)/ self.combinedHealth); 
-                                if (missinghealth > 0)
+                                rimuruMasterCon.regenAmount = damageInfo.damage * StaticValues.ultraspeedRegenCoefficient;
+                                if (rimuruMasterCon.regenAmount > self.combinedHealth * StaticValues.ultraspeedHealthThreshold)
                                 {
-                                    self.body.ApplyBuff(Modules.Buffs.RegenstackBuff.buffIndex, missinghealth, -1);
+                                    self.body.ApplyBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex, StaticValues.ultraspeedBuffStacks, -1);
                                 }
 
                             }
@@ -320,17 +323,17 @@ namespace RimuruMod
                 orig(self);
                 if (self)
                 {
-                    if (self.HasBuff(Modules.Buffs.ResistanceBuff))
-                    {
-                        self.armor += 10f;
-                    }
+                    //if (self.HasBuff(Modules.Buffs.resistanceBuff))
+                    //{
+                    //    self.armor += StaticValues.resBuffArmor;
+                    //}
                     if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
                     {
-                        self.armor += 300f;
+                        self.armor += StaticValues.spatialmovementbuffArmor;
                     }
-                    if (self.HasBuff(Modules.Buffs.StrengthBuff))
+                    if (self.HasBuff(Modules.Buffs.strengthBuff))
                     {
-                        self.damage *= 1.5f;
+                        self.damage *= StaticValues.strengthBuffCoefficient;
                     }
                     if (self.HasBuff(Modules.Buffs.CritDebuff))
                     {

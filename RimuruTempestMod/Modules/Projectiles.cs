@@ -52,6 +52,7 @@ namespace RimuruMod.Modules
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(0), "waterblade");
             waterbladeProjectile.AddComponent<NetworkIdentity>();
+            
             ProjectileController waterbladeProjectileCon = waterbladeProjectile.AddComponent<ProjectileController>();
            
             ProjectileDamage waterbladeProjectileDamage = waterbladeProjectile.AddComponent<ProjectileDamage>();
@@ -91,6 +92,7 @@ namespace RimuruMod.Modules
             damageComponent.crit = false;
             damageComponent.force = Modules.StaticValues.waterbladeForce;
             damageComponent.damageType = DamageType.Generic;
+            
         }
 
         internal static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
@@ -114,6 +116,7 @@ namespace RimuruMod.Modules
             projectileImpactExplosion.timerAfterImpact = false;
 
             projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Generic;
+            
         }
 
         private static GameObject CreateGhostPrefab(string ghostName)

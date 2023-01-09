@@ -12,13 +12,13 @@ namespace RimuruMod.Modules
         internal static BuffDef WetLightningDebuff;
         internal static BuffDef WetDebuff;
 
-        internal static BuffDef StrengthBuff;
-        internal static BuffDef FireBuff;
-        internal static BuffDef ResistanceBuff;
-        internal static BuffDef ShockBuff;
-        internal static BuffDef PoisonBuff;
-        internal static BuffDef RegenerationBuff;
-        internal static BuffDef RegenstackBuff;
+        internal static BuffDef strengthBuff;
+        internal static BuffDef fireBuff;
+        internal static BuffDef resistanceBuff;
+        internal static BuffDef lightningBuff;
+        internal static BuffDef poisonMeleeBuff;
+        internal static BuffDef ultraspeedRegenBuff;
+        internal static BuffDef ultraspeedRegenStackBuff;
 
         internal static void RegisterBuffs()
         {
@@ -27,13 +27,13 @@ namespace RimuruMod.Modules
             WetLightningDebuff = AddNewBuff("WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
             WetDebuff = AddNewBuff("Wet Debuff", Assets.bleedBuffIcon, Color.cyan, false, true);
 
-            StrengthBuff = AddNewBuff("StrengthBuff", Assets.boostBuffIcon, Color.gray, false, false);
-            FireBuff = AddNewBuff("FireBuff", Assets.fireBuffIcon, Color.red, false, false);
-            ResistanceBuff = AddNewBuff("ResistanceBuff", Assets.shieldBuffIcon, Color.yellow, false, false);
-            ShockBuff = AddNewBuff("ShockBuff", Assets.lightningBuffIcon, Color.yellow, false, false);
-            PoisonBuff = AddNewBuff("bleedBuffIcon", Assets.fireBuffIcon, Color.green, false, false);
-            RegenerationBuff = AddNewBuff("RegenerationBuff", Assets.healBuffIcon, Color.cyan, false, false);
-            RegenstackBuff = AddNewBuff("RegenstackBuff", Assets.healBuffIcon, Color.grey, true, false);
+            strengthBuff = AddNewBuff("Strengthen Body", Assets.boostBuffIcon, Color.gray, false, false);
+            fireBuff = AddNewBuff("Fire Manipulation", Assets.fireBuffIcon, Color.red, false, false);
+            resistanceBuff = AddNewBuff("Resistance", Assets.shieldBuffIcon, Color.yellow, false, false);
+            lightningBuff = AddNewBuff("Lightning Manipulation", Assets.lightningBuffIcon, Color.yellow, false, false);
+            poisonMeleeBuff = AddNewBuff("Poisonous attacks", Assets.fireBuffIcon, Color.green, false, false);
+            ultraspeedRegenBuff = AddNewBuff("Ultraspeed Regeneration", Assets.healBuffIcon, Color.cyan, false, false);
+            ultraspeedRegenStackBuff = AddNewBuff("Ultraspeed Regeneration stacks", Assets.healBuffIcon, Color.grey, true, false);
         }
 
         // simple helper method

@@ -15,11 +15,11 @@ namespace RimuruMod.SkillStates
             this.hitboxName = "Sword";
 
             this.damageType = DamageType.Generic;
-            if (base.characterBody.HasBuff(Modules.Buffs.FireBuff))
+            if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
             {
                 damageType |= DamageType.IgniteOnHit;
             }
-            if (base.characterBody.HasBuff(Modules.Buffs.PoisonBuff))
+            if (base.characterBody.HasBuff(Modules.Buffs.poisonMeleeBuff))
             {
                 damageType |= DamageType.BlightOnHit;
             }

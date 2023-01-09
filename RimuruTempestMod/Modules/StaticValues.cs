@@ -4,6 +4,19 @@ namespace RimuruMod.Modules
 {
     internal static class StaticValues
     {
+        //passives
+        //strength
+        internal const float strengthBuffCoefficient = 1.5f;
+
+        //ultraspeed
+        internal const float ultraspeedRegenCoefficient = 0.5f;
+        internal const float ultraspeedHealthThreshold = 0.1f;
+        internal const int ultraspeedBuffStacks = 5;
+
+        //lightning
+        internal const float lightningPulseTimer = 2f;
+
+
         //melee attacks
         internal const float swordDamageCoefficient = 2f;
         internal const float devourDamageCoefficient = 1f;
@@ -16,6 +29,7 @@ namespace RimuruMod.Modules
 
         //spatial movement
         internal const int spatialmovementbuffDuration = 3;
+        internal const float spatialmovementbuffArmor = 50f;
 
         //analyze
         internal const int analyzedebuffDuration = 6;

@@ -44,6 +44,12 @@ namespace RimuruMod.SkillStates
                 {
                     Ray aimRay = base.GetAimRay();
 
+                    
+                    {
+                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.BlightOnHit;
+                    }
+
+
                     ProjectileManager.instance.FireProjectile(Modules.Projectiles.waterbladeProjectile, 
                         aimRay.origin, 
                         Util.QuaternionSafeLookRotation(aimRay.direction), 

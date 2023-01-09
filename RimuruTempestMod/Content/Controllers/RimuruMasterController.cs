@@ -66,15 +66,18 @@ namespace RimuruMod.Modules.Survivors
 		public bool voiddevastator;
 		public bool xiconstruct;
 
+		//buff checks
 		public bool strengthBuff;
 		public bool fireBuff;
-		public bool shockBuff;
+		public bool lightningBuff;
 		public bool resistanceBuff;
-		public bool regenerationBuff;
-		public bool poisonBuff;
+		public bool ultraspeedRegenBuff;
+		public bool poisonMeleeBuff;
 
+		//buffs
 		public float regenTimer;
-		public float shockTimer;
+        public float regenAmount;
+        public float shockTimer;
 
 		public bool isBodyInitialized;
 		public bool devourShoot;
@@ -128,10 +131,10 @@ namespace RimuruMod.Modules.Survivors
 			// xiconstruct = false;
 			strengthBuff = false;
 			fireBuff = false;
-			shockBuff = false;
+			lightningBuff = false;
 			resistanceBuff = false;
-			regenerationBuff = false;
-			poisonBuff = false;
+			ultraspeedRegenBuff = false;
+			poisonMeleeBuff = false;
 
 		}
 
@@ -202,27 +205,27 @@ namespace RimuruMod.Modules.Survivors
             {
 				if(strengthBuff == true)
                 {
-					self.AddBuff(Modules.Buffs.StrengthBuff);
+					self.AddBuff(Modules.Buffs.strengthBuff);
                 }
 				if(fireBuff == true)
                 {
-					self.AddBuff(Modules.Buffs.FireBuff);
+					self.AddBuff(Modules.Buffs.fireBuff);
 				}
-				if (shockBuff == true)
+				if (lightningBuff == true)
 				{
-					self.AddBuff(Modules.Buffs.ShockBuff);
+					self.AddBuff(Modules.Buffs.lightningBuff);
 				}
-				if (regenerationBuff == true)
+				if (ultraspeedRegenBuff == true)
 				{
-					self.AddBuff(Modules.Buffs.RegenerationBuff);
+					self.AddBuff(Modules.Buffs.ultraspeedRegenBuff);
 				}
 				if (resistanceBuff == true)
 				{
-					self.AddBuff(Modules.Buffs.ResistanceBuff);
+					self.AddBuff(Modules.Buffs.resistanceBuff);
 				}
-				if (poisonBuff == true)
+				if (poisonMeleeBuff == true)
 				{
-					self.AddBuff(Modules.Buffs.PoisonBuff);
+					self.AddBuff(Modules.Buffs.poisonMeleeBuff);
 				}
 
 			}
@@ -243,24 +246,24 @@ namespace RimuruMod.Modules.Survivors
 			}
 			else 
 			{
-                if (characterBody.HasBuff(Buffs.RegenstackBuff))
+                if (characterBody.HasBuff(Buffs.ultraspeedRegenStackBuff))
                 {
                     if (regenTimer > 1f)
                     {
-                        int buffcount = characterBody.GetBuffCount(Buffs.RegenstackBuff);
+                        int buffcount = characterBody.GetBuffCount(Buffs.ultraspeedRegenStackBuff);
                         if (buffcount > 1)
                         {
                             if (buffcount >= 2)
                             {
                                 regenTimer = 0;
-                                characterBody.RemoveBuff(Modules.Buffs.RegenstackBuff.buffIndex);
-                                characterBody.healthComponent.Heal(characterBody.maxHealth / 10, new ProcChainMask(), true);
+                                characterBody.RemoveBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex);
+                                characterBody.healthComponent.Heal(regenAmount / StaticValues.ultraspeedBuffStacks, new ProcChainMask(), true);
                             }
                         }
                         else
                         {
-                            characterBody.RemoveBuff(Modules.Buffs.RegenstackBuff.buffIndex);
-                            characterBody.healthComponent.Heal(characterBody.maxHealth / 10, new ProcChainMask(), true);
+                            characterBody.RemoveBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex);
+                            characterBody.healthComponent.Heal(regenAmount / StaticValues.ultraspeedBuffStacks, new ProcChainMask(), true);
                         }
                     }
                     else
@@ -268,9 +271,9 @@ namespace RimuruMod.Modules.Survivors
                         regenTimer += Time.fixedDeltaTime;
                     }
                 }
-                if (characterBody.HasBuff(Buffs.ShockBuff))
+                if (characterBody.HasBuff(Buffs.lightningBuff))
                 {
-                    if (shockTimer > 2f)
+                    if (shockTimer > StaticValues.lightningPulseTimer)
                     {
                         shockTimer = 0;
                         EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
@@ -323,13 +326,13 @@ namespace RimuruMod.Modules.Survivors
 							newbodyPrefab.name == "GipBody" ||
 							newbodyPrefab.name == "GeepBody")
 						{
-                            if (!damageReport.attackerBody.HasBuff(Buffs.StrengthBuff))
+                            if (!damageReport.attackerBody.HasBuff(Buffs.strengthBuff))
 							{
 								Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
 
-							damageReport.attackerBody.ApplyBuff(Buffs.StrengthBuff.buffIndex, 1, -1);
+							damageReport.attackerBody.ApplyBuff(Buffs.strengthBuff.buffIndex, 1, -1);
 							strengthBuff = true;
 						}
 
@@ -341,13 +344,13 @@ namespace RimuruMod.Modules.Survivors
 							newbodyPrefab.name == "WispBody" ||
 							newbodyPrefab.name == "MagmaWormBody")
 						{
-							if (!damageReport.attackerBody.HasBuff(Buffs.FireBuff))
+							if (!damageReport.attackerBody.HasBuff(Buffs.fireBuff))
 							{
 								Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
 
-							damageReport.attackerBody.ApplyBuff(Buffs.FireBuff.buffIndex, 1, -1);
+							damageReport.attackerBody.ApplyBuff(Buffs.fireBuff.buffIndex, 1, -1);
 							fireBuff = true;
 						}
 
@@ -361,14 +364,14 @@ namespace RimuruMod.Modules.Survivors
 							newbodyPrefab.name == "ImpBossBody" ||
 							newbodyPrefab.name == "ClayBossBody")
 						{
-							if (!damageReport.attackerBody.HasBuff(Buffs.PoisonBuff))
+							if (!damageReport.attackerBody.HasBuff(Buffs.poisonMeleeBuff))
 							{
 								Chat.AddMessage("<style=cIsUtility>Poisonous Attacks Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
 
-							damageReport.attackerBody.ApplyBuff(Buffs.PoisonBuff.buffIndex, 1, -1);
-							poisonBuff = true;
+							damageReport.attackerBody.ApplyBuff(Buffs.poisonMeleeBuff.buffIndex, 1, -1);
+							poisonMeleeBuff = true;
 						}
 
 						if (newbodyPrefab.name == "MiniMushroomBody" ||
@@ -379,14 +382,14 @@ namespace RimuruMod.Modules.Survivors
 							newbodyPrefab.name == "VoidBarnacleBody" ||
 							newbodyPrefab.name == "JellyfishBody")
 						{
-							if (!damageReport.attackerBody.HasBuff(Buffs.RegenerationBuff))
+							if (!damageReport.attackerBody.HasBuff(Buffs.ultraspeedRegenBuff))
 							{
 								Chat.AddMessage("<style=cIsUtility>Ultraspeed Regeneration Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
 
-							damageReport.attackerBody.ApplyBuff(Buffs.RegenerationBuff.buffIndex, 1, -1);
-							regenerationBuff = true;
+							damageReport.attackerBody.ApplyBuff(Buffs.ultraspeedRegenBuff.buffIndex, 1, -1);
+							ultraspeedRegenBuff = true;
 						}
 
 						if (newbodyPrefab.name == "GolemBody" ||
@@ -399,13 +402,13 @@ namespace RimuruMod.Modules.Survivors
 							newbodyPrefab.name == "LunarGolemBody" ||
 							newbodyPrefab.name == "GravekeeperBody")
 						{
-							if (!damageReport.attackerBody.HasBuff(Buffs.ResistanceBuff))
+							if (!damageReport.attackerBody.HasBuff(Buffs.resistanceBuff))
 							{
 								Chat.AddMessage("<style=cIsUtility>Body Armor Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
 
-							damageReport.attackerBody.ApplyBuff(Buffs.ResistanceBuff.buffIndex, 1, -1);
+							damageReport.attackerBody.ApplyBuff(Buffs.resistanceBuff.buffIndex, 1, -1);
 							resistanceBuff = true;
 						}
 
@@ -418,14 +421,14 @@ namespace RimuruMod.Modules.Survivors
 							newbodyPrefab.name == "ElectricWormBody" ||
 							newbodyPrefab.name == "LunarWispBody")
 						{
-							if (!damageReport.attackerBody.HasBuff(Buffs.ShockBuff))
+							if (!damageReport.attackerBody.HasBuff(Buffs.lightningBuff))
 							{
 								Chat.AddMessage("<style=cIsUtility>Lightning Manipulation Skill</style> aquisition successful.");
 							}
 							SetEverythingFalse(damageReport.attackerBody);
 
-							damageReport.attackerBody.ApplyBuff(Buffs.ShockBuff.buffIndex, 1, -1);
-							shockBuff = true;
+							damageReport.attackerBody.ApplyBuff(Buffs.lightningBuff.buffIndex, 1, -1);
+							lightningBuff = true;
 						}
 
 					}
@@ -443,20 +446,20 @@ namespace RimuruMod.Modules.Survivors
 				controller.charbody = characterBody;
 			}
 
-			characterBody.RemoveBuff(Buffs.StrengthBuff);
-			characterBody.RemoveBuff(Buffs.FireBuff);
-			characterBody.RemoveBuff(Buffs.ResistanceBuff);
-			characterBody.RemoveBuff(Buffs.RegenerationBuff);
-			characterBody.RemoveBuff(Buffs.PoisonBuff);
-			characterBody.RemoveBuff(Buffs.ShockBuff);
+			characterBody.RemoveBuff(Buffs.strengthBuff);
+			characterBody.RemoveBuff(Buffs.fireBuff);
+			characterBody.RemoveBuff(Buffs.resistanceBuff);
+			characterBody.RemoveBuff(Buffs.ultraspeedRegenBuff);
+			characterBody.RemoveBuff(Buffs.poisonMeleeBuff);
+			characterBody.RemoveBuff(Buffs.lightningBuff);
 
 
 			strengthBuff = false;
 			fireBuff = false;
-			shockBuff = false;
+			lightningBuff = false;
 			resistanceBuff = false;
-			regenerationBuff = false;
-			poisonBuff = false;
+			ultraspeedRegenBuff = false;
+			poisonMeleeBuff = false;
 			//alloyvulture = false;
 			//alphacontruct = false;
 			//beetle = false;
