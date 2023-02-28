@@ -17,6 +17,7 @@
     <None Remove="Modules\Characters\Rimuru.cs~RF6221a098.TMP" />
     <None Remove="RimuruAssetBundle" />
     <None Remove="RimuruBank.bnk" />
+    <None Remove="Content\BuffControllers\" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -64,4 +65,7 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Content\BuffControllers\" />
+  </ItemGroup>
 </Project>
