@@ -70,6 +70,8 @@ namespace RimuruMod
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
 
+            Modules.StaticValues.LoadDictionary();
+
             Hook();
         }
 

@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Networking;
 using RimuruMod.SkillStates;
+using RimuruTempestMod.Content.BuffControllers;
 
 namespace RimuruMod.Modules.Survivors
 {
@@ -315,9 +316,18 @@ namespace RimuruMod.Modules.Survivors
 				{
 					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					{
+
+
 						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
 						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
-						if (newbodyPrefab.name == "BeetleBody" ||
+
+						RimuruBaseBuffController incomingSkill;
+						if (Modules.StaticValues.rimDic.ContainsKey(newbodyPrefab.name) && isBodyInitialized) 
+						{
+                            incomingSkill = Modules.StaticValues.rimDic[newbodyPrefab.name].Invoke(characterMaster);
+                        }
+
+                        if (newbodyPrefab.name == "BeetleBody" ||
 							newbodyPrefab.name == "BeetleGuardBody" ||
 							newbodyPrefab.name == "BisonBody" ||
 							newbodyPrefab.name == "ParentBody" ||
@@ -337,7 +347,7 @@ namespace RimuruMod.Modules.Survivors
 						}
 
 						if (newbodyPrefab.name == "LemurianBody" ||
-							newbodyPrefab.name == "LemurianBruiserBody" ||
+							//newbodyPrefab.name == "LemurianBruiserBody" ||
 							newbodyPrefab.name == "LunarExploderBody" ||
 							newbodyPrefab.name == "VerminBody" ||
 							newbodyPrefab.name == "GreaterWispBody" ||

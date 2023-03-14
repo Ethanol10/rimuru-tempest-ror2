@@ -17,6 +17,7 @@ namespace RimuruTempestMod.Content.BuffControllers
     {
         public RoR2.CharacterBody body;
 
+
         public override void Awake()
         {
             base.Awake();
@@ -32,6 +33,8 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 body.ApplyBuff(Buffs.strengthBuff.buffIndex, 1, -1);
             }
+
+            RoR2.Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
         }
 
         public void Hook()
