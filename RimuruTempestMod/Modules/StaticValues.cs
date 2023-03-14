@@ -58,7 +58,7 @@ namespace RimuruMod.Modules
 
         class BuffWrapperClass<T> where T: RimuruBaseBuffController
         {
-            public static T AddBuffComponent(CharacterMaster master) 
+            public static T AddBuffComponentToMaster(CharacterMaster master) 
             {
                 T returnObj = master.gameObject.GetComponent<T>();
                 return returnObj ? returnObj : master.gameObject.AddComponent<T>();
@@ -106,7 +106,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("BellBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayGrenadierBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
-            rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponent(master) );
+            rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master) );
             //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
             //rimDic.Add("ImpBody", IndicatorType.ACTIVE);
             //rimDic.Add("JellyfishBody", IndicatorType.ACTIVE);
