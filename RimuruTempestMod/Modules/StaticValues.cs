@@ -56,9 +56,21 @@ namespace RimuruMod.Modules
 
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
+        class BuffWrapperClass<T> where T: RimuruBaseBuffController
+        {
+            public static T AddBuffComponent(CharacterMaster master) 
+            {
+                T returnObj = master.gameObject.GetComponent<T>();
+                return returnObj ? returnObj : master.gameObject.AddComponent<T>();
+            }
+        }
+
         public static void LoadDictionary()
         {
+            // CharacterMaster is input, RimuruBaseBuffController is output. Instantiating dictionary at beginning.
             rimDic = new Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>>();
+
+
             //rimDic.Add("MinorConstructBody", typeof(ElderLemurianBuffController));
             //rimDic.Add("MinorConstructOnKillBody", IndicatorType.PASSIVE);
             //rimDic.Add("BeetleBody", IndicatorType.PASSIVE);
@@ -94,7 +106,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("BellBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayGrenadierBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
-            rimDic.Add("LemurianBruiserBody", (CharacterMaster charMaster) => charMaster.gameObject.GetComponent<ElderLemurianBuffController>() ? charMaster.gameObject.GetComponent<ElderLemurianBuffController>() : charMaster.gameObject.AddComponent<ElderLemurianBuffController>() );
+            rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponent(master) );
             //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
             //rimDic.Add("ImpBody", IndicatorType.ACTIVE);
             //rimDic.Add("JellyfishBody", IndicatorType.ACTIVE);
