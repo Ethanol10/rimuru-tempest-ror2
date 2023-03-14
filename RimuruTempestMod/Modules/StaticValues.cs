@@ -54,8 +54,10 @@ namespace RimuruMod.Modules
         internal const float lemurianfireRadius = 15f;
 
 
+        //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
+        //Wrapper class that allows templating 
         class BuffWrapperClass<T> where T: RimuruBaseBuffController
         {
             public static T AddBuffComponentToMaster(CharacterMaster master) 
