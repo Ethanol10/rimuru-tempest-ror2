@@ -5,7 +5,6 @@ using On.RoR2;
 using RimuruMod.Modules;
 using System.Reflection;
 using R2API.Networking;
-using UnityEngine.Bindings;
 
 namespace RimuruTempestMod.Content.BuffControllers
 {
@@ -14,7 +13,7 @@ namespace RimuruTempestMod.Content.BuffControllers
      Effect: Strengthen Body - Damage x 1.5
      */
 
-    public class ElderLemurianBuffController : RimuruBaseBuffController
+    public class LemurianBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
 
@@ -63,7 +62,6 @@ namespace RimuruTempestMod.Content.BuffControllers
                 }
             }
         }
-
     }
 }
 

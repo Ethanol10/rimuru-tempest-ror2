@@ -64,8 +64,4 @@
       <HintPath>..\libs\RiskOfOptions.dll</HintPath>
     </Reference>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Content\BuffControllers\" />
-  </ItemGroup>
 </Project>
