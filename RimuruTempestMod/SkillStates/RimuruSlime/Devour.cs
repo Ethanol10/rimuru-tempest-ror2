@@ -15,6 +15,16 @@ namespace RimuruMod.SkillStates
             this.hitboxName = "Devour";
 
             this.damageType = DamageType.BonusToLowHealth;
+
+            if (base.characterBody.HasBuff(Modules.Buffs.bleedMeleeBuff))
+            {
+                damageType |= DamageType.BleedOnHit;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.fireMeleeBuff))
+            {
+                damageType |= DamageType.IgniteOnHit;
+            }
+
             this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value;
             this.procCoefficient = 1f;
             this.pushForce = 300f;

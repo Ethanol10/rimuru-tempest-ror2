@@ -13,6 +13,12 @@ namespace RimuruMod.Modules
         //strength
         internal const float strengthBuffCoefficient = 1.5f;
 
+        //speed
+        internal const float speedBuffCoefficient = 1.2f;
+
+        //attack speed
+        internal const float attackSpeedBuffCoefficient = 1.2f;
+
         //ultraspeed
         internal const float ultraspeedRegenCoefficient = 0.5f;
         internal const float ultraspeedHealthThreshold = 0.1f;
@@ -73,11 +79,11 @@ namespace RimuruMod.Modules
             rimDic = new Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>>();
 
 
-            //rimDic.Add("MinorConstructBody", typeof(ElderLemurianBuffController));
-            //rimDic.Add("MinorConstructOnKillBody", IndicatorType.PASSIVE);
+            rimDic.Add("MinorConstructBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
+            rimDic.Add("MinorConstructOnKillBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("BeetleBody", IndicatorType.PASSIVE);
             //rimDic.Add("FlyingVerminBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VerminBody", IndicatorType.PASSIVE);
+            rimDic.Add("VerminBody", (CharacterMaster master) => BuffWrapperClass<BlindVerminBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("GupBody", IndicatorType.PASSIVE);
             //rimDic.Add("GipBody", IndicatorType.PASSIVE);
             //rimDic.Add("GeepBody", IndicatorType.PASSIVE);
@@ -91,26 +97,25 @@ namespace RimuruMod.Modules
             //rimDic.Add("RoboBallRedBuddyBody", IndicatorType.PASSIVE);
             //rimDic.Add("VoidBarnacleBody", IndicatorType.PASSIVE);
             //rimDic.Add("VoidJailerBody", IndicatorType.PASSIVE);
-            //rimDic.Add("ImpBossBody", IndicatorType.PASSIVE);
+            rimDic.Add("ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("TitanBody", IndicatorType.PASSIVE);
             //rimDic.Add("TitanGoldBody", IndicatorType.PASSIVE);
             //rimDic.Add("VagrantBody", IndicatorType.PASSIVE);
-            //rimDic.Add("MagmaWormBody", IndicatorType.PASSIVE);
+            rimDic.Add("MagmaWormBody", (CharacterMaster master) => BuffWrapperClass<MagmaWormBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("ElectricWormBody", IndicatorType.PASSIVE);
             //rimDic.Add("CaptainBody", IndicatorType.PASSIVE);
             //rimDic.Add("CommandoBody", IndicatorType.PASSIVE);
             //rimDic.Add("CrocoBody", IndicatorType.PASSIVE);
             //rimDic.Add("LoaderBody", IndicatorType.PASSIVE);
-
             //rimDic.Add("VultureBody", IndicatorType.ACTIVE);
             //rimDic.Add("BeetleGuardBody", IndicatorType.ACTIVE);
             //rimDic.Add("BisonBody", IndicatorType.ACTIVE);
             //rimDic.Add("BellBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayGrenadierBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
-            rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master) );
+            rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
-            //rimDic.Add("ImpBody", IndicatorType.ACTIVE);
+            rimDic.Add("ImpBody", (CharacterMaster master) => BuffWrapperClass<ImpBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("JellyfishBody", IndicatorType.ACTIVE);
             //rimDic.Add("LemurianBody", IndicatorType.ACTIVE);
             //rimDic.Add("LunarGolemBody", IndicatorType.ACTIVE);

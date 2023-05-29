@@ -9,21 +9,19 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Elder Lemurian
-     Effect: Strengthen Body - Damage x 1.5
+     Stone Golem
+     Effect: Body Armour - +Damage = Armour * 0.1
      */
 
-    public class ElderLemurianBuffController : RimuruBaseBuffController
+    public class StoneGolemBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
-
 
         public override void Awake()
         {
             base.Awake();
             Hook();
-            isPermaBuff = false;
-            lifetime = 10f;
+            isPermaBuff = true;
         }
 
         public void Start()
@@ -32,10 +30,10 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.ApplyBuff(Buffs.strengthBuff.buffIndex, 1, -1);
+                body.AddBuff(Buffs.armourDamageBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Body Armour</style> aquisition successful.");
         }
 
         public void Hook()
@@ -45,10 +43,9 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void OnDestroy()
         {
-            //Unapply StrengthBuff here?
             if (body)
             {
-                body.RemoveBuff(Buffs.strengthBuff.buffIndex);
+                body.RemoveBuff(Buffs.armourDamageBuff.buffIndex);
             }
         }
 
@@ -57,9 +54,9 @@ namespace RimuruTempestMod.Content.BuffControllers
             orig(self);
             if (self)
             {
-                if (self.HasBuff(RimuruMod.Modules.Buffs.strengthBuff))
+                if (self.HasBuff(Buffs.armourDamageBuff))
                 {
-                    self.damage *= StaticValues.strengthBuffCoefficient;
+                    self.damage += self.armor * 0.1f;
                 }
             }
         }

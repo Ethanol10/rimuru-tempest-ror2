@@ -9,11 +9,11 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Elder Lemurian
-     Effect: Strengthen Body - Damage x 1.5
+     Blind Vermin
+     Effect: Acceleration - Movement Speed x 1.2
      */
 
-    public class ElderLemurianBuffController : RimuruBaseBuffController
+    public class BlindVerminBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
 
@@ -22,8 +22,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             Hook();
-            isPermaBuff = false;
-            lifetime = 10f;
+            isPermaBuff = true;
         }
 
         public void Start()
@@ -32,10 +31,10 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.ApplyBuff(Buffs.strengthBuff.buffIndex, 1, -1);
+                body.AddBuff(Buffs.speedBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Acceleration Skill</style> aquisition successful.");
         }
 
         public void Hook()
@@ -45,10 +44,9 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void OnDestroy()
         {
-            //Unapply StrengthBuff here?
             if (body)
             {
-                body.RemoveBuff(Buffs.strengthBuff.buffIndex);
+                body.RemoveBuff(Buffs.speedBuff.buffIndex);
             }
         }
 
@@ -57,9 +55,9 @@ namespace RimuruTempestMod.Content.BuffControllers
             orig(self);
             if (self)
             {
-                if (self.HasBuff(RimuruMod.Modules.Buffs.strengthBuff))
+                if (self.HasBuff(Buffs.speedBuff))
                 {
-                    self.damage *= StaticValues.strengthBuffCoefficient;
+                    self.moveSpeed *= StaticValues.speedBuffCoefficient;
                 }
             }
         }

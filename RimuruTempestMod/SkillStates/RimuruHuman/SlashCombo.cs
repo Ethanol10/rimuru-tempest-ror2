@@ -1,4 +1,5 @@
-﻿using RimuruMod.Modules.Survivors;
+﻿using RimuruMod.Modules;
+using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
@@ -15,7 +16,11 @@ namespace RimuruMod.SkillStates
             this.hitboxName = "Sword";
 
             this.damageType = DamageType.Generic;
-            if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
+            if (base.characterBody.HasBuff(Modules.Buffs.bleedMeleeBuff))
+            {
+                damageType |= DamageType.BleedOnHit;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.fireMeleeBuff))
             {
                 damageType |= DamageType.IgniteOnHit;
             }
