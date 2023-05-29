@@ -21,7 +21,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             Hook();
-            isPermaBuff = true;
+            isPermaBuff = false;
         }
 
         public void Start()
@@ -80,6 +80,11 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
         }
 
+        public override void RefreshTimers()
+        {
+            base.RefreshTimers();
+        }
+
         public override void ActiveBuffEffect()
         {
             body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
@@ -87,6 +92,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void ApplySkillChange()
         {
+            base.ApplySkillChange();   
             //Apply skill overrides here.
         }
     }

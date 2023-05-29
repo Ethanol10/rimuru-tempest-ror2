@@ -10,6 +10,9 @@ namespace RimuruMod.Modules
     internal static class StaticValues
     {
         //passives
+
+        internal const float refreshTimerDuration = 60f;
+
         //strength
         internal const float strengthBuffCoefficient = 1.5f;
 
@@ -62,7 +65,10 @@ namespace RimuruMod.Modules
         //nullifier big brain
         internal const int nullifierBigBrainThreshold= 4;
 
-
+        //scavenger creation
+        internal const int tier1Amount = 4;
+        internal const int tier2Amount = 2;
+        internal const int tier3Amount = 1;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -73,6 +79,7 @@ namespace RimuruMod.Modules
             public static T AddBuffComponentToMaster(CharacterMaster master) 
             {
                 T returnObj = master.gameObject.GetComponent<T>();
+                returnObj.RefreshTimers();
                 return returnObj ? returnObj : master.gameObject.AddComponent<T>();
             }
         }
@@ -134,6 +141,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("SuperRoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("MegaConstructBody", IndicatorType.ACTIVE);
+            rimDic.Add("ScavBody", (CharacterMaster master) => BuffWrapperClass<ScavengerBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("VoidMegaCrabBody", IndicatorType.ACTIVE);
         }
 
