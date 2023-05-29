@@ -68,6 +68,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 body.RemoveBuff(Buffs.scavengerReplicationBuff.buffIndex);
             }
+            On.RoR2.GlobalEventManager.OnCharacterDeath -= GlobalEventManager_OnCharacterDeath;
         }
 
         public override void RefreshTimers()

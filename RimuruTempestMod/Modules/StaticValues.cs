@@ -70,6 +70,9 @@ namespace RimuruMod.Modules
         internal const int tier2Amount = 2;
         internal const int tier3Amount = 1;
 
+        //lunar exploder luck manipulation
+        internal const int luckAmount = 1;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -101,7 +104,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("HermitCrabBody", IndicatorType.PASSIVE);
             //rimDic.Add("AcidLarvaBody", IndicatorType.PASSIVE);
             //rimDic.Add("WispBody", IndicatorType.PASSIVE);
-            //rimDic.Add("LunarExploderBody", IndicatorType.PASSIVE);
+            rimDic.Add("LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("MiniMushroomBody", IndicatorType.PASSIVE);
             //rimDic.Add("RoboBallMiniBody", IndicatorType.PASSIVE);
             //rimDic.Add("RoboBallGreenBuddyBody", IndicatorType.PASSIVE);

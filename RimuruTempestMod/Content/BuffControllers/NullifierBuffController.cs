@@ -78,6 +78,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 body.RemoveBuff(Buffs.nullifierBigBrainBuff.buffIndex);
             }
+            On.RoR2.GlobalEventManager.OnHitEnemy -= GlobalEventManager_OnHitEnemy;
         }
 
         public override void RefreshTimers()
