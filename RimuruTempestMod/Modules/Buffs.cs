@@ -23,6 +23,10 @@ namespace RimuruMod.Modules
         internal static BuffDef lightningPulseBuff;
         internal static BuffDef armourDamageBuff;
 
+        //devour buffs
+        internal static BuffDef nullifierBigBrainBuff;
+        internal static BuffDef nullifierBigBrainBuffStacks;
+
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
         internal static BuffDef lightningBuff;
@@ -52,6 +56,10 @@ namespace RimuruMod.Modules
             poisonMeleeBuff = AddNewBuff("Poisonous attacks", Assets.fireBuffIcon, Color.green, false, false);
             ultraspeedRegenBuff = AddNewBuff("Ultraspeed Regeneration", Assets.healBuffIcon, Color.cyan, false, false);
             ultraspeedRegenStackBuff = AddNewBuff("Ultraspeed Regeneration stacks", Assets.healBuffIcon, Color.grey, true, false);
+
+            //devour buffs
+            nullifierBigBrainBuff = AddNewBuff($"Big Brain Buff- Reduce CD on every {StaticValues.nullifierBigBrainThreshold}th hit", Assets.healBuffIcon, Color.grey, true, false);
+            nullifierBigBrainBuffStacks = AddNewBuff($"Big Brain Buff stacks", Assets.healBuffIcon, Color.grey, true, false);
         }
 
         // simple helper method

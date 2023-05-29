@@ -59,6 +59,10 @@ namespace RimuruMod.Modules
         internal const float lemurianfireProcCoefficient = 1f;
         internal const float lemurianfireRadius = 15f;
 
+        //nullifier big brain
+        internal const int nullifierBigBrainThreshold= 4;
+
+
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -122,7 +126,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("LunarWispBody", IndicatorType.ACTIVE);
             //rimDic.Add("ParentBody", IndicatorType.ACTIVE);
             //rimDic.Add("GolemBody", IndicatorType.ACTIVE);
-            //rimDic.Add("NullifierBody", IndicatorType.ACTIVE);
+            rimDic.Add("NullifierBody", (CharacterMaster master) => BuffWrapperClass<NullifierBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("BeetleQueen2Body", IndicatorType.ACTIVE);
             //rimDic.Add("GravekeeperBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayBossBody", IndicatorType.ACTIVE);
