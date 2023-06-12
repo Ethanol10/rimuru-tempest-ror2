@@ -29,7 +29,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.AddBuff(Buffs.fireMeleeBuff.buffIndex);
+                body.AddBuff(Buffs.fireBuff.buffIndex);
             }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Fire Manipulation</style> aquisition successful.");
@@ -39,7 +39,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             if (body)
             {
-                body.RemoveBuff(Buffs.fireMeleeBuff.buffIndex);
+                body.RemoveBuff(Buffs.fireBuff.buffIndex);
             }
         }
     }

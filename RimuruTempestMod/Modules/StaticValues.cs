@@ -59,6 +59,11 @@ namespace RimuruMod.Modules
         internal const float lemurianfireProcCoefficient = 1f;
         internal const float lemurianfireRadius = 15f;
 
+        //Force
+        internal const float forcepushDamageCoefficient = 3.5f;
+        internal const float forcepullDamageCoefficient = 4f;
+        internal static float forceMaxRange = 100f;
+        internal static float forceMaxTrackingAngle = 30f;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -81,14 +86,14 @@ namespace RimuruMod.Modules
 
             rimDic.Add("MinorConstructBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("MinorConstructOnKillBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("BeetleBody", IndicatorType.PASSIVE);
+            rimDic.Add("BeetleBody", (CharacterMaster master) => BuffWrapperClass<BeetleBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("FlyingVerminBody", IndicatorType.PASSIVE);
             rimDic.Add("VerminBody", (CharacterMaster master) => BuffWrapperClass<BlindVerminBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("GupBody", IndicatorType.PASSIVE);
             //rimDic.Add("GipBody", IndicatorType.PASSIVE);
             //rimDic.Add("GeepBody", IndicatorType.PASSIVE);
             //rimDic.Add("HermitCrabBody", IndicatorType.PASSIVE);
-            //rimDic.Add("AcidLarvaBody", IndicatorType.PASSIVE);
+            rimDic.Add("AcidLarvaBody", (CharacterMaster master) => BuffWrapperClass<AcidLarvaBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("WispBody", IndicatorType.PASSIVE);
             //rimDic.Add("LunarExploderBody", IndicatorType.PASSIVE);
             //rimDic.Add("MiniMushroomBody", IndicatorType.PASSIVE);
@@ -108,7 +113,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("CrocoBody", IndicatorType.PASSIVE);
             //rimDic.Add("LoaderBody", IndicatorType.PASSIVE);
             //rimDic.Add("VultureBody", IndicatorType.ACTIVE);
-            //rimDic.Add("BeetleGuardBody", IndicatorType.ACTIVE);
+            rimDic.Add("BeetleGuardBody", (CharacterMaster master) => BuffWrapperClass<BeetleGuardBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("BisonBody", IndicatorType.ACTIVE);
             //rimDic.Add("BellBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayGrenadierBody", IndicatorType.ACTIVE);
@@ -119,12 +124,12 @@ namespace RimuruMod.Modules
             //rimDic.Add("JellyfishBody", IndicatorType.ACTIVE);
             //rimDic.Add("LemurianBody", IndicatorType.ACTIVE);
             //rimDic.Add("LunarGolemBody", IndicatorType.ACTIVE);
-            //rimDic.Add("LunarWispBody", IndicatorType.ACTIVE);
+            rimDic.Add("LunarWispBody", (CharacterMaster master) => BuffWrapperClass<LunarWispBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("ParentBody", IndicatorType.ACTIVE);
-            //rimDic.Add("GolemBody", IndicatorType.ACTIVE);
+            rimDic.Add("GolemBody", (CharacterMaster master) => BuffWrapperClass<StoneGolemBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("NullifierBody", IndicatorType.ACTIVE);
-            //rimDic.Add("BeetleQueen2Body", IndicatorType.ACTIVE);
-            //rimDic.Add("GravekeeperBody", IndicatorType.ACTIVE);
+            rimDic.Add("BeetleQueen2Body", (CharacterMaster master) => BuffWrapperClass<BeetleQueenBuffController>.AddBuffComponentToMaster(master));
+            rimDic.Add("GravekeeperBody", (CharacterMaster master) => BuffWrapperClass<GrovetenderBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("ClayBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("GrandParentBody", IndicatorType.ACTIVE);
             //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);

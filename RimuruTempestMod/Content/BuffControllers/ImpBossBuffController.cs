@@ -45,7 +45,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             if (body)
             {
-                body.RemoveBuff(Buffs.attackSpeedBuff.buffIndex);
+                body.RemoveBuff(Buffs.lifestealBuff.buffIndex);
             }
         }
 

@@ -13,7 +13,7 @@ namespace RimuruTempestMod.Content.BuffControllers
      Effect: Hastening - Attack Speed x 1.2
      */
 
-    public class ImpBuffController : RimuruBaseBuffController
+    public class AlphaConstructBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
 
@@ -33,7 +33,7 @@ namespace RimuruTempestMod.Content.BuffControllers
                 body.AddBuff(Buffs.attackSpeedBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Bloody Edge Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Hastening</style> aquisition successful.");
         }
 
         public void Hook()

@@ -20,12 +20,22 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.BleedOnHit;
             }
-            if (base.characterBody.HasBuff(Modules.Buffs.fireMeleeBuff))
+            if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
             {
                 damageType |= DamageType.IgniteOnHit;
             }
-
-            this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value;
+            if (base.characterBody.HasBuff(Modules.Buffs.lightningBuff))
+            {
+                damageType |= DamageType.Shock5s;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.crippleBuff))
+            {
+                damageType |= DamageType.CrippleOnHit;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
+            {
+                this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;
+            }
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);

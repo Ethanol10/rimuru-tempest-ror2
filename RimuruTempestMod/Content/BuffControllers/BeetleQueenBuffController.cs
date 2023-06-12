@@ -9,17 +9,18 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Alpha Construct
-     Effect: Hastening - Attack Speed x 1.2
+     Acid Larva 
+     Effect: Springlike Limbs: Increased jump height
      */
 
-    public class ImpBuffController : RimuruBaseBuffController
+    public class BeetleQueenBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
 
         public override void Awake()
         {
             base.Awake();
+            Hook();
             isPermaBuff = true;
         }
 
@@ -29,17 +30,21 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.AddBuff(Buffs.bleedMeleeBuff.buffIndex);
+                body.AddBuff(Buffs.tripleWaterBladeBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Bloody Edge Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Triple Waterblade</style> aquisition successful.");
+        }
+
+        public void Hook()
+        {
         }
 
         public void OnDestroy()
         {
             if (body)
             {
-                body.RemoveBuff(Buffs.bleedMeleeBuff.buffIndex);
+                body.RemoveBuff(Buffs.tripleWaterBladeBuff.buffIndex);
             }
         }
     }

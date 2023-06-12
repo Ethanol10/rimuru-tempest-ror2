@@ -17,7 +17,6 @@ namespace RimuruTempestMod.Content.BuffControllers
     {
         public RoR2.CharacterBody body;
 
-
         public override void Awake()
         {
             base.Awake();

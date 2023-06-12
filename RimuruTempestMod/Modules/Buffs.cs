@@ -18,10 +18,13 @@ namespace RimuruMod.Modules
         internal static BuffDef attackSpeedBuff;
         internal static BuffDef lifestealBuff;
         internal static BuffDef bleedMeleeBuff;
-        internal static BuffDef fireMeleeBuff;
         internal static BuffDef meleeBoostBuff;
         internal static BuffDef lightningPulseBuff;
         internal static BuffDef armourDamageBuff;
+        internal static BuffDef doubleArmourBuff;
+        internal static BuffDef jumpHeightBuff;
+        internal static BuffDef crippleBuff;
+        internal static BuffDef tripleWaterBladeBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -43,12 +46,15 @@ namespace RimuruMod.Modules
             lifestealBuff = AddNewBuff("Life Manipulation", Assets.fireBuffIcon, Color.red, false, false);
             bleedMeleeBuff = AddNewBuff("Bloody Edge", Assets.fireBuffIcon, Color.yellow, false, false);
             meleeBoostBuff = AddNewBuff("Melee Boost", Assets.fireBuffIcon, Color.blue, false, false);
-            fireMeleeBuff = AddNewBuff("Fire Manipulation", Assets.fireBuffIcon, Color.black, false, false);
-            armourDamageBuff = AddNewBuff("", Assets.fireBuffIcon, Color.black, false, false);
+            armourDamageBuff = AddNewBuff("Body Armour", Assets.fireBuffIcon, Color.black, false, false);
+            doubleArmourBuff = AddNewBuff("Resistance", Assets.fireBuffIcon, Color.red, false, false);
+            jumpHeightBuff = AddNewBuff("Spinglike Limbs", Assets.fireBuffIcon, Color.blue, false, false);
+            crippleBuff = AddNewBuff("Crippling Blows", Assets.fireBuffIcon, Color.blue, false, false);
+            tripleWaterBladeBuff = AddNewBuff("Triple Waterblade", Assets.fireBuffIcon, Color.yellow, false, false);
 
             fireBuff = AddNewBuff("Fire Manipulation", Assets.fireBuffIcon, Color.red, false, false);
             resistanceBuff = AddNewBuff("Resistance", Assets.shieldBuffIcon, Color.yellow, false, false);
-            lightningBuff = AddNewBuff("Lightning Manipulation", Assets.lightningBuffIcon, Color.yellow, false, false);
+            lightningBuff = AddNewBuff("Paralyzing Breath", Assets.lightningBuffIcon, Color.yellow, false, false);
             poisonMeleeBuff = AddNewBuff("Poisonous attacks", Assets.fireBuffIcon, Color.green, false, false);
             ultraspeedRegenBuff = AddNewBuff("Ultraspeed Regeneration", Assets.healBuffIcon, Color.cyan, false, false);
             ultraspeedRegenStackBuff = AddNewBuff("Ultraspeed Regeneration stacks", Assets.healBuffIcon, Color.grey, true, false);

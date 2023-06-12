@@ -38,6 +38,8 @@ namespace RimuruMod.Modules.Survivors
             moveSpeed = 7f,
         };
 
+        public static SkillDef gravityPullDef;
+
         internal static Material RimuruSlimeMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
         {

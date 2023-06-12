@@ -9,21 +9,19 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Elder Lemurian
-     Effect: Strengthen Body - Damage x 1.5
+     Acid Larva 
+     Effect: Springlike Limbs: Increased jump height
      */
 
-    public class ElderLemurianBuffController : RimuruBaseBuffController
+    public class AcidLarvaBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
-
 
         public override void Awake()
         {
             base.Awake();
             Hook();
-            isPermaBuff = false;
-            lifetime = 10f;
+            isPermaBuff = true;
         }
 
         public void Start()
@@ -32,34 +30,33 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.ApplyBuff(Buffs.strengthBuff.buffIndex, 1, -1);
+                body.AddBuff(Buffs.jumpHeightBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Springlike Limbs</style> aquisition successful.");
         }
 
         public void Hook()
         {
-            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            On.RoR2.CharacterBody.FixedUpdate += CharacterBody_IncreaseJump;
         }
 
         public void OnDestroy()
         {
-            //Unapply StrengthBuff here?
             if (body)
             {
-                body.RemoveBuff(Buffs.strengthBuff.buffIndex);
+                body.RemoveBuff(Buffs.jumpHeightBuff.buffIndex);
             }
         }
 
-        public void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
+        public void CharacterBody_IncreaseJump(On.RoR2.CharacterBody.orig_FixedUpdate orig, RoR2.CharacterBody self)
         {
             orig(self);
             if (self)
             {
-                if (self.HasBuff(Buffs.strengthBuff))
+                if (self.HasBuff(Buffs.jumpHeightBuff) && self.inputBank.jump.down)
                 {
-                    self.damage *= StaticValues.strengthBuffCoefficient;
+                    self.characterMotor.velocity.y -= Time.fixedDeltaTime * Physics.gravity.y * 0.5f;
                 }
             }
         }

@@ -9,21 +9,19 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Elder Lemurian
-     Effect: Strengthen Body - Damage x 1.5
+     Beetle
+     Effect: Resistance: Double Armour
      */
 
-    public class ElderLemurianBuffController : RimuruBaseBuffController
+    public class BeetleBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
-
 
         public override void Awake()
         {
             base.Awake();
             Hook();
-            isPermaBuff = false;
-            lifetime = 10f;
+            isPermaBuff = true;
         }
 
         public void Start()
@@ -32,10 +30,10 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.ApplyBuff(Buffs.strengthBuff.buffIndex, 1, -1);
+                body.AddBuff(Buffs.doubleArmourBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Resistance</style> aquisition successful.");
         }
 
         public void Hook()
@@ -45,10 +43,9 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void OnDestroy()
         {
-            //Unapply StrengthBuff here?
             if (body)
             {
-                body.RemoveBuff(Buffs.strengthBuff.buffIndex);
+                body.RemoveBuff(Buffs.doubleArmourBuff.buffIndex);
             }
         }
 
@@ -57,9 +54,9 @@ namespace RimuruTempestMod.Content.BuffControllers
             orig(self);
             if (self)
             {
-                if (self.HasBuff(Buffs.strengthBuff))
+                if (self.HasBuff(Buffs.doubleArmourBuff))
                 {
-                    self.damage *= StaticValues.strengthBuffCoefficient;
+                    self.armor += self.armor;
                 }
             }
         }

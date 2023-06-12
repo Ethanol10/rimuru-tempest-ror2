@@ -56,7 +56,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 if (self.HasBuff(Buffs.armourDamageBuff))
                 {
-                    self.damage += self.armor * 0.1f;
+                    self.armor += self.damage * 0.1f;
                 }
             }
         }

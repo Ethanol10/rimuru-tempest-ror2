@@ -26,12 +26,10 @@ namespace RimuruTempestMod.Content.BuffControllers
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
-
             if (body)
             {
                 body.AddBuff(Buffs.meleeBoostBuff.buffIndex);
             }
-
             RoR2.Chat.AddMessage("<style=cIsUtility>Melee Boost</style> aquisition successful.");
         }
 
