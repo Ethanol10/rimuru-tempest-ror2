@@ -28,6 +28,7 @@ namespace RimuruMod.Modules
         internal static BuffDef nullifierBigBrainBuffStacks;
         internal static BuffDef scavengerReplicationBuff;
         internal static BuffDef lunarExploderLuckManipulationBuff;
+        internal static BuffDef hermitMortarBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -62,8 +63,9 @@ namespace RimuruMod.Modules
             //devour buffs
             nullifierBigBrainBuff = AddNewBuff($"Big Brain Buff- Reduce CD on every {StaticValues.nullifierBigBrainThreshold}th hit", Assets.noCooldownBuffIcon, Color.magenta, false, false);
             nullifierBigBrainBuffStacks = AddNewBuff($"Big Brain Buff stacks", Assets.noCooldownBuffIcon, Color.grey, true, false);
-            scavengerReplicationBuff = AddNewBuff($"Creation Buff- create a random item on boss kill", Assets.bearVoidReadyBuffIcon, Color.yellow, false, false);
-            lunarExploderLuckManipulationBuff = AddNewBuff($"Luck Manipulation Buff- get 1 luck", Assets.shurikenBuffIcon, Color.blue, true, false);
+            scavengerReplicationBuff = AddNewBuff($"Creation Buff- Create a random item on boss kill", Assets.bearVoidReadyBuffIcon, Color.yellow, false, false);
+            lunarExploderLuckManipulationBuff = AddNewBuff($"Luck Manipulation Buff- Get 1 luck", Assets.shurikenBuffIcon, Color.blue, true, false);
+            hermitMortarBuff = AddNewBuff($"Mortaring Buff- Standing still shoots projectiles at nearby enemies", Assets.mortarBuffIcon, Color.grey, true, false);
         }
 
         // simple helper method

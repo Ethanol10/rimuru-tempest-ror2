@@ -73,6 +73,12 @@ namespace RimuruMod.Modules
         //lunar exploder luck manipulation
         internal const int luckAmount = 1;
 
+        //hermit crab mortar
+        internal const float hermitMortarRadius = 40f;
+        internal const float mortarbaseDuration = 1f;
+        internal const float mortarDamageCoefficient = 1.5f;
+
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -101,7 +107,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("GupBody", IndicatorType.PASSIVE);
             //rimDic.Add("GipBody", IndicatorType.PASSIVE);
             //rimDic.Add("GeepBody", IndicatorType.PASSIVE);
-            //rimDic.Add("HermitCrabBody", IndicatorType.PASSIVE);
+            rimDic.Add("HermitCrabBody", (CharacterMaster master) => BuffWrapperClass<HermitCrabBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("AcidLarvaBody", IndicatorType.PASSIVE);
             //rimDic.Add("WispBody", IndicatorType.PASSIVE);
             rimDic.Add("LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master));
