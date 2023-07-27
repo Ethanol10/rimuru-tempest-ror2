@@ -78,6 +78,9 @@ namespace RimuruMod.Modules
         internal const float mortarbaseDuration = 1f;
         internal const float mortarDamageCoefficient = 1.5f;
 
+        //aoe buffer 
+        internal const float aoeBufferRadius = 40f;
+
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -102,7 +105,7 @@ namespace RimuruMod.Modules
             rimDic.Add("MinorConstructBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("MinorConstructOnKillBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("BeetleBody", IndicatorType.PASSIVE);
-            //rimDic.Add("FlyingVerminBody", IndicatorType.PASSIVE);
+            rimDic.Add("FlyingVerminBody", (CharacterMaster master) => BuffWrapperClass<FlyingVerminBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("VerminBody", (CharacterMaster master) => BuffWrapperClass<BlindVerminBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("GupBody", IndicatorType.PASSIVE);
             //rimDic.Add("GipBody", IndicatorType.PASSIVE);

@@ -29,6 +29,7 @@ namespace RimuruMod.Modules
         internal static BuffDef scavengerReplicationBuff;
         internal static BuffDef lunarExploderLuckManipulationBuff;
         internal static BuffDef hermitMortarBuff;
+        internal static BuffDef aoeBufferBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -66,6 +67,7 @@ namespace RimuruMod.Modules
             scavengerReplicationBuff = AddNewBuff($"Creation Buff- Create a random item on boss kill", Assets.bearVoidReadyBuffIcon, Color.yellow, false, false);
             lunarExploderLuckManipulationBuff = AddNewBuff($"Luck Manipulation Buff- Get 1 luck", Assets.shurikenBuffIcon, Color.blue, true, false);
             hermitMortarBuff = AddNewBuff($"Mortaring Buff- Standing still shoots projectiles at nearby enemies", Assets.mortarBuffIcon, Color.grey, true, false);
+            aoeBufferBuff = AddNewBuff($"AOE Buffer Buff- Analyze now analyzes all nearby enemies", Assets.boostBuffIcon, Color.white, true, false);
         }
 
         // simple helper method
