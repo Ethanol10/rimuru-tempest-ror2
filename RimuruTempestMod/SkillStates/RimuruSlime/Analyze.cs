@@ -42,8 +42,8 @@ namespace RimuruMod.SkillStates
 
             if (!Target)
             {
-                return;
                 base.skillLocator.utility.AddOneStock();
+                return;
 
             }
             if (Target)
