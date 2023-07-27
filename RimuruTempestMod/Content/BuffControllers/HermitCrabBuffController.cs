@@ -8,6 +8,7 @@ using R2API.Networking;
 using IL.RoR2;
 using RimuruMod.Modules.Survivors;
 using RoR2.Orbs;
+using EntityStates;
 
 namespace RimuruTempestMod.Content.BuffControllers
 {
@@ -52,6 +53,11 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 body.RemoveBuff(Buffs.hermitMortarBuff.buffIndex);
             }
+            if(mortarIndicatorInstance)
+            {
+                mortarIndicatorInstance.SetActive(false);
+                EntityState.Destroy(mortarIndicatorInstance.gameObject);
+            }
         }
 
         public override void FixedUpdate()
@@ -85,6 +91,15 @@ namespace RimuruTempestMod.Content.BuffControllers
                     }
 
                 }
+            }
+            else if (!body.GetNotMoving())
+            {
+                if (this.mortarIndicatorInstance) 
+                {
+                    mortarIndicatorInstance.SetActive(false);
+                    EntityState.Destroy(this.mortarIndicatorInstance.gameObject);
+                }
+
             }
         }
 
