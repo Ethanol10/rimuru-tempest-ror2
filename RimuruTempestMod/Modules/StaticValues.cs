@@ -118,7 +118,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("RoboBallMiniBody", IndicatorType.PASSIVE);
             //rimDic.Add("RoboBallGreenBuddyBody", IndicatorType.PASSIVE);
             //rimDic.Add("RoboBallRedBuddyBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VoidBarnacleBody", IndicatorType.PASSIVE);
+            rimDic.Add("VoidBarnacleBody", (CharacterMaster master) => BuffWrapperClass<VoidBarnacleBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("VoidJailerBody", IndicatorType.PASSIVE);
             rimDic.Add("ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("TitanBody", IndicatorType.PASSIVE);
