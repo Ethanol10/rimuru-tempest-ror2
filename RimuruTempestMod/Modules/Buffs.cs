@@ -31,6 +31,7 @@ namespace RimuruMod.Modules
         internal static BuffDef hermitMortarBuff;
         internal static BuffDef aoeBufferBuff;
         internal static BuffDef gravManipulationBuff;
+        internal static BuffDef flightBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -66,10 +67,11 @@ namespace RimuruMod.Modules
             nullifierBigBrainBuff = AddNewBuff($"Big Brain Buff- Reduce CD on every {StaticValues.nullifierBigBrainThreshold}th hit", Assets.noCooldownBuffIcon, Color.magenta, false, false);
             nullifierBigBrainBuffStacks = AddNewBuff($"Big Brain Buff stacks", Assets.noCooldownBuffIcon, Color.grey, true, false);
             scavengerReplicationBuff = AddNewBuff($"Creation Buff- Create a random item on boss kill", Assets.bearVoidReadyBuffIcon, Color.yellow, false, false);
-            lunarExploderLuckManipulationBuff = AddNewBuff($"Luck Manipulation Buff- Get 1 luck", Assets.shurikenBuffIcon, Color.blue, true, false);
-            hermitMortarBuff = AddNewBuff($"Mortaring Buff- Standing still shoots projectiles at nearby enemies", Assets.mortarBuffIcon, Color.grey, true, false);
-            aoeBufferBuff = AddNewBuff($"AOE Buffer Buff- Analyze now analyzes all nearby enemies", Assets.boostBuffIcon, Color.white, true, false);
-            gravManipulationBuff = AddNewBuff($"Gravity Manipulation- Nearby enemies are pulled down to the ground", Assets.claygooBuffIcon, Color.magenta, true, false);
+            lunarExploderLuckManipulationBuff = AddNewBuff($"Luck Manipulation Buff- Get 1 luck", Assets.shurikenBuffIcon, Color.blue, false, false);
+            hermitMortarBuff = AddNewBuff($"Mortaring Buff- Standing still shoots projectiles at nearby enemies", Assets.mortarBuffIcon, Color.grey, false, false);
+            aoeBufferBuff = AddNewBuff($"AOE Buffer Buff- Analyze now analyzes all nearby enemies", Assets.boostBuffIcon, Color.white, false, false);
+            gravManipulationBuff = AddNewBuff($"Gravity Manipulation- Nearby enemies are pulled down to the ground", Assets.claygooBuffIcon, Color.magenta, false, false);
+            flightBuff = AddNewBuff($"Flight- Hold space to fly, up to 3 seconds of height gain then glide", Assets.jumpBuffIcon, Color.cyan, false, false);
         }
 
         // simple helper method

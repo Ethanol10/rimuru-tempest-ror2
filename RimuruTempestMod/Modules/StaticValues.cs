@@ -87,6 +87,9 @@ namespace RimuruMod.Modules
         internal const float gravManipulationForce = 10f;
         internal const float gravManipulationThreshold = 1f;
 
+        //flight
+        internal const float flightBuffThreshold = 3.5f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -135,7 +138,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("CommandoBody", IndicatorType.PASSIVE);
             //rimDic.Add("CrocoBody", IndicatorType.PASSIVE);
             //rimDic.Add("LoaderBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VultureBody", IndicatorType.ACTIVE);
+            rimDic.Add("VultureBody", (CharacterMaster master) => BuffWrapperClass<VultureBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("BeetleGuardBody", IndicatorType.ACTIVE);
             //rimDic.Add("BisonBody", IndicatorType.ACTIVE);
             //rimDic.Add("BellBody", IndicatorType.ACTIVE);
