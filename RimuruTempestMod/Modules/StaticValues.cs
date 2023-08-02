@@ -81,6 +81,11 @@ namespace RimuruMod.Modules
         //aoe buffer 
         internal const float aoeBufferRadius = 40f;
 
+        //gravity manipulation
+        internal const float gravManipulationRadius = 40f;
+        internal const float gravManipulationDamageCoefficient = 1f;
+        internal const float gravManipulationForce = 10f;
+        internal const float gravManipulationThreshold = 1f;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
