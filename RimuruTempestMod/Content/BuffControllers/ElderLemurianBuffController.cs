@@ -49,6 +49,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 body.RemoveBuff(Buffs.strengthBuff.buffIndex);
             }
+            On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
         }
 
         public void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)

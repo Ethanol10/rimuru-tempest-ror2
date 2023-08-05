@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimuruMod.Modules;
+using System;
 using UnityEngine;
 
 namespace RimuruTempestMod.Content.BuffControllers
@@ -19,17 +20,24 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             ApplySkillChange();
             stopwatch = 0f;
+            RefreshTimers();
         }
 
         public virtual void FixedUpdate()
         {
             ActiveBuffEffect();
             stopwatch += Time.fixedDeltaTime;
+            
 
             if (stopwatch >= lifetime && !isPermaBuff)
             {
                 Destroy(this);
             }
+        }
+
+        public virtual void RefreshTimers()
+        {
+            lifetime += StaticValues.refreshTimerDuration;
         }
 
         public virtual void ActiveBuffEffect()
