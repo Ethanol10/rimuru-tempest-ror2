@@ -21,7 +21,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             Hook();
-            isPermaBuff = true;
+            isPermaBuff = false;
         }
 
         public void Start()
@@ -42,6 +42,10 @@ namespace RimuruTempestMod.Content.BuffControllers
         
         public void OnDestroy()
         {
+            if (body)
+            {
+                body.RemoveBuff(Buffs.icicleLanceBuff.buffIndex);
+            }
         }
     }
 }

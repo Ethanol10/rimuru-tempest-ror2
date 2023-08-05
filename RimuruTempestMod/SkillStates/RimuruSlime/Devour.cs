@@ -38,7 +38,11 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.Freeze2s;
             }
-            this.procCoefficient = 1f;
+            if (base.characterBody.HasBuff(Modules.Buffs.devourBuff))
+            {
+                this.procCoefficient = 4f;
+            }
+            else this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
             this.baseDuration = 0.5f;
@@ -62,15 +66,7 @@ namespace RimuruMod.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (base.characterBody.HasBuff(Modules.Buffs.devourBuff))
-            {
-                this.hitboxName = "DevourExtended";
-            }
-            else
-            {
-                this.hitboxName = "Devour";
-            }
+            this.hitboxName = "Devour";
         }
 
         protected override void PlayAttackAnimation()

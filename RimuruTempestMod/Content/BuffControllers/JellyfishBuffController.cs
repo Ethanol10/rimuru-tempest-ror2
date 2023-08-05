@@ -9,18 +9,19 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Grovetender
-     Effect: Paralyzing Breath - Melee Attacks Apply Fire
+     Gup
+     Effect: Gluttony - Increase devour range
      */
 
-    public class GrovetenderBuffController : RimuruBaseBuffController
+    public class JellyfishBuffController : RimuruBaseBuffController
     {
         public RoR2.CharacterBody body;
 
         public override void Awake()
         {
             base.Awake();
-            isPermaBuff = false;
+            Hook();
+            isPermaBuff = true;
         }
 
         public void Start()
@@ -29,19 +30,18 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.AddBuff(Buffs.lightningBuff.buffIndex);
-                Debug.Log(body.name);
+                body.AddBuff(Buffs.devourBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Paralyzing Breath</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Gluttony</style> aquisition successful.");
         }
 
+        public void Hook()
+        {
+        }
+        
         public void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.lightningBuff.buffIndex);
-            }
         }
     }
 }
