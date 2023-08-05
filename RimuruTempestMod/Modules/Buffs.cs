@@ -29,16 +29,6 @@ namespace RimuruMod.Modules
         internal static BuffDef barrierBuff;
         internal static BuffDef devourBuff;
 
-        //devour buffs
-        internal static BuffDef nullifierBigBrainBuff;
-        internal static BuffDef nullifierBigBrainBuffStacks;
-        internal static BuffDef scavengerReplicationBuff;
-        internal static BuffDef lunarExploderLuckManipulationBuff;
-        internal static BuffDef hermitMortarBuff;
-        internal static BuffDef aoeBufferBuff;
-        internal static BuffDef gravManipulationBuff;
-        internal static BuffDef flightBuff;
-
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
         internal static BuffDef lightningBuff;
@@ -74,16 +64,6 @@ namespace RimuruMod.Modules
             poisonMeleeBuff = AddNewBuff("Poisonous attacks", Assets.fireBuffIcon, Color.green, false, false);
             ultraspeedRegenBuff = AddNewBuff("Ultraspeed Regeneration", Assets.healBuffIcon, Color.cyan, false, false);
             ultraspeedRegenStackBuff = AddNewBuff("Ultraspeed Regeneration stacks", Assets.healBuffIcon, Color.grey, true, false);
-
-            //devour buffs
-            nullifierBigBrainBuff = AddNewBuff($"Big Brain Buff- Reduce CD on every {StaticValues.nullifierBigBrainThreshold}th hit", Assets.noCooldownBuffIcon, Color.magenta, false, false);
-            nullifierBigBrainBuffStacks = AddNewBuff($"Big Brain Buff stacks", Assets.noCooldownBuffIcon, Color.grey, true, false);
-            scavengerReplicationBuff = AddNewBuff($"Creation Buff- Create a random item on boss kill", Assets.bearVoidReadyBuffIcon, Color.yellow, false, false);
-            lunarExploderLuckManipulationBuff = AddNewBuff($"Luck Manipulation Buff- Get 1 luck", Assets.shurikenBuffIcon, Color.blue, false, false);
-            hermitMortarBuff = AddNewBuff($"Mortaring Buff- Standing still shoots projectiles at nearby enemies", Assets.mortarBuffIcon, Color.grey, false, false);
-            aoeBufferBuff = AddNewBuff($"AOE Buffer Buff- Analyze now analyzes all nearby enemies", Assets.boostBuffIcon, Color.white, false, false);
-            gravManipulationBuff = AddNewBuff($"Gravity Manipulation- Nearby enemies are pulled down to the ground", Assets.claygooBuffIcon, Color.magenta, false, false);
-            flightBuff = AddNewBuff($"Flight- Hold space to fly, up to 3 seconds of height gain then glide", Assets.jumpBuffIcon, Color.cyan, false, false);
         }
 
         // simple helper method

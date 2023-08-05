@@ -25,7 +25,7 @@ namespace RimuruMod.Modules
 
         //Analyse - 04
         public static ConfigEntry<bool> doubleInsteadOfCrit;
-        public static ConfigEntry<int> analyseDebuffduration;
+        public static ConfigEntry<float> analyseDebuffduration;
         public static ConfigEntry<float> analyseCooldown;
 
         //Waterblade - 05
@@ -64,7 +64,7 @@ namespace RimuruMod.Modules
 
             //Analyse - 04
             doubleInsteadOfCrit = RimuruPlugin.instance.Config.Bind<bool>("04 - Analyse", "01 - Double Damage instead of Crit", false, "Determines if the applied analyse debuff should double damage instead of force a crit.");
-            analyseDebuffduration = RimuruPlugin.instance.Config.Bind<int>("04 - Analyse", "02 - Analyse Debuff Duration", 6, "Determines the duration of the buff applied to the enemy when analyse is used.");
+            analyseDebuffduration = RimuruPlugin.instance.Config.Bind<float>("04 - Analyse", "02 - Analyse Debuff Duration", 6f, "Determines the duration of the buff applied to the enemy when analyse is used.");
             analyseCooldown = RimuruPlugin.instance.Config.Bind<float>("04 - Analyse", "03 - Analyse Cooldown", 6f, "Determines the cooldown for Analyse, Needs a restart to apply.");
 
             //Waterblade - 05
@@ -175,13 +175,13 @@ namespace RimuruMod.Modules
             ModSettingsManager.AddOption(new CheckBoxOption(
                 doubleInsteadOfCrit));
             ModSettingsManager.AddOption(
-                new IntSliderOption(
+                new StepSliderOption(
                     analyseDebuffduration,
-                    new IntSliderConfig
+                    new StepSliderConfig
                     {
-                        min = 1,
-                        max = 100,                       
-
+                        min = 1f,
+                        max = 100f,
+                        increment = 0.5f
                     }
                 ));
             ModSettingsManager.AddOption(

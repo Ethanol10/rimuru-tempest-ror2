@@ -21,7 +21,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             Hook();
-            isPermaBuff = false;
+            isPermaBuff = true;
         }
 
         public void Start()
