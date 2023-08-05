@@ -14,14 +14,12 @@ namespace RimuruTempestMod.Content.BuffControllers
         public bool isSkillOverride = false;
         public bool isPermaBuff = false;
         public float stopwatch;
-        public float lifetime;
+        public float lifetime = StaticValues.refreshTimerDuration;
 
         public virtual void Awake()
         {
             ApplySkillChange();
             stopwatch = 0f;
-            lifetime = 0f;
-            RefreshTimers(); 
         }
 
         public virtual void FixedUpdate()

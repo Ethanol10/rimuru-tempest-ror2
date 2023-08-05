@@ -99,7 +99,7 @@ namespace RimuruMod.Modules
             public static T AddBuffComponentToMaster(CharacterMaster master) 
             {
                 T returnObj = master.gameObject.GetComponent<T>();
-                returnObj.RefreshTimers();
+                //returnObj.RefreshTimers();
                 return returnObj ? returnObj : master.gameObject.AddComponent<T>();
             }
         }
