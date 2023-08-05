@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2001093847
+CRC: 2751208024
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f49443a0c7725f9d5aeb9d295a120cc1
+    Hash: 49e88720ea08c09f93be0b4ee63b4399
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -95,6 +95,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/SprintToRunTransition.anim
 - Assets/Rimuru/Assets/VFX/Texture/blacklightning.tif
 - Assets/Rimuru/Assets/VFX/Square.prefab
+- Assets/Rimuru/Assets/VFX/LightningRing.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
 - Assets/Rimuru/Assets/GUI/blackLightningIcon.png
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
@@ -153,11 +154,13 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/BlackLightning.anim
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
 - Assets/Rimuru/Assets/VFX/DevourSkillGet.prefab
+- Assets/Rimuru/Assets/GUI/BuffIcons/NullifierBuff.png
 - Assets/Rimuru/Assets/VFX/Devour2.prefab
 - Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
 - Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/Rimuru/Assets/Human/mdlRimuruHuman.prefab
 - Assets/Rimuru/Assets/GUI/texTransformToSlime.png
+- Assets/Rimuru/Assets/VFX/WaterBladeSwirl.prefab
 - Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
 - Assets/Rimuru/Assets/GUI/texSwordSwing.png

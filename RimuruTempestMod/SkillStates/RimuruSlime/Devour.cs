@@ -9,11 +9,9 @@ namespace RimuruMod.SkillStates
 {
     public class Devour : BaseMeleeAttack
     {
-
         public override void OnEnter()
         {
             this.hitboxName = "Devour";
-
             this.damageType = DamageType.BonusToLowHealth;
 
             if (base.characterBody.HasBuff(Modules.Buffs.bleedMeleeBuff))
@@ -36,6 +34,10 @@ namespace RimuruMod.SkillStates
             {
                 this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;
             }
+            if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
+            {
+                damageType |= DamageType.Freeze2s;
+            }
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
@@ -55,6 +57,20 @@ namespace RimuruMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (base.characterBody.HasBuff(Modules.Buffs.devourBuff))
+            {
+                this.hitboxName = "DevourExtended";
+            }
+            else
+            {
+                this.hitboxName = "Devour";
+            }
         }
 
         protected override void PlayAttackAnimation()

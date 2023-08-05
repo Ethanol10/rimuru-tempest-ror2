@@ -11,39 +11,39 @@ namespace RimuruMod.Modules
     {
         //internal static GameObject bombPrefab;
         internal static GameObject waterbladeProjectile;
+        internal static GameObject icicleLanceProjectile;
 
         internal static void RegisterProjectiles()
         {
-            //CreateBomb();
+            CreateIcicle();
             CreateWaterBlade();
             AddProjectile(waterbladeProjectile);
-            //AddProjectile(bombPrefab);
+            AddProjectile(icicleLanceProjectile);
         }
 
         internal static void AddProjectile(GameObject projectileToAdd)
         {
             Modules.Content.AddProjectilePrefab(projectileToAdd);
         }
-        
-        //private static void CreateBomb()
-        //{
-        //    bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "RimuruBombProjectile");
 
-        //    ProjectileImpactExplosion bombImpactExplosion = bombPrefab.GetComponent<ProjectileImpactExplosion>();
-        //    InitializeImpactExplosion(bombImpactExplosion);
+        private static void CreateIcicle()
+        {
+            icicleLanceProjectile = CloneProjectilePrefab("magefirebolt", "RimuruIcicleProjectile");
 
-        //    bombImpactExplosion.blastRadius = 16f;
-        //    bombImpactExplosion.destroyOnEnemy = true;
-        //    bombImpactExplosion.lifetime = 12f;
-        //    bombImpactExplosion.impactEffect = Modules.Assets.bombExplosionEffect;
-        //    //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("RimuruBombExplosion");
-        //    bombImpactExplosion.timerAfterImpact = true;
-        //    bombImpactExplosion.lifetimeAfterImpact = 0.1f;
+            ProjectileImpactExplosion iceImpactExplosion = icicleLanceProjectile.GetComponent<ProjectileImpactExplosion>();
+            InitializeImpactExplosion(iceImpactExplosion);
 
-        //    ProjectileController bombController = bombPrefab.GetComponent<ProjectileController>();
-        //    if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("RimuruBombGhost") != null) bombController.ghostPrefab = CreateGhostPrefab("RimuruBombGhost");
-        //    bombController.startSound = "";
-        //}
+            iceImpactExplosion.blastDamageCoefficient = 2f;
+            iceImpactExplosion.blastRadius = 16f;
+            iceImpactExplosion.destroyOnEnemy = true;
+            iceImpactExplosion.lifetime = 12f;
+            iceImpactExplosion.timerAfterImpact = true;
+            iceImpactExplosion.lifetimeAfterImpact = 0f;
+            iceImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Freeze2s;
+
+            ProjectileController icicleController = icicleLanceProjectile.GetComponent<ProjectileController>();
+            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("IcicleProjectile") != null) icicleController.ghostPrefab = CreateGhostPrefab("IcicleProjectile");
+        }
 
 
         private static void CreateWaterBlade() 
@@ -92,7 +92,6 @@ namespace RimuruMod.Modules
             damageComponent.crit = false;
             damageComponent.force = Modules.StaticValues.waterbladeForce;
             damageComponent.damageType = DamageType.Generic;
-            
         }
 
         internal static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
@@ -115,7 +114,7 @@ namespace RimuruMod.Modules
             projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;
             projectileImpactExplosion.timerAfterImpact = false;
 
-            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Generic;
+            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Freeze2s;
             
         }
 

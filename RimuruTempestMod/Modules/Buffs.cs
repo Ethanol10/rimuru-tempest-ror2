@@ -25,6 +25,9 @@ namespace RimuruMod.Modules
         internal static BuffDef jumpHeightBuff;
         internal static BuffDef crippleBuff;
         internal static BuffDef tripleWaterBladeBuff;
+        internal static BuffDef icicleLanceBuff;
+        internal static BuffDef barrierBuff;
+        internal static BuffDef devourBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -51,6 +54,9 @@ namespace RimuruMod.Modules
             jumpHeightBuff = AddNewBuff("Spinglike Limbs", Assets.fireBuffIcon, Color.blue, false, false);
             crippleBuff = AddNewBuff("Crippling Blows", Assets.fireBuffIcon, Color.blue, false, false);
             tripleWaterBladeBuff = AddNewBuff("Triple Waterblade", Assets.fireBuffIcon, Color.yellow, false, false);
+            icicleLanceBuff = AddNewBuff("Icicle Lance", Assets.claygooBuffIcon, Color.yellow, false, false);
+            barrierBuff = AddNewBuff("Multilayer barrier", Assets.claygooBuffIcon, Color.red, false, false);
+            devourBuff = AddNewBuff("Gluttony", Assets.claygooBuffIcon, Color.cyan, false, false);
 
             fireBuff = AddNewBuff("Fire Manipulation", Assets.fireBuffIcon, Color.red, false, false);
             resistanceBuff = AddNewBuff("Resistance", Assets.shieldBuffIcon, Color.yellow, false, false);

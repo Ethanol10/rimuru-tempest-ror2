@@ -36,6 +36,10 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.CrippleOnHit;
             }
+            if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
+            {
+                damageType |= DamageType.Freeze2s;
+            }
             if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
             {
                 this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;

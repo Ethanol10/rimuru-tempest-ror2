@@ -81,6 +81,9 @@ namespace RimuruMod.Modules.Survivors
             //example of how to create a hitbox
             Transform hitboxTransform = childLocator.FindChild("DevourHitbox");
             Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Devour");
+            Transform hitboxExtendedTransform = childLocator.FindChild("DevourExtendedHitbox");
+            Debug.Log(hitboxExtendedTransform);
+            Modules.Prefabs.SetupHitbox(model, hitboxExtendedTransform, "DevourExtended");
         }
 
         public override void InitializeSkills()

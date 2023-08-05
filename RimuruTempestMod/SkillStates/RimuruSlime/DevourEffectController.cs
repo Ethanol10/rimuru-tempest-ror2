@@ -26,6 +26,7 @@ namespace RimuruMod.SkillStates
         public void FixedUpdate()
         {
             timer += Time.fixedDeltaTime;
+
             if (timer > 1.5f)
             {
                 Destroy(effectObj);
