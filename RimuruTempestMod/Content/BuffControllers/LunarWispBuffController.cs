@@ -20,8 +20,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            Hook();
-            isPermaBuff = true;
+            isPermaBuff = false;
         }
 
         public void Start()
@@ -34,10 +33,6 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Crippling Blows</style> aquisition successful.");
-        }
-
-        public void Hook()
-        {
         }
 
         public void OnDestroy()

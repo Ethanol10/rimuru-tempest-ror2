@@ -20,7 +20,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            isPermaBuff = true;
+            isPermaBuff = false;
         }
 
         public void Start()

@@ -20,8 +20,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            Hook();
-            isPermaBuff = true;
+            isPermaBuff = false;
         }
 
         public void Start()
@@ -35,13 +34,13 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Gluttony</style> aquisition successful.");
         }
-
-        public void Hook()
-        {
-        }
         
         public void OnDestroy()
         {
+            if (body)
+            {
+                body.RemoveBuff(Buffs.devourBuff.buffIndex);
+            }
         }
     }
 }

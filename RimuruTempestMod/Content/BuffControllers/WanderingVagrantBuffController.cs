@@ -20,7 +20,6 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            Hook();
             isPermaBuff = false;
         }
 
@@ -36,10 +35,6 @@ namespace RimuruTempestMod.Content.BuffControllers
             RoR2.Chat.AddMessage("<style=cIsUtility>Icicle Lance</style> aquisition successful.");
         }
 
-        public void Hook()
-        {
-        }
-        
         public void OnDestroy()
         {
             if (body)
