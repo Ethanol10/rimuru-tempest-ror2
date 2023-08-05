@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using RimuruTempestMod.Content.BuffControllers;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -34,6 +35,12 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            RimuruBaseBuffController[] array = characterBody.master.GetComponents<RimuruBaseBuffController>();
+            foreach (RimuruBaseBuffController controller in array)
+            {
+                controller.UpdateBody();
+            }
             characterBody.master.GetBody().healthComponent.health = oldHealth;
         }
 

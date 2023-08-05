@@ -14,12 +14,14 @@ namespace RimuruTempestMod.Content.BuffControllers
         public bool isSkillOverride = false;
         public bool isPermaBuff = false;
         public float stopwatch;
-        public float lifetime = StaticValues.refreshTimerDuration;
+        public float lifetime;
+        public RoR2.CharacterBody body;
 
         public virtual void Awake()
         {
             ApplySkillChange();
             stopwatch = 0f;
+            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
         }
 
         public virtual void FixedUpdate()
@@ -42,6 +44,11 @@ namespace RimuruTempestMod.Content.BuffControllers
         public virtual void ActiveBuffEffect()
         {
 
+        }
+
+        public virtual void UpdateBody()
+        {
+            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
         }
 
         public virtual void ApplySkillChange()

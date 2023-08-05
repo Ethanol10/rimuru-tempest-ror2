@@ -19,7 +19,6 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class HermitCrabBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
         private GameObject mortarIndicatorInstance;
         private float mortarTimer;
 
@@ -32,7 +31,6 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void Start()
         {
-            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
             if (body)
             {
@@ -79,10 +77,10 @@ namespace RimuruTempestMod.Content.BuffControllers
                     //hermitcrab mortarbuff
                     if (body.HasBuff(Buffs.hermitMortarBuff))
                     {
+                        //Debug.Log(mortarIndicatorInstance + "exists mortar indicator");
                         if (!this.mortarIndicatorInstance)
                         {
                             CreateMortarIndicator();
-                            Debug.Log("Create indicator and dose areaindicator exist" + EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
                         }
                         if (mortarIndicatorInstance)
                         {
