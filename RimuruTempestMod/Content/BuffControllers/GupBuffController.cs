@@ -20,7 +20,6 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            Hook();
             isPermaBuff = false;
         }
 
@@ -42,6 +41,22 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 body.RemoveBuff(Buffs.devourBuff.buffIndex);
             }
+        }
+
+        public override void RefreshTimers()
+        {
+            base.RefreshTimers();
+        }
+
+        public override void ActiveBuffEffect()
+        {
+            body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
+        }
+
+        public override void ApplySkillChange()
+        {
+            base.ApplySkillChange();
+            //Apply skill overrides here.
         }
     }
 }

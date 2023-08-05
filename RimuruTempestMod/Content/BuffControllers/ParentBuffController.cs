@@ -59,6 +59,22 @@ namespace RimuruTempestMod.Content.BuffControllers
                 body.RemoveBuff(Buffs.barrierBuff.buffIndex);
             }
         }
+
+        public override void RefreshTimers()
+        {
+            base.RefreshTimers();
+        }
+
+        public override void ActiveBuffEffect()
+        {
+            body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
+        }
+
+        public override void ApplySkillChange()
+        {
+            base.ApplySkillChange();
+            //Apply skill overrides here.
+        }
     }
 }
 

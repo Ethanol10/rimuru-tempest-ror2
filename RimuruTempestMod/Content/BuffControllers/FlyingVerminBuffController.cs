@@ -21,7 +21,6 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            Hook();
             isPermaBuff = false;
         }
 
@@ -37,11 +36,6 @@ namespace RimuruTempestMod.Content.BuffControllers
             RoR2.Chat.AddMessage("<style=cIsUtility>AOE Buffer Skill</style> aquisition successful.");
         }
 
-        public void Hook()
-        {
-
-        }
-
         public void OnDestroy()
         {
             if (body)
@@ -50,6 +44,21 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
         }
 
+        public override void RefreshTimers()
+        {
+            base.RefreshTimers();
+        }
+
+        public override void ActiveBuffEffect()
+        {
+            body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
+        }
+
+        public override void ApplySkillChange()
+        {
+            base.ApplySkillChange();
+            //Apply skill overrides here.
+        }
     }
 }
 

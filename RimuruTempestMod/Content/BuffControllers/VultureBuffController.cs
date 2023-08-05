@@ -28,7 +28,6 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            Hook();
             isPermaBuff = false;
         }
 
@@ -111,12 +110,6 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 flightTimer = 0f;
             }
-        }
-
-
-        public void Hook()
-        {
-
         }
 
         public void OnDestroy()

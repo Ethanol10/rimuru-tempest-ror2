@@ -27,7 +27,6 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            Hook();
             isPermaBuff = false;
         }
 
@@ -60,12 +59,6 @@ namespace RimuruTempestMod.Content.BuffControllers
                     new PeformDirectionalForceNetworkRequest(body.masterObjectId, Vector3.down, StaticValues.gravManipulationForce, body.damage * StaticValues.gravManipulationDamageCoefficient, StaticValues.gravManipulationRadius).Send(NetworkDestination.Clients);
                 }
             }
-        }
-
-
-        public void Hook()
-        {
-
         }
 
         public void OnDestroy()
