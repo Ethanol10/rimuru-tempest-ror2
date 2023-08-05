@@ -20,7 +20,8 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             ApplySkillChange();
             stopwatch = 0f;
-            RefreshTimers();
+            lifetime = 0f;
+            RefreshTimers(); 
         }
 
         public virtual void FixedUpdate()
