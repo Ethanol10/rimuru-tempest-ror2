@@ -79,7 +79,7 @@ namespace RimuruMod.Modules
         internal const int luckAmount = 1;
 
         //hermit crab mortar
-        internal const float hermitMortarRadius = 40f;
+        internal const float hermitMortarRadius = 10f;
         internal const float mortarbaseDuration = 1f;
         internal const float mortarDamageCoefficient = 1.5f;
 
@@ -105,8 +105,9 @@ namespace RimuruMod.Modules
             {
                 Debug.Log(master.ToString());   
                 T returnObj = master.gameObject.GetComponent<T>();
+                returnObj = returnObj ? returnObj : master.gameObject.AddComponent<T>();
                 returnObj.RefreshTimers();
-                return returnObj ? returnObj : master.gameObject.AddComponent<T>();
+                return returnObj;
             }
         }
 

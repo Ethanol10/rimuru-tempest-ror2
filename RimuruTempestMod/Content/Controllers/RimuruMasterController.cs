@@ -198,7 +198,9 @@ namespace RimuruMod.Modules.Survivors
 						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
 
 						RimuruBaseBuffController incomingSkill;
-						if (Modules.StaticValues.rimDic.ContainsKey(newbodyPrefab.name) && isBodyInitialized) 
+                        Debug.Log("killed " + newbodyPrefab.name);
+                        Debug.Log(Modules.StaticValues.rimDic[newbodyPrefab.name] + "skillname");
+                        if (Modules.StaticValues.rimDic.ContainsKey(newbodyPrefab.name) && isBodyInitialized) 
 						{
                             incomingSkill = Modules.StaticValues.rimDic[newbodyPrefab.name].Invoke(characterMaster);
                         }

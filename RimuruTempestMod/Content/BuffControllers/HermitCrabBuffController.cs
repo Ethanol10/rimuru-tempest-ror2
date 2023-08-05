@@ -19,8 +19,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class HermitCrabBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
-        public GameObject mortarIndicatorInstance;
+        private GameObject mortarIndicatorInstance;
         private float mortarTimer;
 
         public override void Awake()
@@ -32,7 +31,6 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void Start()
         {
-            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
             if (body)
             {
@@ -64,58 +62,67 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            //Standing still/not moving buffs
-            if (body.GetNotMoving())
+            if (body.hasEffectiveAuthority)
             {
-                //hermitcrab mortarbuff
-                if (body.HasBuff(Buffs.hermitMortarBuff))
+
+                if (!body.HasBuff(Buffs.hermitMortarBuff))
                 {
-                    if (!this.mortarIndicatorInstance)
+                    body.ApplyBuff(Buffs.hermitMortarBuff.buffIndex);
+                }
+
+
+                //Standing still/not moving buffs
+                if (body.GetNotMoving())
+                {
+                    //hermitcrab mortarbuff
+                    if (body.HasBuff(Buffs.hermitMortarBuff))
                     {
-                        CreateMortarIndicator();
-                    }
-                    if (mortarIndicatorInstance)
-                    {
-                        this.mortarIndicatorInstance.transform.parent = body.transform;
-                        this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
-                        this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
+                        //Debug.Log(mortarIndicatorInstance + "exists mortar indicator");
+                        if (!this.mortarIndicatorInstance)
+                        {
+                            CreateMortarIndicator();
+                        }
+                        if (mortarIndicatorInstance)
+                        {
+                            this.mortarIndicatorInstance.transform.parent = body.transform;
+                            this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
+                            this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
+
+                        }
+
+                        mortarTimer += Time.fixedDeltaTime;
+                        if (mortarTimer >= StaticValues.mortarbaseDuration / (body.attackSpeed))
+                        {
+                            mortarTimer = 0f;
+                            FireMortar();
+
+                        }
 
                     }
-
-                    mortarTimer += Time.fixedDeltaTime;
-                    if (mortarTimer >= StaticValues.mortarbaseDuration / (body.attackSpeed))
+                }
+                else if (!body.GetNotMoving())
+                {
+                    if (this.mortarIndicatorInstance)
                     {
-                        mortarTimer = 0f;
-                        FireMortar();
-
+                        mortarIndicatorInstance.SetActive(false);
+                        EntityState.Destroy(this.mortarIndicatorInstance.gameObject);
                     }
 
                 }
-            }
-            else if (!body.GetNotMoving())
-            {
-                if (this.mortarIndicatorInstance) 
-                {
-                    mortarIndicatorInstance.SetActive(false);
-                    EntityState.Destroy(this.mortarIndicatorInstance.gameObject);
-                }
-
             }
         }
 
         //hermit crab mortar
         public void CreateMortarIndicator()
         {
-            if (EntityStates.Huntress.ArrowRain.areaIndicatorPrefab)
-            {
-                this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
-                this.mortarIndicatorInstance.SetActive(true);
+            this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
+            this.mortarIndicatorInstance.SetActive(true);
 
-                this.mortarIndicatorInstance.transform.parent = body.transform;
-                this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
-                this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
+            //this.mortarIndicatorInstance.transform.parent = body.transform;
+            this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
+            this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
 
-            }
+            
         }
 
 
@@ -125,7 +132,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 attacker = body.gameObject,
                 damageColorIndex = DamageColorIndex.Default,
-                damageValue = body.damage * StaticValues.mortarDamageCoefficient * body.attackSpeed * (body.armor / body.baseArmor),
+                damageValue = body.damage * StaticValues.mortarDamageCoefficient,
                 origin = body.corePosition,
                 procChainMask = new RoR2.ProcChainMask(),
                 procCoefficient = 1f,
