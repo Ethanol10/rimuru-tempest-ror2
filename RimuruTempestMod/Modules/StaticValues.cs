@@ -10,6 +10,9 @@ namespace RimuruMod.Modules
     internal static class StaticValues
     {
         //passives
+
+        internal const float refreshTimerDuration = 60f;
+
         //strength
         internal const float strengthBuffCoefficient = 1.5f;
 
@@ -58,12 +61,39 @@ namespace RimuruMod.Modules
         internal const float lemurianfireDamageCoefficient = 4f;
         internal const float lemurianfireProcCoefficient = 1f;
         internal const float lemurianfireRadius = 15f;
-
+    
         //Force
         internal const float forcepushDamageCoefficient = 3.5f;
         internal const float forcepullDamageCoefficient = 4f;
         internal static float forceMaxRange = 100f;
         internal static float forceMaxTrackingAngle = 30f;
+        //nullifier big brain
+        internal const int nullifierBigBrainThreshold= 4;
+
+        //scavenger creation
+        internal const int tier1Amount = 4;
+        internal const int tier2Amount = 2;
+        internal const int tier3Amount = 1;
+
+        //lunar exploder luck manipulation
+        internal const int luckAmount = 1;
+
+        //hermit crab mortar
+        internal const float hermitMortarRadius = 40f;
+        internal const float mortarbaseDuration = 1f;
+        internal const float mortarDamageCoefficient = 1.5f;
+
+        //aoe buffer 
+        internal const float aoeBufferRadius = 40f;
+
+        //gravity manipulation
+        internal const float gravManipulationRadius = 40f;
+        internal const float gravManipulationDamageCoefficient = 1f;
+        internal const float gravManipulationForce = 10f;
+        internal const float gravManipulationThreshold = 1f;
+
+        //flight
+        internal const float flightBuffThreshold = 3.5f;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -74,6 +104,7 @@ namespace RimuruMod.Modules
             public static T AddBuffComponentToMaster(CharacterMaster master) 
             {
                 T returnObj = master.gameObject.GetComponent<T>();
+                returnObj.RefreshTimers();
                 return returnObj ? returnObj : master.gameObject.AddComponent<T>();
             }
         }
@@ -83,24 +114,23 @@ namespace RimuruMod.Modules
             // CharacterMaster is input, RimuruBaseBuffController is output. Instantiating dictionary at beginning.
             rimDic = new Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>>();
 
-
             rimDic.Add("MinorConstructBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("MinorConstructOnKillBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BeetleBody", (CharacterMaster master) => BuffWrapperClass<BeetleBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("FlyingVerminBody", IndicatorType.PASSIVE);
+            rimDic.Add("FlyingVerminBody", (CharacterMaster master) => BuffWrapperClass<FlyingVerminBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("VerminBody", (CharacterMaster master) => BuffWrapperClass<BlindVerminBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GupBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GipBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GeepBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("HermitCrabBody", IndicatorType.PASSIVE);
+            rimDic.Add("HermitCrabBody", (CharacterMaster master) => BuffWrapperClass<HermitCrabBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("AcidLarvaBody", (CharacterMaster master) => BuffWrapperClass<AcidLarvaBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("WispBody", IndicatorType.PASSIVE);
-            //rimDic.Add("LunarExploderBody", IndicatorType.PASSIVE);
+            rimDic.Add("LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("MiniMushroomBody", IndicatorType.PASSIVE);
             //rimDic.Add("RoboBallMiniBody", IndicatorType.PASSIVE);
             //rimDic.Add("RoboBallGreenBuddyBody", IndicatorType.PASSIVE);
             //rimDic.Add("RoboBallRedBuddyBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VoidBarnacleBody", IndicatorType.PASSIVE);
+            rimDic.Add("VoidBarnacleBody", (CharacterMaster master) => BuffWrapperClass<VoidBarnacleBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("VoidJailerBody", IndicatorType.PASSIVE);
             rimDic.Add("ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("TitanBody", IndicatorType.PASSIVE);
@@ -112,7 +142,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("CommandoBody", IndicatorType.PASSIVE);
             //rimDic.Add("CrocoBody", IndicatorType.PASSIVE);
             //rimDic.Add("LoaderBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VultureBody", IndicatorType.ACTIVE);
+            rimDic.Add("VultureBody", (CharacterMaster master) => BuffWrapperClass<VultureBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BeetleGuardBody", (CharacterMaster master) => BuffWrapperClass<BeetleGuardBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("BisonBody", IndicatorType.ACTIVE);
             //rimDic.Add("BellBody", IndicatorType.ACTIVE);
@@ -127,7 +157,7 @@ namespace RimuruMod.Modules
             rimDic.Add("LunarWispBody", (CharacterMaster master) => BuffWrapperClass<LunarWispBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ParentBody", (CharacterMaster master) => BuffWrapperClass<ParentBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GolemBody", (CharacterMaster master) => BuffWrapperClass<StoneGolemBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("NullifierBody", IndicatorType.ACTIVE);
+            rimDic.Add("NullifierBody", (CharacterMaster master) => BuffWrapperClass<NullifierBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BeetleQueen2Body", (CharacterMaster master) => BuffWrapperClass<BeetleQueenBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GravekeeperBody", (CharacterMaster master) => BuffWrapperClass<GrovetenderBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("ClayBossBody", IndicatorType.ACTIVE);
@@ -135,6 +165,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("SuperRoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("MegaConstructBody", IndicatorType.ACTIVE);
+            rimDic.Add("ScavBody", (CharacterMaster master) => BuffWrapperClass<ScavengerBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("VoidMegaCrabBody", IndicatorType.ACTIVE);
         }
 

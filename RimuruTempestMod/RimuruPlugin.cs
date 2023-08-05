@@ -12,6 +12,7 @@ using EmotesAPI;
 using BepInEx.Bootstrap;
 using RimuruMod.SkillStates;
 using RimuruMod.Modules;
+using RimuruTempestMod.Modules.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -71,6 +72,9 @@ namespace RimuruMod
             new Modules.ContentPacks().Initialize();
 
             Modules.StaticValues.LoadDictionary();
+
+            //networking
+            NetworkingAPI.RegisterMessageType<ItemDropNetworked>();
 
             Hook();
         }
