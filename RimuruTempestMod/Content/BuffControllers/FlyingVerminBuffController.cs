@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class FlyingVerminBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
 
         public override void Awake()
@@ -40,6 +40,16 @@ namespace RimuruTempestMod.Content.BuffControllers
         public void Hook()
         {
 
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.aoeBufferBuff))
+            {
+                body.ApplyBuff(Buffs.aoeBufferBuff.buffIndex);
+            }
         }
 
         public void OnDestroy()

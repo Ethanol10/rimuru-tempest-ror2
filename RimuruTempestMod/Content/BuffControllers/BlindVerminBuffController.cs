@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class BlindVerminBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
 
         public override void Awake()
@@ -40,6 +40,16 @@ namespace RimuruTempestMod.Content.BuffControllers
         public void Hook()
         {
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.speedBuff))
+            {
+                body.ApplyBuff(Buffs.speedBuff.buffIndex);
+            }
         }
 
         public void OnDestroy()

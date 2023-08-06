@@ -21,7 +21,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class VoidBarnacleBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
         private float pulseTimer;
 
         public override void Awake()
@@ -46,8 +46,14 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            
-            if(body.HasBuff(Buffs.gravManipulationBuff))
+
+
+            if (!body.HasBuff(Buffs.gravManipulationBuff))
+            {
+                body.ApplyBuff(Buffs.gravManipulationBuff.buffIndex);
+            }
+
+            if (body.HasBuff(Buffs.gravManipulationBuff))
             {
                 if(pulseTimer < 1f)
                 {

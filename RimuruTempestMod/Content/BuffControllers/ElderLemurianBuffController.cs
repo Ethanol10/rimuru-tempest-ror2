@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class ElderLemurianBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
 
         public override void Awake()
@@ -43,6 +43,15 @@ namespace RimuruTempestMod.Content.BuffControllers
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
         }
 
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.strengthBuff))
+            {
+                body.ApplyBuff(Buffs.strengthBuff.buffIndex);
+            }
+        }
         public void OnDestroy()
         {
             //Unapply StrengthBuff here?

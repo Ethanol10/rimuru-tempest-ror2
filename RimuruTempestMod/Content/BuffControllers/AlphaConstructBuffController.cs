@@ -9,18 +9,17 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Imp
+     Alpha Construct
      Effect: Hastening - Attack Speed x 1.2
      */
 
-    public class ImpBuffController : RimuruBaseBuffController
+    public class AlphaConstructBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
         public override void Awake()
         {
             base.Awake();
-            Hook();
             isPermaBuff = true;
         }
 
@@ -30,34 +29,27 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             if (body)
             {
-                body.AddBuff(Buffs.attackSpeedBuff.buffIndex);
+                body.AddBuff(Buffs.bleedMeleeBuff.buffIndex);
             }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Bloody Edge Skill</style> aquisition successful.");
         }
-
-        public void Hook()
+        
+        public override void FixedUpdate()
         {
-            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.bleedMeleeBuff))
+            {
+                body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
+            }
         }
 
         public void OnDestroy()
         {
             if (body)
             {
-                body.RemoveBuff(Buffs.attackSpeedBuff.buffIndex);
-            }
-        }
-
-        public void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
-        {
-            orig(self);
-            if (self)
-            {
-                if (self.HasBuff(Buffs.attackSpeedBuff))
-                {
-                    self.attackSpeed += StaticValues.speedBuffCoefficient;
-                }
+                body.RemoveBuff(Buffs.bleedMeleeBuff.buffIndex);
             }
         }
     }
