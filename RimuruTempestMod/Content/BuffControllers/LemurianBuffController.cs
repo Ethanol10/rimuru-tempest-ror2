@@ -14,7 +14,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
      Lemurian
-     Effect: Hastening - Attack Speed x 1.2
+     Effect: Flame Body - Flame aura around body
      */
 
     public class LemurianBuffController : RimuruBaseBuffController
@@ -35,7 +35,7 @@ namespace RimuruTempestMod.Content.BuffControllers
                 body.AddBuff(Buffs.flameBodyBuff.buffIndex);
             }
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Bloody Edge Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Flame Body Skill</style> aquisition successful.");
         }
         public override void FixedUpdate()
         {
