@@ -16,11 +16,13 @@ namespace RimuruTempestMod.Content.BuffControllers
         public float stopwatch;
         public float lifetime;
         public RoR2.CharacterBody body;
+        public RoR2.CharacterMaster master;
 
         public virtual void Awake()
         {
             ApplySkillChange();
             stopwatch = 0f;
+            master = gameObject.GetComponent<RoR2.CharacterMaster>();
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
         }
 
@@ -48,7 +50,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public virtual void UpdateBody()
         {
-            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
+            body = master.GetBody();
         }
 
         public virtual void ApplySkillChange()

@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class BeetleGuardBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
         public override void Awake()
         {
@@ -31,6 +31,16 @@ namespace RimuruTempestMod.Content.BuffControllers
                 body.AddBuff(Buffs.meleeBoostBuff.buffIndex);
             }
             RoR2.Chat.AddMessage("<style=cIsUtility>Melee Boost</style> aquisition successful.");
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.meleeBoostBuff))
+            {
+                body.ApplyBuff(Buffs.meleeBoostBuff.buffIndex);
+            }
         }
 
         public void OnDestroy()

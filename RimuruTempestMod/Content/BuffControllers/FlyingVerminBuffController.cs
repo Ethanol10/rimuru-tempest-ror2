@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class FlyingVerminBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
 
         public override void Awake()
@@ -34,6 +34,21 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>AOE Buffer Skill</style> aquisition successful.");
+        }
+
+        public void Hook()
+        {
+
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.aoeBufferBuff))
+            {
+                body.ApplyBuff(Buffs.aoeBufferBuff.buffIndex);
+            }
         }
 
         public void OnDestroy()

@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class MagmaWormBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
         public override void Awake()
         {
@@ -35,6 +35,15 @@ namespace RimuruTempestMod.Content.BuffControllers
             RoR2.Chat.AddMessage("<style=cIsUtility>Fire Manipulation</style> aquisition successful.");
         }
 
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.bleedMeleeBuff))
+            {
+                body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
+            }
+        }
         public void OnDestroy()
         {
             if (body)

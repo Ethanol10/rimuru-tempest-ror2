@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class ImpBossBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
         public override void Awake()
         {
@@ -26,7 +26,6 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void Start()
         {
-            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
             if (body)
             {
@@ -40,6 +39,17 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
         }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.lifestealBuff))
+            {
+                body.ApplyBuff(Buffs.lifestealBuff.buffIndex);
+            }
+        }
+
 
         public void OnDestroy()
         {

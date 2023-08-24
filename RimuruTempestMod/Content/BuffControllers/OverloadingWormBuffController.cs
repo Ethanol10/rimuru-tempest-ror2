@@ -15,7 +15,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class OverloadingWormBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
         RoR2.BlastAttack blastAttack;
         float timer;
 
@@ -60,6 +60,15 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
         }
 
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
+            if (!body.HasBuff(Buffs.lightningPulseBuff))
+            {
+                body.ApplyBuff(Buffs.lightningPulseBuff.buffIndex);
+            }
+        }
         public void OnDestroy()
         {
             if (body)

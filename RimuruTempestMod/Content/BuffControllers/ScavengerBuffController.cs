@@ -18,7 +18,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class ScavengerBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
 
         public override void Awake()
         {
@@ -60,8 +60,12 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-        }
 
+            if (!body.HasBuff(Buffs.bleedMeleeBuff))
+            {
+                body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
+            }
+        }
         public void OnDestroy()
         {
             if (body)

@@ -79,7 +79,7 @@ namespace RimuruMod.Modules
         internal const int luckAmount = 1;
 
         //hermit crab mortar
-        internal const float hermitMortarRadius = 10f;
+        internal const float hermitMortarRadius = 40f;
         internal const float mortarbaseDuration = 1f;
         internal const float mortarDamageCoefficient = 1.5f;
 
@@ -94,6 +94,12 @@ namespace RimuruMod.Modules
 
         //flight
         internal const float flightBuffThreshold = 3.5f;
+
+        //flame body
+        internal const float flameBodyRadius = 40f;
+        internal const float flameBodyDuration = 4f;
+        internal const float flameBodyDamageCoefficient = 2f;
+        internal const float flameBodyThreshold = 2f;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -154,7 +160,7 @@ namespace RimuruMod.Modules
             //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
             rimDic.Add("ImpBody", (CharacterMaster master) => BuffWrapperClass<ImpBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("JellyfishBody", IndicatorType.ACTIVE);
-            //rimDic.Add("LemurianBody", IndicatorType.ACTIVE);
+            rimDic.Add("LemurianBody", (CharacterMaster master) => BuffWrapperClass<LemurianBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("LunarGolemBody", IndicatorType.ACTIVE);
             rimDic.Add("LunarWispBody", (CharacterMaster master) => BuffWrapperClass<LunarWispBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ParentBody", (CharacterMaster master) => BuffWrapperClass<ParentBuffController>.AddBuffComponentToMaster(master));

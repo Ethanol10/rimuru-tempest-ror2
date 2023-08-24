@@ -22,7 +22,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class VultureBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
+        
         private float flightTimer;
 
         public override void Awake()
@@ -47,6 +47,11 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
+
+            if (!body.HasBuff(Buffs.flightBuff))
+            {
+                body.ApplyBuff(Buffs.flightBuff.buffIndex);
+            }
             //air walk
             if (!body.characterMotor.isGrounded)
             {
