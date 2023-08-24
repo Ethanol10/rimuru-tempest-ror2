@@ -93,6 +93,11 @@ namespace RimuruMod.Modules
         public static GameObject elderlemurianexplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/LemurianBruiser/OmniExplosionVFXLemurianBruiserFireballImpact.prefab").WaitForCompletion();
         public static GameObject voidjailerEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/VoidJailer/VoidJailerDeathBombExplosion.prefab").WaitForCompletion();
 
+        //objects        
+        public static GameObject arrowRainIndicatorPrefab;
+        public static GameObject spherePrefab;
+        public static GameObject flameBodyAuraIndicatorPrefab;
+        public static GameObject tarManipIndicatorPrefab;
 
 
         internal static void Initialize()
@@ -150,6 +155,47 @@ namespace RimuruMod.Modules
 
             // feel free to delete everything in here and load in your own assets instead
             // it should work fine even if left as is- even if the assets aren't in the bundle
+
+            //warbanner material setup
+            Material warbannerMat = Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/WardOnLevel/matWarbannerSphereIndicator.mat").WaitForCompletion();
+            Material[] warbannerArray = new Material[1];
+            warbannerArray[0] = warbannerMat;
+
+            //objects
+            arrowRainIndicatorPrefab = UnityEngine.Object.Instantiate<GameObject>(EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
+            
+            spherePrefab = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            spherePrefab.AddComponent<NetworkIdentity>();
+            SphereCollider collider = spherePrefab.GetComponent<SphereCollider>();
+            UnityEngine.Object.Destroy(collider);
+            PrefabAPI.RegisterNetworkPrefab(spherePrefab);
+
+
+            flameBodyAuraIndicatorPrefab = PrefabAPI.InstantiateClone(spherePrefab, "flameBodyAuraIndicatorPrefab");
+
+            MeshRenderer flameBodyAuraIndicatorMeshRender = flameBodyAuraIndicatorPrefab.gameObject.GetComponent<MeshRenderer>();
+            if (!flameBodyAuraIndicatorMeshRender)
+            {
+                Debug.Log("Failed to find Mesh renderer!");
+            }
+            flameBodyAuraIndicatorMeshRender.materials = warbannerArray;
+            flameBodyAuraIndicatorMeshRender.material.SetColor("_TintColor", new Color(184f / 255f, 24f / 255f, 24f / 255f)); //new Color(153/255f, 21/255f, 63/255f)
+            networkObjDefs.Add(flameBodyAuraIndicatorPrefab);
+            PrefabAPI.RegisterNetworkPrefab(flameBodyAuraIndicatorPrefab);
+
+
+            tarManipIndicatorPrefab = PrefabAPI.InstantiateClone(spherePrefab, "flameBodyAuraIndicatorPrefab");
+
+            MeshRenderer tarManipIndicatorMeshRender = tarManipIndicatorPrefab.gameObject.GetComponent<MeshRenderer>();
+            if (!tarManipIndicatorMeshRender)
+            {
+                Debug.Log("Failed to find Mesh renderer!");
+            }
+            tarManipIndicatorMeshRender.materials = warbannerArray;
+            tarManipIndicatorMeshRender.material.SetColor("_TintColor", new Color(0f, 0f, 0f)); //new Color(153/255f, 21/255f, 63/255f)
+            networkObjDefs.Add(flameBodyAuraIndicatorPrefab);
+            PrefabAPI.RegisterNetworkPrefab(flameBodyAuraIndicatorPrefab);
+
 
             //SpatialMovementBuff effect
             SpatialMovementBuffMaterial = mainAssetBundle.LoadAsset<Material>("SpatialMovementMat");

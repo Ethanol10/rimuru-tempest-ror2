@@ -101,6 +101,9 @@ namespace RimuruMod.Modules
         internal const float flameBodyDamageCoefficient = 2f;
         internal const float flameBodyThreshold = 2f;
 
+        //tar manip
+        internal const float tarManipRadius = 30f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -168,7 +171,8 @@ namespace RimuruMod.Modules
             rimDic.Add("NullifierBody", (CharacterMaster master) => BuffWrapperClass<NullifierBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BeetleQueen2Body", (CharacterMaster master) => BuffWrapperClass<BeetleQueenBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GravekeeperBody", (CharacterMaster master) => BuffWrapperClass<GrovetenderBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("ClayBossBody", IndicatorType.ACTIVE);
+            rimDic.Add("ClayBossBody", (CharacterMaster master) => BuffWrapperClass<ClayDunestriderBuffController>.AddBuffComponentToMaster(master));
+            
             //rimDic.Add("GrandParentBody", IndicatorType.ACTIVE);
             //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("SuperRoboBallBossBody", IndicatorType.ACTIVE);

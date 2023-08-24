@@ -27,17 +27,12 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.hermitMortarBuff;
         }
 
         public void Start()
         {
-
-            if (body)
-            {
-                body.AddBuff(Buffs.hermitMortarBuff.buffIndex);
-            }
-
-            RoR2.Chat.AddMessage("<style=cIsUtility>Mortaring</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Mortaring Skill</style> aquisition successful.");
         }
 
         public void Hook()
@@ -45,16 +40,26 @@ namespace RimuruTempestMod.Content.BuffControllers
             
         }
 
-        public void OnDestroy()
+        public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.hermitMortarBuff.buffIndex);
-            }
+            base.OnDestroy();
+
             if(mortarIndicatorInstance)
             {
                 mortarIndicatorInstance.SetActive(false);
                 EntityState.Destroy(mortarIndicatorInstance.gameObject);
+            }
+        }
+
+        public void Update()
+        {
+
+            if (mortarIndicatorInstance)
+            {
+                this.mortarIndicatorInstance.transform.parent = body.transform;
+                this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
+                this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
+
             }
         }
 
@@ -65,40 +70,25 @@ namespace RimuruTempestMod.Content.BuffControllers
             if (body.hasEffectiveAuthority)
             {
 
-                if (!body.HasBuff(Buffs.hermitMortarBuff))
-                {
-                    body.ApplyBuff(Buffs.hermitMortarBuff.buffIndex);
-                }
-
-
                 //Standing still/not moving buffs
                 if (body.GetNotMoving())
                 {
                     //hermitcrab mortarbuff
-                    if (body.HasBuff(Buffs.hermitMortarBuff))
+                    //Debug.Log(mortarIndicatorInstance + "exists mortar indicator");
+                    if (!this.mortarIndicatorInstance)
                     {
-                        //Debug.Log(mortarIndicatorInstance + "exists mortar indicator");
-                        if (!this.mortarIndicatorInstance)
-                        {
-                            CreateMortarIndicator();
-                        }
-                        if (mortarIndicatorInstance)
-                        {
-                            this.mortarIndicatorInstance.transform.parent = body.transform;
-                            this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
-                            this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
+                        CreateMortarIndicator();
+                    }
 
-                        }
-
-                        mortarTimer += Time.fixedDeltaTime;
-                        if (mortarTimer >= StaticValues.mortarbaseDuration / (body.attackSpeed))
-                        {
-                            mortarTimer = 0f;
-                            FireMortar();
-
-                        }
+                    mortarTimer += Time.fixedDeltaTime;
+                    if (mortarTimer >= StaticValues.mortarbaseDuration / (body.attackSpeed))
+                    {
+                        mortarTimer = 0f;
+                        FireMortar();
 
                     }
+
+                    
                 }
                 else if (!body.GetNotMoving())
                 {
@@ -115,7 +105,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         //hermit crab mortar
         public void CreateMortarIndicator()
         {
-            this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
+            this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(Assets.arrowRainIndicatorPrefab);
             this.mortarIndicatorInstance.SetActive(true);
 
             //this.mortarIndicatorInstance.transform.parent = body.transform;

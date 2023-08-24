@@ -66,7 +66,7 @@ namespace RimuruTempestMod.Content.BuffControllers
                 body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
             }
         }
-        public void OnDestroy()
+        public override void OnDestroy()
         {
             if (body)
             {

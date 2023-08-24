@@ -29,16 +29,13 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.flightBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.flightBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Flight Skill</style> aquisition successful.");
         }
@@ -47,11 +44,6 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-
-            if (!body.HasBuff(Buffs.flightBuff))
-            {
-                body.ApplyBuff(Buffs.flightBuff.buffIndex);
-            }
             //air walk
             if (!body.characterMotor.isGrounded)
             {
@@ -117,13 +109,6 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
         }
 
-        public void OnDestroy()
-        {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.flightBuff.buffIndex);
-            }
-        }
 
     }
 }

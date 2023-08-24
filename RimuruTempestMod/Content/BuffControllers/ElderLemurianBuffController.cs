@@ -51,7 +51,7 @@ namespace RimuruTempestMod.Content.BuffControllers
                 body.ApplyBuff(Buffs.strengthBuff.buffIndex);
             }
         }
-        public void OnDestroy()
+        public override void OnDestroy()
         {
             //Unapply StrengthBuff here?
             if (body)
@@ -79,7 +79,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void ActiveBuffEffect()
         {
-            body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
+            
         }
 
         public override void ApplySkillChange()

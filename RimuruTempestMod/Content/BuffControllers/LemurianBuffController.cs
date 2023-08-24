@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HurtBox = RoR2.HurtBox;
 using DotController = RoR2.DotController;
+using EntityStates;
 
 namespace RimuruTempestMod.Content.BuffControllers
 {
@@ -20,33 +21,42 @@ namespace RimuruTempestMod.Content.BuffControllers
     public class LemurianBuffController : RimuruBaseBuffController
     {
         private float timer;
+        private GameObject flameBodyIndicator;
+
         public override void Awake()
         {
             base.Awake();
             isPermaBuff = true;
+            buffdef = Buffs.flameBodyBuff;
         }
 
         public void Start()
         {
-            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
-
-            if (body)
-            {
-                body.AddBuff(Buffs.flameBodyBuff.buffIndex);
-            }
-
             RoR2.Chat.AddMessage("<style=cIsUtility>Flame Body Skill</style> aquisition successful.");
         }
+
+
+        public void Update()
+        {
+            if (!this.flameBodyIndicator)
+            {
+                CreateFlameBodyIndicator();
+            }
+            if (flameBodyIndicator)
+            {
+                this.flameBodyIndicator.transform.parent = body.transform;
+                this.flameBodyIndicator.transform.localScale = Vector3.one * StaticValues.flameBodyRadius;
+                this.flameBodyIndicator.transform.localPosition = body.corePosition;
+
+            }
+        }
+
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.flameBodyBuff))
-            {
-                body.ApplyBuff(Buffs.flameBodyBuff.buffIndex);
-            }
 
-            if(timer < 0f)
+            if (timer < 0f)
             {
                 timer += Time.fixedDeltaTime;
             }
@@ -57,6 +67,29 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
         }
 
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            if (flameBodyIndicator)
+            {
+                flameBodyIndicator.SetActive(false);
+                EntityState.Destroy(flameBodyIndicator.gameObject);
+            }
+        }
+
+
+        public void CreateFlameBodyIndicator()
+        {
+            this.flameBodyIndicator = UnityEngine.Object.Instantiate<GameObject>(Assets.flameBodyAuraIndicatorPrefab);
+            this.flameBodyIndicator.SetActive(true);
+
+            this.flameBodyIndicator.transform.localScale = Vector3.one * StaticValues.flameBodyRadius;
+            this.flameBodyIndicator.transform.localPosition = body.corePosition;
+
+
+        }
 
         public void Burn()
         {
@@ -98,15 +131,9 @@ namespace RimuruTempestMod.Content.BuffControllers
                 }
             }
 
+
         }
 
-        public void OnDestroy()
-        {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.flameBodyBuff.buffIndex);
-            }
-        }
     }
 }
 

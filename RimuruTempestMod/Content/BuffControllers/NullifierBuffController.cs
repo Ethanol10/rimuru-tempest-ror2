@@ -22,16 +22,13 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.nullifierBigBrainBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Big Brain Skill</style> aquisition successful.");
         }
@@ -71,17 +68,10 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.bleedMeleeBuff))
-            {
-                body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
-            }
         }
-        public void OnDestroy()
+        public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.nullifierBigBrainBuff.buffIndex);
-            }
+            base.OnDestroy();
             On.RoR2.GlobalEventManager.OnHitEnemy -= GlobalEventManager_OnHitEnemy;
         }
 
@@ -92,7 +82,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void ActiveBuffEffect()
         {
-            body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
+            
         }
 
         public override void ApplySkillChange()

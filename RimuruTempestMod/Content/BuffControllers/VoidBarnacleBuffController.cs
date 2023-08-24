@@ -67,7 +67,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
         }
 
-        public void OnDestroy()
+        public override void OnDestroy()
         {
             if (body)
             {

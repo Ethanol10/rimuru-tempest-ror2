@@ -1,4 +1,5 @@
-﻿using RimuruMod.Modules;
+﻿using R2API.Networking;
+using RimuruMod.Modules;
 using System;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public float lifetime;
         public RoR2.CharacterBody body;
         public RoR2.CharacterMaster master;
+        public RoR2.BuffDef buffdef;
 
         public virtual void Awake()
         {
@@ -28,6 +30,11 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public virtual void FixedUpdate()
         {
+            if(!body.HasBuff(buffdef))
+            {
+                body.ApplyBuff(buffdef.buffIndex);
+            }
+
             ActiveBuffEffect();
             stopwatch += Time.fixedDeltaTime;
             
@@ -37,6 +44,12 @@ namespace RimuruTempestMod.Content.BuffControllers
                 Destroy(this);
             }
         }
+
+        public virtual void OnDestroy()
+        {
+            body.ApplyBuff(buffdef.buffIndex, 0);
+        }
+
 
         public virtual void RefreshTimers()
         {

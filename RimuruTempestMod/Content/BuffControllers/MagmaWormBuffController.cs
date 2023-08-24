@@ -44,7 +44,7 @@ namespace RimuruTempestMod.Content.BuffControllers
                 body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
             }
         }
-        public void OnDestroy()
+        public override void OnDestroy()
         {
             if (body)
             {
@@ -59,7 +59,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void ActiveBuffEffect()
         {
-            body.AddBuff(Buffs.nullifierBigBrainBuff.buffIndex);
+            
         }
 
         public override void ApplySkillChange()
