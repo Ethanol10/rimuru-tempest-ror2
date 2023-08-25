@@ -333,6 +333,11 @@ namespace RimuruMod
                     //{
                     //    self.armor += StaticValues.resBuffArmor;
                     //}
+                    if (self.HasBuff(Modules.Buffs.tarManipDebuff))
+                    {
+                        self.attackSpeed *= StaticValues.tarManipCoefficient;
+                        self.moveSpeed *= StaticValues.tarManipCoefficient;
+                    }
                     if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
                     {
                         self.armor += StaticValues.spatialmovementbuffArmor;

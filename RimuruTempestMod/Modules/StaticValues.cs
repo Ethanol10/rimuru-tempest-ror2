@@ -103,6 +103,7 @@ namespace RimuruMod.Modules
 
         //tar manip
         internal const float tarManipRadius = 30f;
+        internal const float tarManipCoefficient = 0.7f;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;

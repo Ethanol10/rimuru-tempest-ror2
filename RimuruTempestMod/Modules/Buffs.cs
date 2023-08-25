@@ -40,6 +40,7 @@ namespace RimuruMod.Modules
         internal static BuffDef flightBuff;
         internal static BuffDef flameBodyBuff;
         internal static BuffDef tarManipBuff;
+        internal static BuffDef tarManipDebuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -87,7 +88,8 @@ namespace RimuruMod.Modules
             gravManipulationBuff = AddNewBuff($"Gravity Manipulation- Nearby enemies are pulled down to the ground", Assets.claygooBuffIcon, Color.magenta, false, false);
             flightBuff = AddNewBuff($"Flight- Hold space to fly, up to 3 seconds of height gain then glide", Assets.jumpBuffIcon, Color.cyan, false, false);
             flameBodyBuff = AddNewBuff($"Flame Body- Burn nearby enemies", Assets.strongerBurnIcon, Color.red, false, false);
-            tarManipBuff = AddNewBuff($"Tar Manipulation- Nearby enemies movespeed and attackspeed are reduced", Assets.claygooBuffIcon, Color.black, false, false);
+            tarManipBuff = AddNewBuff($"Tar Manipulation- Nearby enemies movespeed and attackspeed are reduced by {(1 - StaticValues.tarManipCoefficient)* 100f}%", Assets.claygooBuffIcon, Color.black, false, false);
+            tarManipDebuff = AddNewBuff($"Tar Debuff", Assets.claygooBuffIcon, Color.black, false, true);
 
         }
 

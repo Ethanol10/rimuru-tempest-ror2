@@ -5,6 +5,10 @@ using On.RoR2;
 using RimuruMod.Modules;
 using System.Reflection;
 using R2API.Networking;
+using IL.RoR2;
+using System.Collections.Generic;
+using HurtBox = RoR2.HurtBox;
+using System.Linq;
 
 namespace RimuruTempestMod.Content.BuffControllers
 {
@@ -16,6 +20,7 @@ namespace RimuruTempestMod.Content.BuffControllers
     public class ClayDunestriderBuffController : RimuruBaseBuffController
     {
         private GameObject tarManipIndicator;
+        private float timer;
 
         public override void Awake()
         {
@@ -35,7 +40,12 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            
+            timer += Time.fixedDeltaTime;
+            if (timer > 1f)
+            {
+                timer = 0f;
+                ApplyTar();
+            }
         }
 
         public void Update()
@@ -65,9 +75,50 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         }
 
+
+        public void ApplyTar()
+        {
+            RoR2.BullseyeSearch search = new RoR2.BullseyeSearch
+            {
+
+                teamMaskFilter = RoR2.TeamMask.GetEnemyTeams(TeamIndex.Player),
+                filterByLoS = false,
+                searchOrigin = body.corePosition,
+                searchDirection = UnityEngine.Random.onUnitSphere,
+                sortMode = RoR2.BullseyeSearch.SortMode.Distance,
+                maxDistanceFilter = StaticValues.tarManipRadius,
+                maxAngleFilter = 360f
+            };
+
+            search.RefreshCandidates();
+            search.FilterOutGameObject(body.gameObject);
+
+
+
+            List<HurtBox> target = search.GetResults().ToList<HurtBox>();
+            foreach (HurtBox singularTarget in target)
+            {
+                if (singularTarget)
+                {
+                    if (singularTarget.healthComponent && singularTarget.healthComponent.body)
+                    {
+                        if(singularTarget.healthComponent.body.HasBuff(Buffs.tarManipDebuff))
+                        {
+                            singularTarget.healthComponent.body.ApplyBuff(Buffs.tarManipDebuff.buffIndex, 1, 3);
+                        }
+                    }
+                }
+            }
+        }
+
         public override void OnDestroy()
         {
             base.FixedUpdate();
+            if (tarManipIndicator)
+            {
+                tarManipIndicator.SetActive(false);
+                UnityEngine.GameObject.Destroy(tarManipIndicator);
+            }
         }
 
         public override void RefreshTimers()
