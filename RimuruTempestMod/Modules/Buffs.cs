@@ -43,6 +43,7 @@ namespace RimuruMod.Modules
         internal static BuffDef tarManipDebuff;
         internal static BuffDef reparationBuff;
         internal static BuffDef reparationBuffStacks;
+        internal static BuffDef dashBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -94,6 +95,7 @@ namespace RimuruMod.Modules
             tarManipDebuff = AddNewBuff($"Tar Debuff", Assets.claygooBuffIcon, Color.black, false, true);
             reparationBuff = AddNewBuff($"Reparation- heal 50% of the recent damage you've taken after 5 seconds", Assets.healBuffIcon, Color.green, false, false);
             reparationBuffStacks = AddNewBuff($"Reparation Stacks", Assets.healBuffIcon, Color.black, true, false);
+            dashBuff = AddNewBuff($"Dash- pressing sprint dashes", Assets.sprintBuffIcon, Color.yellow, false, false);
 
         }
 

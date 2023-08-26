@@ -78,6 +78,7 @@ namespace RimuruMod
             NetworkingAPI.RegisterMessageType<ItemDropNetworked>();
             NetworkingAPI.RegisterMessageType<HealNetworkRequest>();
             NetworkingAPI.RegisterMessageType<PeformDirectionalForceNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<SetDashStateMachine>();
 
             Hook();
         }
