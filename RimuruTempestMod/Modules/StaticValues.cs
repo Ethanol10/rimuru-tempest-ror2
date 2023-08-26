@@ -117,6 +117,9 @@ namespace RimuruMod.Modules
         internal const float tarringRadius = 30f;
         internal const float tarringDamageCoefficient = 1.5f;
 
+        //hyper regen
+        internal const float hyperRegenCoefficient = 0.01f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -150,7 +153,8 @@ namespace RimuruMod.Modules
             rimDic.Add("AcidLarvaBody", (CharacterMaster master) => BuffWrapperClass<AcidLarvaBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("WispBody", IndicatorType.PASSIVE);
             rimDic.Add("LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("MiniMushroomBody", IndicatorType.PASSIVE);
+            
+            rimDic.Add("MiniMushroomBody", (CharacterMaster master) => BuffWrapperClass<MushrumBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("RoboBallMiniBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("RoboBallGreenBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("RoboBallRedBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
