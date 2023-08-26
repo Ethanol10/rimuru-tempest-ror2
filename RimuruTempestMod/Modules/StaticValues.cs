@@ -123,6 +123,9 @@ namespace RimuruMod.Modules
         //gravity pulse
         internal const float gravityPulseRange = 20f;
 
+        //spiked body
+        internal const float spikedBodyRange = 10f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -178,8 +181,8 @@ namespace RimuruMod.Modules
             rimDic.Add("BeetleGuardBody", (CharacterMaster master) => BuffWrapperClass<BeetleGuardBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BisonBody", (CharacterMaster master) => BuffWrapperClass<BisonBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ClayGrenadierBody", (CharacterMaster master) => BuffWrapperClass<ClayApothecaryBuffController>.AddBuffComponentToMaster(master));
+            rimDic.Add("BellBody", (CharacterMaster master) => BuffWrapperClass<BronzongBuffController>.AddBuffComponentToMaster(master));
 
-            //rimDic.Add("BellBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
             rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
