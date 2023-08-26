@@ -120,6 +120,9 @@ namespace RimuruMod.Modules
         //hyper regen
         internal const float hyperRegenCoefficient = 0.01f;
 
+        //gravity pulse
+        internal const float gravityPulseRange = 20f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -159,7 +162,8 @@ namespace RimuruMod.Modules
             rimDic.Add("RoboBallGreenBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("RoboBallRedBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("VoidBarnacleBody", (CharacterMaster master) => BuffWrapperClass<VoidBarnacleBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("VoidJailerBody", IndicatorType.PASSIVE);
+            rimDic.Add("VoidJailerBody", (CharacterMaster master) => BuffWrapperClass<VoidJailerBuffController>.AddBuffComponentToMaster(master));
+            
             rimDic.Add("ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("TitanBody", IndicatorType.PASSIVE);
             //rimDic.Add("TitanGoldBody", IndicatorType.PASSIVE);

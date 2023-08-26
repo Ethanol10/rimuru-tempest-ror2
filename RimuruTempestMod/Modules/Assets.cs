@@ -59,7 +59,7 @@ namespace RimuruMod.Modules
         //public static Sprite voidFogDebuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdVoidFogMild.asset").WaitForCompletion().iconSprite;
         public static Sprite medkitBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Medkit/bdMedkitHeal.asset").WaitForCompletion().iconSprite;
         //public static Sprite spikyDebuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Treebot/bdEntangle.asset").WaitForCompletion().iconSprite;
-        //public static Sprite ruinDebuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/LunarSkillReplacements/bdLunarDetonationCharge.asset").WaitForCompletion().iconSprite;
+        public static Sprite ruinDebuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/LunarSkillReplacements/bdLunarDetonationCharge.asset").WaitForCompletion().iconSprite;
         //public static Sprite warcryBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/WarCryOnMultiKill/bdWarCryBuff.asset").WaitForCompletion().iconSprite;
         public static Sprite shieldBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdArmorBoost.asset").WaitForCompletion().iconSprite;
         //public static Sprite tarBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdClayGoo.asset").WaitForCompletion().iconSprite;
@@ -92,6 +92,7 @@ namespace RimuruMod.Modules
         //effects
         public static GameObject elderlemurianexplosionEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/LemurianBruiser/OmniExplosionVFXLemurianBruiserFireballImpact.prefab").WaitForCompletion();
         public static GameObject voidjailerEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/VoidJailer/VoidJailerDeathBombExplosion.prefab").WaitForCompletion();
+        public static GameObject railgunnerSnipeLightTracerEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/Railgunner/TracerRailgunLight.prefab").WaitForCompletion();
 
         //objects        
         public static GameObject arrowRainIndicatorPrefab;
