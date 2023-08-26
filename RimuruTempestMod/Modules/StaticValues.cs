@@ -105,6 +105,10 @@ namespace RimuruMod.Modules
         internal const float tarManipRadius = 30f;
         internal const float tarManipCoefficient = 0.7f;
 
+        //reparation
+        internal const float reparationCoefficient = 0.5f;
+        internal const float reparationTimer = 5f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -139,9 +143,9 @@ namespace RimuruMod.Modules
             //rimDic.Add("WispBody", IndicatorType.PASSIVE);
             rimDic.Add("LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("MiniMushroomBody", IndicatorType.PASSIVE);
-            //rimDic.Add("RoboBallMiniBody", IndicatorType.PASSIVE);
-            //rimDic.Add("RoboBallGreenBuddyBody", IndicatorType.PASSIVE);
-            //rimDic.Add("RoboBallRedBuddyBody", IndicatorType.PASSIVE);
+            rimDic.Add("RoboBallMiniBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
+            rimDic.Add("RoboBallGreenBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
+            rimDic.Add("RoboBallRedBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("VoidBarnacleBody", (CharacterMaster master) => BuffWrapperClass<VoidBarnacleBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("VoidJailerBody", IndicatorType.PASSIVE);
             rimDic.Add("ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master));

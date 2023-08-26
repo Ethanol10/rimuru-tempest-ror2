@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 using RimuruMod.Modules;
 
 
-namespace RimuruTempestMod.Modules.Networking
+namespace RimuruMod.Modules.Networking
 {
     internal class PeformDirectionalForceNetworkRequest : INetMessage
     {

@@ -41,6 +41,8 @@ namespace RimuruMod.Modules
         internal static BuffDef flameBodyBuff;
         internal static BuffDef tarManipBuff;
         internal static BuffDef tarManipDebuff;
+        internal static BuffDef reparationBuff;
+        internal static BuffDef reparationBuffStacks;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -90,6 +92,8 @@ namespace RimuruMod.Modules
             flameBodyBuff = AddNewBuff($"Flame Body- Burn nearby enemies", Assets.strongerBurnIcon, Color.red, false, false);
             tarManipBuff = AddNewBuff($"Tar Manipulation- Nearby enemies movespeed and attackspeed are reduced by {(1 - StaticValues.tarManipCoefficient)* 100f}%", Assets.claygooBuffIcon, Color.black, false, false);
             tarManipDebuff = AddNewBuff($"Tar Debuff", Assets.claygooBuffIcon, Color.black, false, true);
+            reparationBuff = AddNewBuff($"Reparation- heal 50% of the recent damage you've taken after 5 seconds", Assets.healBuffIcon, Color.green, false, false);
+            reparationBuffStacks = AddNewBuff($"Reparation Stacks", Assets.healBuffIcon, Color.black, true, false);
 
         }
 

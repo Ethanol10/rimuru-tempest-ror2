@@ -13,6 +13,7 @@ using BepInEx.Bootstrap;
 using RimuruMod.SkillStates;
 using RimuruMod.Modules;
 using RimuruTempestMod.Modules.Networking;
+using RimuruMod.Modules.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -75,6 +76,8 @@ namespace RimuruMod
 
             //networking
             NetworkingAPI.RegisterMessageType<ItemDropNetworked>();
+            NetworkingAPI.RegisterMessageType<HealNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<PeformDirectionalForceNetworkRequest>();
 
             Hook();
         }

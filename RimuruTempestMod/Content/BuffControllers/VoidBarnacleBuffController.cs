@@ -5,7 +5,7 @@ using On.RoR2;
 using RimuruMod.Modules;
 using System.Reflection;
 using R2API.Networking;
-using RimuruTempestMod.Modules.Networking;
+using RimuruMod.Modules.Networking;
 using IL.RoR2;
 using System.Collections.Generic;
 using BullseyeSearch = RoR2.BullseyeSearch;
