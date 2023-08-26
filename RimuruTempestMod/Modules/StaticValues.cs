@@ -111,7 +111,11 @@ namespace RimuruMod.Modules
 
         //dash
         internal const float dashDuration = 0.3f;
-        internal static float dashSpeedCoefficient = 5f;
+        internal const float dashSpeedCoefficient = 5f;
+
+        //tarring
+        internal const float tarringRadius = 30f;
+        internal const float tarringDamageCoefficient = 1.5f;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -165,9 +169,9 @@ namespace RimuruMod.Modules
             rimDic.Add("VultureBody", (CharacterMaster master) => BuffWrapperClass<VultureBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BeetleGuardBody", (CharacterMaster master) => BuffWrapperClass<BeetleGuardBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BisonBody", (CharacterMaster master) => BuffWrapperClass<BisonBuffController>.AddBuffComponentToMaster(master));
-            
+            rimDic.Add("ClayGrenadierBody", (CharacterMaster master) => BuffWrapperClass<ClayApothecaryBuffController>.AddBuffComponentToMaster(master));
+
             //rimDic.Add("BellBody", IndicatorType.ACTIVE);
-            //rimDic.Add("ClayGrenadierBody", IndicatorType.ACTIVE);
             //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
             rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
