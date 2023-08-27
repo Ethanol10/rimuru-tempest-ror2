@@ -133,6 +133,9 @@ namespace RimuruMod.Modules
         internal const int refractionBounces = 4;
         internal const float refractionRange = 20f;
 
+        //singular barrier
+        internal const int singularBarrierInterval = 10;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -209,7 +212,7 @@ namespace RimuruMod.Modules
 
             //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("SuperRoboBallBossBody", IndicatorType.ACTIVE);
-            //rimDic.Add("MegaConstructBody", IndicatorType.ACTIVE);
+            rimDic.Add("MegaConstructBody", (CharacterMaster master) => BuffWrapperClass<XiConstructBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ScavBody", (CharacterMaster master) => BuffWrapperClass<ScavengerBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("VoidMegaCrabBody", IndicatorType.ACTIVE);
         }
