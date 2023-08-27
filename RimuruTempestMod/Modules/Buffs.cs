@@ -48,6 +48,7 @@ namespace RimuruMod.Modules
         internal static BuffDef hyperRegenBuff;
         internal static BuffDef gravityPulseBuff;
         internal static BuffDef spikedBodyBuff;
+        internal static BuffDef cleanserBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -104,6 +105,7 @@ namespace RimuruMod.Modules
             hyperRegenBuff = AddNewBuff($"Hyper regeneration- Heal {StaticValues.hyperRegenCoefficient * 100f}% of max HP per second", Assets.healBuffIcon, Color.yellow, false, false);
             gravityPulseBuff = AddNewBuff($"Gravity pulse- hit enemies pulse, pulling enemies towards them", Assets.ruinDebuffIcon, Color.magenta, false, false);
             spikedBodyBuff = AddNewBuff($"Spiked body- when you get hit you deal damage around you", Assets.spikeBuffIcon, Color.yellow, false, false);
+            cleanserBuff = AddNewBuff($"Cleanser- Cleanse yourself every {StaticValues.cleanserInterval} seconds", Assets.alphashieldoffBuffIcon, Color.red, false, false);
 
         }
 

@@ -126,6 +126,9 @@ namespace RimuruMod.Modules
         //spiked body
         internal const float spikedBodyRange = 10f;
 
+        //cleanser
+        internal const int cleanserInterval = 10;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -197,8 +200,8 @@ namespace RimuruMod.Modules
             rimDic.Add("BeetleQueen2Body", (CharacterMaster master) => BuffWrapperClass<BeetleQueenBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GravekeeperBody", (CharacterMaster master) => BuffWrapperClass<GrovetenderBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ClayBossBody", (CharacterMaster master) => BuffWrapperClass<ClayDunestriderBuffController>.AddBuffComponentToMaster(master));
-            
-            //rimDic.Add("GrandParentBody", IndicatorType.ACTIVE);
+            rimDic.Add("GrandParentBody", (CharacterMaster master) => BuffWrapperClass<GrandParentBuffController>.AddBuffComponentToMaster(master));
+
             //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("SuperRoboBallBossBody", IndicatorType.ACTIVE);
             //rimDic.Add("MegaConstructBody", IndicatorType.ACTIVE);
