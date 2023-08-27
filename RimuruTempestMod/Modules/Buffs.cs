@@ -49,6 +49,7 @@ namespace RimuruMod.Modules
         internal static BuffDef gravityPulseBuff;
         internal static BuffDef spikedBodyBuff;
         internal static BuffDef cleanserBuff;
+        internal static BuffDef refractionBuff;
 
         internal static BuffDef fireBuff;
         internal static BuffDef resistanceBuff;
@@ -106,6 +107,7 @@ namespace RimuruMod.Modules
             gravityPulseBuff = AddNewBuff($"Gravity pulse- hit enemies pulse, pulling enemies towards them", Assets.ruinDebuffIcon, Color.magenta, false, false);
             spikedBodyBuff = AddNewBuff($"Spiked body- when you get hit you deal damage around you", Assets.spikeBuffIcon, Color.yellow, false, false);
             cleanserBuff = AddNewBuff($"Cleanser- Cleanse yourself every {StaticValues.cleanserInterval} seconds", Assets.alphashieldoffBuffIcon, Color.red, false, false);
+            refractionBuff = AddNewBuff($"Refraction- attacks chain to nearby enemies", Assets.lunarRootIcon, Color.white, false, false);
 
         }
 

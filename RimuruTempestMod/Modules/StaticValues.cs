@@ -129,6 +129,10 @@ namespace RimuruMod.Modules
         //cleanser
         internal const int cleanserInterval = 10;
 
+        //refraction
+        internal const int refractionBounces = 4;
+        internal const float refractionRange = 20f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -171,8 +175,9 @@ namespace RimuruMod.Modules
             rimDic.Add("VoidJailerBody", (CharacterMaster master) => BuffWrapperClass<VoidJailerBuffController>.AddBuffComponentToMaster(master));
             
             rimDic.Add("ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("TitanBody", IndicatorType.PASSIVE);
-            //rimDic.Add("TitanGoldBody", IndicatorType.PASSIVE);
+            rimDic.Add("TitanBody", (CharacterMaster master) => BuffWrapperClass<TitanBuffController>.AddBuffComponentToMaster(master));
+            rimDic.Add("TitanGoldBody", (CharacterMaster master) => BuffWrapperClass<TitanBuffController>.AddBuffComponentToMaster(master));
+            
             rimDic.Add("VagrantBody", (CharacterMaster master) => BuffWrapperClass<WanderingVagrantBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("MagmaWormBody", (CharacterMaster master) => BuffWrapperClass<MagmaWormBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("ElectricWormBody", IndicatorType.PASSIVE);

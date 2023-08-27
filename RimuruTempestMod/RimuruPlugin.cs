@@ -79,6 +79,9 @@ namespace RimuruMod
             NetworkingAPI.RegisterMessageType<HealNetworkRequest>();
             NetworkingAPI.RegisterMessageType<PeformDirectionalForceNetworkRequest>();
             NetworkingAPI.RegisterMessageType<SetDashStateMachine>();
+            NetworkingAPI.RegisterMessageType<GravityPulsePullRequest>();
+            NetworkingAPI.RegisterMessageType<OrbDamageRequest>();
+
 
             Hook();
         }
