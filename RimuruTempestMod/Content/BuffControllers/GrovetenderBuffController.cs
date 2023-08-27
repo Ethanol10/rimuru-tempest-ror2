@@ -21,27 +21,20 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.lightningBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.lightningBuff.buffIndex);
-                Debug.Log(body.name);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Paralyzing Breath</style> aquisition successful.");
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.lightningBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

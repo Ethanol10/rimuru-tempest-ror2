@@ -15,32 +15,25 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class BeetleQueenBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
 
         public override void Awake()
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.tripleWaterBladeBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.tripleWaterBladeBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Triple Waterblade</style> aquisition successful.");
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.tripleWaterBladeBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

@@ -85,6 +85,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void OnDestroy()
         {
             base.OnDestroy();
+            On.RoR2.GlobalEventManager.OnHitEnemy -= GlobalEventManager_OnHitEnemy;
         }
     }
 }

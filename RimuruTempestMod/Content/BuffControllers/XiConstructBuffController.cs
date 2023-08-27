@@ -92,6 +92,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void OnDestroy()
         {
             base.OnDestroy();
+            On.RoR2.HealthComponent.TakeDamage -= HealthComponent_TakeDamage;
         }
     }
 }

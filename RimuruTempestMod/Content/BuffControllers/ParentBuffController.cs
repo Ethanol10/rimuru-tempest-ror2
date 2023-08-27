@@ -15,23 +15,19 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class ParentBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
         public float timer;
 
         public override void Awake()
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.barrierBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.barrierBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Multilayer Barrier</style> aquisition successful.");
         }
@@ -54,10 +50,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.barrierBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

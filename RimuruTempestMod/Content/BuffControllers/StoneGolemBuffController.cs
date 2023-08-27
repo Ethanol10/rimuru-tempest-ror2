@@ -22,16 +22,13 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.armourDamageBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.armourDamageBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Body Armour</style> aquisition successful.");
         }
@@ -45,17 +42,11 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.armourDamageBuff))
-            {
-                body.ApplyBuff(Buffs.armourDamageBuff.buffIndex);
-            }
         }
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.armourDamageBuff.buffIndex);
-            }
+            base.OnDestroy();
+            On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
         }
 
         public void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)

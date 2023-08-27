@@ -21,16 +21,13 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.fireBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.fireBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Fire Manipulation</style> aquisition successful.");
         }
@@ -38,18 +35,10 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (!body.HasBuff(Buffs.bleedMeleeBuff))
-            {
-                body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
-            }
         }
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.fireBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

@@ -32,7 +32,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
-            buffdef = Buffs.bleedMeleeBuff;
+            buffdef = Buffs.reverseGravManipBuff;
         }
 
         public void Start()

@@ -28,16 +28,12 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.gravManipulationBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
-
-            if (body)
-            {
-                body.AddBuff(Buffs.gravManipulationBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Gravity Manipulation Skill</style> aquisition successful.");
         }
@@ -46,33 +42,22 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-
-            if (!body.HasBuff(Buffs.gravManipulationBuff))
+            if(pulseTimer < 1f)
             {
-                body.ApplyBuff(Buffs.gravManipulationBuff.buffIndex);
+                pulseTimer += Time.fixedDeltaTime;
             }
-
-            if (body.HasBuff(Buffs.gravManipulationBuff))
+            else if (pulseTimer >= 1f)
             {
-                if(pulseTimer < 1f)
-                {
-                    pulseTimer += Time.fixedDeltaTime;
-                }
-                else if (pulseTimer >= 1f)
-                {
-                    pulseTimer = 0f;
+                pulseTimer = 0f;
 
-                    new PeformDirectionalForceNetworkRequest(body.masterObjectId, Vector3.down, StaticValues.gravManipulationForce, body.damage * StaticValues.gravManipulationDamageCoefficient, StaticValues.gravManipulationRadius).Send(NetworkDestination.Clients);
-                }
+                new PeformDirectionalForceNetworkRequest(body.masterObjectId, Vector3.down, StaticValues.gravManipulationForce, body.damage * StaticValues.gravManipulationDamageCoefficient, StaticValues.gravManipulationRadius).Send(NetworkDestination.Clients);
             }
+            
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.gravManipulationBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
     }

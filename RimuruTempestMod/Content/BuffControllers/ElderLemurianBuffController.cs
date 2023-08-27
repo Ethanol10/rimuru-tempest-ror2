@@ -23,16 +23,13 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.strengthBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.ApplyBuff(Buffs.strengthBuff.buffIndex, 1, -1);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
         }
@@ -45,19 +42,10 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (!body.HasBuff(Buffs.strengthBuff))
-            {
-                body.ApplyBuff(Buffs.strengthBuff.buffIndex);
-            }
         }
         public override void OnDestroy()
         {
-            //Unapply StrengthBuff here?
-            if (body)
-            {
-                body.RemoveBuff(Buffs.strengthBuff.buffIndex);
-            }
+            base.OnDestroy();
             On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
         }
 

@@ -15,32 +15,24 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class LunarWispBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
 
         public override void Awake()
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.crippleBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.crippleBuff.buffIndex);
-            }
-
             RoR2.Chat.AddMessage("<style=cIsUtility>Crippling Blows</style> aquisition successful.");
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.crippleBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

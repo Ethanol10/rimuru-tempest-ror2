@@ -22,16 +22,13 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.speedBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.speedBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Acceleration Skill</style> aquisition successful.");
         }
@@ -45,18 +42,12 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.speedBuff))
-            {
-                body.ApplyBuff(Buffs.speedBuff.buffIndex);
-            }
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.speedBuff.buffIndex);
-            }
+            base.OnDestroy();
+            On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
         }
 
         public void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)

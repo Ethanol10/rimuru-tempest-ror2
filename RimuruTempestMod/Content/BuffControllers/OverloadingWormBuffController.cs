@@ -23,6 +23,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.lightningPulseBuff;
         }
 
         public void Start()
@@ -41,10 +42,6 @@ namespace RimuruTempestMod.Content.BuffControllers
             blastAttack.attackerFiltering = AttackerFiltering.Default;
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.lightningPulseBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Lightning Manipulation</style> aquisition successful.");
         }
@@ -64,17 +61,10 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.lightningPulseBuff))
-            {
-                body.ApplyBuff(Buffs.lightningPulseBuff.buffIndex);
-            }
         }
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.lightningPulseBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

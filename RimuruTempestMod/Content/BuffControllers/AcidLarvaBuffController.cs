@@ -15,23 +15,19 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class AcidLarvaBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
 
         public override void Awake()
         {
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.jumpHeightBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.jumpHeightBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Springlike Limbs</style> aquisition successful.");
         }
@@ -43,10 +39,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.jumpHeightBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public void CharacterBody_IncreaseJump(On.RoR2.CharacterBody.orig_FixedUpdate orig, RoR2.CharacterBody self)

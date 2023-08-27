@@ -46,10 +46,9 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.attackSpeedBuff.buffIndex);
-            }
+            base.OnDestroy();
+
+            On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
         }
 
         public void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
@@ -59,7 +58,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 if (self.HasBuff(Buffs.attackSpeedBuff))
                 {
-                    self.attackSpeed += StaticValues.speedBuffCoefficient;
+                    self.attackSpeed *= StaticValues.speedBuffCoefficient;
                 }
             }
         }

@@ -15,32 +15,30 @@ namespace RimuruTempestMod.Content.BuffControllers
 
     public class WanderingVagrantBuffController : RimuruBaseBuffController
     {
-        public RoR2.CharacterBody body;
 
         public override void Awake()
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.icicleLanceBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.icicleLanceBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Icicle Lance</style> aquisition successful.");
         }
 
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+        }
+
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.icicleLanceBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

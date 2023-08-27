@@ -25,16 +25,13 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.scavengerReplicationBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.scavengerReplicationBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Replication Skill</style> aquisition successful.");
         }
@@ -60,18 +57,10 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (!body.HasBuff(Buffs.bleedMeleeBuff))
-            {
-                body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
-            }
         }
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.scavengerReplicationBuff.buffIndex);
-            }
+            base.OnDestroy();
             On.RoR2.GlobalEventManager.OnCharacterDeath -= GlobalEventManager_OnCharacterDeath;
         }
 
@@ -82,7 +71,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void ActiveBuffEffect()
         {
-            body.AddBuff(Buffs.scavengerReplicationBuff.buffIndex);
+            base.ActiveBuffEffect();
         }
 
         public override void ApplySkillChange()

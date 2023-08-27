@@ -22,16 +22,13 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.aoeBufferBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.aoeBufferBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>AOE Buffer Skill</style> aquisition successful.");
         }
@@ -45,18 +42,11 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.aoeBufferBuff))
-            {
-                body.ApplyBuff(Buffs.aoeBufferBuff.buffIndex);
-            }
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.aoeBufferBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

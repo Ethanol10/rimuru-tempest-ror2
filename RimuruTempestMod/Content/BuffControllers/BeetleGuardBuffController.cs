@@ -21,15 +21,12 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.meleeBoostBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
-            if (body)
-            {
-                body.AddBuff(Buffs.meleeBoostBuff.buffIndex);
-            }
             RoR2.Chat.AddMessage("<style=cIsUtility>Melee Boost</style> aquisition successful.");
         }
 
@@ -37,18 +34,11 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.meleeBoostBuff))
-            {
-                body.ApplyBuff(Buffs.meleeBoostBuff.buffIndex);
-            }
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.meleeBoostBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

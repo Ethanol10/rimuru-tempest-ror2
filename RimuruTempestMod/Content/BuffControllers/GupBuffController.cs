@@ -21,26 +21,20 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.Awake();
             isPermaBuff = false;
+            buffdef = Buffs.devourBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.devourBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Gluttony</style> aquisition successful.");
         }
         
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.devourBuff.buffIndex);
-            }
+            base.OnDestroy();
         }
 
         public override void RefreshTimers()

@@ -23,16 +23,13 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.lunarExploderLuckManipulationBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.lunarExploderLuckManipulationBuff.buffIndex);
-            }
             body.master.luck += StaticValues.luckAmount;
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Luck Manipulation Skill</style> aquisition successful.");
@@ -70,20 +67,13 @@ namespace RimuruTempestMod.Content.BuffControllers
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
-            if (!body.HasBuff(Buffs.bleedMeleeBuff))
-            {
-                body.ApplyBuff(Buffs.bleedMeleeBuff.buffIndex);
-            }
         }
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.lunarExploderLuckManipulationBuff.buffIndex);
-                body.master.luck -= StaticValues.luckAmount;
-            }
+            base.OnDestroy();
+            body.master.luck -= StaticValues.luckAmount;
+            
             On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
         }
 
@@ -94,7 +84,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void ActiveBuffEffect()
         {
-            body.AddBuff(Buffs.lunarExploderLuckManipulationBuff.buffIndex);
+            base.ActiveBuffEffect();
         }
 
         public override void ApplySkillChange()

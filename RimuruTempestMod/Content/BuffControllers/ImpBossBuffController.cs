@@ -22,15 +22,11 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.lifestealBuff;
         }
 
         public void Start()
         {
-
-            if (body)
-            {
-                body.AddBuff(Buffs.lifestealBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Life Manipulation Skill</style> aquisition successful.");
         }
@@ -44,19 +40,13 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-            if (!body.HasBuff(Buffs.lifestealBuff))
-            {
-                body.ApplyBuff(Buffs.lifestealBuff.buffIndex);
-            }
         }
 
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.lifestealBuff.buffIndex);
-            }
+            base.OnDestroy();
+            On.RoR2.HealthComponent.TakeDamage -= HealthComponent_TakeDamage;
         }
 
         public void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, RoR2.HealthComponent self, RoR2.DamageInfo damageInfo)

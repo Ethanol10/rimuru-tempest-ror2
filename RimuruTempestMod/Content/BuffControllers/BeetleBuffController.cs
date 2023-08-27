@@ -22,16 +22,13 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             Hook();
             isPermaBuff = false;
+            buffdef = Buffs.doubleArmourBuff;
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            if (body)
-            {
-                body.AddBuff(Buffs.doubleArmourBuff.buffIndex);
-            }
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Resistance</style> aquisition successful.");
         }
@@ -43,10 +40,8 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public override void OnDestroy()
         {
-            if (body)
-            {
-                body.RemoveBuff(Buffs.doubleArmourBuff.buffIndex);
-            }
+            base.OnDestroy();
+            On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
         }
 
         public void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
@@ -56,7 +51,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 if (self.HasBuff(Buffs.doubleArmourBuff))
                 {
-                    self.armor += self.armor;
+                    self.armor *= 2f;
                 }
             }
         }
