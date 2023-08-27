@@ -136,6 +136,11 @@ namespace RimuruMod.Modules
         //singular barrier
         internal const int singularBarrierInterval = 10;
 
+        //reverse grav manip
+        internal const int reverseGravManipInterval = 10;
+        internal const float reverseGravManipRange = 50f;
+        internal const float reverseGravManipDamageCoefficient = 2f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 
@@ -210,8 +215,8 @@ namespace RimuruMod.Modules
             rimDic.Add("ClayBossBody", (CharacterMaster master) => BuffWrapperClass<ClayDunestriderBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GrandParentBody", (CharacterMaster master) => BuffWrapperClass<GrandParentBuffController>.AddBuffComponentToMaster(master));
 
-            //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);
-            //rimDic.Add("SuperRoboBallBossBody", IndicatorType.ACTIVE);
+            rimDic.Add("RoboBallBossBody", (CharacterMaster master) => BuffWrapperClass<SolusControlUnitBuffController>.AddBuffComponentToMaster(master));
+            rimDic.Add("SuperRoboBallBossBody", (CharacterMaster master) => BuffWrapperClass<SolusControlUnitBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("MegaConstructBody", (CharacterMaster master) => BuffWrapperClass<XiConstructBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ScavBody", (CharacterMaster master) => BuffWrapperClass<ScavengerBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("VoidMegaCrabBody", IndicatorType.ACTIVE);
