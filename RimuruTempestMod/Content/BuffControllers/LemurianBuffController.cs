@@ -46,7 +46,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 this.flameBodyIndicator.transform.parent = body.transform;
                 this.flameBodyIndicator.transform.localScale = Vector3.one * StaticValues.flameBodyRadius;
-                this.flameBodyIndicator.transform.localPosition = body.corePosition;
+                this.flameBodyIndicator.transform.localPosition = Vector3.zero;
 
             }
         }
@@ -85,8 +85,9 @@ namespace RimuruTempestMod.Content.BuffControllers
             this.flameBodyIndicator = UnityEngine.Object.Instantiate<GameObject>(Assets.flameBodyAuraIndicatorPrefab);
             this.flameBodyIndicator.SetActive(true);
 
+            this.flameBodyIndicator.transform.parent = body.transform;
             this.flameBodyIndicator.transform.localScale = Vector3.one * StaticValues.flameBodyRadius;
-            this.flameBodyIndicator.transform.localPosition = body.corePosition;
+            this.flameBodyIndicator.transform.localPosition = Vector3.zero;
 
 
         }

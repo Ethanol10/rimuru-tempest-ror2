@@ -58,7 +58,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 this.tarManipIndicator.transform.parent = body.transform;
                 this.tarManipIndicator.transform.localScale = Vector3.one * StaticValues.tarManipRadius;
-                this.tarManipIndicator.transform.localPosition = body.corePosition;
+                this.tarManipIndicator.transform.localPosition = Vector3.zero;
 
             }
 
@@ -69,8 +69,9 @@ namespace RimuruTempestMod.Content.BuffControllers
             this.tarManipIndicator = UnityEngine.Object.Instantiate<GameObject>(Assets.tarManipIndicatorPrefab);
             this.tarManipIndicator.SetActive(true);
 
+            this.tarManipIndicator.transform.parent = body.transform;
             this.tarManipIndicator.transform.localScale = Vector3.one * StaticValues.tarManipRadius;
-            this.tarManipIndicator.transform.localPosition = body.corePosition;
+            this.tarManipIndicator.transform.localPosition = Vector3.zero;
 
 
         }

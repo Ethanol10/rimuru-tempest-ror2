@@ -9,6 +9,7 @@ using IL.RoR2;
 using RimuruMod.Modules.Survivors;
 using RoR2.Orbs;
 using EntityStates;
+using EntityStates.Huntress;
 
 namespace RimuruTempestMod.Content.BuffControllers
 {
@@ -105,12 +106,12 @@ namespace RimuruTempestMod.Content.BuffControllers
         //hermit crab mortar
         public void CreateMortarIndicator()
         {
-            this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(Assets.arrowRainIndicatorPrefab);
+            this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(ArrowRain.areaIndicatorPrefab);
             this.mortarIndicatorInstance.SetActive(true);
 
-            //this.mortarIndicatorInstance.transform.parent = body.transform;
+            this.mortarIndicatorInstance.transform.parent = body.transform;
             this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
-            this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
+            this.mortarIndicatorInstance.transform.localPosition = Vector3.zero;
 
             
         }

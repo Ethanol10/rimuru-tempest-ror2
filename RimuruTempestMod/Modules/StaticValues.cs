@@ -198,7 +198,7 @@ namespace RimuruMod.Modules
             rimDic.Add("BisonBody", (CharacterMaster master) => BuffWrapperClass<BisonBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ClayGrenadierBody", (CharacterMaster master) => BuffWrapperClass<ClayApothecaryBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BellBody", (CharacterMaster master) => BuffWrapperClass<BronzongBuffController>.AddBuffComponentToMaster(master));
-
+            
             //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
             rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master));
             //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);

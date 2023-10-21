@@ -97,7 +97,6 @@ namespace RimuruMod.Modules
         public static GameObject loaderOmniImpactLightningEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Loader/OmniImpactVFXLoaderLightning.prefab").WaitForCompletion();
 
         //objects        
-        public static GameObject arrowRainIndicatorPrefab;
         public static GameObject spherePrefab;
         public static GameObject flameBodyAuraIndicatorPrefab;
         public static GameObject tarManipIndicatorPrefab;
@@ -165,7 +164,6 @@ namespace RimuruMod.Modules
             warbannerArray[0] = warbannerMat;
 
             //objects
-            arrowRainIndicatorPrefab = UnityEngine.Object.Instantiate<GameObject>(EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
             
             spherePrefab = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             spherePrefab.AddComponent<NetworkIdentity>();
