@@ -154,6 +154,14 @@ namespace RimuruMod.SkillStates
                     attack.muzzleName = muzzleString;
                     attack.aimVector = aimRay.direction;
                     attack.origin = FindModelChild(this.muzzleString).position;
+                    if (base.characterBody.HasBuff(Modules.Buffs.lightningDamageBoostBuff))
+                    {
+                        attack.damage = damageStat * (damageCoefficient * 3);
+                    } else attack.damage = damageStat * damageCoefficient;
+                    if (base.characterBody.HasBuff(Modules.Buffs.lightningProcBoostBuff))
+                    {
+                        attack.procCoefficient = procCoefficient * 4;
+                    } else attack.damage = damageStat * damageCoefficient;
                     attack.Fire();
                     fireTimer = 0f;
                 }

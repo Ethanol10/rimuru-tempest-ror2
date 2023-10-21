@@ -42,6 +42,10 @@ namespace RimuruMod.SkillStates
             {
                 this.procCoefficient = 4f;
             }
+            if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
+            {
+                damageType |= DamageType.ApplyMercExpose;
+            }
             else this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);

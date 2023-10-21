@@ -48,12 +48,17 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void Update()
         {
-            timer = Time.deltaTime;
-
-            if (timer >= 2)
+            timer += Time.deltaTime;
+            if (body)
             {
-                timer = 0;
-                blastAttack.Fire();
+                if (body.HasBuff(Buffs.lightningPulseBuff))
+                {
+                    if (timer > 2f)
+                    {
+                        blastAttack.Fire();
+                        timer = 0;
+                    }
+                }
             }
         }
 

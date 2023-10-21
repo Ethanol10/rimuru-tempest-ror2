@@ -40,6 +40,10 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.Freeze2s;
             }
+            if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
+            {
+                damageType |= DamageType.ApplyMercExpose;
+            }
             if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
             {
                 this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;

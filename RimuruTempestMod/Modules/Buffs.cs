@@ -60,7 +60,12 @@ namespace RimuruMod.Modules
         internal static BuffDef poisonMeleeBuff;
         internal static BuffDef ultraspeedRegenBuff;
         internal static BuffDef ultraspeedRegenStackBuff;
-
+        internal static BuffDef lightningDamageBoostBuff;
+        internal static BuffDef lightningProcBoostBuff;
+        internal static BuffDef ConductivityBuff;
+        internal static BuffDef exposeBuff;
+        internal static BuffDef TarProjBuff;
+        internal static BuffDef CrippleProjBuff;
         internal static void RegisterBuffs()
         {
             SpatialMovementBuff = AddNewBuff("SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
@@ -114,6 +119,13 @@ namespace RimuruMod.Modules
             singularBarrierBuff = AddNewBuff($"Singular Barrier- every {StaticValues.singularBarrierInterval} seconds take no damage", Assets.shieldBuffIcon, Color.white, false, false);
             singularBarrierBuffOff = AddNewBuff($"Singular Barrier deactivated", Assets.shieldBuffIcon, Color.black, false, false);
             reverseGravManipBuff = AddNewBuff($"Reverse Gravity Manipulation- enemies get knocked up every {StaticValues.reverseGravManipInterval} seconds", Assets.resonanceBuffIcon, Color.cyan, false, false);
+            lightningPulseBuff = AddNewBuff($"Lightning Pulse - Shock nearby enemies every 2 seconds", Assets.resonanceBuffIcon, Color.cyan, false, false);
+            lightningDamageBoostBuff = AddNewBuff($"Spark - Lightning deals 3x damage", Assets.resonanceBuffIcon, Color.cyan, false, false);
+            lightningProcBoostBuff = AddNewBuff($"Black Flare - Lightning deals 4x proc rate", Assets.resonanceBuffIcon, Color.cyan, false, false);
+            ConductivityBuff = AddNewBuff($"Conductivity - Waterblade additionally deals shock damage ", Assets.resonanceBuffIcon, Color.cyan, false, false);
+            exposeBuff = AddNewBuff($"Void-touched blows - Melee attacks apply expose ", Assets.resonanceBuffIcon, Color.cyan, false, false);
+            CrippleProjBuff = AddNewBuff($"Crippling Waterblade - Waterblade additionally deals cripple damage ", Assets.resonanceBuffIcon, Color.cyan, false, false);
+            TarProjBuff = AddNewBuff($"Tarred Waterblade - Waterblade additionally deals tar damage ", Assets.resonanceBuffIcon, Color.cyan, false, false);
 
         }
 

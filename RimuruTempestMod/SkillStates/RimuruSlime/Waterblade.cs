@@ -45,9 +45,17 @@ namespace RimuruMod.SkillStates
                 {
                     Ray aimRay = base.GetAimRay();
 
-                    
+                    if (base.characterBody.HasBuff(Modules.Buffs.ConductivityBuff))
                     {
-                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.BlightOnHit;
+                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.Shock5s;
+                    }
+                    if (base.characterBody.HasBuff(Modules.Buffs.TarProjBuff))
+                    {
+                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.ClayGoo;
+                    }
+                    if (base.characterBody.HasBuff(Modules.Buffs.CrippleProjBuff))
+                    {
+                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.CrippleOnHit;
                     }
 
 

@@ -172,40 +172,32 @@ namespace RimuruMod.Modules
             rimDic.Add("GeepBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("HermitCrabBody", (CharacterMaster master) => BuffWrapperClass<HermitCrabBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("AcidLarvaBody", (CharacterMaster master) => BuffWrapperClass<AcidLarvaBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("WispBody", IndicatorType.PASSIVE);
+            rimDic.Add("wispBody", (CharacterMaster master) => BuffWrapperClass<WispBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master));
-            
             rimDic.Add("MiniMushroomBody", (CharacterMaster master) => BuffWrapperClass<MushrumBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("RoboBallMiniBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("RoboBallGreenBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("RoboBallRedBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("VoidBarnacleBody", (CharacterMaster master) => BuffWrapperClass<VoidBarnacleBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("VoidJailerBody", (CharacterMaster master) => BuffWrapperClass<VoidJailerBuffController>.AddBuffComponentToMaster(master));
-            
             rimDic.Add("ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("TitanBody", (CharacterMaster master) => BuffWrapperClass<TitanBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("TitanGoldBody", (CharacterMaster master) => BuffWrapperClass<TitanBuffController>.AddBuffComponentToMaster(master));
-            
             rimDic.Add("VagrantBody", (CharacterMaster master) => BuffWrapperClass<WanderingVagrantBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("MagmaWormBody", (CharacterMaster master) => BuffWrapperClass<MagmaWormBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("ElectricWormBody", IndicatorType.PASSIVE);
-            //rimDic.Add("CaptainBody", IndicatorType.PASSIVE);
-            //rimDic.Add("CommandoBody", IndicatorType.PASSIVE);
-            //rimDic.Add("CrocoBody", IndicatorType.PASSIVE);
-            //rimDic.Add("LoaderBody", IndicatorType.PASSIVE);
+            rimDic.Add("ElectricWormBody", (CharacterMaster master) => BuffWrapperClass<OverloadingWormBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("VultureBody", (CharacterMaster master) => BuffWrapperClass<VultureBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BeetleGuardBody", (CharacterMaster master) => BuffWrapperClass<BeetleGuardBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BisonBody", (CharacterMaster master) => BuffWrapperClass<BisonBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ClayGrenadierBody", (CharacterMaster master) => BuffWrapperClass<ClayApothecaryBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("BellBody", (CharacterMaster master) => BuffWrapperClass<BronzongBuffController>.AddBuffComponentToMaster(master));
-            
-            //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
+            rimDic.Add("ClayBruiserBody", (CharacterMaster master) => BuffWrapperClass<ClayTemplarBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
+            rimDic.Add("GreaterWispBody", (CharacterMaster master) => BuffWrapperClass<GreaterWispBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ImpBody", (CharacterMaster master) => BuffWrapperClass<ImpBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("JellyfishBody", IndicatorType.ACTIVE);
+            rimDic.Add("JellyfishBody", (CharacterMaster master) => BuffWrapperClass<JellyfishBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("LemurianBody", (CharacterMaster master) => BuffWrapperClass<LemurianBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("LunarGolemBody", IndicatorType.ACTIVE);
+            rimDic.Add("LunarGolemBody", (CharacterMaster master) => BuffWrapperClass<LunarGolemBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("LunarWispBody", (CharacterMaster master) => BuffWrapperClass<LunarWispBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ParentBody", (CharacterMaster master) => BuffWrapperClass<ParentBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GolemBody", (CharacterMaster master) => BuffWrapperClass<StoneGolemBuffController>.AddBuffComponentToMaster(master));
@@ -214,12 +206,11 @@ namespace RimuruMod.Modules
             rimDic.Add("GravekeeperBody", (CharacterMaster master) => BuffWrapperClass<GrovetenderBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ClayBossBody", (CharacterMaster master) => BuffWrapperClass<ClayDunestriderBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("GrandParentBody", (CharacterMaster master) => BuffWrapperClass<GrandParentBuffController>.AddBuffComponentToMaster(master));
-
             rimDic.Add("RoboBallBossBody", (CharacterMaster master) => BuffWrapperClass<SolusControlUnitBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("SuperRoboBallBossBody", (CharacterMaster master) => BuffWrapperClass<SolusControlUnitBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("MegaConstructBody", (CharacterMaster master) => BuffWrapperClass<XiConstructBuffController>.AddBuffComponentToMaster(master));
             rimDic.Add("ScavBody", (CharacterMaster master) => BuffWrapperClass<ScavengerBuffController>.AddBuffComponentToMaster(master));
-            //rimDic.Add("VoidMegaCrabBody", IndicatorType.ACTIVE);
+            rimDic.Add("VoidMegaCrabBody", (CharacterMaster master) => BuffWrapperClass<VoidDevastatorBuffController>.AddBuffComponentToMaster(master));
         }
 
     }

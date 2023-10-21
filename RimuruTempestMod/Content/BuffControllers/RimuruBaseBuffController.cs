@@ -30,14 +30,17 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public virtual void FixedUpdate()
         {
-            if(!body.HasBuff(buffdef))
+            if (body)
             {
-                body.ApplyBuff(buffdef.buffIndex);
+                if (!body.HasBuff(buffdef))
+                {
+                    body.ApplyBuff(buffdef.buffIndex);
+                }
             }
+
 
             ActiveBuffEffect();
             stopwatch += Time.fixedDeltaTime;
-            
 
             if (stopwatch >= lifetime && !isPermaBuff)
             {
