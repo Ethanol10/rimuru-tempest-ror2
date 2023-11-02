@@ -88,19 +88,19 @@ namespace RimuruMod.SkillStates
             base.OnHitEnemyAuthority();
         }
 
-        protected override void CheckIfDead(List<HurtBox> hurtboxes) 
-        {
-            bool playedSound = false;
-            base.CheckIfDead(hurtboxes);
-            foreach (HurtBox hurtbox in hurtboxes) 
-            {
-                if (hurtbox.healthComponent.health <= 0 && !playedSound) 
-                {
-                    playedSound = true;
-                    AkSoundEngine.PostEvent(100371988, base.gameObject);
-                }
-            }
-        }
+        //protected override void CheckIfDead(List<HurtBox> hurtboxes) 
+        //{
+        //    bool playedSound = false;
+        //    base.CheckIfDead(hurtboxes);
+        //    foreach (HurtBox hurtbox in hurtboxes) 
+        //    {
+        //        if (hurtbox.healthComponent.health <= 0 && !playedSound) 
+        //        {
+        //            playedSound = true;
+        //            AkSoundEngine.PostEvent("RimuruAnalyse", base.gameObject);
+        //        }
+        //    }
+        //}
 
         protected override void SetNextState()
         {

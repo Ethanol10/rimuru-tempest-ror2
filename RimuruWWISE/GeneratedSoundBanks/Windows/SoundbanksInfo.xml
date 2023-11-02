@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\</ProjectRoot>
-		<SourceFilesRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\</ProjectRoot>
+		<SourceFilesRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,84 +16,100 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2414834810" Language="SFX" Hash="2658492904">
+		<SoundBank Id="2414834810" Language="SFX" Hash="525261359">
 			<ObjectPath>\SoundBanks\Default Work Unit\rimuruSoundbank</ObjectPath>
 			<ShortName>rimuruSoundbank</ShortName>
 			<Path>rimuruSoundbank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="100371988" Name="Analyse" ObjectPath="\Events\Default Work Unit\Analyse">
+				<Event Id="2443408086" Name="RimuruAnalyse" ObjectPath="\Events\Default Work Unit\RimuruAnalyse">
 					<IncludedMemoryFiles>
 						<File Id="1001475546" Language="SFX">
 							<ShortName>Analyse.wav</ShortName>
-							<Path>SFX\Analyse_10C4C929.wem</Path>
+							<Path>SFX\Analyse_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3379926649" Name="Blink" ObjectPath="\Events\Default Work Unit\Blink">
+				<Event Id="4123273559" Name="RimuruBlink" ObjectPath="\Events\Default Work Unit\RimuruBlink">
 					<IncludedMemoryFiles>
 						<File Id="203161346" Language="SFX">
 							<ShortName>Blink.wav</ShortName>
-							<Path>SFX\Blink_10C4C929.wem</Path>
+							<Path>SFX\Blink_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="779278001" Name="Death" ObjectPath="\Events\Default Work Unit\Death">
+				<Event Id="3294643755" Name="RimuruDeath" ObjectPath="\Events\Default Work Unit\RimuruDeath">
 					<IncludedMemoryFiles>
 						<File Id="283133327" Language="SFX">
 							<ShortName>Death.wav</ShortName>
-							<Path>SFX\Death_10C4C929.wem</Path>
+							<Path>SFX\Death_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1183893824" Name="Devour" ObjectPath="\Events\Default Work Unit\Devour">
+				<Event Id="999137594" Name="RimuruDevour" ObjectPath="\Events\Default Work Unit\RimuruDevour">
 					<IncludedMemoryFiles>
 						<File Id="10585353" Language="SFX">
 							<ShortName>Devour.wav</ShortName>
-							<Path>SFX\Devour_D79FB2B7.wem</Path>
+							<Path>SFX\Devour_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2656882895" Name="Entrance" ObjectPath="\Events\Default Work Unit\Entrance">
+				<Event Id="4105614709" Name="RimuruEntrance" ObjectPath="\Events\Default Work Unit\RimuruEntrance">
 					<IncludedMemoryFiles>
 						<File Id="505624353" Language="SFX">
 							<ShortName>Entrance.wav</ShortName>
-							<Path>SFX\Entrance_10C4C929.wem</Path>
+							<Path>SFX\Entrance_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2454616260" Name="Sword" ObjectPath="\Events\Default Work Unit\Sword">
+				<Event Id="1221550474" Name="RimuruHit" ObjectPath="\Events\Default Work Unit\RimuruHit">
+					<IncludedMemoryFiles>
+						<File Id="105924093" Language="SFX">
+							<ShortName>smashpunch3.wav</ShortName>
+							<Path>SFX\smashpunch3_3F75BDB9.wem</Path>
+						</File>
+						<File Id="352215495" Language="SFX">
+							<ShortName>smashpunch1.wav</ShortName>
+							<Path>SFX\smashpunch1_3F75BDB9.wem</Path>
+						</File>
+						<File Id="675434901" Language="SFX">
+							<ShortName>smashpunch2.wav</ShortName>
+							<Path>SFX\smashpunch2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="949576350" Name="RimuruSword" ObjectPath="\Events\Default Work Unit\RimuruSword">
 					<IncludedMemoryFiles>
 						<File Id="76124911" Language="SFX">
 							<ShortName>se_common_swing_05.wav</ShortName>
-							<Path>SFX\se_common_swing_05_10C4C929.wem</Path>
+							<Path>SFX\se_common_swing_05_3F75BDB9.wem</Path>
 						</File>
 						<File Id="980180611" Language="SFX">
 							<ShortName>se_common_swing_04.wav</ShortName>
-							<Path>SFX\se_common_swing_04_10C4C929.wem</Path>
+							<Path>SFX\se_common_swing_04_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Thunder">
+				<Event Id="270831255" Name="RimuruThunder" ObjectPath="\Events\Default Work Unit\RimuruThunder">
 					<IncludedMemoryFiles>
 						<File Id="347941923" Language="SFX">
 							<ShortName>Electricity.wav</ShortName>
-							<Path>SFX\Electricity_D79FB2B7.wem</Path>
+							<Path>SFX\Electricity_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1422622395" Name="Transform" ObjectPath="\Events\Default Work Unit\Transform">
+				<Event Id="3447088453" Name="RimuruTransform" ObjectPath="\Events\Default Work Unit\RimuruTransform">
 					<IncludedMemoryFiles>
 						<File Id="1036054571" Language="SFX">
 							<ShortName>Transform.wav</ShortName>
-							<Path>SFX\Transform_10C4C929.wem</Path>
+							<Path>SFX\Transform_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2654748154" Name="Water" ObjectPath="\Events\Default Work Unit\Water">
+				<Event Id="3742025564" Name="RimuruWater" ObjectPath="\Events\Default Work Unit\RimuruWater">
 					<IncludedMemoryFiles>
 						<File Id="653688645" Language="SFX">
 							<ShortName>Water.wav</ShortName>
-							<Path>SFX\Water_10C4C929.wem</Path>
+							<Path>SFX\Water_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

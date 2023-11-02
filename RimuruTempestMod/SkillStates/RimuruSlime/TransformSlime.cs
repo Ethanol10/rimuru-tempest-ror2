@@ -17,7 +17,7 @@ namespace RimuruMod.SkillStates
             oldBody = base.characterBody;
             oldHealth = oldBody.healthComponent.health;
             characterBody.master.TransformBody("RimuruHumanBody");
-            AkSoundEngine.PostEvent(1422622395, base.gameObject);
+            AkSoundEngine.PostEvent("RimuruTransform", base.gameObject);
         }
 
 

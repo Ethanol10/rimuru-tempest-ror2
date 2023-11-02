@@ -29,7 +29,7 @@ namespace RimuruMod.SkillStates.BaseStates
         protected float hitHopVelocity = 10f;
         protected bool cancelled = false;
 
-        protected string swingSoundString = "";
+        protected string swingSoundString = "RimuruSword";
         protected string hitSoundString = "";
         protected string muzzleString = "SwingCenter";
         protected GameObject swingEffectPrefab;
@@ -94,12 +94,10 @@ namespace RimuruMod.SkillStates.BaseStates
             if (animator.GetBool("isMoving")) 
             {
                 base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
-                AkSoundEngine.PostEvent(2454616260, base.gameObject);
                 return;
             }
 
             base.PlayCrossfade("RightArm, Override", "SwingIdle" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
-            AkSoundEngine.PostEvent(2454616260, base.gameObject);
         }
 
         public override void OnExit()

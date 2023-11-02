@@ -95,7 +95,7 @@ namespace RimuruMod.SkillStates
                 if (Target)
                 {
                     Target.healthComponent.body.ApplyBuff(Buffs.CritDebuff.buffIndex, 1, Config.analyseDebuffduration.Value);
-                    AkSoundEngine.PostEvent(100371988, base.gameObject);
+                    AkSoundEngine.PostEvent("RimuruAnalyse", base.gameObject);
                 }
 
             }

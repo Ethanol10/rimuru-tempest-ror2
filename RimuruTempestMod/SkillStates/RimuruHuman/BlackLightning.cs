@@ -57,7 +57,7 @@ namespace RimuruMod.SkillStates
             this.animator.SetBool("attacking", true);
 
             PlayCrossfade("LeftArm, Override", "BlackLightning", "Attack.playbackRate", fireInterval/2, 0.05f);
-            this.loopID = AkSoundEngine.PostEvent(186852181, base.gameObject);
+            this.loopID = AkSoundEngine.PostEvent("RimuruThunder", base.gameObject);
 
             EffectManager.SimpleMuzzleFlash(Modules.Assets.blacklightning, base.gameObject, muzzleString, false);
 

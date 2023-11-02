@@ -80,6 +80,10 @@ namespace RimuruMod.Modules.Survivors
             {
                 Rimurumastercon = characterMaster.gameObject.AddComponent<RimuruMasterController>();
             }
+            else
+            {
+                Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
+            }
 
             characterBody.skillLocator.special.RemoveAllStocks();
 
@@ -128,7 +132,7 @@ namespace RimuruMod.Modules.Survivors
                     buttonHeld = true;
                     if (!devoureffectObj && buttonHeld)
                     {
-                        this.loopID = AkSoundEngine.PostEvent(1183893824, base.gameObject);
+                        this.loopID = AkSoundEngine.PostEvent("RimuruDevour", base.gameObject);
                         devoureffectObj = Instantiate(Modules.Assets.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
                     }
 
