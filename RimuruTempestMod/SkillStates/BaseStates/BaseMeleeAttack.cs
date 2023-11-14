@@ -108,7 +108,10 @@ namespace RimuruMod.SkillStates.BaseStates
 
             base.OnExit();
 
-            this.animator.SetBool("attacking", false);
+            if (this.animator) 
+            {
+                this.animator.SetBool("attacking", false);
+            }
         }
 
         protected virtual void PlaySwingEffect()

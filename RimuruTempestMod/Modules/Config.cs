@@ -3,6 +3,7 @@ using RiskOfOptions.Options;
 using RiskOfOptions;
 using UnityEngine;
 using RiskOfOptions.OptionConfigs;
+using System;
 
 namespace RimuruMod.Modules
 {
@@ -32,6 +33,10 @@ namespace RimuruMod.Modules
         public static ConfigEntry<float> waterbladeDamageCoefficient;
         public static ConfigEntry<float> waterbladeWetDebuffDuration;
         public static ConfigEntry<float> waterbladeCooldown;
+
+        //Miscellaneous
+        public static ConfigEntry<float> glideSpeed;
+        public static ConfigEntry<float> glideAcceleration;
 
         //Add config for all damage coefficients.
         /*
@@ -71,6 +76,26 @@ namespace RimuruMod.Modules
             waterbladeDamageCoefficient = RimuruPlugin.instance.Config.Bind<float>("05 - Waterblade", "01 - Waterblade Damage Coefficient", 2.0f, "Determines the damage coefficient on waterblade");
             waterbladeWetDebuffDuration = RimuruPlugin.instance.Config.Bind<float>("05 - Waterblade", "02 - Waterblade wet debuff duration", 6f, "Determines how long the Wet debuff should last.");
             waterbladeCooldown = RimuruPlugin.instance.Config.Bind<float>("05 - Waterblade", "03 - Waterblade Cooldown", 1f, "Determines the cooldown for Waterblade, Needs a restart to apply.");
+
+            //Gliding
+            glideSpeed = RimuruPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("06 - Gliding", "Falling Speed when gliding"),
+                60f,
+                new ConfigDescription("Determines the base speed of descent when gliding.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+            glideAcceleration = RimuruPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("06 - Gliding", "Falling acceleration when gliding"),
+                29.6f,
+                new ConfigDescription("Determines the falling acceleration when gliding.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
         }
 
         public static void SetupRiskOfOptions() 
@@ -224,6 +249,28 @@ namespace RimuruMod.Modules
                         min = 1f,
                         max = 100f,
                         increment = 0.1f
+                    }
+                ));
+
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    glideSpeed,
+                    new StepSliderConfig
+                    {
+                        min = 0,
+                        max = 100f,
+                        increment = 0.05f
+                    }
+                ));
+
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    glideAcceleration,
+                    new StepSliderConfig
+                    {
+                        min = 0f,
+                        max = 100f,
+                        increment = 0.05f
                     }
                 ));
         }
