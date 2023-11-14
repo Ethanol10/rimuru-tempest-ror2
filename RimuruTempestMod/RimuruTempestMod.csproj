@@ -14,6 +14,13 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="Modules\Characters\Rimuru.cs~RF6221a098.TMP" />
+		<None Remove="RimuruAssetBundle" />
+		<None Remove="RimuruBank.bnk" />
+		<None Remove="Content\BuffControllers\" />
+	</ItemGroup>
+	
+	<ItemGroup>
 		<PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

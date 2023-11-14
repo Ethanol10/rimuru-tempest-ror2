@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3421450759
+CRC: 3607305914
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 249f16f612b01d796b0e87bab7e8b425
+    Hash: f319ac8a3e78ced665b475ff5fe3781e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -77,6 +77,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquarered.mat
+- Assets/Rimuru/Assets/Animation/Human/MaskUpperBody.mask
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticle 1.mat
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
 - Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
@@ -100,6 +101,7 @@ Assets:
 - Assets/Rimuru/Assets/GUI/blackLightningIcon.png
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
+- Assets/Rimuru/Assets/Animation/Human/SwingRight.anim
 - Assets/Rimuru/Assets/GUI/texRimuruIcon.png
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
 - Assets/Rimuru/Assets/VFX/WetEffect.prefab
@@ -130,15 +132,14 @@ Assets:
 - Assets/Rimuru/Assets/GUI/devourIcon.png
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/VFX/Circling.prefab
+- Assets/Rimuru/Assets/Animation/Human/SwingLeft.anim
 - Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh
-- Assets/Rimuru/Assets/Animation/Human/SwingRight.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
 - Assets/Rimuru/Assets/Animation/Human/Falling.anim
 - Assets/Rimuru/Assets/VFX/Devour3.prefab
 - Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
 - Assets/Rimuru/Assets/VFX/BlackLightningImpact.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
-- Assets/Rimuru/Assets/Animation/Human/SwingLeft.anim
 - Assets/Rimuru/Assets/VFX/Texture/blacklightningouter.tif
 - Assets/Rimuru/Assets/Animation/Human/MaskRightArm.mask
 - Assets/Rimuru/Assets/Animation/Slime/animRimuruSlime.controller
@@ -150,6 +151,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/SwingLeftIdle.anim
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
+- Assets/Rimuru/Assets/Animation/Human/OutOfDashAttack.anim
 - Assets/Rimuru/Assets/Animation/Human/Emotion.anim
 - Assets/Rimuru/Assets/Animation/Human/BlackLightning.anim
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
