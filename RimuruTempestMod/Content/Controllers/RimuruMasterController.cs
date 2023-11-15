@@ -45,7 +45,6 @@ namespace RimuruMod.Modules.Survivors
 		public void Awake()
 		{
 			isBodyInitialized = false;
-			On.RoR2.CharacterBody.Start += CharacterBody_Start;
 			On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
 			strengthBuff = false;
 			fireBuff = false;
@@ -58,55 +57,19 @@ namespace RimuruMod.Modules.Survivors
 
 		public void OnDestroy()
 		{
-			On.RoR2.CharacterBody.Start -= CharacterBody_Start;
 			On.RoR2.GlobalEventManager.OnCharacterDeath -= GlobalEventManager_OnCharacterDeath;
 		}
 
 		public void Start()
 		{
 			characterMaster = gameObject.GetComponent<CharacterMaster>();
-
-			Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
+            characterBody = characterMaster.GetBody();
+            Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
 
 			this.devourShoot = false;
 
 		}
 
-
-		public void CharacterBody_Start(On.RoR2.CharacterBody.orig_Start orig, CharacterBody self)
-		{
-			orig.Invoke(self);
-
-
-			if (Rimurumastercon)
-            {
-				if(strengthBuff == true)
-                {
-					self.AddBuff(Modules.Buffs.strengthBuff);
-                }
-				if(fireBuff == true)
-                {
-					self.AddBuff(Modules.Buffs.fireBuff);
-				}
-				if (lightningBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.lightningBuff);
-				}
-				if (ultraspeedRegenBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.ultraspeedRegenBuff);
-				}
-				if (resistanceBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.resistanceBuff);
-				}
-				if (poisonMeleeBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.poisonMeleeBuff);
-				}
-
-			}
-        }
 
 
 		public void FixedUpdate()
@@ -186,14 +149,12 @@ namespace RimuruMod.Modules.Survivors
 		{
 			orig.Invoke(self, damageReport);
 			//devour check
-			if (damageReport.attackerBody?.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+			if (damageReport.attackerBody == characterBody)
 			{
                 if (damageReport.attackerBody && damageReport.victimBody)
 				{
 					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
 					{
-
-
 						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
 						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
 
@@ -204,79 +165,23 @@ namespace RimuruMod.Modules.Survivors
 						{
                             incomingSkill = Modules.StaticValues.rimDic[newbodyPrefab.name].Invoke(characterMaster);
                         }
+                        AkSoundEngine.PostEvent("RimuruAnalyse", characterBody.gameObject);
 
-						//Do something with incomingSkill I guess if necessary.
-					}
-				}
+                        DevourEffectController devourEffect;
+                        if (!damageReport.attackerBody.gameObject.GetComponent<DevourEffectController>())
+                        {
+                            devourEffect = gameObject.AddComponent<DevourEffectController>();
+
+                        }
+                        else
+                        {
+                            devourEffect = gameObject.GetComponent<DevourEffectController>();
+
+                        }
+                        //Do something with incomingSkill I guess if necessary.
+                    }
+                }
 			}
-		}
-
-		public void SetEverythingFalse(CharacterBody characterBody)
-		{
-
-			DevourEffectController controller = characterBody.gameObject.GetComponent<DevourEffectController>();
-			if (!controller)
-			{
-				controller = characterBody.gameObject.AddComponent<DevourEffectController>();
-				controller.charbody = characterBody;
-			}
-
-			characterBody.RemoveBuff(Buffs.strengthBuff);
-			characterBody.RemoveBuff(Buffs.fireBuff);
-			characterBody.RemoveBuff(Buffs.resistanceBuff);
-			characterBody.RemoveBuff(Buffs.ultraspeedRegenBuff);
-			characterBody.RemoveBuff(Buffs.poisonMeleeBuff);
-			characterBody.RemoveBuff(Buffs.lightningBuff);
-
-
-			strengthBuff = false;
-			fireBuff = false;
-			lightningBuff = false;
-			resistanceBuff = false;
-			ultraspeedRegenBuff = false;
-			poisonMeleeBuff = false;
-			//alloyvulture = false;
-			//alphacontruct = false;
-			//beetle = false;
-			//beetleguard = false;
-			//blindpest = false;
-			//blindvermin = false;
-			//bison = false;
-			//bronzong = false;
-			//clayapothecary = false;
-			//claytemplar = false;
-			//greaterwisp = false;
-			//gup = false;
-			//hermitcrab = false;
-			//imp = false;
-			//jellyfish = false;
-			//larva = false;
-			//lemurian = false;
-			//lesserwisp = false;
-			//lunarexploder = false;
-			//lunargolem = false;
-			//lunarwisp = false;
-			//minimushrum = false;
-			//parent = false;
-			//roboballminib = false;
-			//stonegolem = false;
-			//voidbarnacle = false;
-			//voidjailer = false;
-			//voidreaver = false;
-
-			//beetlequeen = false;
-			//claydunestrider = false;
-			//grandparent = false;
-			//grovetender = false;
-			//impboss = false;
-			//magmaworm = false;
-			//overloadingworm = false;
-			//scavenger = false;
-			//soluscontrolunit = false;
-			//stonetitan = false;
-			//voiddevastator = false;
-			//xiconstruct = false;
-
 		}
 
 

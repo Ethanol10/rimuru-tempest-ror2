@@ -40,6 +40,10 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.Freeze2s;
             }
+            if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
+            {
+                damageType |= DamageType.ApplyMercExpose;
+            }
             if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
             {
                 this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;
@@ -55,7 +59,7 @@ namespace RimuruMod.SkillStates
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 10f;
 
-            this.swingSoundString = "RimuruSwordSwing";
+            this.swingSoundString = "RimuruSword";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;

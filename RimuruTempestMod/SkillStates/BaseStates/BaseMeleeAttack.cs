@@ -29,7 +29,7 @@ namespace RimuruMod.SkillStates.BaseStates
         protected float hitHopVelocity = 10f;
         protected bool cancelled = false;
 
-        protected string swingSoundString = "";
+        protected string swingSoundString = "RimuruSword";
         protected string hitSoundString = "";
         protected string muzzleString = "SwingCenter";
         protected GameObject swingEffectPrefab;
