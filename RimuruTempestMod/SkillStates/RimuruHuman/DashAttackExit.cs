@@ -68,7 +68,17 @@ namespace RimuruMod.SkillStates
 
         protected override void OnHitEnemyAuthority()
         {
-            base.OnHitEnemyAuthority();
+            Util.PlaySound(this.hitSoundString, base.gameObject);
+
+            base.SmallHop(base.characterMotor, this.hitHopVelocity / attackSpeedStat);
+
+            if (!this.inHitPause && this.hitStopDuration > 0f)
+            {
+                this.storedVelocity = base.characterMotor.velocity;
+                this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.animator, "Slash.playbackRate");
+                this.hitPauseTimer = this.hitStopDuration / this.attackSpeedStat;
+                this.inHitPause = true;
+            }
         }
 
         protected override void SetNextState()
