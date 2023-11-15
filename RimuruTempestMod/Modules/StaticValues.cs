@@ -33,6 +33,8 @@ namespace RimuruMod.Modules
         //lightning
         internal const float lightningPulseTimer = 2f;
 
+        //body armor
+        internal const float bodyArmorCoefficient = 0.1f;
 
         //melee attacks
         internal const float swordDamageCoefficient = 2f;
