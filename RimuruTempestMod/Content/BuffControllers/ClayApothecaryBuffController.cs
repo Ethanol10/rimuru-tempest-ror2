@@ -1,21 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using RoR2;
-using On.RoR2;
 using RimuruMod.Modules;
-using System.Reflection;
-using R2API.Networking;
-using static UnityEngine.ParticleSystem.PlaybackState;
 using System.Collections.Generic;
 using System.Linq;
 using RoR2.Projectile;
 using EntityStates.ClayGrenadier;
-using HG;
 
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Imp
+     Clay Apothecary
      Effect: Tarring- Fire Tar at the closest enemies every second
      */
 
