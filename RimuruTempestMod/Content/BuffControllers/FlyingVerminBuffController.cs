@@ -10,7 +10,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
      Flying Vermin aka Blind Pest
-     Effect: AOE buffer- analyze analzyes multiple enimes
+     Effect: AOE buffer- analyze analzyes multiple enemies
      */
 
     public class FlyingVerminBuffController : RimuruBaseBuffController
