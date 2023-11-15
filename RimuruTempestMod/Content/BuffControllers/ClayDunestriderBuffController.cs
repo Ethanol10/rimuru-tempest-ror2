@@ -103,9 +103,10 @@ namespace RimuruTempestMod.Content.BuffControllers
                 {
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
-                        if(singularTarget.healthComponent.body.HasBuff(Buffs.tarManipDebuff))
+                        if(!singularTarget.healthComponent.body.HasBuff(Buffs.tarManipDebuff))
                         {
                             singularTarget.healthComponent.body.ApplyBuff(Buffs.tarManipDebuff.buffIndex, 1, 3);
+                            singularTarget.healthComponent.body.ApplyBuff(RoR2.RoR2Content.Buffs.ClayGoo.buffIndex, 1, 3);
                         }
                     }
                 }

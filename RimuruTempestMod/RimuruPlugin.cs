@@ -329,7 +329,6 @@ namespace RimuruMod
                     if (self.HasBuff(Modules.Buffs.tarManipDebuff))
                     {
                         self.attackSpeed *= StaticValues.tarManipCoefficient;
-                        self.moveSpeed *= StaticValues.tarManipCoefficient;
                     }
                     if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
                     {

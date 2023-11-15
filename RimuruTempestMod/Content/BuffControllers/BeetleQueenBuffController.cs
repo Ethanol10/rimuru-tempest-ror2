@@ -9,8 +9,8 @@ using R2API.Networking;
 namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
-     Acid Larva 
-     Effect: Springlike Limbs: Increased jump height
+     Beetle Queen
+     Effect: Triple Waterblade
      */
 
     public class BeetleQueenBuffController : RimuruBaseBuffController
