@@ -75,14 +75,14 @@ namespace RimuruMod.Modules
 
             strengthBuff = AddNewBuff($"Strengthen Body- Increase your Damage by {StaticValues.strengthBuffCoefficient}x", Assets.boostBuffIcon, Color.gray, false, false);
             speedBuff = AddNewBuff($"Acceleration- Increase your Movespeed by {StaticValues.speedBuffCoefficient}x", Assets.speedBuffIcon, Color.blue, false, false);
-            attackSpeedBuff = AddNewBuff($"Hastening- Increase your Attackspeed by {StaticValues.attackSpeedBuffCoefficient}x", Assets.speedBuffIcon, Color.yellow, false, false);
-            lifestealBuff = AddNewBuff($"Life Manipulation- Gain {StaticValues.lifestealBuffCoefficient * 100f}% lifesteal", Assets.fireBuffIcon, Color.red, false, false);
-            bleedMeleeBuff = AddNewBuff($"Bloody Edge- Melee attacks bleed", Assets.fireBuffIcon, Color.yellow, false, false);
+            attackSpeedBuff = AddNewBuff($"Hastening- Increase your Attackspeed by {StaticValues.attackSpeedBuffCoefficient}x", Assets.attackspeedBuffIcon, Color.yellow, false, false);
+            lifestealBuff = AddNewBuff($"Life Manipulation- Gain {StaticValues.lifestealBuffCoefficient * 100f}% lifesteal", Assets.healBuffIcon, Color.red, false, false);
+            bleedMeleeBuff = AddNewBuff($"Bloody Edge- Melee attacks apply bleed", Assets.bleedBuffIcon, Color.red, false, false);
             meleeBoostBuff = AddNewBuff($"Melee Boost- Melee attacks deal 1.3x", Assets.fireBuffIcon, Color.blue, false, false);
-            armourDamageBuff = AddNewBuff($"Body Armour", Assets.fireBuffIcon, Color.black, false, false);
-            doubleArmourBuff = AddNewBuff($"Resistance", Assets.fireBuffIcon, Color.red, false, false);
-            jumpHeightBuff = AddNewBuff($"Spinglike Limbs", Assets.fireBuffIcon, Color.blue, false, false);
-            crippleBuff = AddNewBuff($"Crippling Blows", Assets.fireBuffIcon, Color.blue, false, false);
+            armourDamageBuff = AddNewBuff($"Body Armour- Gain {StaticValues.bodyArmorCoefficient} of your Damage as Armor", Assets.shieldBuffIcon, Color.black, false, false);
+            doubleArmourBuff = AddNewBuff($"Resistance- Double your armor", Assets.shieldBuffIcon, Color.red, false, false);
+            jumpHeightBuff = AddNewBuff($"Spinglike Limbs- Increase your jump height", Assets.jumpBuffIcon, Color.blue, false, false);
+            crippleBuff = AddNewBuff($"Crippling Blows- Melee attacks apply cripple", Assets.fireBuffIcon, Color.blue, false, false);
             tripleWaterBladeBuff = AddNewBuff($"Triple Waterblade", Assets.fireBuffIcon, Color.yellow, false, false);
             icicleLanceBuff = AddNewBuff($"Icicle Lance", Assets.claygooBuffIcon, Color.yellow, false, false);
             barrierBuff = AddNewBuff($"Multilayer barrier", Assets.claygooBuffIcon, Color.red, false, false);
