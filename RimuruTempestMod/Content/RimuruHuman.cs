@@ -62,7 +62,7 @@ namespace RimuruMod.Modules.Survivors
 
         public override UnlockableDef characterUnlockableDef => null;
 
-        public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
+        public override Type characterMainState => typeof(SkillStates.Rimuru.RimuruCharacterMain);
 
                                                                           //if you have more than one character, easily create a config to enable/disable them like this
         public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);

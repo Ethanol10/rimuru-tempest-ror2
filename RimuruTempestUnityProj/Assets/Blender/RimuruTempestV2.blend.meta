@@ -6,6 +6,60 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
+  - first:
+      74: -3100369314251171874
+    second: Idle
+  - first:
+      74: -6707561523314314255
+    second: IdleAlt1
+  - first:
+      74: 5522812681064789136
+    second: Run
+  - first:
+      74: -8207616796661645441
+    second: Entrance.001
+  - first:
+      74: -3572175820087439787
+    second: EntranceLoop
+  - first:
+      74: 3207533169962819223
+    second: BlackLightning
+  - first:
+      74: -5252475759492285371
+    second: BlackLightningLoop
+  - first:
+      74: -8086047558812005389
+    second: Sprint
+  - first:
+      74: -3341397618141321554
+    second: RunToSprintTransition
+  - first:
+      74: 4984832322764748973
+    second: Sprint1
+  - first:
+      74: 5539831331247536789
+    second: Jump
+  - first:
+      74: -1500354584072067147
+    second: Falling
+  - first:
+      74: 4357390319608967656
+    second: SprintToRunTransition
+  - first:
+      74: 373344647740410536
+    second: DoubleJump
+  - first:
+      74: -3457901109985081588
+    second: DashAttack
+  - first:
+      74: -5086932193216293862
+    second: OutOfDashAttack
+  - first:
+      74: -6428405050572977831
+    second: SwingLeft
+  - first:
+      74: 1391736444559453782
+    second: SwingRight
   externalObjects: {}
   materials:
     materialImportMode: 1
