@@ -196,24 +196,6 @@ namespace RimuruMod
                                     damageInfo.damage = Mathf.Max(1f, damageInfo.damage - self.body.armor);
                                 }
                             }
-                            //regen buff
-                            if (self.body.HasBuff(Modules.Buffs.ultraspeedRegenBuff.buffIndex))
-                            {
-                                if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-                                {
-                                    rimuruMasterCon.regenAmount = damageInfo.damage * StaticValues.ultraspeedRegenCoefficient;
-                                    if (rimuruMasterCon.regenAmount > self.combinedHealth * StaticValues.ultraspeedHealthThreshold)
-                                    {
-                                        self.body.ApplyBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex, StaticValues.ultraspeedBuffStacks, -1);
-                                    }
-
-                                }
-                                else
-                                {
-                                    damageInfo.force = Vector3.zero;
-                                    damageInfo.damage = Mathf.Max(1f, damageInfo.damage - self.body.armor);
-                                }
-                            }
                         }
 
                     }

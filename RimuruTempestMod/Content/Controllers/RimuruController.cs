@@ -85,8 +85,9 @@ namespace RimuruMod.Modules.Survivors
                 Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
             }
 
-            characterBody.skillLocator.special.RemoveAllStocks();
+            Rimurumastercon.isBodyInitialized = false;
 
+            characterBody.skillLocator.special.RemoveAllStocks();
 
         }
 

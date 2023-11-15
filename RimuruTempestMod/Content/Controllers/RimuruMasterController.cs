@@ -25,19 +25,6 @@ namespace RimuruMod.Modules.Survivors
 		private CharacterBody characterBody;
 
 
-		//buff checks
-		public bool strengthBuff;
-		public bool fireBuff;
-		public bool lightningBuff;
-		public bool resistanceBuff;
-		public bool ultraspeedRegenBuff;
-		public bool poisonMeleeBuff;
-
-		//buffs
-		public float regenTimer;
-        public float regenAmount;
-        public float shockTimer;
-
 		public bool isBodyInitialized;
 		public bool devourShoot;
 
@@ -46,12 +33,6 @@ namespace RimuruMod.Modules.Survivors
 		{
 			isBodyInitialized = false;
 			On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
-			strengthBuff = false;
-			fireBuff = false;
-			lightningBuff = false;
-			resistanceBuff = false;
-			ultraspeedRegenBuff = false;
-			poisonMeleeBuff = false;
 
 		}
 
@@ -83,66 +64,7 @@ namespace RimuruMod.Modules.Survivors
 					Rimurucon = characterBody.GetComponent<RimuruController>();
 					isBodyInitialized = true;
 				}
-			}
-			else 
-			{
-                if (characterBody.HasBuff(Buffs.ultraspeedRegenStackBuff))
-                {
-                    if (regenTimer > 1f)
-                    {
-                        int buffcount = characterBody.GetBuffCount(Buffs.ultraspeedRegenStackBuff);
-                        if (buffcount > 1)
-                        {
-                            if (buffcount >= 2)
-                            {
-                                regenTimer = 0;
-                                characterBody.RemoveBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex);
-                                characterBody.healthComponent.Heal(regenAmount / StaticValues.ultraspeedBuffStacks, new ProcChainMask(), true);
-                            }
-                        }
-                        else
-                        {
-                            characterBody.RemoveBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex);
-                            characterBody.healthComponent.Heal(regenAmount / StaticValues.ultraspeedBuffStacks, new ProcChainMask(), true);
-                        }
-                    }
-                    else
-                    {
-                        regenTimer += Time.fixedDeltaTime;
-                    }
-                }
-                if (characterBody.HasBuff(Buffs.lightningBuff))
-                {
-                    if (shockTimer > StaticValues.lightningPulseTimer)
-                    {
-                        shockTimer = 0;
-                        EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
-                        {
-                            origin = characterBody.corePosition,
-                            scale = Modules.Config.blackLightningRadius.Value * characterBody.attackSpeed / 2
-                        }, true);
-
-                        new BlastAttack
-                        {
-                            attacker = characterBody.gameObject,
-                            teamIndex = TeamComponent.GetObjectTeam(characterBody.gameObject),
-                            falloffModel = BlastAttack.FalloffModel.None,
-                            baseDamage = characterBody.damage * Modules.Config.blackLightningDamageCoefficient.Value,
-                            damageType = DamageType.Shock5s,
-                            damageColorIndex = DamageColorIndex.WeakPoint,
-                            baseForce = 0,
-                            position = characterBody.transform.position,
-                            radius = Modules.Config.blackLightningRadius.Value * characterBody.attackSpeed / 2,
-                            procCoefficient = 1f,
-                            attackerFiltering = AttackerFiltering.NeverHitSelf,
-                        }.Fire();
-                    }
-                    else
-                    {
-                        shockTimer += Time.fixedDeltaTime;
-                    }
-                }
-            }
+			}			
 		}
 
 		private void GlobalEventManager_OnCharacterDeath(On.RoR2.GlobalEventManager.orig_OnCharacterDeath orig, GlobalEventManager self, DamageReport damageReport)
