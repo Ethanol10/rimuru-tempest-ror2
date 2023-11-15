@@ -95,7 +95,7 @@ namespace RimuruMod.Modules
         public static GameObject railgunnerSnipeLightTracerEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/Railgunner/TracerRailgunLight.prefab").WaitForCompletion();
         public static GameObject GupSpikeEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/Gup/GupExplosion.prefab").WaitForCompletion();
         public static GameObject loaderOmniImpactLightningEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Loader/OmniImpactVFXLoaderLightning.prefab").WaitForCompletion();
-        public static GameObject mageIceBoltGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageIceBoltGhost.prefab").WaitForCompletion();
+        public static GameObject mageIceBoltGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Junk/Mage/MageIceBoltGhost.prefab").WaitForCompletion();
 
         //objects        
         public static GameObject spherePrefab;
