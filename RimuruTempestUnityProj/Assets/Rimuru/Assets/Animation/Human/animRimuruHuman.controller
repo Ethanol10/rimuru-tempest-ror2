@@ -627,7 +627,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: OutOfDashAttack
-  m_Speed: 1.285
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -741720040080469560}
@@ -640,7 +640,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bc7308bec2681ff4588f855270e3c68c, type: 2}
+  m_Motion: {fileID: 7400000, guid: a2efa20f63243bc4a9e4b1b38f28e5c6, type: 2}
   m_Tag: 
   m_SpeedParameter: Slash.playbackRate
   m_MirrorParameter: 

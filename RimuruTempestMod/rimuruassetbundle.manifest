@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2189510409
+CRC: 2442489832
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3e0e14db198f8e72f32fead65d2991e1
+    Hash: 8890b25b8722f3a09f193f71aea081d5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -140,6 +140,7 @@ Assets:
 - Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
 - Assets/Rimuru/Assets/VFX/BlackLightningImpact.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
+- Assets/Rimuru/Assets/VFX/SphereIndicator.prefab
 - Assets/Rimuru/Assets/VFX/Texture/blacklightningouter.tif
 - Assets/Rimuru/Assets/Animation/Human/MaskRightArm.mask
 - Assets/Rimuru/Assets/Animation/Slime/animRimuruSlime.controller
@@ -150,8 +151,8 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance2.anim
 - Assets/Rimuru/Assets/Animation/Human/SwingLeftIdle.anim
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
-- Assets/Rimuru/Assets/Animation/Human/OutOfDashAttack.anim
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
+- Assets/Rimuru/Assets/Animation/Human/OutOfDashAttack.anim
 - Assets/Rimuru/Assets/Animation/Human/Emotion.anim
 - Assets/Rimuru/Assets/Animation/Human/BlackLightning.anim
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
