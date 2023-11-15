@@ -26,13 +26,14 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.Awake();
             isPermaBuff = false;
             buffdef = Buffs.dashBuff;
-            inputBank = gameObject.GetComponent<RoR2.InputBankTest>();
         }
 
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
+
+            inputBank = body.GetComponent<RoR2.InputBankTest>();
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Dash Skill</style> acquisition successful.");
         }
