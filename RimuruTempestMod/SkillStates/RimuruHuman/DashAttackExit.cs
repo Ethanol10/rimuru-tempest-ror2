@@ -2,6 +2,7 @@
 using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
+using RoR2.Projectile;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,12 @@ namespace RimuruMod.SkillStates
 {
     public class DashAttackExit : BaseMeleeAttack
     {
+        protected int baseAttackAmount = 3;
+        protected int attackAmount = 0;
+
+        protected float attackTimer = 0f;
+        protected float attackStopwatch = 0f;
+
         public override void OnEnter()
         {
             this.hitboxName = "Sword";
@@ -26,10 +33,10 @@ namespace RimuruMod.SkillStates
             this.baseDuration = 1.3f;
             this.attackStartTime = 0.25f;
             this.attackEndTime = 0.65f;
-            this.baseEarlyExitTime = 0.65f;
+            this.baseEarlyExitTime = 0.70f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 10f;
+            this.hitHopVelocity = 7f;
 
             this.swingSoundString = "RimuruSword";
             this.hitSoundString = "";
@@ -39,7 +46,14 @@ namespace RimuruMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
+            float multiplier = base.attackSpeedStat >= 1f ? base.attackSpeedStat : 1f;
+            attackAmount = (int)(baseAttackAmount * multiplier);
+
+
             base.OnEnter();
+
+
+            attackTimer = (duration * attackEndTime) - (duration * attackStartTime) / (float)attackAmount;
         }
 
         protected override void PlayAttackAnimation()
@@ -78,6 +92,57 @@ namespace RimuruMod.SkillStates
                 return;
             }
         }
+        protected override void FireAttack()
+        {
+            if (!this.hasFired)
+            {
+                this.hasFired = true;
+                Util.PlayAttackSpeedSound(this.swingSoundString, base.gameObject, this.attackSpeedStat);
+
+                if (base.isAuthority)
+                {
+                    this.PlaySwingEffect();
+                    base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                }
+            }
+
+            attackStopwatch += Time.fixedDeltaTime;
+
+            if (attackStopwatch > attackTimer) 
+            {
+                attackStopwatch = 0f;
+                CreateNewAttack();
+            }
+
+            if (base.isAuthority)
+            {
+                List<HurtBox> hurtboxes = new List<HurtBox>();
+                bool result = this.attack.Fire(hurtboxes);
+                if (result)
+                {
+                    this.OnHitEnemyAuthority();
+                    this.CheckIfDead(hurtboxes);
+                }
+            }
+
+            if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
+            {
+
+                Ray aimRay = base.GetAimRay();
+
+                ProjectileManager.instance.FireProjectile(Modules.Projectiles.icicleLanceProjectile,
+                aimRay.origin,
+                Util.QuaternionSafeLookRotation(new Vector3(aimRay.direction.x, aimRay.direction.y, aimRay.direction.z)),
+                base.gameObject,
+                damageCoefficient * this.damageStat,
+                0f,
+                base.RollCrit(),
+                DamageColorIndex.Default,
+                null,
+                -1f);
+            }
+        }
+
         public override void OnExit()
         {
             base.OnExit();

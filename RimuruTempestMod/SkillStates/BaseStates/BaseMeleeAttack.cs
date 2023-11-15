@@ -37,17 +37,17 @@ namespace RimuruMod.SkillStates.BaseStates
         protected GameObject hitEffectPrefab;
         protected NetworkSoundEventIndex impactSound;
 
-        private float earlyExitTime;
+        protected float earlyExitTime;
         public float duration;
-        private bool hasFired;
-        private float hitPauseTimer;
-        private OverlapAttack attack;
+        protected bool hasFired;
+        protected float hitPauseTimer;
+        protected OverlapAttack attack;
         protected bool inHitPause;
-        private bool hasHopped;
+        protected bool hasHopped;
         protected float stopwatch;
         protected Animator animator;
-        private BaseState.HitStopCachedState hitStopCachedState;
-        private Vector3 storedVelocity;
+        protected BaseState.HitStopCachedState hitStopCachedState;
+        protected Vector3 storedVelocity;
 
         public RimuruController Rimurucon;
 
@@ -65,6 +65,14 @@ namespace RimuruMod.SkillStates.BaseStates
             this.animator.SetBool("attacking", true);
             this.animator.SetFloat("Slash.playbackRate", base.attackSpeedStat);
 
+
+
+            this.PlayAttackAnimation();
+            CreateNewAttack();
+        }
+
+        protected virtual void CreateNewAttack() 
+        {
             HitBoxGroup hitBoxGroup = null;
             Transform modelTransform = base.GetModelTransform();
 
@@ -72,8 +80,6 @@ namespace RimuruMod.SkillStates.BaseStates
             {
                 hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == this.hitboxName);
             }
-
-            this.PlayAttackAnimation();
 
             this.attack = new OverlapAttack();
             this.attack.damageType = this.damageType;
@@ -148,7 +154,7 @@ namespace RimuruMod.SkillStates.BaseStates
             
         }
 
-        private void FireAttack()
+        protected virtual void FireAttack()
         {
             if (!this.hasFired)
             {
@@ -235,7 +241,7 @@ namespace RimuruMod.SkillStates.BaseStates
                 this.FireAttack();
             }
 
-            if (this.stopwatch >= (this.duration - this.earlyExitTime) && base.isAuthority)
+            if (this.stopwatch >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
                 if (base.inputBank.skill1.down)
                 {
