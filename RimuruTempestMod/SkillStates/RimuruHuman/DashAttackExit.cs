@@ -23,10 +23,10 @@ namespace RimuruMod.SkillStates
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -500f, 0f);
-            this.baseDuration = 2f;
-            this.attackStartTime = 0.2f;
-            this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.4f;
+            this.baseDuration = 1.3f;
+            this.attackStartTime = 0.25f;
+            this.attackEndTime = 0.65f;
+            this.baseEarlyExitTime = 0.65f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 10f;

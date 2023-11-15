@@ -29,7 +29,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Springlike Limbs</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Springlike Limbs</style> acquisition successful.");
         }
 
         public void Hook()

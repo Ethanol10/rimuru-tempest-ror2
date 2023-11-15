@@ -29,7 +29,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Multilayer Barrier</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Multilayer Barrier</style> acquisition successful.");
         }
         
         public void Update()

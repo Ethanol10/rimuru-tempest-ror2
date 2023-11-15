@@ -51,13 +51,13 @@ namespace RimuruMod.SkillStates
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
-            this.baseDuration = 0.8f;
-            this.attackStartTime = 0.2f;
-            this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.4f;
+            this.baseDuration = 0.63f;
+            this.attackStartTime = 0.3f;
+            this.attackEndTime = 0.5f;
+            this.baseEarlyExitTime = 0.5f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 10f;
+            this.hitHopVelocity = 7f;
 
             this.swingSoundString = "RimuruSword";
             this.hitSoundString = "";

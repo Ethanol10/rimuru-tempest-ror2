@@ -32,7 +32,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
             body.master.luck += StaticValues.luckAmount;
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Luck Manipulation Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Luck Manipulation Skill</style> acquisition successful.");
         }
 
         public void Hook()

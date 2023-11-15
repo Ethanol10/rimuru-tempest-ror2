@@ -133,7 +133,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.strengthBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -151,7 +151,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.fireBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -171,7 +171,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.poisonMeleeBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Poisonous Attacks Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Poisonous Attacks Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -189,7 +189,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.ultraspeedRegenBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Ultraspeed Regeneration Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Ultraspeed Regeneration Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -209,7 +209,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.resistanceBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Body Armor Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Body Armor Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -228,7 +228,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.lightningBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Lightning Manipulation Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Lightning Manipulation Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 

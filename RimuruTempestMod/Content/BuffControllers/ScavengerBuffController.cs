@@ -33,7 +33,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Replication Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Replication Skill</style> acquisition successful.");
         }
 
         public void Hook()

@@ -28,7 +28,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public void Start()
         {
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Life Manipulation Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Life Manipulation Skill</style> acquisition successful.");
         }
 
         public void Hook()

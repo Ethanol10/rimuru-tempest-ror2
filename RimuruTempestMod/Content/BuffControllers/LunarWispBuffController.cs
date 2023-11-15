@@ -27,7 +27,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Crippling Blows</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Crippling Blows</style> acquisition successful.");
         }
 
         public override void OnDestroy()

@@ -43,7 +43,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Lightning Manipulation</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Lightning Manipulation</style> acquisition successful.");
         }
 
         public void Update()

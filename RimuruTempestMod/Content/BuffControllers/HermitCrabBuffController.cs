@@ -33,7 +33,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void Start()
         {
-            RoR2.Chat.AddMessage("<style=cIsUtility>Mortaring Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Mortaring Skill</style> acquisition successful.");
         }
 
         public void Hook()

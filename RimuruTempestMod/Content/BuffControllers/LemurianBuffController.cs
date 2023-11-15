@@ -32,7 +32,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 
         public void Start()
         {
-            RoR2.Chat.AddMessage("<style=cIsUtility>Flame Body Skill</style> aquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Flame Body Skill</style> acquisition successful.");
         }
 
 
