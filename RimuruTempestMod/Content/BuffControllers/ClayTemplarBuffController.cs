@@ -29,7 +29,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Tarred Waterblade</style> acquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Tarred Waterblade Skill</style> acquisition successful.");
         }
 
         public override void FixedUpdate()

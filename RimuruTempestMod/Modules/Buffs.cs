@@ -68,32 +68,32 @@ namespace RimuruMod.Modules
         internal static BuffDef CrippleProjBuff;
         internal static void RegisterBuffs()
         {
-            SpatialMovementBuff = AddNewBuff("SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
-            CritDebuff = AddNewBuff("CritDebuff", Assets.critBuffIcon, Color.red, false, true);
-            WetLightningDebuff = AddNewBuff("WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
-            WetDebuff = AddNewBuff("Wet Debuff", Assets.bleedBuffIcon, Color.cyan, false, true);
+            SpatialMovementBuff = AddNewBuff($"SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
+            CritDebuff = AddNewBuff($"CritDebuff", Assets.critBuffIcon, Color.red, false, true);
+            WetLightningDebuff = AddNewBuff($"WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
+            WetDebuff = AddNewBuff($"Wet Debuff", Assets.bleedBuffIcon, Color.cyan, false, true);
 
-            strengthBuff = AddNewBuff("Strengthen Body", Assets.boostBuffIcon, Color.gray, false, false);
-            speedBuff = AddNewBuff("Acceleration", Assets.boostBuffIcon, Color.blue, false, false);
-            attackSpeedBuff = AddNewBuff("Hastening", Assets.boostBuffIcon, Color.yellow, false, false);
-            lifestealBuff = AddNewBuff("Life Manipulation", Assets.fireBuffIcon, Color.red, false, false);
-            bleedMeleeBuff = AddNewBuff("Bloody Edge", Assets.fireBuffIcon, Color.yellow, false, false);
-            meleeBoostBuff = AddNewBuff("Melee Boost", Assets.fireBuffIcon, Color.blue, false, false);
-            armourDamageBuff = AddNewBuff("Body Armour", Assets.fireBuffIcon, Color.black, false, false);
-            doubleArmourBuff = AddNewBuff("Resistance", Assets.fireBuffIcon, Color.red, false, false);
-            jumpHeightBuff = AddNewBuff("Spinglike Limbs", Assets.fireBuffIcon, Color.blue, false, false);
-            crippleBuff = AddNewBuff("Crippling Blows", Assets.fireBuffIcon, Color.blue, false, false);
-            tripleWaterBladeBuff = AddNewBuff("Triple Waterblade", Assets.fireBuffIcon, Color.yellow, false, false);
-            icicleLanceBuff = AddNewBuff("Icicle Lance", Assets.claygooBuffIcon, Color.yellow, false, false);
-            barrierBuff = AddNewBuff("Multilayer barrier", Assets.claygooBuffIcon, Color.red, false, false);
-            devourBuff = AddNewBuff("Gluttony", Assets.claygooBuffIcon, Color.cyan, false, false);
+            strengthBuff = AddNewBuff($"Strengthen Body- Increase your Damage by {StaticValues.strengthBuffCoefficient}x", Assets.boostBuffIcon, Color.gray, false, false);
+            speedBuff = AddNewBuff($"Acceleration- Increase your Movespeed by {StaticValues.speedBuffCoefficient}x", Assets.speedBuffIcon, Color.blue, false, false);
+            attackSpeedBuff = AddNewBuff($"Hastening- Increase your Attackspeed by {StaticValues.attackSpeedBuffCoefficient}x", Assets.speedBuffIcon, Color.yellow, false, false);
+            lifestealBuff = AddNewBuff($"Life Manipulation- Gain {StaticValues.lifestealBuffCoefficient * 100f}% lifesteal", Assets.fireBuffIcon, Color.red, false, false);
+            bleedMeleeBuff = AddNewBuff($"Bloody Edge- Melee attacks bleed", Assets.fireBuffIcon, Color.yellow, false, false);
+            meleeBoostBuff = AddNewBuff($"Melee Boost- Melee attacks deal 1.3x", Assets.fireBuffIcon, Color.blue, false, false);
+            armourDamageBuff = AddNewBuff($"Body Armour", Assets.fireBuffIcon, Color.black, false, false);
+            doubleArmourBuff = AddNewBuff($"Resistance", Assets.fireBuffIcon, Color.red, false, false);
+            jumpHeightBuff = AddNewBuff($"Spinglike Limbs", Assets.fireBuffIcon, Color.blue, false, false);
+            crippleBuff = AddNewBuff($"Crippling Blows", Assets.fireBuffIcon, Color.blue, false, false);
+            tripleWaterBladeBuff = AddNewBuff($"Triple Waterblade", Assets.fireBuffIcon, Color.yellow, false, false);
+            icicleLanceBuff = AddNewBuff($"Icicle Lance", Assets.claygooBuffIcon, Color.yellow, false, false);
+            barrierBuff = AddNewBuff($"Multilayer barrier", Assets.claygooBuffIcon, Color.red, false, false);
+            devourBuff = AddNewBuff($"Gluttony", Assets.claygooBuffIcon, Color.cyan, false, false);
 
-            fireBuff = AddNewBuff("Fire Manipulation", Assets.fireBuffIcon, Color.red, false, false);
-            resistanceBuff = AddNewBuff("Resistance", Assets.shieldBuffIcon, Color.yellow, false, false);
-            lightningBuff = AddNewBuff("Paralyzing Breath", Assets.lightningBuffIcon, Color.yellow, false, false);
-            poisonMeleeBuff = AddNewBuff("Poisonous attacks", Assets.fireBuffIcon, Color.green, false, false);
-            ultraspeedRegenBuff = AddNewBuff("Ultraspeed Regeneration", Assets.healBuffIcon, Color.cyan, false, false);
-            ultraspeedRegenStackBuff = AddNewBuff("Ultraspeed Regeneration stacks", Assets.healBuffIcon, Color.grey, true, false);
+            fireBuff = AddNewBuff($"Fire Manipulation", Assets.fireBuffIcon, Color.red, false, false);
+            resistanceBuff = AddNewBuff($"Resistance", Assets.shieldBuffIcon, Color.yellow, false, false);
+            lightningBuff = AddNewBuff($"Paralyzing Breath", Assets.lightningBuffIcon, Color.yellow, false, false);
+            poisonMeleeBuff = AddNewBuff($"Poisonous attacks", Assets.fireBuffIcon, Color.green, false, false);
+            ultraspeedRegenBuff = AddNewBuff($"Ultraspeed Regeneration", Assets.healBuffIcon, Color.cyan, false, false);
+            ultraspeedRegenStackBuff = AddNewBuff($"Ultraspeed Regeneration stacks", Assets.healBuffIcon, Color.grey, true, false);
 
             //devour buffs
             nullifierBigBrainBuff = AddNewBuff($"Big Brain Buff- Reduce CD on every {StaticValues.nullifierBigBrainThreshold}th hit", Assets.noCooldownBuffIcon, Color.magenta, false, false);

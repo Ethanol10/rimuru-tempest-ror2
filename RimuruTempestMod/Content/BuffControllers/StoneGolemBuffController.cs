@@ -30,7 +30,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
 
-            RoR2.Chat.AddMessage("<style=cIsUtility>Body Armour</style> acquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Body Armour Skill</style> acquisition successful.");
         }
 
         public void Hook()

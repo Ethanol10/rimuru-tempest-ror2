@@ -22,6 +22,9 @@ namespace RimuruMod.Modules
         //attack speed
         internal const float attackSpeedBuffCoefficient = 1.2f;
 
+        //lifesteal
+        internal const float lifestealBuffCoefficient = 0.1f;
+
         //ultraspeed
         internal const float ultraspeedRegenCoefficient = 0.5f;
         internal const float ultraspeedHealthThreshold = 0.1f;

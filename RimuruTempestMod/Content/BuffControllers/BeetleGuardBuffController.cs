@@ -27,7 +27,7 @@ namespace RimuruTempestMod.Content.BuffControllers
         public void Start()
         {
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
-            RoR2.Chat.AddMessage("<style=cIsUtility>Melee Boost</style> acquisition successful.");
+            RoR2.Chat.AddMessage("<style=cIsUtility>Melee Boost Skill</style> acquisition successful.");
         }
 
         public override void FixedUpdate()

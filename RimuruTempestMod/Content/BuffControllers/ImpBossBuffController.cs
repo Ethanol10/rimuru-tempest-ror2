@@ -62,7 +62,7 @@ namespace RimuruTempestMod.Content.BuffControllers
                     RoR2.ProcChainMask procChainMask = new RoR2.ProcChainMask();
                     procChainMask.mask = 1;
 
-                    attacker.healthComponent.Heal(damageInfo.damage * 0.10f, procChainMask , false);
+                    attacker.healthComponent.Heal(damageInfo.damage * StaticValues.lifestealBuffCoefficient, procChainMask , false);
 ;                }
             }
         }
