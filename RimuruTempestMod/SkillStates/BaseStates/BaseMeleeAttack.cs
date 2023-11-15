@@ -2,6 +2,7 @@
 using RimuruMod.Modules.Survivors;
 using RoR2;
 using RoR2.Audio;
+using RoR2.Projectile;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -170,6 +171,23 @@ namespace RimuruMod.SkillStates.BaseStates
                     this.OnHitEnemyAuthority();
                     this.CheckIfDead(hurtboxes);
                 }
+            }
+
+            if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
+            {
+
+                Ray aimRay = base.GetAimRay();
+
+                ProjectileManager.instance.FireProjectile(Modules.Projectiles.icicleLanceProjectile,
+                aimRay.origin,
+                Util.QuaternionSafeLookRotation(new Vector3(aimRay.direction.x, aimRay.direction.y, aimRay.direction.z)),
+                base.gameObject,
+                damageCoefficient* this.damageStat,
+                0f,
+                base.RollCrit(),
+                DamageColorIndex.Default,
+                null,
+                -1f);
             }
         }
 

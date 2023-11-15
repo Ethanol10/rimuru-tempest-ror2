@@ -28,7 +28,7 @@ namespace RimuruMod.Modules
 
         private static void CreateIcicle()
         {
-            icicleLanceProjectile = CloneProjectilePrefab("magefirebolt", "RimuruIcicleProjectile");
+            icicleLanceProjectile = CloneProjectilePrefab("MageIceBolt", "RimuruIcicleProjectile");
 
             ProjectileImpactExplosion iceImpactExplosion = icicleLanceProjectile.GetComponent<ProjectileImpactExplosion>();
             InitializeImpactExplosion(iceImpactExplosion);
@@ -42,7 +42,9 @@ namespace RimuruMod.Modules
             iceImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Freeze2s;
 
             ProjectileController icicleController = icicleLanceProjectile.GetComponent<ProjectileController>();
-            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("IcicleProjectile") != null) icicleController.ghostPrefab = CreateGhostPrefab("IcicleProjectile");
+
+            icicleController.ghostPrefab = Modules.Assets.mageIceBoltGhost;
+
         }
 
 

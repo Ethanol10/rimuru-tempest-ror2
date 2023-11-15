@@ -83,8 +83,8 @@ namespace RimuruMod.Modules
             doubleArmourBuff = AddNewBuff($"Resistance- Double your armor", Assets.shieldBuffIcon, Color.red, false, false);
             jumpHeightBuff = AddNewBuff($"Spinglike Limbs- Increase your jump height", Assets.jumpBuffIcon, Color.blue, false, false);
             crippleBuff = AddNewBuff($"Crippling Blows- Melee attacks apply cripple", Assets.crippleBuffIcon, Color.blue, false, false);
-            tripleWaterBladeBuff = AddNewBuff($"Triple Waterblade", Assets.fireBuffIcon, Color.yellow, false, false);
-            icicleLanceBuff = AddNewBuff($"Icicle Lance", Assets.claygooBuffIcon, Color.yellow, false, false);
+            tripleWaterBladeBuff = AddNewBuff($"Triple Waterblade- Shoot 3 Waterblades instead of 1!", Assets.tarBuffIcon, Color.cyan, false, false);
+            icicleLanceBuff = AddNewBuff($"Icicle Lance- Melee attacks shoot an ice projectile", Assets.lightningBuffIcon, Color.blue, false, false);
             barrierBuff = AddNewBuff($"Multilayer barrier", Assets.claygooBuffIcon, Color.red, false, false);
             devourBuff = AddNewBuff($"Gluttony", Assets.claygooBuffIcon, Color.cyan, false, false);
 

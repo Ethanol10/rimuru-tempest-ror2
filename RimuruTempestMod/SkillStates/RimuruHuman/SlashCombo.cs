@@ -2,6 +2,8 @@
 using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
+using RoR2.Projectile;
+using System;
 using UnityEngine;
 
 namespace RimuruMod.SkillStates
@@ -35,10 +37,6 @@ namespace RimuruMod.SkillStates
             if (base.characterBody.HasBuff(Modules.Buffs.crippleBuff))
             {
                 damageType |= DamageType.CrippleOnHit;
-            }
-            if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
-            {
-                damageType |= DamageType.Freeze2s;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
             {
