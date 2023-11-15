@@ -10,7 +10,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
      Beetle Queen
-     Effect: Triple Waterblade
+     Effect: Triple Waterblade buff
      */
 
     public class BeetleQueenBuffController : RimuruBaseBuffController
