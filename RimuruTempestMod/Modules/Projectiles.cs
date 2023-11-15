@@ -34,7 +34,7 @@ namespace RimuruMod.Modules
             InitializeImpactExplosion(iceImpactExplosion);
 
             iceImpactExplosion.blastDamageCoefficient = 2f;
-            iceImpactExplosion.blastRadius = 16f;
+            iceImpactExplosion.blastRadius = 4f;
             iceImpactExplosion.destroyOnEnemy = true;
             iceImpactExplosion.lifetime = 12f;
             iceImpactExplosion.timerAfterImpact = true;
