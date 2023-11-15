@@ -150,6 +150,9 @@ namespace RimuruMod.Modules
         internal const float reverseGravManipRange = 50f;
         internal const float reverseGravManipDamageCoefficient = 2f;
 
+        // Black Flare
+        internal const float blackFlareProcCoefficientBoost = 4f;
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 

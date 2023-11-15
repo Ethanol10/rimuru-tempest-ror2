@@ -160,7 +160,7 @@ namespace RimuruMod.SkillStates
                     } else attack.damage = damageStat * damageCoefficient;
                     if (base.characterBody.HasBuff(Modules.Buffs.lightningProcBoostBuff))
                     {
-                        attack.procCoefficient = procCoefficient * 4;
+                        attack.procCoefficient = procCoefficient * Modules.StaticValues.blackFlareProcCoefficientBoost;
                     } else attack.damage = damageStat * damageCoefficient;
                     attack.Fire();
                     fireTimer = 0f;
