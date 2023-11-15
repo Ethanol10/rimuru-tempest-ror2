@@ -37,7 +37,7 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.FixedUpdate();
 
             timer += Time.fixedDeltaTime;
-             if(timer > StaticValues.cleanserInterval)
+            if(timer > StaticValues.cleanserInterval)
             {
                 timer = 0f;
                 RoR2.Util.CleanseBody(body, true, false, false, true, true, true);

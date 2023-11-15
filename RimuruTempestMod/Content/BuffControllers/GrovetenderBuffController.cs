@@ -10,7 +10,7 @@ namespace RimuruTempestMod.Content.BuffControllers
 {
     /*
      Grovetender
-     Effect: Paralyzing Breath - Melee Attacks Apply Fire
+     Effect: Paralyzing Breath - Melee Attacks Apply Shock
      */
 
     public class GrovetenderBuffController : RimuruBaseBuffController

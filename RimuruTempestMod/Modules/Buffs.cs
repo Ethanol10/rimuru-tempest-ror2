@@ -55,11 +55,8 @@ namespace RimuruMod.Modules
         internal static BuffDef reverseGravManipBuff;
 
         internal static BuffDef fireBuff;
-        internal static BuffDef resistanceBuff;
         internal static BuffDef lightningBuff;
         internal static BuffDef poisonMeleeBuff;
-        internal static BuffDef ultraspeedRegenBuff;
-        internal static BuffDef ultraspeedRegenStackBuff;
         internal static BuffDef lightningDamageBoostBuff;
         internal static BuffDef lightningProcBoostBuff;
         internal static BuffDef ConductivityBuff;
@@ -85,15 +82,12 @@ namespace RimuruMod.Modules
             crippleBuff = AddNewBuff($"Crippling Blows- Melee attacks apply cripple", Assets.crippleBuffIcon, Color.blue, false, false);
             tripleWaterBladeBuff = AddNewBuff($"Triple Waterblade- Shoot 3 Waterblades instead of 1!", Assets.tarBuffIcon, Color.cyan, false, false);
             icicleLanceBuff = AddNewBuff($"Icicle Lance- Melee attacks shoot an ice projectile", Assets.lightningBuffIcon, Color.blue, false, false);
-            barrierBuff = AddNewBuff($"Multilayer barrier", Assets.claygooBuffIcon, Color.red, false, false);
-            devourBuff = AddNewBuff($"Gluttony", Assets.claygooBuffIcon, Color.cyan, false, false);
+            barrierBuff = AddNewBuff($"Multilayer barrier- Gain {StaticValues.barrierBuffGain * 100f}% of your max health as barrier every {StaticValues.barrierBuffTimer} seconds", Assets.shieldBuffIcon, Color.white, false, false);
+            devourBuff = AddNewBuff($"Gluttony- Gain increased range with Devour", Assets.decayBuffIcon, Color.magenta, false, false);
 
-            fireBuff = AddNewBuff($"Fire Manipulation", Assets.fireBuffIcon, Color.red, false, false);
-            resistanceBuff = AddNewBuff($"Resistance", Assets.shieldBuffIcon, Color.yellow, false, false);
-            lightningBuff = AddNewBuff($"Paralyzing Breath", Assets.lightningBuffIcon, Color.yellow, false, false);
-            poisonMeleeBuff = AddNewBuff($"Poisonous attacks", Assets.fireBuffIcon, Color.green, false, false);
-            ultraspeedRegenBuff = AddNewBuff($"Ultraspeed Regeneration", Assets.healBuffIcon, Color.cyan, false, false);
-            ultraspeedRegenStackBuff = AddNewBuff($"Ultraspeed Regeneration stacks", Assets.healBuffIcon, Color.grey, true, false);
+            fireBuff = AddNewBuff($"Fire Manipulation- Melee attacks apply fire", Assets.fireBuffIcon, Color.red, false, false);
+            lightningBuff = AddNewBuff($"Paralyzing Breath- Melee attacks apply shock", Assets.lightningBuffIcon, Color.yellow, false, false);
+            poisonMeleeBuff = AddNewBuff($"Poisonous attacks- Melee attacks apply poison", Assets.fireBuffIcon, Color.green, false, false);
 
             //devour buffs
             nullifierBigBrainBuff = AddNewBuff($"Big Brain Buff- Reduce CD on every {StaticValues.nullifierBigBrainThreshold}th hit", Assets.noCooldownBuffIcon, Color.magenta, false, false);

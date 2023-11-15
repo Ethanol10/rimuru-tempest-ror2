@@ -36,6 +36,10 @@ namespace RimuruMod.Modules
         //body armor
         internal const float bodyArmorCoefficient = 0.1f;
 
+        //multilayer barrier
+        internal const float barrierBuffTimer = 3f;
+        internal const float barrierBuffGain = 0.1f;
+
         //melee attacks
         internal const float swordDamageCoefficient = 2f;
         internal const float devourDamageCoefficient = 1f;
@@ -132,7 +136,7 @@ namespace RimuruMod.Modules
         internal const float spikedBodyRange = 10f;
 
         //cleanser
-        internal const int cleanserInterval = 10;
+        internal const float cleanserInterval = 10f;
 
         //refraction
         internal const int refractionBounces = 4;

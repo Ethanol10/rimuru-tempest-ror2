@@ -167,38 +167,6 @@ namespace RimuruMod
                         }
                     }
 
-                    if (self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME" ||
-                        self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
-                    {
-                        RimuruMasterController rimuruMasterCon = self.GetComponent<RimuruMasterController>();
-
-                        bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
-                        if (!flag && damageInfo.damage > 0f)
-                        {
-                            //resistance buff
-                            if (self.body.HasBuff(Modules.Buffs.resistanceBuff.buffIndex))
-                            {
-                                if (self.combinedHealthFraction < 0.5f && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-                                {
-                                    damageInfo.force = Vector3.zero;
-                                    damageInfo.damage -= self.body.armor;
-                                    if (damageInfo.damage < 0f)
-                                    {
-                                        self.Heal(Mathf.Abs(damageInfo.damage), default(RoR2.ProcChainMask), true);
-                                        damageInfo.damage = 0f;
-
-                                    }
-
-                                }
-                                else
-                                {
-                                    damageInfo.force = Vector3.zero;
-                                    damageInfo.damage = Mathf.Max(1f, damageInfo.damage - self.body.armor);
-                                }
-                            }
-                        }
-
-                    }
                 }
 
             }
@@ -333,10 +301,6 @@ namespace RimuruMod
                     if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
                     {
                         self.armor += StaticValues.spatialmovementbuffArmor;
-                    }
-                    if (self.HasBuff(Modules.Buffs.strengthBuff))
-                    {
-                        self.damage *= StaticValues.strengthBuffCoefficient;
                     }
                     if (self.HasBuff(Modules.Buffs.CritDebuff))
                     {

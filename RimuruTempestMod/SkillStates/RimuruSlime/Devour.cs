@@ -34,13 +34,9 @@ namespace RimuruMod.SkillStates
             {
                 this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;
             }
-            if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
-            {
-                damageType |= DamageType.Freeze2s;
-            }
             if (base.characterBody.HasBuff(Modules.Buffs.devourBuff))
             {
-                this.procCoefficient = 4f;
+                this.hitboxName = "DevourExtended";
             }
             if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
             {
