@@ -221,7 +221,7 @@ namespace RimuruMod.Modules
                 Debug.Log("Failed to find Mesh renderer!");
             }
             tarManipIndicatorMeshRender.materials = warbannerArray;
-            tarManipIndicatorMeshRender.material.SetColor("_TintColor", new Color(0f, 0f, 0f)); //new Color(153/255f, 21/255f, 63/255f)
+            tarManipIndicatorMeshRender.material.SetColor("_TintColor", Color.magenta); //new Color(153/255f, 21/255f, 63/255f)
             networkObjDefs.Add(tarManipIndicatorPrefab);
             PrefabAPI.RegisterNetworkPrefab(tarManipIndicatorPrefab);
 
