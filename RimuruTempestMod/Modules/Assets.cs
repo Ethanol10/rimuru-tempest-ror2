@@ -190,44 +190,44 @@ namespace RimuruMod.Modules
             PrefabAPI.RegisterNetworkPrefab(swordSwingEffect);
             PrefabAPI.RegisterNetworkPrefab(swordHitImpactEffect);
 
-            //warbanner material setup
-            Material warbannerMat = Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/WardOnLevel/matWarbannerSphereIndicator.mat").WaitForCompletion();
-            Material[] warbannerArray = new Material[1];
-            warbannerArray[0] = warbannerMat;
+            ////warbanner material setup
+            //Material warbannerMat = Addressables.LoadAssetAsync<Material>(key: "RoR2/Base/WardOnLevel/matWarbannerSphereIndicator.mat").WaitForCompletion();
+            //Material[] warbannerArray = new Material[1];
+            //warbannerArray[0] = warbannerMat;
 
-            //objects
+            ////objects
             
-            spherePrefab = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            spherePrefab.AddComponent<NetworkIdentity>();
-            SphereCollider collider = spherePrefab.GetComponent<SphereCollider>();
-            UnityEngine.Object.Destroy(collider);
-            PrefabAPI.RegisterNetworkPrefab(spherePrefab);
+            //spherePrefab = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            //spherePrefab.AddComponent<NetworkIdentity>();
+            //SphereCollider collider = spherePrefab.GetComponent<SphereCollider>();
+            //UnityEngine.Object.Destroy(collider);
+            //PrefabAPI.RegisterNetworkPrefab(spherePrefab);
 
 
-            flameBodyAuraIndicatorPrefab = PrefabAPI.InstantiateClone(spherePrefab, "flameBodyAuraIndicatorPrefab");
+            //flameBodyAuraIndicatorPrefab = PrefabAPI.InstantiateClone(spherePrefab, "flameBodyAuraIndicatorPrefab");
 
-            MeshRenderer flameBodyAuraIndicatorMeshRender = flameBodyAuraIndicatorPrefab.gameObject.GetComponent<MeshRenderer>();
-            if (!flameBodyAuraIndicatorMeshRender)
-            {
-                Debug.Log("Failed to find Mesh renderer!");
-            }
-            flameBodyAuraIndicatorMeshRender.materials = warbannerArray;
-            flameBodyAuraIndicatorMeshRender.material.SetColor("_TintColor", new Color(184f / 255f, 24f / 255f, 24f / 255f)); //new Color(153/255f, 21/255f, 63/255f)
-            networkObjDefs.Add(flameBodyAuraIndicatorPrefab);
-            PrefabAPI.RegisterNetworkPrefab(flameBodyAuraIndicatorPrefab);
+            //MeshRenderer flameBodyAuraIndicatorMeshRender = flameBodyAuraIndicatorPrefab.gameObject.GetComponent<MeshRenderer>();
+            //if (!flameBodyAuraIndicatorMeshRender)
+            //{
+            //    Debug.Log("Failed to find Mesh renderer!");
+            //}
+            //flameBodyAuraIndicatorMeshRender.materials = warbannerArray;
+            //flameBodyAuraIndicatorMeshRender.material.SetColor("_TintColor", new Color(184f / 255f, 24f / 255f, 24f / 255f)); //new Color(153/255f, 21/255f, 63/255f)
+            //networkObjDefs.Add(flameBodyAuraIndicatorPrefab);
+            //PrefabAPI.RegisterNetworkPrefab(flameBodyAuraIndicatorPrefab);
 
 
-            tarManipIndicatorPrefab = PrefabAPI.InstantiateClone(spherePrefab, "flameBodyAuraIndicatorPrefab");
+            //tarManipIndicatorPrefab = PrefabAPI.InstantiateClone(spherePrefab, "flameBodyAuraIndicatorPrefab");
 
-            MeshRenderer tarManipIndicatorMeshRender = tarManipIndicatorPrefab.gameObject.GetComponent<MeshRenderer>();
-            if (!tarManipIndicatorMeshRender)
-            {
-                Debug.Log("Failed to find Mesh renderer!");
-            }
-            tarManipIndicatorMeshRender.materials = warbannerArray;
-            tarManipIndicatorMeshRender.material.SetColor("_TintColor", new Color(0f, 0f, 0f)); //new Color(153/255f, 21/255f, 63/255f)
-            networkObjDefs.Add(flameBodyAuraIndicatorPrefab);
-            PrefabAPI.RegisterNetworkPrefab(flameBodyAuraIndicatorPrefab);
+            //MeshRenderer tarManipIndicatorMeshRender = tarManipIndicatorPrefab.gameObject.GetComponent<MeshRenderer>();
+            //if (!tarManipIndicatorMeshRender)
+            //{
+            //    Debug.Log("Failed to find Mesh renderer!");
+            //}
+            //tarManipIndicatorMeshRender.materials = warbannerArray;
+            //tarManipIndicatorMeshRender.material.SetColor("_TintColor", new Color(0f, 0f, 0f)); //new Color(153/255f, 21/255f, 63/255f)
+            //networkObjDefs.Add(flameBodyAuraIndicatorPrefab);
+            //PrefabAPI.RegisterNetworkPrefab(flameBodyAuraIndicatorPrefab);
 
         }
 
