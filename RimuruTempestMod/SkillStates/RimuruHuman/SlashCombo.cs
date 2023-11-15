@@ -52,7 +52,7 @@ namespace RimuruMod.SkillStates
             this.baseDuration = 0.63f;
             this.attackStartTime = 0.3f;
             this.attackEndTime = 0.5f;
-            this.baseEarlyExitTime = 0.5f;
+            this.baseEarlyExitTime = 0.75f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 7f;
