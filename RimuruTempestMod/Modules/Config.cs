@@ -102,6 +102,9 @@ namespace RimuruMod.Modules
 
         public static void SetupRiskOfOptions() 
         {
+            Sprite icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texRimuruIcon");
+            ModSettingsManager.SetModIcon(icon);
+
             //Melee - 01
             ModSettingsManager.AddOption(
                 new StepSliderOption(
