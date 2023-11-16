@@ -46,7 +46,7 @@ namespace RimuruMod.SkillStates
             }
             
             this.procCoefficient = 1f;
-            this.damageCoefficient = StaticValues.devourDamageCoefficient;
+            this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
             this.baseDuration = 0.8f;

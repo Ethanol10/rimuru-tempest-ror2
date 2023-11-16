@@ -12,6 +12,7 @@ namespace RimuruMod.Modules
         //Melee Attacks - 01
         public static ConfigEntry<float> swordDamageCoefficient;
         public static ConfigEntry<float> devourDamageCoefficient;
+        public static ConfigEntry<float> dashAttackHop;
 
         //Black Lightning - 02
         public static ConfigEntry<float> blackLightningTotalDuration;
@@ -55,6 +56,7 @@ namespace RimuruMod.Modules
             //Melee - 01
             swordDamageCoefficient = RimuruPlugin.instance.Config.Bind<float>("01 - Sword/Devour", "01 - Sword Damage Coefficient", 2.0f, "Determines the damage coefficient for Rimuru's Human Form, Sword.");
             devourDamageCoefficient = RimuruPlugin.instance.Config.Bind<float>("01 - Sword/Devour", "02 - Devour Damage Coefficient", 1.0f, "Determines the damage coefficient for Rimuru's Slime form, Devour");
+            dashAttackHop = RimuruPlugin.instance.Config.Bind<float>("01 - Sword/Devour", "03 - Dash Attack Hop Power", 10f, "Determines the amount of distance he hops after starting a dash attack in Human Form.");
 
             //Black Lightning - 02
             blackLightningTotalDuration = RimuruPlugin.instance.Config.Bind<float>("02 - Black Lightning", "01 - Black Lightning Total Duration", 4f, "Determines how long Rimuru should fire black lightning for.");
@@ -118,6 +120,16 @@ namespace RimuruMod.Modules
                     {
                         min = 1f,
                         max = 100f,
+                        increment = 0.1f
+                    }
+                ));
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    dashAttackHop,
+                    new StepSliderConfig
+                    {
+                        min = 1f,
+                        max = 20f,
                         increment = 0.1f
                     }
                 ));

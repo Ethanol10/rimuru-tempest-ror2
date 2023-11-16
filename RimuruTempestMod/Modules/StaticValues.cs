@@ -40,10 +40,6 @@ namespace RimuruMod.Modules
         internal const float barrierBuffTimer = 3f;
         internal const float barrierBuffGain = 0.1f;
 
-        //melee attacks
-        internal const float swordDamageCoefficient = 2f;
-        internal const float devourDamageCoefficient = 1f;
-
         //blacklightning
         internal const float blacklightningtotalDuration = 4f;
         internal const float blacklightningDamageCoefficient = 1f;

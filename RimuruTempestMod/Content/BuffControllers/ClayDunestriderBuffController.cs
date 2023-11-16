@@ -115,7 +115,7 @@ namespace RimuruMod.Content.BuffControllers
 
         public override void OnDestroy()
         {
-            base.FixedUpdate();
+            base.OnDestroy();
             if (tarManipIndicator)
             {
                 tarManipIndicator.SetActive(false);

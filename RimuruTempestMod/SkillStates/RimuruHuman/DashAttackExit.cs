@@ -17,6 +17,8 @@ namespace RimuruMod.SkillStates
         protected float attackTimer = 0f;
         protected float attackStopwatch = 0f;
 
+        protected float stopHoptrigger = 0.35f;
+
         public override void OnEnter()
         {
             this.hitboxName = "Sword";
@@ -70,8 +72,6 @@ namespace RimuruMod.SkillStates
         {
             Util.PlaySound(this.hitSoundString, base.gameObject);
 
-            base.SmallHop(base.characterMotor, this.hitHopVelocity / attackSpeedStat);
-
             if (!this.inHitPause && this.hitStopDuration > 0f)
             {
                 this.storedVelocity = base.characterMotor.velocity;
@@ -96,6 +96,11 @@ namespace RimuruMod.SkillStates
         {
             base.FixedUpdate();
 
+            if (this.stopwatch >= this.duration * attackStartTime && base.isAuthority && this.stopwatch <= this.duration * stopHoptrigger) 
+            {
+                characterMotor.velocity = new Vector3(characterMotor.velocity.x, Mathf.Max(characterMotor.velocity.y, Modules.Config.dashAttackHop.Value), characterMotor.velocity.z);
+            }
+
             if (this.stopwatch >= this.duration && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
@@ -113,6 +118,24 @@ namespace RimuruMod.SkillStates
                 {
                     this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                }
+
+
+                if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
+                {
+
+                    Ray aimRay = base.GetAimRay();
+
+                    ProjectileManager.instance.FireProjectile(Modules.Projectiles.icicleLanceProjectile,
+                    aimRay.origin,
+                    Util.QuaternionSafeLookRotation(new Vector3(aimRay.direction.x, aimRay.direction.y, aimRay.direction.z)),
+                    base.gameObject,
+                    damageCoefficient * this.damageStat,
+                    0f,
+                    base.RollCrit(),
+                    DamageColorIndex.Default,
+                    null,
+                    -1f);
                 }
             }
 
@@ -133,23 +156,6 @@ namespace RimuruMod.SkillStates
                     this.OnHitEnemyAuthority();
                     this.CheckIfDead(hurtboxes);
                 }
-            }
-
-            if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
-            {
-
-                Ray aimRay = base.GetAimRay();
-
-                ProjectileManager.instance.FireProjectile(Modules.Projectiles.icicleLanceProjectile,
-                aimRay.origin,
-                Util.QuaternionSafeLookRotation(new Vector3(aimRay.direction.x, aimRay.direction.y, aimRay.direction.z)),
-                base.gameObject,
-                damageCoefficient * this.damageStat,
-                0f,
-                base.RollCrit(),
-                DamageColorIndex.Default,
-                null,
-                -1f);
             }
         }
 
