@@ -14,7 +14,7 @@ Emote compatible.
 Risk of options compatible.
 
 ## NOTE:
-Mod was completed with what we envisioned now. If you'd like to add more to it, create a fork and talk to me (Discord: ethanol10), and we can setup a release for this mod.
+Mod was completed with what we envisioned now, thanks to the commissioner, LeapedGold. If you'd like to add more to it, create a fork and talk to me (Discord: ethanol10), and we can setup a release for this mod.
 
 ## Latest Changes
 
