@@ -45,6 +45,9 @@
     <Reference Include="R2API.Core">
       <HintPath>..\libs\R2API.Core.dll</HintPath>
     </Reference>
+    <Reference Include="R2API.DamageType">
+      <HintPath>..\libs\R2API.DamageType.dll</HintPath>
+    </Reference>
     <Reference Include="R2API.Language">
       <HintPath>..\libs\R2API.Language.dll</HintPath>
     </Reference>

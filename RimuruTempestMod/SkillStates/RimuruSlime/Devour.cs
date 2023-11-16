@@ -1,4 +1,5 @@
-﻿using RimuruMod.Modules;
+﻿using R2API;
+using RimuruMod.Modules;
 using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
@@ -48,10 +49,10 @@ namespace RimuruMod.SkillStates
             this.damageCoefficient = StaticValues.devourDamageCoefficient;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
-            this.baseDuration = 1f;
+            this.baseDuration = 0.8f;
             this.attackStartTime = 0.1f;
-            this.attackEndTime = 0.8f;
-            this.baseEarlyExitTime = 0.8f;
+            this.attackEndTime = 0.5f;
+            this.baseEarlyExitTime = 0.5f;
             this.hitStopDuration = 0.01f;
             this.attackRecoil = 0.2f;
             this.hitHopVelocity = 4f;
@@ -64,6 +65,7 @@ namespace RimuruMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
+            DamageAPI.AddModdedDamageType(this.attack, Modules.Damage.rimuruDevour);
         }
 
         public override void FixedUpdate()

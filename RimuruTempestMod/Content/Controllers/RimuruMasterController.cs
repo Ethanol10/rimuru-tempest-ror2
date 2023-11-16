@@ -75,14 +75,14 @@ namespace RimuruMod.Modules.Survivors
 			{
                 if (damageReport.attackerBody && damageReport.victimBody)
 				{
-					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
+					if(damageReport.damageInfo.damage > 0 && damageReport.victimBody.HasBuff(Buffs.rimuruDevourDebuff) && damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
 					{
 						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
 						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
 
 						RimuruBaseBuffController incomingSkill;
-                        Debug.Log("killed " + newbodyPrefab.name);
-                        Debug.Log(Modules.StaticValues.rimDic[newbodyPrefab.name] + "skillname");
+                        //Debug.Log("killed " + newbodyPrefab.name);
+                        //Debug.Log(Modules.StaticValues.rimDic[newbodyPrefab.name] + "skillname");
                         if (Modules.StaticValues.rimDic.ContainsKey(newbodyPrefab.name) && isBodyInitialized) 
 						{
                             incomingSkill = Modules.StaticValues.rimDic[newbodyPrefab.name].Invoke(characterMaster);

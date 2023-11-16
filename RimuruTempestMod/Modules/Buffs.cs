@@ -12,6 +12,10 @@ namespace RimuruMod.Modules
         internal static BuffDef CritDebuff;
         internal static BuffDef WetLightningDebuff;
         internal static BuffDef WetDebuff;
+        internal static BuffDef rimuruDevourDebuff;
+
+
+        //devour buffs
 
         internal static BuffDef strengthBuff;
         internal static BuffDef speedBuff;
@@ -29,7 +33,6 @@ namespace RimuruMod.Modules
         internal static BuffDef barrierBuff;
         internal static BuffDef devourBuff;
 
-        //devour buffs
         internal static BuffDef nullifierBigBrainBuff;
         internal static BuffDef nullifierBigBrainBuffStacks;
         internal static BuffDef scavengerReplicationBuff;
@@ -63,6 +66,7 @@ namespace RimuruMod.Modules
         internal static BuffDef exposeBuff;
         internal static BuffDef TarProjBuff;
         internal static BuffDef CrippleProjBuff;
+
         internal static void RegisterBuffs()
         {
             SpatialMovementBuff = AddNewBuff($"SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
@@ -120,6 +124,9 @@ namespace RimuruMod.Modules
             exposeBuff = AddNewBuff($"Void-touched blows - Melee attacks apply expose ", Assets.resonanceBuffIcon, Color.cyan, false, false);
             CrippleProjBuff = AddNewBuff($"Crippling Waterblade - Waterblade additionally deals cripple damage ", Assets.resonanceBuffIcon, Color.cyan, false, false);
             TarProjBuff = AddNewBuff($"Tarred Waterblade - Waterblade additionally deals tar damage ", Assets.resonanceBuffIcon, Color.cyan, false, false);
+
+
+            rimuruDevourDebuff = AddNewBuff($"Devour Debuff", Assets.tarBuffIcon, Color.cyan, false, true);
 
         }
 

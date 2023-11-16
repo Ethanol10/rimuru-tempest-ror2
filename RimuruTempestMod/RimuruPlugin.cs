@@ -15,6 +15,7 @@ using RimuruMod.Modules;
 using RimuruMod.Modules.Networking;
 using RimuruMod.Modules.Networking;
 using RimuruMod.Content.BuffControllers;
+using R2API;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -165,6 +166,13 @@ namespace RimuruMod
                                 damageInfo.crit = true;
                             }
                         }
+                    }
+
+
+                    //modded damage type for devour
+                    if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.rimuruDevour))
+                    {
+                        self.body.ApplyBuff(Buffs.rimuruDevourDebuff.buffIndex, 1, -1);
                     }
 
                 }

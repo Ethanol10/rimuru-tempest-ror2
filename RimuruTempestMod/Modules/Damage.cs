@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShiggyMod.Modules
+namespace RimuruMod.Modules
 {
     public static class Damage
     {
-        internal static DamageAPI.ModdedDamageType shiggyDecay;
+        internal static DamageAPI.ModdedDamageType rimuruDevour;
 
         internal static void SetupModdedDamage()
         {
-            shiggyDecay = DamageAPI.ReserveDamageType();
+            rimuruDevour = DamageAPI.ReserveDamageType();
         }
     }
 }

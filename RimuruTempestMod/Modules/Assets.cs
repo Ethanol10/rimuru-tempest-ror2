@@ -174,7 +174,7 @@ namespace RimuruMod.Modules
             //devour effect
             devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
             devourExtendedEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DevourExtended");
-            devourskillgetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("SkillGet");
+            devourskillgetEffect = LoadEffect("SkillGet");
             //analyze effect
             analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
             //waterblade impact effect
