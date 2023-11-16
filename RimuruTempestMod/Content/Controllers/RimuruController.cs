@@ -18,6 +18,7 @@ namespace RimuruMod.Modules.Survivors
     {
         string prefix = RimuruSlime.RIMURU_PREFIX;
         public GameObject devoureffectObj;
+        public GameObject devoureffectExtendedObj;
 
         public float strengthMultiplier;
         public float rangedMultiplier;
@@ -80,9 +81,14 @@ namespace RimuruMod.Modules.Survivors
             {
                 Rimurumastercon = characterMaster.gameObject.AddComponent<RimuruMasterController>();
             }
+            else
+            {
+                Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
+            }
+
+            Rimurumastercon.isBodyInitialized = false;
 
             characterBody.skillLocator.special.RemoveAllStocks();
-
 
         }
 
@@ -126,11 +132,24 @@ namespace RimuruMod.Modules.Survivors
                 if (characterBody.inputBank.skill1.down )
                 {
                     buttonHeld = true;
-                    if (!devoureffectObj && buttonHeld)
+
+                    if (characterBody.HasBuff(Buffs.devourBuff))
                     {
-                        this.loopID = AkSoundEngine.PostEvent(1183893824, base.gameObject);
-                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                        if (!devoureffectExtendedObj && buttonHeld)
+                        {
+                            this.loopID = AkSoundEngine.PostEvent("RimuruDevour", base.gameObject);
+                            devoureffectExtendedObj = Instantiate(Modules.Assets.devourExtendedEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                        }
                     }
+                    else
+                    {
+                        if (!devoureffectObj && buttonHeld)
+                        {
+                            this.loopID = AkSoundEngine.PostEvent("RimuruDevour", base.gameObject);
+                            devoureffectObj = Instantiate(Modules.Assets.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                        }
+                    }
+
 
                 }
                 else
@@ -139,6 +158,10 @@ namespace RimuruMod.Modules.Survivors
                     if (devoureffectObj)
                     {
                         Destroy(devoureffectObj);
+                    }
+                    if (devoureffectExtendedObj)
+                    {
+                        Destroy(devoureffectExtendedObj);
                     }
 
                 }
@@ -154,6 +177,11 @@ namespace RimuruMod.Modules.Survivors
             {
                 devoureffectObj.transform.position = child.FindChild("Spine").transform.position;
                 devoureffectObj.transform.rotation = Quaternion.LookRotation(characterBody.characterDirection.forward);
+            }
+            if (devoureffectExtendedObj)
+            {
+                devoureffectExtendedObj.transform.position = child.FindChild("Spine").transform.position;
+                devoureffectExtendedObj.transform.rotation = Quaternion.LookRotation(characterBody.characterDirection.forward);
             }
         }
 
@@ -182,73 +210,6 @@ namespace RimuruMod.Modules.Survivors
 
 
 
-    //mortar orb
-    public class MortarOrb : Orb
-    {
-        public override void Begin()
-        {
-            base.duration = 0.5f;
-            EffectData effectData = new EffectData
-            {
-                origin = this.origin,
-                genericFloat = base.duration
-            };
-            effectData.SetHurtBoxReference(this.target);
-            GameObject effectPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/SquidOrbEffect");
-            EffectManager.SpawnEffect(effectPrefab, effectData, true);
-        }
-        public HurtBox PickNextTarget(Vector3 position, float range)
-        {
-            BullseyeSearch bullseyeSearch = new BullseyeSearch();
-            bullseyeSearch.searchOrigin = position;
-            bullseyeSearch.searchDirection = Vector3.zero;
-            bullseyeSearch.teamMaskFilter = TeamMask.allButNeutral;
-            bullseyeSearch.teamMaskFilter.RemoveTeam(this.teamIndex);
-            bullseyeSearch.filterByLoS = false;
-            bullseyeSearch.sortMode = BullseyeSearch.SortMode.Distance;
-            bullseyeSearch.maxDistanceFilter = range;
-            bullseyeSearch.RefreshCandidates();
-            List<HurtBox> list = bullseyeSearch.GetResults().ToList<HurtBox>();
-            if (list.Count <= 0)
-            {
-                return null;
-            }
-            return list[UnityEngine.Random.Range(0, list.Count)];
-        }
-        public override void OnArrival()
-        {
-            if (this.target)
-            {
-                HealthComponent healthComponent = this.target.healthComponent;
-                if (healthComponent)
-                {
-                    DamageInfo damageInfo = new DamageInfo
-                    {
-                        damage = this.damageValue,
-                        attacker = this.attacker,
-                        inflictor = null,
-                        force = Vector3.zero,
-                        crit = this.isCrit,
-                        procChainMask = this.procChainMask,
-                        procCoefficient = this.procCoefficient,
-                        position = this.target.transform.position,
-                        damageColorIndex = this.damageColorIndex
-                    };
-                    healthComponent.TakeDamage(damageInfo);
-                    GlobalEventManager.instance.OnHitEnemy(damageInfo, healthComponent.gameObject);
-                    GlobalEventManager.instance.OnHitAll(damageInfo, healthComponent.gameObject);
-                }
-            }
-        }
-
-        public float damageValue;
-        public GameObject attacker;
-        public TeamIndex teamIndex;
-        public bool isCrit;
-        public ProcChainMask procChainMask;
-        public float procCoefficient = 1f;
-        public DamageColorIndex damageColorIndex;
-    }
 
 
 

@@ -14,15 +14,22 @@ Emote compatible.
 Risk of options compatible.
 
 ## NOTE:
-This mod is not polished well and will most likely not be finished. This is due to the commissioner having financial issues and it'd be a waste to not release what we got. 
-
-I've noticed many people are unsure of what is required for this mod to be classified as finished, this would require an animation overhaul, as well as implementing a system where each enemy devoured would have a unique effect. Currently this is not in development and I am not an animator, so simply paying me to do animations is not a solution ("I mean, have you seen my animations? They look like trash!" - Ethanol 10)
-
-Contact me by joining the Risk of Rain Modding Channel on Discord and you'll be able to DM me without friending me (@Ethanol 10#6656)
+Mod was completed with what we envisioned now, thanks to the commissioner, LeapedGold. If you'd like to add more to it, create a fork and talk to me (Discord: ethanol10), and we can setup a release for this mod.
 
 ## Latest Changes
 
-- v0.9.4 -> Added Risk of options support for damage coefficients and other properties on each move, some options need a restart to apply. Text descriptions for options do not update until a restart, but if they are not cooldowns, they will be applied in the background.
+- v1.0.0 
+    - Devour now has **unique buffs for every monster in the base and expansion** (SotV). (Further new enemies may not be supported if created.)
+        - We'll update a wiki page later with the list of skills.
+    - Added some animation tweaks to sword swing.
+    - After a dash attack, Rimuru will now spin and deal some damage, while moving slightly up.
+    - Rimuru can now glide by holding the jump down while in the air.
+    - Fixed some bugs, other fixes:
+        - Center for Rimuru has now been properly set so effects are set around the center of the body rather than the feet.
+        - Eclipse progress should naturally work now without other mods. 
+        - Slightly optimized the sound sizes.
+        - Added some options into RoO
+        - Devour used to not work with other DoTs as they would take precedence and not give a buff. This was fixed to ensure that devour always get registered and should only grant buffs when you are in slime mode.
 
 ## Popcorn Factory
 
@@ -71,7 +78,18 @@ Contact me by joining the Risk of Rain Modding Channel on Discord and you'll be 
         <p>Wisp Mod (Popcorn Factory Team)</p>
     </a>
 </div>
-
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/">
+      <img width="130" src="https://cdn.discordapp.com/attachments/928130606662049892/1088442099432706068/PopcornFactory-Arsonist_Mod-1.png"/>
+      <p>Arsonist Mod (Popcorn Factory Team)</p>
+    </a>
+</div>	
+<div>
+    <a href="https://thunderstore.io/package/TeaL/NoctisMod/">
+        <img width="130" src="https://github.com/1TeaL/Noctis/assets/93917577/7ca87c81-7d42-45e9-81f6-f0227989713f"><br>
+        <p>Noctis Mod (TeaL)</p>
+    </a>
+</div>
 </details>
 
 ## Screenshots
@@ -101,16 +119,7 @@ Swing forward for 200% damage, dashing to distant enemies.
 
 #### Slime Form: Devour 
 <img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268869180870666/devourIcon.png"/>
-Devour all enemies in front of you for 100% damage. Gain buffs depending on which enemy type is killed.
-
-| Effect                  | Associated Monster                                                                                                                  |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Strengthen Body         | - Beetle - Beetle Guard - Bison - Parent - Vulture - Gup - Gip - Geep                                                               |
-| Fire Manipulation       | - Lemurian - Elder Lemurian - Lunar Chimera (Exploder) - Blind Vermin - Greater Wisp - Wisp - Magma Worm                            |
-| Poisonous Attacks       | - Larva - Beetle Queen - Blind Pest - Clay Apothecary - Clay Templar - Imp - Imp Overlord - Clay Dunestrider                        |
-| Ultraspeed Regeneration | - Mini Mushrum - Wandering Vagrant - Void Reaver - Void Jailer - Void Barnacle - Jellyfish                                          |
-| Body Armor              | - Stone Golem - Brass Contraption - Hermit Crab - Stone Titan - Aurelionite - Alpha Construct - Lunar Chimera (Golem) - Grovetender |
-| Lightning Manipulation  | - Xi Construct - Solus Probe - Solus Control Unit - Alloy Worship Unit - Overloading Worm - Lunar Chimera (Wisp)                    |
+Devour all enemies in front of you for 100% damage. Gain buffs depending on which enemy type is killed. (We will provide a wiki page for the list of skills down the line! In the meantime, if you have BetterUI you should be able to hover over the buff icon and observe what it does.)
 
 ### Secondary:
 
@@ -147,6 +156,7 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v0.9.4 -> Added Risk of options support for damage coefficients and other properties on each move, some options need a restart to apply. Text descriptions for options do not update until a restart, but if they are not cooldowns, they will be applied in the background.
 - v0.9.3 -> R2API submodule release.
 - v0.9.2 -> We forgot to write patch notes for this update, sorry.
 - v0.9.1 -> Fixed Attenuation on all sounds so that players need to be in proximity to hear the sounds made by Rimuru.
@@ -157,12 +167,11 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 
 ## Future Plans
 
-- There will be no more development on this mod
-  - The mod was commissioned but ended up not being paid for due to financial complications. The source is available and a new version will be updated if it can be done easily.
-  - Bugs will be fixed on a case by case basis.
+- We don't plan on updating this after this, other than bug fixes.
 
 ## Credits
 
+- Commissioner to finish the mod: LeapedGold (leapedgold)
 - The coding team: Popcorn Factory (Ethanol 10, TeaL, BokChoyWithSoy)
 - Audio from various including:
   - That time I got reincarnated as a Slime anime

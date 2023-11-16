@@ -1,8 +1,8 @@
 {
   "name": "Rimuru_Tempest_Mod",
-  "version_number": "0.9.4",
+  "version_number": "1.0.0",
   "website_url": "https://github.com/Ethanol10/rimuru-tempest-ror2",
-  "description": "I am the slime Rimuru Tempest. I'm not a bad slime! v0.9.4 -> Risk of Options support for various parameters!",
+  "description": "I am the slime Rimuru Tempest. I'm not a bad slime! v1.0.0 -> FULL RELEASE: MORE ABILITIES TO MORE ENEMIES!",
   "dependencies": [
     "bbepis-BepInExPack-5.4.1905",
     "RiskofThunder-HookGenPatcher-1.2.3",
@@ -10,6 +10,7 @@
     "RiskofThunder-R2API_Prefab-1.0.0",
     "RiskofThunder-R2API_Language-1.0.0",
     "RiskofThunder-R2API_Sound-1.0.0",
-    "RiskofThunder-R2API_Networking-1.0.0"
+    "RiskofThunder-R2API_Networking-1.0.0",
+    "RiskofThunder-R2API_DamageType-1.0.4"
   ]
 }

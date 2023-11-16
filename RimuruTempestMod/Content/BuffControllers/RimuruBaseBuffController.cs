@@ -1,7 +1,9 @@
-﻿using System;
+﻿using R2API.Networking;
+using RimuruMod.Modules;
+using System;
 using UnityEngine;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      All Buffs should inherit from this.
@@ -14,15 +16,29 @@ namespace RimuruTempestMod.Content.BuffControllers
         public bool isPermaBuff = false;
         public float stopwatch;
         public float lifetime;
+        public RoR2.CharacterBody body;
+        public RoR2.CharacterMaster master;
+        public RoR2.BuffDef buffdef;
 
         public virtual void Awake()
         {
             ApplySkillChange();
             stopwatch = 0f;
+            master = gameObject.GetComponent<RoR2.CharacterMaster>();
+            body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
         }
 
         public virtual void FixedUpdate()
         {
+            if (body)
+            {
+                if (!body.HasBuff(buffdef))
+                {
+                    body.ApplyBuff(buffdef.buffIndex);
+                }
+            }
+
+
             ActiveBuffEffect();
             stopwatch += Time.fixedDeltaTime;
 
@@ -32,9 +48,25 @@ namespace RimuruTempestMod.Content.BuffControllers
             }
         }
 
+        public virtual void OnDestroy()
+        {
+            body.ApplyBuff(buffdef.buffIndex, 0);
+        }
+
+
+        public virtual void RefreshTimers()
+        {
+            lifetime += StaticValues.refreshTimerDuration;
+        }
+
         public virtual void ActiveBuffEffect()
         {
 
+        }
+
+        public virtual void UpdateBody()
+        {
+            body = master.GetBody();
         }
 
         public virtual void ApplySkillChange()

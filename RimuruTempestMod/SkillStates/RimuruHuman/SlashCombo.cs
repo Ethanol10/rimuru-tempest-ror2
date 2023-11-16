@@ -1,6 +1,9 @@
-﻿using RimuruMod.Modules.Survivors;
+﻿using RimuruMod.Modules;
+using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
+using RoR2.Projectile;
+using System;
 using UnityEngine;
 
 namespace RimuruMod.SkillStates
@@ -15,6 +18,10 @@ namespace RimuruMod.SkillStates
             this.hitboxName = "Sword";
 
             this.damageType = DamageType.Generic;
+            if (base.characterBody.HasBuff(Modules.Buffs.bleedMeleeBuff))
+            {
+                damageType |= DamageType.BleedOnHit;
+            }
             if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
             {
                 damageType |= DamageType.IgniteOnHit;
@@ -23,19 +30,34 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.BlightOnHit;
             }
-            this.damageCoefficient = Modules.Config.swordDamageCoefficient.Value;
+            if (base.characterBody.HasBuff(Modules.Buffs.lightningBuff))
+            {
+                damageType |= DamageType.Shock5s;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.crippleBuff))
+            {
+                damageType |= DamageType.CrippleOnHit;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
+            {
+                damageType |= DamageType.ApplyMercExpose;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
+            {
+                this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;
+            }
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
-            this.baseDuration = 0.8f;
-            this.attackStartTime = 0.2f;
-            this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.4f;
+            this.baseDuration = 0.63f;
+            this.attackStartTime = 0.3f;
+            this.attackEndTime = 0.5f;
+            this.baseEarlyExitTime = 0.75f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 10f;
+            this.hitHopVelocity = 7f;
 
-            this.swingSoundString = "RimuruSwordSwing";
+            this.swingSoundString = "RimuruSword";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;

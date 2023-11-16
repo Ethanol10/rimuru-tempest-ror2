@@ -12,6 +12,10 @@ using EmotesAPI;
 using BepInEx.Bootstrap;
 using RimuruMod.SkillStates;
 using RimuruMod.Modules;
+using RimuruMod.Modules.Networking;
+using RimuruMod.Modules.Networking;
+using RimuruMod.Content.BuffControllers;
+using R2API;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -36,7 +40,7 @@ namespace RimuruMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
         public const string MODNAME = "RimuruTempestMod";
-        public const string MODVERSION = "0.9.4";
+        public const string MODVERSION = "1.0.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -63,6 +67,8 @@ namespace RimuruMod
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
 
+            Modules.Damage.SetupModdedDamage();
+
             // survivor initialization
             new RimuruHuman().Initialize(false);
             new RimuruSlime().Initialize(true);
@@ -72,6 +78,15 @@ namespace RimuruMod
 
             Modules.StaticValues.LoadDictionary();
 
+            //networking
+            NetworkingAPI.RegisterMessageType<ItemDropNetworked>();
+            NetworkingAPI.RegisterMessageType<HealNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<PeformDirectionalForceNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<SetDashStateMachine>();
+            NetworkingAPI.RegisterMessageType<GravityPulsePullRequest>();
+            NetworkingAPI.RegisterMessageType<OrbDamageRequest>();
+
+
             Hook();
         }
 
@@ -80,7 +95,7 @@ namespace RimuruMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
-            On.RoR2.CharacterModel.Start += CharacterModel_Start;
+            //On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             On.RoR2.CharacterModel.Awake += CharacterModel_Awake;
@@ -134,87 +149,48 @@ namespace RimuruMod
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
-
-            if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+            if (self)
             {
-                //crit buff
-                if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
+                if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
                 {
-                    if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                    //crit buff
+                    if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
                     {
-
-                        if (Modules.Config.doubleInsteadOfCrit.Value)
+                        if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
                         {
-                            damageInfo.damage *= 2.0f;
-                        }
-                        else 
-                        {
-                            damageInfo.crit = true;
-                        }
-                    }
-                }
 
-                if (self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME" || 
-                    self.body.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
-                {
-                    RimuruMasterController rimuruMasterCon = self.GetComponent<RimuruMasterController>();
-
-                    bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
-                    if (!flag && damageInfo.damage > 0f)
-                    {
-                        //resistance buff
-                        if (self.body.HasBuff(Modules.Buffs.resistanceBuff.buffIndex))
-                        {
-                            if (self.combinedHealthFraction < 0.5f && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                            if (Modules.Config.doubleInsteadOfCrit.Value)
                             {
-                                damageInfo.force = Vector3.zero;
-                                damageInfo.damage -= self.body.armor;
-                                if (damageInfo.damage < 0f)
-                                {
-                                    self.Heal(Mathf.Abs(damageInfo.damage), default(RoR2.ProcChainMask), true);
-                                    damageInfo.damage = 0f;
-
-                                }
-
+                                damageInfo.damage *= 2.0f;
                             }
                             else
                             {
-                                damageInfo.force = Vector3.zero;
-                                damageInfo.damage = Mathf.Max(1f, damageInfo.damage - self.body.armor);
-                            }
-                        }
-                        //regen buff
-                        if (self.body.HasBuff(Modules.Buffs.ultraspeedRegenBuff.buffIndex))
-                        {
-                            if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-                            {
-                                rimuruMasterCon.regenAmount = damageInfo.damage * StaticValues.ultraspeedRegenCoefficient;
-                                if (rimuruMasterCon.regenAmount > self.combinedHealth * StaticValues.ultraspeedHealthThreshold)
-                                {
-                                    self.body.ApplyBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex, StaticValues.ultraspeedBuffStacks, -1);
-                                }
-
-                            }
-                            else
-                            {
-                                damageInfo.force = Vector3.zero;
-                                damageInfo.damage = Mathf.Max(1f, damageInfo.damage - self.body.armor);
+                                damageInfo.crit = true;
                             }
                         }
                     }
 
+
+                    //modded damage type for devour
+                    if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.rimuruDevour))
+                    {
+                        self.body.ApplyBuff(Buffs.rimuruDevourDebuff.buffIndex, 1, -1);
+                    }
+
                 }
+
             }
 
-            orig.Invoke(self, damageInfo);
+            orig(self, damageInfo);
         }
 
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victim)
         {
-            var attacker = damageInfo.attacker;
-            if (attacker)
+            orig.Invoke(self, damageInfo, victim);
+
+            if (damageInfo.attacker)
             {
-                var body = attacker.GetComponent<CharacterBody>();
+                var body = damageInfo.attacker.GetComponent<CharacterBody>();
                 var victimBody = victim.GetComponent<CharacterBody>();
                 if (body && victimBody)
                 {
@@ -315,7 +291,6 @@ namespace RimuruMod
                 }
             }
 
-            orig.Invoke(self, damageInfo, victim);
         }
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
@@ -329,13 +304,13 @@ namespace RimuruMod
                     //{
                     //    self.armor += StaticValues.resBuffArmor;
                     //}
+                    if (self.HasBuff(Modules.Buffs.tarManipDebuff))
+                    {
+                        self.attackSpeed *= StaticValues.tarManipCoefficient;
+                    }
                     if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
                     {
                         self.armor += StaticValues.spatialmovementbuffArmor;
-                    }
-                    if (self.HasBuff(Modules.Buffs.strengthBuff))
-                    {
-                        self.damage *= StaticValues.strengthBuffCoefficient;
                     }
                     if (self.HasBuff(Modules.Buffs.CritDebuff))
                     {
@@ -365,7 +340,7 @@ namespace RimuruMod
             orig(self);
             if (self.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME" || self.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME")
             {
-                AkSoundEngine.PostEvent(779278001, self.gameObject);
+                AkSoundEngine.PostEvent("RimuruDeath", self.gameObject);
             }
         }
 
@@ -374,7 +349,7 @@ namespace RimuruMod
             orig(self);
             if (self.gameObject.name.Contains("RimuruHumanDisplay"))
             {
-                AkSoundEngine.PostEvent(2656882895, self.gameObject);
+                AkSoundEngine.PostEvent("RimuruEntrance", self.gameObject);
             }
         }
 

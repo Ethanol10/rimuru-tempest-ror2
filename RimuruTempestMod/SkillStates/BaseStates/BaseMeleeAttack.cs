@@ -2,6 +2,7 @@
 using RimuruMod.Modules.Survivors;
 using RoR2;
 using RoR2.Audio;
+using RoR2.Projectile;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,24 +30,24 @@ namespace RimuruMod.SkillStates.BaseStates
         protected float hitHopVelocity = 10f;
         protected bool cancelled = false;
 
-        protected string swingSoundString = "";
+        protected string swingSoundString = "RimuruSword";
         protected string hitSoundString = "";
         protected string muzzleString = "SwingCenter";
         protected GameObject swingEffectPrefab;
         protected GameObject hitEffectPrefab;
         protected NetworkSoundEventIndex impactSound;
 
-        private float earlyExitTime;
+        protected float earlyExitTime;
         public float duration;
-        private bool hasFired;
-        private float hitPauseTimer;
-        private OverlapAttack attack;
+        protected bool hasFired;
+        protected float hitPauseTimer;
+        protected OverlapAttack attack;
         protected bool inHitPause;
-        private bool hasHopped;
+        protected bool hasHopped;
         protected float stopwatch;
         protected Animator animator;
-        private BaseState.HitStopCachedState hitStopCachedState;
-        private Vector3 storedVelocity;
+        protected BaseState.HitStopCachedState hitStopCachedState;
+        protected Vector3 storedVelocity;
 
         public RimuruController Rimurucon;
 
@@ -64,6 +65,14 @@ namespace RimuruMod.SkillStates.BaseStates
             this.animator.SetBool("attacking", true);
             this.animator.SetFloat("Slash.playbackRate", base.attackSpeedStat);
 
+
+
+            this.PlayAttackAnimation();
+            CreateNewAttack();
+        }
+
+        protected virtual void CreateNewAttack() 
+        {
             HitBoxGroup hitBoxGroup = null;
             Transform modelTransform = base.GetModelTransform();
 
@@ -71,8 +80,6 @@ namespace RimuruMod.SkillStates.BaseStates
             {
                 hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == this.hitboxName);
             }
-
-            this.PlayAttackAnimation();
 
             this.attack = new OverlapAttack();
             this.attack.damageType = this.damageType;
@@ -91,14 +98,14 @@ namespace RimuruMod.SkillStates.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            if (animator.GetBool("isMoving")) 
-            {
-                base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
-                AkSoundEngine.PostEvent(2454616260, base.gameObject);
-                return;
-            }
+            //if (animator.GetBool("isMoving")) 
+            //{
+            //    base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+            //    AkSoundEngine.PostEvent(2454616260, base.gameObject);
+            //    return;
+            //}
 
-            base.PlayCrossfade("RightArm, Override", "SwingIdle" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+            base.PlayCrossfade("UpperBody, Override", "Swing" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
             AkSoundEngine.PostEvent(2454616260, base.gameObject);
         }
 
@@ -108,7 +115,10 @@ namespace RimuruMod.SkillStates.BaseStates
 
             base.OnExit();
 
-            this.animator.SetBool("attacking", false);
+            if (this.animator) 
+            {
+                this.animator.SetBool("attacking", false);
+            }
         }
 
         protected virtual void PlaySwingEffect()
@@ -144,7 +154,7 @@ namespace RimuruMod.SkillStates.BaseStates
             
         }
 
-        private void FireAttack()
+        protected virtual void FireAttack()
         {
             if (!this.hasFired)
             {
@@ -155,6 +165,23 @@ namespace RimuruMod.SkillStates.BaseStates
                 {
                     this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                }
+
+                if (base.characterBody.HasBuff(Modules.Buffs.icicleLanceBuff))
+                {
+
+                    Ray aimRay = base.GetAimRay();
+
+                    ProjectileManager.instance.FireProjectile(Modules.Projectiles.icicleLanceProjectile,
+                    aimRay.origin,
+                    Util.QuaternionSafeLookRotation(new Vector3(aimRay.direction.x, aimRay.direction.y, aimRay.direction.z)),
+                    base.gameObject,
+                    damageCoefficient * this.damageStat,
+                    0f,
+                    base.RollCrit(),
+                    DamageColorIndex.Default,
+                    null,
+                    -1f);
                 }
             }
 
@@ -168,6 +195,7 @@ namespace RimuruMod.SkillStates.BaseStates
                     this.CheckIfDead(hurtboxes);
                 }
             }
+
         }
 
         protected virtual void SetNextState()
@@ -214,7 +242,7 @@ namespace RimuruMod.SkillStates.BaseStates
                 this.FireAttack();
             }
 
-            if (this.stopwatch >= (this.duration - this.earlyExitTime) && base.isAuthority)
+            if (this.stopwatch >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
                 if (base.inputBank.skill1.down)
                 {

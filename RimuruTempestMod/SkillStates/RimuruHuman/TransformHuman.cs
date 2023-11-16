@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using RimuruMod.Content.BuffControllers;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -16,7 +17,7 @@ namespace RimuruMod.SkillStates
             oldBody = base.characterBody;
             oldHealth = oldBody.healthComponent.health;
             characterBody.master.TransformBody("RimuruSlimeBody");
-            AkSoundEngine.PostEvent(1422622395, base.gameObject);
+            AkSoundEngine.PostEvent("RimuruTransform", base.gameObject);
         }
 
 
@@ -34,6 +35,12 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            RimuruBaseBuffController[] array = characterBody.master.GetComponents<RimuruBaseBuffController>();
+            foreach (RimuruBaseBuffController controller in array)
+            {
+                controller.UpdateBody();
+            }
             characterBody.master.GetBody().healthComponent.health = oldHealth;
         }
 

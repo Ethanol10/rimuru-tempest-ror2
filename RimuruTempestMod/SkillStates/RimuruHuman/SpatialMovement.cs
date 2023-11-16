@@ -17,7 +17,7 @@ namespace RimuruMod.SkillStates
         {
             base.OnEnter();
             this.aimSphere = Object.Instantiate<GameObject>(ArrowRain.areaIndicatorPrefab);
-            AkSoundEngine.PostEvent(3379926649, base.gameObject);
+            AkSoundEngine.PostEvent("RimuruBlink", base.gameObject);
         }
         public override void Update()
         {

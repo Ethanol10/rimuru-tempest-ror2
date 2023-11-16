@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2001093847
+CRC: 3941399379
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f49443a0c7725f9d5aeb9d295a120cc1
+    Hash: d29569f4f4877578885280998c2e6616
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -77,6 +77,7 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller
 - Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
 - Assets/Rimuru/Assets/VFX/Material/Hollowsquarered.mat
+- Assets/Rimuru/Assets/Animation/Human/MaskUpperBody.mask
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticle 1.mat
 - Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
 - Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
@@ -95,10 +96,12 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/SprintToRunTransition.anim
 - Assets/Rimuru/Assets/VFX/Texture/blacklightning.tif
 - Assets/Rimuru/Assets/VFX/Square.prefab
+- Assets/Rimuru/Assets/VFX/LightningRing.prefab
 - Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
 - Assets/Rimuru/Assets/GUI/blackLightningIcon.png
 - Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
 - Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
+- Assets/Rimuru/Assets/Animation/Human/SwingRight.anim
 - Assets/Rimuru/Assets/GUI/texRimuruIcon.png
 - Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
 - Assets/Rimuru/Assets/VFX/WetEffect.prefab
@@ -121,6 +124,7 @@ Assets:
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
 - Assets/Rimuru/Assets/Animation/Human/SwingRightIdle.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
+- Assets/Rimuru/Assets/VFX/DevourExtended.prefab
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
 - Assets/Rimuru/Assets/VFX/ImpactRimuruSlash.prefab
 - Assets/Rimuru/Assets/Materials/RimuruSlimeMat.mat
@@ -129,15 +133,15 @@ Assets:
 - Assets/Rimuru/Assets/GUI/devourIcon.png
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
 - Assets/Rimuru/Assets/VFX/Circling.prefab
+- Assets/Rimuru/Assets/Animation/Human/SwingLeft.anim
 - Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh
-- Assets/Rimuru/Assets/Animation/Human/SwingRight.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
 - Assets/Rimuru/Assets/Animation/Human/Falling.anim
 - Assets/Rimuru/Assets/VFX/Devour3.prefab
 - Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
 - Assets/Rimuru/Assets/VFX/BlackLightningImpact.prefab
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
-- Assets/Rimuru/Assets/Animation/Human/SwingLeft.anim
+- Assets/Rimuru/Assets/VFX/SphereIndicator.prefab
 - Assets/Rimuru/Assets/VFX/Texture/blacklightningouter.tif
 - Assets/Rimuru/Assets/Animation/Human/MaskRightArm.mask
 - Assets/Rimuru/Assets/Animation/Slime/animRimuruSlime.controller
@@ -149,15 +153,18 @@ Assets:
 - Assets/Rimuru/Assets/Animation/Human/SwingLeftIdle.anim
 - Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
 - Assets/Rimuru/Assets/VFX/MainLightning.prefab
+- Assets/Rimuru/Assets/Animation/Human/OutOfDashAttack.anim
 - Assets/Rimuru/Assets/Animation/Human/Emotion.anim
 - Assets/Rimuru/Assets/Animation/Human/BlackLightning.anim
 - Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
 - Assets/Rimuru/Assets/VFX/DevourSkillGet.prefab
+- Assets/Rimuru/Assets/GUI/BuffIcons/NullifierBuff.png
 - Assets/Rimuru/Assets/VFX/Devour2.prefab
 - Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
 - Assets/Rimuru/Assets/Animation/Human/Idle.anim
 - Assets/Rimuru/Assets/Human/mdlRimuruHuman.prefab
 - Assets/Rimuru/Assets/GUI/texTransformToSlime.png
+- Assets/Rimuru/Assets/VFX/WaterBladeSwirl.prefab
 - Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
 - Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
 - Assets/Rimuru/Assets/GUI/texSwordSwing.png

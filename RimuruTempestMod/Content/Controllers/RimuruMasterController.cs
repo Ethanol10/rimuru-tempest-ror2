@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Networking;
 using RimuruMod.SkillStates;
-using RimuruTempestMod.Content.BuffControllers;
+using RimuruMod.Content.BuffControllers;
 
 namespace RimuruMod.Modules.Survivors
 {
@@ -25,61 +25,6 @@ namespace RimuruMod.Modules.Survivors
 		private CharacterBody characterBody;
 
 
-		public bool alloyvulture;
-		public bool alphacontruct;
-		public bool beetle;
-		public bool beetleguard;
-		public bool blindpest;
-		public bool blindvermin;
-		public bool bison;
-		public bool bronzong;
-		public bool clayapothecary;
-		public bool claytemplar;
-		public bool greaterwisp;
-		public bool gup;
-		public bool hermitcrab;
-		public bool imp;
-		public bool jellyfish;
-		public bool larva;
-		public bool lemurian;
-		public bool lesserwisp;
-		public bool lunarexploder;
-		public bool lunargolem;
-		public bool lunarwisp;
-		public bool minimushrum;
-		public bool parent;
-		public bool roboballminib;
-		public bool stonegolem;
-		public bool voidbarnacle;
-		public bool voidjailer;
-		public bool voidreaver;
-
-		public bool beetlequeen;
-		public bool claydunestrider;
-		public bool grandparent;
-		public bool grovetender;
-		public bool impboss;
-		public bool magmaworm;
-		public bool overloadingworm;
-		public bool scavenger;
-		public bool soluscontrolunit;
-		public bool stonetitan;
-		public bool voiddevastator;
-		public bool xiconstruct;
-
-		//buff checks
-		public bool strengthBuff;
-		public bool fireBuff;
-		public bool lightningBuff;
-		public bool resistanceBuff;
-		public bool ultraspeedRegenBuff;
-		public bool poisonMeleeBuff;
-
-		//buffs
-		public float regenTimer;
-        public float regenAmount;
-        public float shockTimer;
-
 		public bool isBodyInitialized;
 		public bool devourShoot;
 
@@ -87,150 +32,25 @@ namespace RimuruMod.Modules.Survivors
 		public void Awake()
 		{
 			isBodyInitialized = false;
-			On.RoR2.CharacterBody.Start += CharacterBody_Start;
 			On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
-			//alloyvulture = false;
-			// alphacontruct = false;
-			// beetle = false;
-			// beetleguard = false;
-			// blindpest = false;
-			// blindvermin = false;
-			// bison = false;
-			// bronzong = false;
-			// clayapothecary = false;
-			// claytemplar = false;
-			// greaterwisp = false;
-			// gup = false;
-			// hermitcrab = false;
-			// imp = false;
-			// jellyfish = false;
-			// larva = false;
-			// lemurian = false;
-			// lesserwisp = false;
-			// lunarexploder = false;
-			// lunargolem = false;
-			// lunarwisp = false;
-			// minimushrum = false;
-			// parent = false;
-			// roboballminib = false;
-			// stonegolem = false;
-			// voidbarnacle = false;
-			// voidjailer = false;
-			// voidreaver = false;
-
-			// beetlequeen = false;
-			// claydunestrider = false;
-			// grandparent = false;
-			// grovetender = false;
-			// impboss = false;
-			// magmaworm = false;
-			// overloadingworm = false;
-			// scavenger = false;
-			// soluscontrolunit = false;
-			// stonetitan = false;
-			// voiddevastator = false;
-			// xiconstruct = false;
-			strengthBuff = false;
-			fireBuff = false;
-			lightningBuff = false;
-			resistanceBuff = false;
-			ultraspeedRegenBuff = false;
-			poisonMeleeBuff = false;
 
 		}
 
 		public void OnDestroy()
 		{
-			On.RoR2.CharacterBody.Start -= CharacterBody_Start;
 			On.RoR2.GlobalEventManager.OnCharacterDeath -= GlobalEventManager_OnCharacterDeath;
 		}
 
 		public void Start()
 		{
 			characterMaster = gameObject.GetComponent<CharacterMaster>();
-
-			Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
+            characterBody = characterMaster.GetBody();
+            Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
 
 			this.devourShoot = false;
 
-			//alloyvulture = false;
-			//alphacontruct = false;
-			//beetle = false;
-			//beetleguard = false;
-			//blindpest = false;
-			//blindvermin = false;
-			//bison = false;
-			//bronzong = false;
-			//clayapothecary = false;
-			//claytemplar = false;
-			//greaterwisp = false;
-			//gup = false;
-			//hermitcrab = false;
-			//imp = false;
-			//jellyfish = false;
-			//larva = false;
-			//lemurian = false;
-			//lesserwisp = false;
-			//lunarexploder = false;
-			//lunargolem = false;
-			//lunarwisp = false;
-			//minimushrum = false;
-			//parent = false;
-			//roboballminib = false;
-			//stonegolem = false;
-			//voidbarnacle = false;
-			//voidjailer = false;
-			//voidreaver = false;
-
-			//beetlequeen = false;
-			//claydunestrider = false;
-			//grandparent = false;
-			//grovetender = false;
-			//impboss = false;
-			//magmaworm = false;
-			//overloadingworm = false;
-			//scavenger = false;
-			//soluscontrolunit = false;
-			//stonetitan = false;
-			//voiddevastator = false;
-			//xiconstruct = false;
 		}
 
-
-		public void CharacterBody_Start(On.RoR2.CharacterBody.orig_Start orig, CharacterBody self)
-		{
-			orig.Invoke(self);
-
-
-			if (Rimurumastercon)
-            {
-				if(strengthBuff == true)
-                {
-					self.AddBuff(Modules.Buffs.strengthBuff);
-                }
-				if(fireBuff == true)
-                {
-					self.AddBuff(Modules.Buffs.fireBuff);
-				}
-				if (lightningBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.lightningBuff);
-				}
-				if (ultraspeedRegenBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.ultraspeedRegenBuff);
-				}
-				if (resistanceBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.resistanceBuff);
-				}
-				if (poisonMeleeBuff == true)
-				{
-					self.AddBuff(Modules.Buffs.poisonMeleeBuff);
-				}
-
-			}
-        }
 
 
 		public void FixedUpdate()
@@ -244,161 +64,42 @@ namespace RimuruMod.Modules.Survivors
 					Rimurucon = characterBody.GetComponent<RimuruController>();
 					isBodyInitialized = true;
 				}
-			}
-			else 
-			{
-                if (characterBody.HasBuff(Buffs.ultraspeedRegenStackBuff))
-                {
-                    if (regenTimer > 1f)
-                    {
-                        int buffcount = characterBody.GetBuffCount(Buffs.ultraspeedRegenStackBuff);
-                        if (buffcount > 1)
-                        {
-                            if (buffcount >= 2)
-                            {
-                                regenTimer = 0;
-                                characterBody.RemoveBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex);
-                                characterBody.healthComponent.Heal(regenAmount / StaticValues.ultraspeedBuffStacks, new ProcChainMask(), true);
-                            }
-                        }
-                        else
-                        {
-                            characterBody.RemoveBuff(Modules.Buffs.ultraspeedRegenStackBuff.buffIndex);
-                            characterBody.healthComponent.Heal(regenAmount / StaticValues.ultraspeedBuffStacks, new ProcChainMask(), true);
-                        }
-                    }
-                    else
-                    {
-                        regenTimer += Time.fixedDeltaTime;
-                    }
-                }
-                if (characterBody.HasBuff(Buffs.lightningBuff))
-                {
-                    if (shockTimer > StaticValues.lightningPulseTimer)
-                    {
-                        shockTimer = 0;
-                        EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
-                        {
-                            origin = characterBody.corePosition,
-                            scale = Modules.Config.blackLightningRadius.Value * characterBody.attackSpeed / 2
-                        }, true);
-
-                        new BlastAttack
-                        {
-                            attacker = characterBody.gameObject,
-                            teamIndex = TeamComponent.GetObjectTeam(characterBody.gameObject),
-                            falloffModel = BlastAttack.FalloffModel.None,
-                            baseDamage = characterBody.damage * Modules.Config.blackLightningDamageCoefficient.Value,
-                            damageType = DamageType.Shock5s,
-                            damageColorIndex = DamageColorIndex.WeakPoint,
-                            baseForce = 0,
-                            position = characterBody.transform.position,
-                            radius = Modules.Config.blackLightningRadius.Value * characterBody.attackSpeed / 2,
-                            procCoefficient = 1f,
-                            attackerFiltering = AttackerFiltering.NeverHitSelf,
-                        }.Fire();
-                    }
-                    else
-                    {
-                        shockTimer += Time.fixedDeltaTime;
-                    }
-                }
-            }
+			}			
 		}
 
 		private void GlobalEventManager_OnCharacterDeath(On.RoR2.GlobalEventManager.orig_OnCharacterDeath orig, GlobalEventManager self, DamageReport damageReport)
 		{
 			orig.Invoke(self, damageReport);
 			//devour check
-			if (damageReport.attackerBody?.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+			if (damageReport.attackerBody == characterBody)
 			{
                 if (damageReport.attackerBody && damageReport.victimBody)
 				{
-					if(damageReport.damageInfo.damage > 0 && damageReport.damageInfo.damageType == DamageType.BonusToLowHealth)
+					if(damageReport.damageInfo.damage > 0 && damageReport.victimBody.HasBuff(Buffs.rimuruDevourDebuff) && damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
 					{
-
-
 						var name = BodyCatalog.GetBodyName(damageReport.victimBody.healthComponent.body.bodyIndex);
 						GameObject newbodyPrefab = BodyCatalog.FindBodyPrefab(name);
 
 						RimuruBaseBuffController incomingSkill;
-						if (Modules.StaticValues.rimDic.ContainsKey(newbodyPrefab.name) && isBodyInitialized) 
+                        //Debug.Log("killed " + newbodyPrefab.name);
+                        //Debug.Log(Modules.StaticValues.rimDic[newbodyPrefab.name] + "skillname");
+                        if (Modules.StaticValues.rimDic.ContainsKey(newbodyPrefab.name) && isBodyInitialized) 
 						{
                             incomingSkill = Modules.StaticValues.rimDic[newbodyPrefab.name].Invoke(characterMaster);
                         }
+                        AkSoundEngine.PostEvent("RimuruAnalyse", characterBody.gameObject);
 
-						//Do something with incomingSkill I guess if necessary.
-					}
-				}
+                        RoR2.EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new RoR2.EffectData
+                        {
+                            origin = damageReport.victimBody.corePosition + Vector3.up * 2f,
+                            scale = 1f,
+                            rotation = Quaternion.identity,
+
+                        }, true);
+                        //Do something with incomingSkill I guess if necessary.
+                    }
+                }
 			}
-		}
-
-		public void SetEverythingFalse(CharacterBody characterBody)
-		{
-
-			DevourEffectController controller = characterBody.gameObject.GetComponent<DevourEffectController>();
-			if (!controller)
-			{
-				controller = characterBody.gameObject.AddComponent<DevourEffectController>();
-				controller.charbody = characterBody;
-			}
-
-			characterBody.RemoveBuff(Buffs.strengthBuff);
-			characterBody.RemoveBuff(Buffs.fireBuff);
-			characterBody.RemoveBuff(Buffs.resistanceBuff);
-			characterBody.RemoveBuff(Buffs.ultraspeedRegenBuff);
-			characterBody.RemoveBuff(Buffs.poisonMeleeBuff);
-			characterBody.RemoveBuff(Buffs.lightningBuff);
-
-
-			strengthBuff = false;
-			fireBuff = false;
-			lightningBuff = false;
-			resistanceBuff = false;
-			ultraspeedRegenBuff = false;
-			poisonMeleeBuff = false;
-			//alloyvulture = false;
-			//alphacontruct = false;
-			//beetle = false;
-			//beetleguard = false;
-			//blindpest = false;
-			//blindvermin = false;
-			//bison = false;
-			//bronzong = false;
-			//clayapothecary = false;
-			//claytemplar = false;
-			//greaterwisp = false;
-			//gup = false;
-			//hermitcrab = false;
-			//imp = false;
-			//jellyfish = false;
-			//larva = false;
-			//lemurian = false;
-			//lesserwisp = false;
-			//lunarexploder = false;
-			//lunargolem = false;
-			//lunarwisp = false;
-			//minimushrum = false;
-			//parent = false;
-			//roboballminib = false;
-			//stonegolem = false;
-			//voidbarnacle = false;
-			//voidjailer = false;
-			//voidreaver = false;
-
-			//beetlequeen = false;
-			//claydunestrider = false;
-			//grandparent = false;
-			//grovetender = false;
-			//impboss = false;
-			//magmaworm = false;
-			//overloadingworm = false;
-			//scavenger = false;
-			//soluscontrolunit = false;
-			//stonetitan = false;
-			//voiddevastator = false;
-			//xiconstruct = false;
-
 		}
 
 
@@ -428,7 +129,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.strengthBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Strengthen Body Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -446,7 +147,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.fireBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Fire Manipulation Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -466,7 +167,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.poisonMeleeBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Poisonous Attacks Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Poisonous Attacks Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -484,7 +185,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.ultraspeedRegenBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Ultraspeed Regeneration Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Ultraspeed Regeneration Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -504,7 +205,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.resistanceBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Body Armor Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Body Armor Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 
@@ -523,7 +224,7 @@ namespace RimuruMod.Modules.Survivors
         //                {
         //                    if (!damageReport.attackerBody.HasBuff(Buffs.lightningBuff))
         //                    {
-        //                        Chat.AddMessage("<style=cIsUtility>Lightning Manipulation Skill</style> aquisition successful.");
+        //                        Chat.AddMessage("<style=cIsUtility>Lightning Manipulation Skill</style> acquisition successful.");
         //                    }
         //                    SetEverythingFalse(damageReport.attackerBody);
 

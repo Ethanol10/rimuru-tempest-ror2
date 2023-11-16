@@ -13,6 +13,7 @@ namespace RimuruMod.Modules
 
             Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
             Modules.Content.AddEntityState(typeof(DashAttack));
+            Modules.Content.AddEntityState(typeof(Dash));
             Modules.Content.AddEntityState(typeof(DashAttackExit));
             Modules.Content.AddEntityState(typeof(RimuruHumanPrimary));
             Modules.Content.AddEntityState(typeof(SlashCombo));

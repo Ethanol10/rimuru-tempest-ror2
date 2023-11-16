@@ -4772,6 +4772,11 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2831624537444552599, guid: f0d633d9d1c8959468d96a00ea4a1a0c,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7784446999998259513, guid: f0d633d9d1c8959468d96a00ea4a1a0c,
         type: 3}
       propertyPath: m_Name
@@ -4902,6 +4907,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3489248171492966990, guid: 06b885a38b78ac940b5d9cfcefc28feb,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4203191352288778979, guid: 06b885a38b78ac940b5d9cfcefc28feb,
         type: 3}
       propertyPath: m_Name
@@ -4910,6 +4920,11 @@ PrefabInstance:
     - target: {fileID: 6448437352734993206, guid: 06b885a38b78ac940b5d9cfcefc28feb,
         type: 3}
       propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448437352734993206, guid: 06b885a38b78ac940b5d9cfcefc28feb,
+        type: 3}
+      propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

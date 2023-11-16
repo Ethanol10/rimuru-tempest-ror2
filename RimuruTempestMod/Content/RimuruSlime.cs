@@ -38,6 +38,8 @@ namespace RimuruMod.Modules.Survivors
             moveSpeed = 7f,
         };
 
+        public static SkillDef gravityPullDef;
+
         internal static Material RimuruSlimeMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
         {
@@ -79,6 +81,9 @@ namespace RimuruMod.Modules.Survivors
             //example of how to create a hitbox
             Transform hitboxTransform = childLocator.FindChild("DevourHitbox");
             Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Devour");
+            Transform hitboxExtendedTransform = childLocator.FindChild("DevourExtendedHitbox");
+            Debug.Log(hitboxExtendedTransform);
+            Modules.Prefabs.SetupHitbox(model, hitboxExtendedTransform, "DevourExtended");
         }
 
         public override void InitializeSkills()
@@ -166,7 +171,7 @@ namespace RimuruMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformSlime)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
-                baseRechargeInterval = 4f,
+                baseRechargeInterval = 1f,
                 beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,

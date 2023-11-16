@@ -3,6 +3,7 @@ using RiskOfOptions.Options;
 using RiskOfOptions;
 using UnityEngine;
 using RiskOfOptions.OptionConfigs;
+using System;
 
 namespace RimuruMod.Modules
 {
@@ -11,6 +12,7 @@ namespace RimuruMod.Modules
         //Melee Attacks - 01
         public static ConfigEntry<float> swordDamageCoefficient;
         public static ConfigEntry<float> devourDamageCoefficient;
+        public static ConfigEntry<float> dashAttackHop;
 
         //Black Lightning - 02
         public static ConfigEntry<float> blackLightningTotalDuration;
@@ -25,13 +27,17 @@ namespace RimuruMod.Modules
 
         //Analyse - 04
         public static ConfigEntry<bool> doubleInsteadOfCrit;
-        public static ConfigEntry<float> analyseDebuffduration;
+        public static ConfigEntry<int> analyseDebuffduration;
         public static ConfigEntry<float> analyseCooldown;
 
         //Waterblade - 05
         public static ConfigEntry<float> waterbladeDamageCoefficient;
         public static ConfigEntry<float> waterbladeWetDebuffDuration;
         public static ConfigEntry<float> waterbladeCooldown;
+
+        //Miscellaneous
+        public static ConfigEntry<float> glideSpeed;
+        public static ConfigEntry<float> glideAcceleration;
 
         //Add config for all damage coefficients.
         /*
@@ -50,6 +56,7 @@ namespace RimuruMod.Modules
             //Melee - 01
             swordDamageCoefficient = RimuruPlugin.instance.Config.Bind<float>("01 - Sword/Devour", "01 - Sword Damage Coefficient", 2.0f, "Determines the damage coefficient for Rimuru's Human Form, Sword.");
             devourDamageCoefficient = RimuruPlugin.instance.Config.Bind<float>("01 - Sword/Devour", "02 - Devour Damage Coefficient", 1.0f, "Determines the damage coefficient for Rimuru's Slime form, Devour");
+            dashAttackHop = RimuruPlugin.instance.Config.Bind<float>("01 - Sword/Devour", "03 - Dash Attack Hop Power", 10f, "Determines the amount of distance he hops after starting a dash attack in Human Form.");
 
             //Black Lightning - 02
             blackLightningTotalDuration = RimuruPlugin.instance.Config.Bind<float>("02 - Black Lightning", "01 - Black Lightning Total Duration", 4f, "Determines how long Rimuru should fire black lightning for.");
@@ -64,17 +71,40 @@ namespace RimuruMod.Modules
 
             //Analyse - 04
             doubleInsteadOfCrit = RimuruPlugin.instance.Config.Bind<bool>("04 - Analyse", "01 - Double Damage instead of Crit", false, "Determines if the applied analyse debuff should double damage instead of force a crit.");
-            analyseDebuffduration = RimuruPlugin.instance.Config.Bind<float>("04 - Analyse", "02 - Analyse Debuff Duration", 6f, "Determines the duration of the buff applied to the enemy when analyse is used.");
+            analyseDebuffduration = RimuruPlugin.instance.Config.Bind<int>("04 - Analyse", "02 - Analyse Debuff Duration", 6, "Determines the duration of the buff applied to the enemy when analyse is used.");
             analyseCooldown = RimuruPlugin.instance.Config.Bind<float>("04 - Analyse", "03 - Analyse Cooldown", 6f, "Determines the cooldown for Analyse, Needs a restart to apply.");
 
             //Waterblade - 05
             waterbladeDamageCoefficient = RimuruPlugin.instance.Config.Bind<float>("05 - Waterblade", "01 - Waterblade Damage Coefficient", 2.0f, "Determines the damage coefficient on waterblade");
             waterbladeWetDebuffDuration = RimuruPlugin.instance.Config.Bind<float>("05 - Waterblade", "02 - Waterblade wet debuff duration", 6f, "Determines how long the Wet debuff should last.");
             waterbladeCooldown = RimuruPlugin.instance.Config.Bind<float>("05 - Waterblade", "03 - Waterblade Cooldown", 1f, "Determines the cooldown for Waterblade, Needs a restart to apply.");
+
+            //Gliding
+            glideSpeed = RimuruPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("06 - Gliding", "Falling Speed when gliding"),
+                60f,
+                new ConfigDescription("Determines the base speed of descent when gliding.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+            glideAcceleration = RimuruPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("06 - Gliding", "Falling acceleration when gliding"),
+                29.6f,
+                new ConfigDescription("Determines the falling acceleration when gliding.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
         }
 
         public static void SetupRiskOfOptions() 
         {
+            Sprite icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texRimuruIcon");
+            ModSettingsManager.SetModIcon(icon);
+
             //Melee - 01
             ModSettingsManager.AddOption(
                 new StepSliderOption(
@@ -93,6 +123,16 @@ namespace RimuruMod.Modules
                     {
                         min = 1f,
                         max = 100f,
+                        increment = 0.1f
+                    }
+                ));
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    dashAttackHop,
+                    new StepSliderConfig
+                    {
+                        min = 1f,
+                        max = 20f,
                         increment = 0.1f
                     }
                 ));
@@ -175,13 +215,13 @@ namespace RimuruMod.Modules
             ModSettingsManager.AddOption(new CheckBoxOption(
                 doubleInsteadOfCrit));
             ModSettingsManager.AddOption(
-                new StepSliderOption(
+                new IntSliderOption(
                     analyseDebuffduration,
-                    new StepSliderConfig
+                    new IntSliderConfig
                     {
-                        min = 1f,
-                        max = 100f,
-                        increment = 0.5f
+                        min = 1,
+                        max = 100,                       
+
                     }
                 ));
             ModSettingsManager.AddOption(
@@ -224,6 +264,28 @@ namespace RimuruMod.Modules
                         min = 1f,
                         max = 100f,
                         increment = 0.1f
+                    }
+                ));
+
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    glideSpeed,
+                    new StepSliderConfig
+                    {
+                        min = 0,
+                        max = 100f,
+                        increment = 0.05f
+                    }
+                ));
+
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    glideAcceleration,
+                    new StepSliderConfig
+                    {
+                        min = 0f,
+                        max = 100f,
+                        increment = 0.05f
                     }
                 ));
         }

@@ -57,7 +57,7 @@ namespace RimuruMod.SkillStates
             this.animator.SetBool("attacking", true);
 
             PlayCrossfade("LeftArm, Override", "BlackLightning", "Attack.playbackRate", fireInterval/2, 0.05f);
-            this.loopID = AkSoundEngine.PostEvent(186852181, base.gameObject);
+            this.loopID = AkSoundEngine.PostEvent("RimuruThunder", base.gameObject);
 
             EffectManager.SimpleMuzzleFlash(Modules.Assets.blacklightning, base.gameObject, muzzleString, false);
 
@@ -154,6 +154,14 @@ namespace RimuruMod.SkillStates
                     attack.muzzleName = muzzleString;
                     attack.aimVector = aimRay.direction;
                     attack.origin = FindModelChild(this.muzzleString).position;
+                    if (base.characterBody.HasBuff(Modules.Buffs.lightningDamageBoostBuff))
+                    {
+                        attack.damage = damageStat * (damageCoefficient * 3);
+                    } else attack.damage = damageStat * damageCoefficient;
+                    if (base.characterBody.HasBuff(Modules.Buffs.lightningProcBoostBuff))
+                    {
+                        attack.procCoefficient = procCoefficient * Modules.StaticValues.blackFlareProcCoefficientBoost;
+                    } else attack.damage = damageStat * damageCoefficient;
                     attack.Fire();
                     fireTimer = 0f;
                 }

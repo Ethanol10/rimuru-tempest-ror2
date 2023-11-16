@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using RimuruMod.Modules;
 using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
@@ -44,9 +45,17 @@ namespace RimuruMod.SkillStates
                 {
                     Ray aimRay = base.GetAimRay();
 
-                    
+                    if (base.characterBody.HasBuff(Modules.Buffs.ConductivityBuff))
                     {
-                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.BlightOnHit;
+                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.Shock5s;
+                    }
+                    if (base.characterBody.HasBuff(Modules.Buffs.TarProjBuff))
+                    {
+                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.ClayGoo;
+                    }
+                    if (base.characterBody.HasBuff(Modules.Buffs.CrippleProjBuff))
+                    {
+                        Modules.Projectiles.waterbladeProjectile.GetComponent<ProjectileDamage>().damageType |= DamageType.CrippleOnHit;
                     }
 
 
@@ -60,6 +69,30 @@ namespace RimuruMod.SkillStates
                         DamageColorIndex.Default, 
                         null,
                         Waterblade.throwForce);
+                    if (base.characterBody.HasBuff(Buffs.tripleWaterBladeBuff))
+                    {
+                        ProjectileManager.instance.FireProjectile(Modules.Projectiles.waterbladeProjectile,
+                        aimRay.origin,
+                        Util.QuaternionSafeLookRotation(new Vector3(aimRay.direction.x, aimRay.direction.y, aimRay.direction.z + 1)),
+                        base.gameObject,
+                        Waterblade.damageCoefficient * this.damageStat,
+                        0f,
+                        base.RollCrit(),
+                        DamageColorIndex.Default,
+                        null,
+                        Waterblade.throwForce);
+                        
+                        ProjectileManager.instance.FireProjectile(Modules.Projectiles.waterbladeProjectile,
+                        aimRay.origin,
+                        Util.QuaternionSafeLookRotation(new Vector3(aimRay.direction.x, aimRay.direction.y, aimRay.direction.z - 1)),
+                        base.gameObject,
+                        Waterblade.damageCoefficient * this.damageStat,
+                        0f,
+                        base.RollCrit(),
+                        DamageColorIndex.Default,
+                        null,
+                        Waterblade.throwForce);
+                    }
                 }
             }
         }

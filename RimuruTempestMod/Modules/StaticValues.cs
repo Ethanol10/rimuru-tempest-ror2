@@ -1,5 +1,5 @@
 ﻿using RimuruMod.Modules.Survivors;
-using RimuruTempestMod.Content.BuffControllers;
+using RimuruMod.Content.BuffControllers;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -10,8 +10,20 @@ namespace RimuruMod.Modules
     internal static class StaticValues
     {
         //passives
+
+        internal const float refreshTimerDuration = 60f;
+
         //strength
         internal const float strengthBuffCoefficient = 1.5f;
+
+        //speed
+        internal const float speedBuffCoefficient = 1.2f;
+
+        //attack speed
+        internal const float attackSpeedBuffCoefficient = 1.2f;
+
+        //lifesteal
+        internal const float lifestealBuffCoefficient = 0.1f;
 
         //ultraspeed
         internal const float ultraspeedRegenCoefficient = 0.5f;
@@ -21,10 +33,12 @@ namespace RimuruMod.Modules
         //lightning
         internal const float lightningPulseTimer = 2f;
 
+        //body armor
+        internal const float bodyArmorCoefficient = 0.1f;
 
-        //melee attacks
-        internal const float swordDamageCoefficient = 2f;
-        internal const float devourDamageCoefficient = 1f;
+        //multilayer barrier
+        internal const float barrierBuffTimer = 3f;
+        internal const float barrierBuffGain = 0.1f;
 
         //blacklightning
         internal const float blacklightningtotalDuration = 4f;
@@ -52,7 +66,90 @@ namespace RimuruMod.Modules
         internal const float lemurianfireDamageCoefficient = 4f;
         internal const float lemurianfireProcCoefficient = 1f;
         internal const float lemurianfireRadius = 15f;
+    
+        //Force
+        internal const float forcepushDamageCoefficient = 3.5f;
+        internal const float forcepullDamageCoefficient = 4f;
+        internal static float forceMaxRange = 100f;
+        internal static float forceMaxTrackingAngle = 30f;
+        //nullifier big brain
+        internal const int nullifierBigBrainThreshold= 4;
 
+        //scavenger creation
+        internal const int tier1Amount = 4;
+        internal const int tier2Amount = 2;
+        internal const int tier3Amount = 1;
+
+        //lunar exploder luck manipulation
+        internal const int luckAmount = 1;
+
+        //hermit crab mortar
+        internal const float hermitMortarRadius = 40f;
+        internal const float mortarbaseDuration = 1f;
+        internal const float mortarDamageCoefficient = 1.5f;
+
+        //aoe buffer 
+        internal const float aoeBufferRadius = 40f;
+
+        //gravity manipulation
+        internal const float gravManipulationRadius = 40f;
+        internal const float gravManipulationDamageCoefficient = 1f;
+        internal const float gravManipulationForce = 10f;
+        internal const float gravManipulationThreshold = 1f;
+
+        //flight
+        internal const float flightBuffThreshold = 4f;
+        internal const float flightAccelerationMultiplier = 0.5f;
+        internal const float flightMoveSpeedMultiplier = 1.3f;
+
+        //flame body
+        internal const float flameBodyRadius = 40f;
+        internal const float flameBodyDuration = 4f;
+        internal const float flameBodyDamageCoefficient = 2f;
+        internal const float flameBodyThreshold = 2f;
+
+        //tar manip 
+        internal const float tarManipRadius = 30f;
+        internal const float tarManipCoefficient = 0.7f;
+
+        //reparation
+        internal const float reparationCoefficient = 0.5f;
+        internal const float reparationTimer = 5f;
+
+        //dash
+        internal const float dashDuration = 0.3f;
+        internal const float dashSpeedCoefficient = 5f;
+
+        //tarring
+        internal const float tarringRadius = 30f;
+        internal const float tarringDamageCoefficient = 1.5f;
+
+        //hyper regen
+        internal const float hyperRegenCoefficient = 0.01f;
+
+        //gravity pulse
+        internal const float gravityPulseRange = 20f;
+
+        //spiked body
+        internal const float spikedBodyRange = 10f;
+
+        //cleanser
+        internal const float cleanserInterval = 10f;
+
+        //refraction
+        internal const int refractionBounces = 4;
+        internal const float refractionRange = 20f;
+
+        //singular barrier
+        internal const int singularBarrierInterval = 10;
+
+        //reverse grav manip
+        internal const int reverseGravManipInterval = 10;
+        internal const float reverseGravManipRange = 50f;
+        internal const float reverseGravManipDamageCoefficient = 2f;
+
+        // Black Flare
+        internal const float blackFlareProcCoefficientBoost = 4f;
 
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
@@ -62,70 +159,69 @@ namespace RimuruMod.Modules
         {
             public static T AddBuffComponentToMaster(CharacterMaster master) 
             {
+                Debug.Log(master.ToString());   
                 T returnObj = master.gameObject.GetComponent<T>();
-                return returnObj ? returnObj : master.gameObject.AddComponent<T>();
+                returnObj = returnObj ? returnObj : master.gameObject.AddComponent<T>();
+                returnObj.RefreshTimers();
+                return returnObj;
             }
         }
 
         public static void LoadDictionary()
         {
             // CharacterMaster is input, RimuruBaseBuffController is output. Instantiating dictionary at beginning.
-            rimDic = new Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>>();
-
-
-            //rimDic.Add("MinorConstructBody", typeof(ElderLemurianBuffController));
-            //rimDic.Add("MinorConstructOnKillBody", IndicatorType.PASSIVE);
-            //rimDic.Add("BeetleBody", IndicatorType.PASSIVE);
-            //rimDic.Add("FlyingVerminBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VerminBody", IndicatorType.PASSIVE);
-            //rimDic.Add("GupBody", IndicatorType.PASSIVE);
-            //rimDic.Add("GipBody", IndicatorType.PASSIVE);
-            //rimDic.Add("GeepBody", IndicatorType.PASSIVE);
-            //rimDic.Add("HermitCrabBody", IndicatorType.PASSIVE);
-            //rimDic.Add("AcidLarvaBody", IndicatorType.PASSIVE);
-            //rimDic.Add("WispBody", IndicatorType.PASSIVE);
-            //rimDic.Add("LunarExploderBody", IndicatorType.PASSIVE);
-            //rimDic.Add("MiniMushroomBody", IndicatorType.PASSIVE);
-            //rimDic.Add("RoboBallMiniBody", IndicatorType.PASSIVE);
-            //rimDic.Add("RoboBallGreenBuddyBody", IndicatorType.PASSIVE);
-            //rimDic.Add("RoboBallRedBuddyBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VoidBarnacleBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VoidJailerBody", IndicatorType.PASSIVE);
-            //rimDic.Add("ImpBossBody", IndicatorType.PASSIVE);
-            //rimDic.Add("TitanBody", IndicatorType.PASSIVE);
-            //rimDic.Add("TitanGoldBody", IndicatorType.PASSIVE);
-            //rimDic.Add("VagrantBody", IndicatorType.PASSIVE);
-            //rimDic.Add("MagmaWormBody", IndicatorType.PASSIVE);
-            //rimDic.Add("ElectricWormBody", IndicatorType.PASSIVE);
-            //rimDic.Add("CaptainBody", IndicatorType.PASSIVE);
-            //rimDic.Add("CommandoBody", IndicatorType.PASSIVE);
-            //rimDic.Add("CrocoBody", IndicatorType.PASSIVE);
-            //rimDic.Add("LoaderBody", IndicatorType.PASSIVE);
-
-            //rimDic.Add("VultureBody", IndicatorType.ACTIVE);
-            //rimDic.Add("BeetleGuardBody", IndicatorType.ACTIVE);
-            //rimDic.Add("BisonBody", IndicatorType.ACTIVE);
-            //rimDic.Add("BellBody", IndicatorType.ACTIVE);
-            //rimDic.Add("ClayGrenadierBody", IndicatorType.ACTIVE);
-            //rimDic.Add("ClayBruiserBody", IndicatorType.ACTIVE);
-            rimDic.Add("LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master) );
-            //rimDic.Add("GreaterWispBody", IndicatorType.ACTIVE);
-            //rimDic.Add("ImpBody", IndicatorType.ACTIVE);
-            //rimDic.Add("JellyfishBody", IndicatorType.ACTIVE);
-            //rimDic.Add("LemurianBody", IndicatorType.ACTIVE);
-            //rimDic.Add("LunarGolemBody", IndicatorType.ACTIVE);
-            //rimDic.Add("LunarWispBody", IndicatorType.ACTIVE);
-            //rimDic.Add("ParentBody", IndicatorType.ACTIVE);
-            //rimDic.Add("GolemBody", IndicatorType.ACTIVE);
-            //rimDic.Add("NullifierBody", IndicatorType.ACTIVE);
-            //rimDic.Add("BeetleQueen2Body", IndicatorType.ACTIVE);
-            //rimDic.Add("GravekeeperBody", IndicatorType.ACTIVE);
-            //rimDic.Add("ClayBossBody", IndicatorType.ACTIVE);
-            //rimDic.Add("GrandParentBody", IndicatorType.ACTIVE);
-            //rimDic.Add("RoboBallBossBody", IndicatorType.ACTIVE);
-            //rimDic.Add("SuperRoboBallBossBody", IndicatorType.ACTIVE);
-            //rimDic.Add("MegaConstructBody", IndicatorType.ACTIVE);
-            //rimDic.Add("VoidMegaCrabBody", IndicatorType.ACTIVE);
+            rimDic = new Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>>
+            {
+                { "MinorConstructBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master) },
+                { "MinorConstructOnKillBody", (CharacterMaster master) => BuffWrapperClass<AlphaConstructBuffController>.AddBuffComponentToMaster(master) },
+                { "BeetleBody", (CharacterMaster master) => BuffWrapperClass<BeetleBuffController>.AddBuffComponentToMaster(master) },
+                { "FlyingVerminBody", (CharacterMaster master) => BuffWrapperClass<FlyingVerminBuffController>.AddBuffComponentToMaster(master) },
+                { "VerminBody", (CharacterMaster master) => BuffWrapperClass<BlindVerminBuffController>.AddBuffComponentToMaster(master) },
+                { "GupBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master) },
+                { "GipBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master) },
+                { "GeepBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master) },
+                { "HermitCrabBody", (CharacterMaster master) => BuffWrapperClass<HermitCrabBuffController>.AddBuffComponentToMaster(master) },
+                { "AcidLarvaBody", (CharacterMaster master) => BuffWrapperClass<AcidLarvaBuffController>.AddBuffComponentToMaster(master) },
+                { "wispBody", (CharacterMaster master) => BuffWrapperClass<WispBuffController>.AddBuffComponentToMaster(master) },
+                { "LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master) },
+                { "MiniMushroomBody", (CharacterMaster master) => BuffWrapperClass<MushrumBuffController>.AddBuffComponentToMaster(master) },
+                { "RoboBallMiniBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master) },
+                { "RoboBallGreenBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master) },
+                { "RoboBallRedBuddyBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master) },
+                { "VoidBarnacleBody", (CharacterMaster master) => BuffWrapperClass<VoidBarnacleBuffController>.AddBuffComponentToMaster(master) },
+                { "VoidJailerBody", (CharacterMaster master) => BuffWrapperClass<VoidJailerBuffController>.AddBuffComponentToMaster(master) },
+                { "ImpBossBody", (CharacterMaster master) => BuffWrapperClass<ImpBossBuffController>.AddBuffComponentToMaster(master) },
+                { "TitanBody", (CharacterMaster master) => BuffWrapperClass<TitanBuffController>.AddBuffComponentToMaster(master) },
+                { "TitanGoldBody", (CharacterMaster master) => BuffWrapperClass<TitanBuffController>.AddBuffComponentToMaster(master) },
+                { "VagrantBody", (CharacterMaster master) => BuffWrapperClass<WanderingVagrantBuffController>.AddBuffComponentToMaster(master) },
+                { "MagmaWormBody", (CharacterMaster master) => BuffWrapperClass<MagmaWormBuffController>.AddBuffComponentToMaster(master) },
+                { "ElectricWormBody", (CharacterMaster master) => BuffWrapperClass<OverloadingWormBuffController>.AddBuffComponentToMaster(master) },
+                { "VultureBody", (CharacterMaster master) => BuffWrapperClass<VultureBuffController>.AddBuffComponentToMaster(master) },
+                { "BeetleGuardBody", (CharacterMaster master) => BuffWrapperClass<BeetleGuardBuffController>.AddBuffComponentToMaster(master) },
+                { "BisonBody", (CharacterMaster master) => BuffWrapperClass<BisonBuffController>.AddBuffComponentToMaster(master) },
+                { "ClayGrenadierBody", (CharacterMaster master) => BuffWrapperClass<ClayApothecaryBuffController>.AddBuffComponentToMaster(master) },
+                { "BellBody", (CharacterMaster master) => BuffWrapperClass<BronzongBuffController>.AddBuffComponentToMaster(master) },
+                { "ClayBruiserBody", (CharacterMaster master) => BuffWrapperClass<ClayTemplarBuffController>.AddBuffComponentToMaster(master) },
+                { "LemurianBruiserBody", (CharacterMaster master) => BuffWrapperClass<ElderLemurianBuffController>.AddBuffComponentToMaster(master) },
+                { "GreaterWispBody", (CharacterMaster master) => BuffWrapperClass<GreaterWispBuffController>.AddBuffComponentToMaster(master) },
+                { "ImpBody", (CharacterMaster master) => BuffWrapperClass<ImpBuffController>.AddBuffComponentToMaster(master) },
+                { "JellyfishBody", (CharacterMaster master) => BuffWrapperClass<JellyfishBuffController>.AddBuffComponentToMaster(master) },
+                { "LemurianBody", (CharacterMaster master) => BuffWrapperClass<LemurianBuffController>.AddBuffComponentToMaster(master) },
+                { "LunarGolemBody", (CharacterMaster master) => BuffWrapperClass<LunarGolemBuffController>.AddBuffComponentToMaster(master) },
+                { "LunarWispBody", (CharacterMaster master) => BuffWrapperClass<LunarWispBuffController>.AddBuffComponentToMaster(master) },
+                { "ParentBody", (CharacterMaster master) => BuffWrapperClass<ParentBuffController>.AddBuffComponentToMaster(master) },
+                { "GolemBody", (CharacterMaster master) => BuffWrapperClass<StoneGolemBuffController>.AddBuffComponentToMaster(master) },
+                { "NullifierBody", (CharacterMaster master) => BuffWrapperClass<NullifierBuffController>.AddBuffComponentToMaster(master) },
+                { "BeetleQueen2Body", (CharacterMaster master) => BuffWrapperClass<BeetleQueenBuffController>.AddBuffComponentToMaster(master) },
+                { "GravekeeperBody", (CharacterMaster master) => BuffWrapperClass<GrovetenderBuffController>.AddBuffComponentToMaster(master) },
+                { "ClayBossBody", (CharacterMaster master) => BuffWrapperClass<ClayDunestriderBuffController>.AddBuffComponentToMaster(master) },
+                { "GrandParentBody", (CharacterMaster master) => BuffWrapperClass<GrandParentBuffController>.AddBuffComponentToMaster(master) },
+                { "RoboBallBossBody", (CharacterMaster master) => BuffWrapperClass<SolusControlUnitBuffController>.AddBuffComponentToMaster(master) },
+                { "SuperRoboBallBossBody", (CharacterMaster master) => BuffWrapperClass<SolusControlUnitBuffController>.AddBuffComponentToMaster(master) },
+                { "MegaConstructBody", (CharacterMaster master) => BuffWrapperClass<XiConstructBuffController>.AddBuffComponentToMaster(master) },
+                { "ScavBody", (CharacterMaster master) => BuffWrapperClass<ScavengerBuffController>.AddBuffComponentToMaster(master) },
+                { "VoidMegaCrabBody", (CharacterMaster master) => BuffWrapperClass<VoidDevastatorBuffController>.AddBuffComponentToMaster(master) }
+            };
         }
 
     }

@@ -1,4 +1,6 @@
-﻿using RimuruMod.Modules.Survivors;
+﻿using R2API;
+using RimuruMod.Modules;
+using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
 using System.Collections.Generic;
@@ -9,20 +11,48 @@ namespace RimuruMod.SkillStates
 {
     public class Devour : BaseMeleeAttack
     {
-
         public override void OnEnter()
         {
             this.hitboxName = "Devour";
-
             this.damageType = DamageType.BonusToLowHealth;
-            this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value;
+
+            if (base.characterBody.HasBuff(Modules.Buffs.bleedMeleeBuff))
+            {
+                damageType |= DamageType.BleedOnHit;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
+            {
+                damageType |= DamageType.IgniteOnHit;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.lightningBuff))
+            {
+                damageType |= DamageType.Shock5s;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.crippleBuff))
+            {
+                damageType |= DamageType.CrippleOnHit;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
+            {
+                this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value * 1.3f;
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.devourBuff))
+            {
+                this.hitboxName = "DevourExtended";
+            }
+            if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
+            {
+                damageType |= DamageType.ApplyMercExpose;
+            }
+            
             this.procCoefficient = 1f;
+            this.damageCoefficient = Modules.Config.devourDamageCoefficient.Value;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
-            this.baseDuration = 0.5f;
+            this.baseDuration = 0.8f;
             this.attackStartTime = 0.1f;
-            this.attackEndTime = 0.25f;
-            this.baseEarlyExitTime = 0.25f;
+            this.attackEndTime = 0.5f;
+            this.baseEarlyExitTime = 0.5f;
             this.hitStopDuration = 0.01f;
             this.attackRecoil = 0.2f;
             this.hitHopVelocity = 4f;
@@ -35,6 +65,13 @@ namespace RimuruMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
+            DamageAPI.AddModdedDamageType(this.attack, Modules.Damage.rimuruDevour);
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            this.hitboxName = "Devour";
         }
 
         protected override void PlayAttackAnimation()
@@ -52,19 +89,19 @@ namespace RimuruMod.SkillStates
             base.OnHitEnemyAuthority();
         }
 
-        protected override void CheckIfDead(List<HurtBox> hurtboxes) 
-        {
-            bool playedSound = false;
-            base.CheckIfDead(hurtboxes);
-            foreach (HurtBox hurtbox in hurtboxes) 
-            {
-                if (hurtbox.healthComponent.health <= 0 && !playedSound) 
-                {
-                    playedSound = true;
-                    AkSoundEngine.PostEvent(100371988, base.gameObject);
-                }
-            }
-        }
+        //protected override void CheckIfDead(List<HurtBox> hurtboxes) 
+        //{
+        //    bool playedSound = false;
+        //    base.CheckIfDead(hurtboxes);
+        //    foreach (HurtBox hurtbox in hurtboxes) 
+        //    {
+        //        if (hurtbox.healthComponent.health <= 0 && !playedSound) 
+        //        {
+        //            playedSound = true;
+        //            AkSoundEngine.PostEvent("RimuruAnalyse", base.gameObject);
+        //        }
+        //    }
+        //}
 
         protected override void SetNextState()
         {

@@ -1,27 +1,31 @@
 Event	ID	Name			Wwise Object Path	Notes
-	100371988	Analyse			\Default Work Unit\Analyse	
-	186852181	Thunder			\Default Work Unit\Thunder	
-	779278001	Death			\Default Work Unit\Death	
-	1183893824	Devour			\Default Work Unit\Devour	
-	1422622395	Transform			\Default Work Unit\Transform	
-	2454616260	Sword			\Default Work Unit\Sword	
-	2654748154	Water			\Default Work Unit\Water	
-	2656882895	Entrance			\Default Work Unit\Entrance	
-	3379926649	Blink			\Default Work Unit\Blink	
+	270831255	RimuruThunder			\Default Work Unit\RimuruThunder	
+	949576350	RimuruSword			\Default Work Unit\RimuruSword	
+	999137594	RimuruDevour			\Default Work Unit\RimuruDevour	
+	1221550474	RimuruHit			\Default Work Unit\RimuruHit	
+	2443408086	RimuruAnalyse			\Default Work Unit\RimuruAnalyse	
+	3294643755	RimuruDeath			\Default Work Unit\RimuruDeath	
+	3447088453	RimuruTransform			\Default Work Unit\RimuruTransform	
+	3742025564	RimuruWater			\Default Work Unit\RimuruWater	
+	4105614709	RimuruEntrance			\Default Work Unit\RimuruEntrance	
+	4123273559	RimuruBlink			\Default Work Unit\RimuruBlink	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	
 	3695994288	Volume_Master			\Default Work Unit\Volume_Master	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	10585353	Devour	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Devour_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Devour\Devour		1525032
-	76124911	se_common_swing_05	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\se_common_swing_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Sword\se_common_swing_05		23314
-	203161346	Blink	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Blink_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Blink\Blink		113148
-	283133327	Death	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Death\Death		320268
-	347941923	Electricity	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Electricity_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Thunder\Electricity		290536
-	505624353	Entrance	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Entrance_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Entrance\Entrance		711376
-	653688645	Water	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Water_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Water\Water		285956
-	980180611	se_common_swing_04	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\se_common_swing_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Sword\se_common_swing_04		25020
-	1001475546	Analyse	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Analyse_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Analyse\Analyse		194476
-	1036054571	Transform	C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Transform_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Transform\Transform		548800
+	10585353	Devour	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Devour_9EDFC787.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruDevour\Devour		114592
+	76124911	se_common_swing_05	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\se_common_swing_05_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruSword\se_common_swing_05		2565
+	105924093	smashpunch3	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\smashpunch3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruHit\smashpunch3		13423
+	203161346	Blink	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Blink_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruBlink\Blink		10397
+	283133327	Death	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Death_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruDeath\Death		30492
+	347941923	Electricity	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Electricity_9EDFC787.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruThunder\Electricity		30994
+	352215495	smashpunch1	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\smashpunch1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruHit\smashpunch1		5623
+	505624353	Entrance	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Entrance_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruEntrance\Entrance		56391
+	653688645	Water	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Water_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruWater\Water		23895
+	675434901	smashpunch2	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\smashpunch2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruHit\smashpunch2		8094
+	980180611	se_common_swing_04	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\se_common_swing_04_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruSword\se_common_swing_04		2867
+	1001475546	Analyse	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Analyse_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruAnalyse\Analyse		18735
+	1036054571	Transform	F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\SFX\Transform_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RimuruTransform\Transform		43518
 
