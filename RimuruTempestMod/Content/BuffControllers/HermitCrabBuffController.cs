@@ -174,7 +174,7 @@ namespace RimuruMod.Content.BuffControllers
             BullseyeSearch bullseyeSearch = new BullseyeSearch();
             bullseyeSearch.searchOrigin = position;
             bullseyeSearch.searchDirection = Vector3.zero;
-            bullseyeSearch.teamMaskFilter = TeamMask.allButNeutral;
+            bullseyeSearch.teamMaskFilter = TeamMask.all;
             bullseyeSearch.teamMaskFilter.RemoveTeam(this.teamIndex);
             bullseyeSearch.filterByLoS = false;
             bullseyeSearch.sortMode = BullseyeSearch.SortMode.Distance;
