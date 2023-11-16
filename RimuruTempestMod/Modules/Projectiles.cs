@@ -28,22 +28,22 @@ namespace RimuruMod.Modules
 
         private static void CreateIcicle()
         {
-            icicleLanceProjectile = CloneProjectilePrefab("MageIceBolt", "RimuruIcicleProjectile");
+            icicleLanceProjectile = CloneProjectilePrefab("MageIceBombProjectile", "RimuruIcicleProjectile");
 
-            ProjectileImpactExplosion iceImpactExplosion = icicleLanceProjectile.GetComponent<ProjectileImpactExplosion>();
-            InitializeImpactExplosion(iceImpactExplosion);
+            //ProjectileImpactExplosion iceImpactExplosion = icicleLanceProjectile.GetComponent<ProjectileImpactExplosion>();
+            //InitializeImpactExplosion(iceImpactExplosion);
 
-            iceImpactExplosion.blastDamageCoefficient = 2f;
-            iceImpactExplosion.blastRadius = 4f;
-            iceImpactExplosion.destroyOnEnemy = true;
-            iceImpactExplosion.lifetime = 12f;
-            iceImpactExplosion.timerAfterImpact = true;
-            iceImpactExplosion.lifetimeAfterImpact = 0f;
-            iceImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Freeze2s;
+            //iceImpactExplosion.blastDamageCoefficient = 2f;
+            //iceImpactExplosion.blastRadius = 4f;
+            //iceImpactExplosion.destroyOnEnemy = true;
+            //iceImpactExplosion.lifetime = 12f;
+            //iceImpactExplosion.timerAfterImpact = true;
+            //iceImpactExplosion.lifetimeAfterImpact = 0f;
+            //iceImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Freeze2s;
 
             ProjectileController icicleController = icicleLanceProjectile.GetComponent<ProjectileController>();
 
-            icicleController.ghostPrefab = Modules.Assets.mageIceBoltGhost;
+            icicleController.ghostPrefab = Modules.Assets.mageIceBombGhost;
 
         }
 

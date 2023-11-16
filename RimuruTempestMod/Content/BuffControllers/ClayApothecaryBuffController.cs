@@ -104,6 +104,8 @@ namespace RimuruTempestMod.Content.BuffControllers
             base.ApplySkillChange();
             //Apply skill overrides here.
         }
+
+
     }
 }
 

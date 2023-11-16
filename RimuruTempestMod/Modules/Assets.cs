@@ -23,6 +23,7 @@ namespace RimuruMod.Modules
         public static GameObject blacklightning;
         public static GameObject blacklightningimpactEffect;
         public static GameObject devourEffect;
+        public static GameObject devourExtendedEffect;
         public static GameObject devourskillgetEffect;
         public static GameObject analyzeEffect;
         public static GameObject waterbladeimpactEffect;
@@ -95,7 +96,7 @@ namespace RimuruMod.Modules
         public static GameObject railgunnerSnipeLightTracerEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/Railgunner/TracerRailgunLight.prefab").WaitForCompletion();
         public static GameObject GupSpikeEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC1/Gup/GupExplosion.prefab").WaitForCompletion();
         public static GameObject loaderOmniImpactLightningEffect = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Loader/OmniImpactVFXLoaderLightning.prefab").WaitForCompletion();
-        public static GameObject mageIceBoltGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Junk/Mage/MageIceBoltGhost.prefab").WaitForCompletion();
+        public static GameObject mageIceBombGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageIceBombGhost.prefab").WaitForCompletion();
 
         //objects        
         public static GameObject spherePrefab;
@@ -172,6 +173,7 @@ namespace RimuruMod.Modules
             blacklightningimpactEffect = LoadEffect("BlackLightningImpact");
             //devour effect
             devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
+            devourExtendedEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DevourExtended");
             devourskillgetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("SkillGet");
             //analyze effect
             analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");

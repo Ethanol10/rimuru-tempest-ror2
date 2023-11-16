@@ -1,4 +1,5 @@
-﻿using RimuruMod.Modules.Survivors;
+﻿using RimuruMod.Modules;
+using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
 using System.Collections.Generic;
@@ -42,13 +43,15 @@ namespace RimuruMod.SkillStates
             {
                 damageType |= DamageType.ApplyMercExpose;
             }
-            else this.procCoefficient = 1f;
+            
+            this.procCoefficient = 1f;
+            this.damageCoefficient = StaticValues.devourDamageCoefficient;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
-            this.baseDuration = 0.5f;
+            this.baseDuration = 1f;
             this.attackStartTime = 0.1f;
-            this.attackEndTime = 0.25f;
-            this.baseEarlyExitTime = 0.25f;
+            this.attackEndTime = 0.8f;
+            this.baseEarlyExitTime = 0.8f;
             this.hitStopDuration = 0.01f;
             this.attackRecoil = 0.2f;
             this.hitHopVelocity = 4f;

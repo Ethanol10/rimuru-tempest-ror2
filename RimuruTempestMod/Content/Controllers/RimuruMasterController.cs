@@ -89,17 +89,13 @@ namespace RimuruMod.Modules.Survivors
                         }
                         AkSoundEngine.PostEvent("RimuruAnalyse", characterBody.gameObject);
 
-                        DevourEffectController devourEffect;
-                        if (!damageReport.attackerBody.gameObject.GetComponent<DevourEffectController>())
+                        RoR2.EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new RoR2.EffectData
                         {
-                            devourEffect = gameObject.AddComponent<DevourEffectController>();
+                            origin = damageReport.attackerBody.corePosition,
+                            scale = 1f,
+                            rotation = Quaternion.identity,
 
-                        }
-                        else
-                        {
-                            devourEffect = gameObject.GetComponent<DevourEffectController>();
-
-                        }
+                        }, true);
                         //Do something with incomingSkill I guess if necessary.
                     }
                 }

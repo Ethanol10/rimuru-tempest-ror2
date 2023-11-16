@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2442489832
+CRC: 1559004016
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8890b25b8722f3a09f193f71aea081d5
+    Hash: 99cd87d32b47d489d601cb7e7842dac4
   TypeTreeHash:
     serializedVersion: 2
     Hash: 740584176fc78b859e604f8258f4482c
@@ -124,6 +124,7 @@ Assets:
 - Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
 - Assets/Rimuru/Assets/Animation/Human/SwingRightIdle.anim
 - Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
+- Assets/Rimuru/Assets/VFX/DevourExtended.prefab
 - Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
 - Assets/Rimuru/Assets/VFX/ImpactRimuruSlash.prefab
 - Assets/Rimuru/Assets/Materials/RimuruSlimeMat.mat

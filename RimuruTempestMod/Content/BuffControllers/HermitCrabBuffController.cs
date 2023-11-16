@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 using RoR2;
-using On.RoR2;
 using RimuruMod.Modules;
 using System.Reflection;
 using R2API.Networking;
-using IL.RoR2;
 using RimuruMod.Modules.Survivors;
 using RoR2.Orbs;
 using EntityStates;
 using EntityStates.Huntress;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RimuruTempestMod.Content.BuffControllers
 {
@@ -59,7 +59,6 @@ namespace RimuruTempestMod.Content.BuffControllers
             {
                 this.mortarIndicatorInstance.transform.parent = body.transform;
                 this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
-                this.mortarIndicatorInstance.transform.localPosition = body.corePosition;
 
             }
         }
@@ -106,12 +105,16 @@ namespace RimuruTempestMod.Content.BuffControllers
         //hermit crab mortar
         public void CreateMortarIndicator()
         {
-            this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(ArrowRain.areaIndicatorPrefab);
-            this.mortarIndicatorInstance.SetActive(true);
+            if (EntityStates.Huntress.ArrowRain.areaIndicatorPrefab)
+            {
+                this.mortarIndicatorInstance = UnityEngine.Object.Instantiate<GameObject>(ArrowRain.areaIndicatorPrefab);
+                this.mortarIndicatorInstance.SetActive(true);
 
-            this.mortarIndicatorInstance.transform.parent = body.transform;
-            this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
-            this.mortarIndicatorInstance.transform.localPosition = Vector3.zero;
+                this.mortarIndicatorInstance.transform.parent = body.transform;
+                this.mortarIndicatorInstance.transform.localScale = Vector3.one * StaticValues.hermitMortarRadius;
+                this.mortarIndicatorInstance.transform.localPosition = Vector3.zero;
+
+            }
 
             
         }
@@ -149,6 +152,74 @@ namespace RimuruTempestMod.Content.BuffControllers
         }
 
 
+    }
+
+    //mortar orb
+    public class MortarOrb : Orb
+    {
+        public override void Begin()
+        {
+            base.duration = 0.5f;
+            EffectData effectData = new EffectData
+            {
+                origin = this.origin,
+                genericFloat = base.duration
+            };
+            effectData.SetHurtBoxReference(this.target);
+            GameObject effectPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/SquidOrbEffect");
+            EffectManager.SpawnEffect(effectPrefab, effectData, true);
+        }
+        public HurtBox PickNextTarget(Vector3 position, float range)
+        {
+            BullseyeSearch bullseyeSearch = new BullseyeSearch();
+            bullseyeSearch.searchOrigin = position;
+            bullseyeSearch.searchDirection = Vector3.zero;
+            bullseyeSearch.teamMaskFilter = TeamMask.allButNeutral;
+            bullseyeSearch.teamMaskFilter.RemoveTeam(this.teamIndex);
+            bullseyeSearch.filterByLoS = false;
+            bullseyeSearch.sortMode = BullseyeSearch.SortMode.Distance;
+            bullseyeSearch.maxDistanceFilter = range;
+            bullseyeSearch.RefreshCandidates();
+            List<HurtBox> list = bullseyeSearch.GetResults().ToList<HurtBox>();
+            if (list.Count <= 0)
+            {
+                return null;
+            }
+            return list[UnityEngine.Random.Range(0, list.Count)];
+        }
+        public override void OnArrival()
+        {
+            if (this.target)
+            {
+                HealthComponent healthComponent = this.target.healthComponent;
+                if (healthComponent)
+                {
+                    DamageInfo damageInfo = new DamageInfo
+                    {
+                        damage = this.damageValue,
+                        attacker = this.attacker,
+                        inflictor = null,
+                        force = Vector3.zero,
+                        crit = this.isCrit,
+                        procChainMask = this.procChainMask,
+                        procCoefficient = this.procCoefficient,
+                        position = this.target.transform.position,
+                        damageColorIndex = this.damageColorIndex
+                    };
+                    healthComponent.TakeDamage(damageInfo);
+                    GlobalEventManager.instance.OnHitEnemy(damageInfo, healthComponent.gameObject);
+                    GlobalEventManager.instance.OnHitAll(damageInfo, healthComponent.gameObject);
+                }
+            }
+        }
+
+        public float damageValue;
+        public GameObject attacker;
+        public TeamIndex teamIndex;
+        public bool isCrit;
+        public ProcChainMask procChainMask;
+        public float procCoefficient = 1f;
+        public DamageColorIndex damageColorIndex;
     }
 }
 
