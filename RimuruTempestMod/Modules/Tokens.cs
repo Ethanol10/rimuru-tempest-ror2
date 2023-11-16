@@ -40,7 +40,8 @@ namespace RimuruMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "Magicule Properties");
             LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Hitting burning enemies with shock damage stuns and creates an explosion. " + Environment.NewLine +
                 "Hitting wet enemies with fire damage ignites nearby enemies and removes the wet debuff. " + Environment.NewLine +
-                "Hitting wet enemies with shock damage shocks nearby enemies.");
+                "Hitting wet enemies with shock damage shocks nearby enemies." + Environment.NewLine + 
+                "Holding Space in mid air allows you to glide.");
             #endregion
 
             #region Primary

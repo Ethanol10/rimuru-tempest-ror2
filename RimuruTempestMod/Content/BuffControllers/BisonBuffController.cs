@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using RoR2;
-using On.RoR2;
 using RimuruMod.Modules;
 using System.Reflection;
 using R2API.Networking;
@@ -19,7 +18,6 @@ namespace RimuruMod.Content.BuffControllers
     public class BisonBuffController : RimuruBaseBuffController
     {
         private float buttonCooler;
-        private RoR2.InputBankTest inputBank;
 
         public override void Awake()
         {
@@ -33,7 +31,7 @@ namespace RimuruMod.Content.BuffControllers
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 
 
-            inputBank = body.GetComponent<RoR2.InputBankTest>();
+
 
             RoR2.Chat.AddMessage("<style=cIsUtility>Dash Skill</style> acquisition successful.");
         }
@@ -54,10 +52,13 @@ namespace RimuruMod.Content.BuffControllers
             }
             if (buttonCooler < 0f)
             {
-                if (inputBank.sprint.justPressed)
+                if (inputBank) 
                 {
-                    new SetDashStateMachine(body.masterObjectId).Send(NetworkDestination.Clients);
-                    buttonCooler += 1f;
+                    if (inputBank.sprint.justPressed)
+                    {
+                        new SetDashStateMachine(body.masterObjectId).Send(NetworkDestination.Clients);
+                        buttonCooler += 1f;
+                    }
                 }
             }
         }

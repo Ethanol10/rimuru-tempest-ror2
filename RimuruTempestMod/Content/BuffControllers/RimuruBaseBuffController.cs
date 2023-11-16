@@ -19,6 +19,7 @@ namespace RimuruMod.Content.BuffControllers
         public RoR2.CharacterBody body;
         public RoR2.CharacterMaster master;
         public RoR2.BuffDef buffdef;
+        public RoR2.InputBankTest inputBank;
 
         public virtual void Awake()
         {
@@ -38,6 +39,8 @@ namespace RimuruMod.Content.BuffControllers
                 }
             }
 
+
+            inputBank = body.GetComponent<RoR2.InputBankTest>();
 
             ActiveBuffEffect();
             stopwatch += Time.fixedDeltaTime;
@@ -67,6 +70,7 @@ namespace RimuruMod.Content.BuffControllers
         public virtual void UpdateBody()
         {
             body = master.GetBody();
+            inputBank = body.GetComponent<RoR2.InputBankTest>();
         }
 
         public virtual void ApplySkillChange()

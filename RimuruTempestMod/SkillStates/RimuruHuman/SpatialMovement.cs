@@ -11,7 +11,7 @@ namespace RimuruMod.SkillStates
         private GameObject aimSphere;
         public float radius = 3f;
         private Ray aimRay;
-        private float maxDistance = 150f;
+        private float maxDistance = 75f;
 
         public override void OnEnter()
         {
@@ -59,6 +59,7 @@ namespace RimuruMod.SkillStates
             if (base.isAuthority && !base.IsKeyDownAuthority())
             {
                 base.characterMotor.rootMotion += this.aimSphere.transform.position - base.characterBody.corePosition;
+                base.characterMotor.velocity.y = 0f;
                 this.outer.SetNextStateToMain();
             }
         }

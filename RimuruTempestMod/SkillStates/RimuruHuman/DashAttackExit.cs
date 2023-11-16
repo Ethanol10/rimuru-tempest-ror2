@@ -98,6 +98,7 @@ namespace RimuruMod.SkillStates
 
             if (this.stopwatch >= this.duration * attackStartTime && base.isAuthority && this.stopwatch <= this.duration * stopHoptrigger) 
             {
+                characterMotor.Motor.ForceUnground();
                 characterMotor.velocity = new Vector3(characterMotor.velocity.x, Mathf.Max(characterMotor.velocity.y, Modules.Config.dashAttackHop.Value), characterMotor.velocity.z);
             }
 

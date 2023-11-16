@@ -18,6 +18,12 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
 
 ## Latest Changes
 
+- v1.0.1
+    - Fixed Dash from not working between Human and Slime form.
+    - Force Unground when doing a dash attack on the ground.
+    - Reduced Spatial Movement Distance by half.
+    - Set Falling Velocity to 0 on Spatial Movement execution.
+
 - v1.0.0 
     - Devour now has **unique buffs for every monster in the base and expansion** (SotV). (Further new enemies may not be supported if created.)
         - We'll update a wiki page later with the list of skills.
@@ -156,6 +162,18 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v1.0.0 
+    - Devour now has **unique buffs for every monster in the base and expansion** (SotV). (Further new enemies may not be supported if created.)
+        - We'll update a wiki page later with the list of skills.
+    - Added some animation tweaks to sword swing.
+    - After a dash attack, Rimuru will now spin and deal some damage, while moving slightly up.
+    - Rimuru can now glide by holding the jump down while in the air.
+    - Fixed some bugs, other fixes:
+        - Center for Rimuru has now been properly set so effects are set around the center of the body rather than the feet.
+        - Eclipse progress should naturally work now without other mods. 
+        - Slightly optimized the sound sizes.
+        - Added some options into RoO
+        - Devour used to not work with other DoTs as they would take precedence and not give a buff. This was fixed to ensure that devour always get registered and should only grant buffs when you are in slime mode.
 - v0.9.4 -> Added Risk of options support for damage coefficients and other properties on each move, some options need a restart to apply. Text descriptions for options do not update until a restart, but if they are not cooldowns, they will be applied in the background.
 - v0.9.3 -> R2API submodule release.
 - v0.9.2 -> We forgot to write patch notes for this update, sorry.
