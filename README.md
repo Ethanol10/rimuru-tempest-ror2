@@ -78,7 +78,18 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
         <p>Wisp Mod (Popcorn Factory Team)</p>
     </a>
 </div>
-
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/">
+      <img width="130" src="https://cdn.discordapp.com/attachments/928130606662049892/1088442099432706068/PopcornFactory-Arsonist_Mod-1.png"/>
+      <p>Arsonist Mod (Popcorn Factory Team)</p>
+    </a>
+</div>	
+<div>
+    <a href="https://thunderstore.io/package/TeaL/NoctisMod/">
+        <img width="130" src="https://github.com/1TeaL/Noctis/assets/93917577/7ca87c81-7d42-45e9-81f6-f0227989713f"><br>
+        <p>Noctis Mod (TeaL)</p>
+    </a>
+</div>
 </details>
 
 ## Screenshots
