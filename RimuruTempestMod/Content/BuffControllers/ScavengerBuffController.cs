@@ -6,10 +6,10 @@ using RimuruMod.Modules;
 using System.Reflection;
 using R2API.Networking;
 using RimuruMod;
-using RimuruTempestMod.Modules.Networking;
+using RimuruMod.Modules.Networking;
 using R2API.Networking.Interfaces;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Scavenger

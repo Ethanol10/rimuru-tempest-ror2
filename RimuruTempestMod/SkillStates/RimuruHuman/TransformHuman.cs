@@ -1,5 +1,5 @@
 ﻿using EntityStates;
-using RimuruTempestMod.Content.BuffControllers;
+using RimuruMod.Content.BuffControllers;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;

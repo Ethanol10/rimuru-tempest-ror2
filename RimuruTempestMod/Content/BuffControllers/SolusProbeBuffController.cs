@@ -9,7 +9,7 @@ using IL.RoR2;
 using RimuruMod.Modules.Networking;
 using R2API.Networking.Interfaces;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Solus Probe

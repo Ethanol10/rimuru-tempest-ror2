@@ -12,9 +12,9 @@ using EmotesAPI;
 using BepInEx.Bootstrap;
 using RimuruMod.SkillStates;
 using RimuruMod.Modules;
-using RimuruTempestMod.Modules.Networking;
 using RimuruMod.Modules.Networking;
-using RimuruTempestMod.Content.BuffControllers;
+using RimuruMod.Modules.Networking;
+using RimuruMod.Content.BuffControllers;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]

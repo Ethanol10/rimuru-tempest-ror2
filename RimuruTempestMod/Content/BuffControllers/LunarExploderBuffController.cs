@@ -7,7 +7,7 @@ using System.Reflection;
 using R2API.Networking;
 using UnityEngine.Networking;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Lunar Exploder

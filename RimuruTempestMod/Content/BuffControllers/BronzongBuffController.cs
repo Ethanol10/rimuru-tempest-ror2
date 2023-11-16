@@ -7,7 +7,7 @@ using System.Reflection;
 using R2API.Networking;
 using IL.RoR2;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Bronzong

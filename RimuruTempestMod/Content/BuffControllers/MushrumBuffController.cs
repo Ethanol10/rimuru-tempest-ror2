@@ -8,7 +8,7 @@ using R2API.Networking;
 using RimuruMod.Modules.Networking;
 using R2API.Networking.Interfaces;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Mushrum

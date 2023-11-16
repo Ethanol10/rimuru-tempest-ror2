@@ -3,7 +3,7 @@ using RimuruMod.Modules;
 using System;
 using UnityEngine;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      All Buffs should inherit from this.

@@ -8,7 +8,7 @@ using R2API.Networking;
 using EffectData = RoR2.EffectData;
 using EffectManager = RoR2.EffectManager;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Xi Construct

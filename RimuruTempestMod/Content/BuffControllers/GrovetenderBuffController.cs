@@ -6,7 +6,7 @@ using RimuruMod.Modules;
 using System.Reflection;
 using R2API.Networking;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Grovetender

@@ -11,7 +11,7 @@ using HurtBox = RoR2.HurtBox;
 using DotController = RoR2.DotController;
 using EntityStates;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Lemurian

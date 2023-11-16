@@ -16,7 +16,7 @@ using HurtBox = RoR2.HurtBox;
 using System.Linq;
 using RoR2.Projectile;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Solus Control Unit

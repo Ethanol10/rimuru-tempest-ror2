@@ -9,7 +9,7 @@ using System.Linq;
 using EntityStates.ScavMonster;
 using RimuruMod.Modules;
 
-namespace RimuruTempestMod.Modules.Networking
+namespace RimuruMod.Modules.Networking
 {
     public class ItemDropNetworked : INetMessage
     {

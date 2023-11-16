@@ -6,7 +6,7 @@ using System.Linq;
 using RoR2.Projectile;
 using EntityStates.ClayGrenadier;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Clay Apothecary

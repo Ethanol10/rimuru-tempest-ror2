@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Networking;
 using RimuruMod.SkillStates;
-using RimuruTempestMod.Content.BuffControllers;
+using RimuruMod.Content.BuffControllers;
 
 namespace RimuruMod.Modules.Survivors
 {

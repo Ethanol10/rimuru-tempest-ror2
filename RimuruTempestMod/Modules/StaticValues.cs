@@ -1,5 +1,5 @@
 ﻿using RimuruMod.Modules.Survivors;
-using RimuruTempestMod.Content.BuffControllers;
+using RimuruMod.Content.BuffControllers;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -102,7 +102,9 @@ namespace RimuruMod.Modules
         internal const float gravManipulationThreshold = 1f;
 
         //flight
-        internal const float flightBuffThreshold = 3.5f;
+        internal const float flightBuffThreshold = 4f;
+        internal const float flightAccelerationMultiplier = 0.5f;
+        internal const float flightMoveSpeedMultiplier = 1.3f;
 
         //flame body
         internal const float flameBodyRadius = 40f;

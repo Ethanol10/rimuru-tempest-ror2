@@ -11,7 +11,7 @@ using EntityStates.Huntress;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Hermit Crab

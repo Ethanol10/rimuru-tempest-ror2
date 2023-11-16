@@ -19,7 +19,7 @@ namespace RimuruMod.SkillStates.Rimuru
             base.ProcessJump();
             if (this.hasCharacterMotor && this.hasInputBank && base.isAuthority)
             {
-                bool CheckJumpingHold = base.inputBank.jump.down && base.characterMotor.velocity.y < 0f && !base.characterMotor.isGrounded;
+                bool CheckJumpingHold = base.inputBank.jump.down && (base.characterMotor.velocity.y < 0f || base.characterBody.HasBuff(Modules.Buffs.flightBuff)) && !base.characterMotor.isGrounded;
                 bool flag = this.weaponStateMachine.state.GetType() == typeof(Gliding);
 
                 if (CheckJumpingHold && !flag)

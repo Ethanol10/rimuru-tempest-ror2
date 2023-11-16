@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using RimuruMod.Content.BuffControllers;
 using UnityEngine;
 
 namespace RimuruMod.SkillStates
@@ -7,6 +8,8 @@ namespace RimuruMod.SkillStates
     {
         private Animator rimuruAnim;
         private static float slowestDescent = -3f;
+        private VultureBuffController vultureBuffController; //On the master.
+        private bool doNothing;
 
         public override void OnEnter()
         {
@@ -15,6 +18,8 @@ namespace RimuruMod.SkillStates
             rimuruAnim.SetBool("isGliding", true);
             PlayCrossfade("FullBody, Override", "Sprint1", 0.15f);
 
+            vultureBuffController = characterBody.master.GetComponent<VultureBuffController>();
+            doNothing = false;
         }
 
         public override void FixedUpdate()
@@ -22,13 +27,32 @@ namespace RimuruMod.SkillStates
             base.FixedUpdate();
             if (isAuthority)
             {
-                float newFallingVelocity = characterMotor.velocity.y / 1.5f;
-                if (newFallingVelocity > slowestDescent)
+                if (vultureBuffController) 
                 {
-                    newFallingVelocity = slowestDescent;
+                    if (!vultureBuffController.flightExpired || characterMotor.isGrounded || characterMotor.velocity.y > 0)
+                    {
+                        doNothing = true;
+                    }
+                    else 
+                    {
+                        doNothing = false;
+                    }
                 }
-                newFallingVelocity = Mathf.MoveTowards(newFallingVelocity, Modules.Config.glideSpeed.Value, Modules.Config.glideAcceleration.Value * Time.fixedDeltaTime);
-                characterMotor.velocity = new Vector3(characterMotor.velocity.x, newFallingVelocity, characterMotor.velocity.z);
+
+                if (!doNothing) 
+                {
+                    float newFallingVelocity = characterMotor.velocity.y / 1.5f;
+                    if (newFallingVelocity > slowestDescent)
+                    {
+                        newFallingVelocity = slowestDescent;
+                    }
+                    newFallingVelocity = Mathf.MoveTowards(
+                        newFallingVelocity,
+                        Modules.Config.glideSpeed.Value,
+                        Modules.Config.glideAcceleration.Value * Time.fixedDeltaTime
+                        * (characterBody.HasBuff(Modules.Buffs.flightBuff) ? Modules.StaticValues.flightAccelerationMultiplier : 1f));
+                    characterMotor.velocity = new Vector3(characterMotor.velocity.x, newFallingVelocity, characterMotor.velocity.z);
+                }
             }
         }
 

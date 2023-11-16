@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using HurtBox = RoR2.HurtBox;
 using System.Linq;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Clay Dunestrider 

@@ -12,7 +12,7 @@ using BullseyeSearch = RoR2.BullseyeSearch;
 using static UnityEngine.ParticleSystem.PlaybackState;
 using R2API.Networking.Interfaces;
 
-namespace RimuruTempestMod.Content.BuffControllers
+namespace RimuruMod.Content.BuffControllers
 {
     /*
      Void Barnacle
