@@ -67,6 +67,8 @@ namespace RimuruMod
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
 
+            Modules.Damage.SetupModdedDamage();
+
             // survivor initialization
             new RimuruHuman().Initialize(false);
             new RimuruSlime().Initialize(true);

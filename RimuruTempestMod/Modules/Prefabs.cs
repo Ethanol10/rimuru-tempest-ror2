@@ -165,11 +165,17 @@ namespace RimuruMod.Modules {
         public static CharacterModel SetupCharacterModel(GameObject prefab, CustomRendererInfo[] customInfos) {
 
             CharacterModel characterModel = prefab.GetComponent<ModelLocator>().modelTransform.gameObject.GetComponent<CharacterModel>();
+
             bool preattached = characterModel != null;
             if (!preattached)
                 characterModel = prefab.GetComponent<ModelLocator>().modelTransform.gameObject.AddComponent<CharacterModel>();
 
+
+            ChildLocator childLocator = characterModel.GetComponent<ChildLocator>();
             characterModel.body = prefab.GetComponent<CharacterBody>();
+            characterModel.body.overrideCoreTransform = childLocator.FindChild("Chest");
+            characterModel.body.coreTransform = childLocator.FindChild("Chest");
+
 
             characterModel.autoPopulateLightInfos = true;
             characterModel.invisibilityCount = 0;

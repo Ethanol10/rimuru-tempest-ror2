@@ -112,7 +112,7 @@ namespace RimuruMod.Modules
         internal const float flameBodyDamageCoefficient = 2f;
         internal const float flameBodyThreshold = 2f;
 
-        //tar manip
+        //tar manip 
         internal const float tarManipRadius = 30f;
         internal const float tarManipCoefficient = 0.7f;
 

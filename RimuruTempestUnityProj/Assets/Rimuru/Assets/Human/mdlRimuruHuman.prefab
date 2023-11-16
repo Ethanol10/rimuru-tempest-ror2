@@ -1660,6 +1660,8 @@ MonoBehaviour:
     transform: {fileID: 3215208770083110790}
   - name: SwingLeft
     transform: {fileID: 5023218316056936960}
+  - name: Chest
+    transform: {fileID: 3198969619355732500}
 --- !u!114 &2062470452906043953
 MonoBehaviour:
   m_ObjectHideFlags: 0

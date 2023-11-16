@@ -591,6 +591,8 @@ MonoBehaviour:
     transform: {fileID: 1393761052665680212}
   - name: DevourExtendedHitbox
     transform: {fileID: 463863221394849733}
+  - name: Chest
+    transform: {fileID: 2800036264426392403}
 --- !u!114 &280656782075837216
 MonoBehaviour:
   m_ObjectHideFlags: 0
