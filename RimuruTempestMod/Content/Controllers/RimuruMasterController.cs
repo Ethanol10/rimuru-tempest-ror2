@@ -91,7 +91,7 @@ namespace RimuruMod.Modules.Survivors
 
                         RoR2.EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new RoR2.EffectData
                         {
-                            origin = damageReport.attackerBody.corePosition,
+                            origin = damageReport.victimBody.corePosition + Vector3.up * 2f,
                             scale = 1f,
                             rotation = Quaternion.identity,
 
