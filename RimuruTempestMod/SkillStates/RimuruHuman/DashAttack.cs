@@ -67,6 +67,10 @@ namespace RimuruMod.SkillStates
             base.PlayAnimation("FullBody, Override", "DashAttack");
 
             base.OnEnter();
+
+
+            characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
+
         }
         public override void FixedUpdate()
         {
@@ -126,6 +130,7 @@ namespace RimuruMod.SkillStates
             base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
             base.characterMotor.velocity *= 0.1f;
             base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            characterBody.bodyFlags = Modules.StaticValues.defaultBodyFlags;
         }
         public override InterruptPriority GetMinimumInterruptPriority()
         {
