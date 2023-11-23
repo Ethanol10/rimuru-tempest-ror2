@@ -151,9 +151,6 @@ namespace RimuruMod.Modules
         // Black Flare
         internal const float blackFlareProcCoefficientBoost = 4f;
 
-        //CharacterBody Flags
-        internal const CharacterBody.BodyFlags defaultBodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes;
-
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 

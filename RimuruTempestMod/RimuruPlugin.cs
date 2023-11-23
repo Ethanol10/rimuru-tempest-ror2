@@ -154,7 +154,7 @@ namespace RimuruMod
                 if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
                 {
                     //crit buff
-                    if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
+                    if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff) && self.body.teamComponent.teamIndex != TeamIndex.Player)
                     {
                         if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
                         {
@@ -170,6 +170,25 @@ namespace RimuruMod
                         }
                     }
 
+                    if (damageInfo.attacker.GetComponent<CharacterBody>().teamComponent.teamIndex == TeamIndex.Player) 
+                    {
+                        if (damageInfo.attacker.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff)) 
+                        {
+                            if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                            {
+
+                                if (Modules.Config.doubleInsteadOfCrit.Value)
+                                {
+                                    damageInfo.damage *= 2.0f;
+                                }
+                                else
+                                {
+                                    damageInfo.crit = true;
+                                }
+                            }
+                        }
+                    }
+
 
                     //modded damage type for devour
                     if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.rimuruDevour))
@@ -177,6 +196,21 @@ namespace RimuruMod
                         self.body.ApplyBuff(Buffs.rimuruDevourDebuff.buffIndex, 1, -1);
                     }
 
+                }
+
+                if (damageInfo != null) 
+                {
+                    if (self.body.HasBuff(Modules.Buffs.immuneToFallDamage)) 
+                    {
+                        DamageType tempDamageType = DamageType.FallDamage | DamageType.NonLethal;
+                        DamageType frailtyDamageType = DamageType.FallDamage | DamageType.BypassOneShotProtection;
+
+                        if (damageInfo.damageType == tempDamageType || damageInfo.damageType == frailtyDamageType)
+                        {
+                            damageInfo.damage = 0f;
+                            damageInfo.rejected = true;
+                        }
+                    }
                 }
 
             }
@@ -330,7 +364,6 @@ namespace RimuruMod
                             wetcontroller.charbody = self;
                         }
                     }
-
                 }
             }
         }

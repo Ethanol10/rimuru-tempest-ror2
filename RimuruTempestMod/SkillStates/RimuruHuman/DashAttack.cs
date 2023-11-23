@@ -1,10 +1,12 @@
 ﻿using EntityStates;
+using R2API.Networking;
 using RimuruMod.Modules.Survivors;
 using RimuruMod.SkillStates.BaseStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace RimuruMod.SkillStates
 {
@@ -68,9 +70,10 @@ namespace RimuruMod.SkillStates
 
             base.OnEnter();
 
-
-            characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
-
+            if (NetworkServer.active) 
+            {
+                base.characterBody.AddTimedBuff(Modules.Buffs.immuneToFallDamage.buffIndex, 1.5f);
+            }
         }
         public override void FixedUpdate()
         {
@@ -130,7 +133,6 @@ namespace RimuruMod.SkillStates
             base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
             base.characterMotor.velocity *= 0.1f;
             base.PlayAnimation("FullBody, Override", "BufferEmpty");
-            characterBody.bodyFlags = Modules.StaticValues.defaultBodyFlags;
         }
         public override InterruptPriority GetMinimumInterruptPriority()
         {

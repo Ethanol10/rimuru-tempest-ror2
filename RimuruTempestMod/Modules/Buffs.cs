@@ -67,11 +67,13 @@ namespace RimuruMod.Modules
         internal static BuffDef TarProjBuff;
         internal static BuffDef CrippleProjBuff;
 
+        internal static BuffDef immuneToFallDamage;
+
         internal static void RegisterBuffs()
         {
-            SpatialMovementBuff = AddNewBuff($"SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
-            CritDebuff = AddNewBuff($"CritDebuff", Assets.critBuffIcon, Color.red, false, true);
-            WetLightningDebuff = AddNewBuff($"WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
+            SpatialMovementBuff = AddNewBuff($"Spatial Movement Buff", Assets.shieldBuffIcon, Color.cyan, false, false);
+            CritDebuff = AddNewBuff($"Crit Debuff", Assets.critBuffIcon, Color.red, false, true);
+            WetLightningDebuff = AddNewBuff($"Wet Lightning Debuff", Assets.lightningBuffIcon, Color.magenta, false, true);
             WetDebuff = AddNewBuff($"Wet Debuff", Assets.bleedBuffIcon, Color.cyan, false, true);
 
             strengthBuff = AddNewBuff($"Strengthen Body- Increase your Damage by {StaticValues.strengthBuffCoefficient}x", Assets.boostBuffIcon, Color.gray, false, false);
@@ -127,6 +129,7 @@ namespace RimuruMod.Modules
 
 
             rimuruDevourDebuff = AddNewBuff($"Devour Debuff", Assets.tarBuffIcon, Color.cyan, false, true);
+            immuneToFallDamage = AddNewBuff("Immune To Fall Damage", Assets.shieldBuffIcon, Color.white, false, false);
 
         }
 
