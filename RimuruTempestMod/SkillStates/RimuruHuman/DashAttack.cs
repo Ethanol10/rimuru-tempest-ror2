@@ -29,6 +29,12 @@ namespace RimuruMod.SkillStates
         {
             Rimurucon = base.GetComponent<RimuruController>();
             Rimurumastercon = characterBody.master.gameObject.GetComponent<RimuruMasterController>();
+
+            if (NetworkServer.active)
+            {
+                base.characterBody.AddTimedBuff(Modules.Buffs.immuneToFallDamage.buffIndex, 1.5f);
+            }
+
             if (Rimurucon && base.isAuthority)
             {
                 Target = Rimurucon.GetTrackingTarget();
@@ -39,10 +45,6 @@ namespace RimuruMod.SkillStates
                 return;
             }
 
-            if (base.characterBody)
-            {
-                base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
-            }
             bool flag2 = this.Target && this.Target.healthComponent && this.Target.healthComponent.alive;
             if (flag2)
             {
@@ -69,11 +71,6 @@ namespace RimuruMod.SkillStates
             base.PlayAnimation("FullBody, Override", "DashAttack");
 
             base.OnEnter();
-
-            if (NetworkServer.active) 
-            {
-                base.characterBody.AddTimedBuff(Modules.Buffs.immuneToFallDamage.buffIndex, 1.5f);
-            }
         }
         public override void FixedUpdate()
         {
