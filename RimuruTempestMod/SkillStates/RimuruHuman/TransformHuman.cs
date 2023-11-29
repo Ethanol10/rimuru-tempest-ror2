@@ -2,6 +2,7 @@
 using R2API.Networking.Interfaces;
 using RimuruMod.Content.BuffControllers;
 using RimuruMod.Modules.Networking;
+using RimuruMod.Modules.Survivors;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -11,11 +12,12 @@ namespace RimuruMod.SkillStates
     public class TransformHuman : BaseSkillState
     {
         public float oldHealth;
+        public RimuruMasterController masterController;
 
         public override void OnEnter()
         {
             base.OnEnter();
-
+            masterController = characterBody.master.GetComponent<RimuruMasterController>();
             oldHealth = characterBody.healthComponent.health;
             new TransformBody(characterBody.master.netId, oldHealth, (int)TransformBody.TargetBody.SLIME).Send(R2API.Networking.NetworkDestination.Clients);
             AkSoundEngine.PostEvent("RimuruTransform", base.gameObject);
@@ -44,6 +46,8 @@ namespace RimuruMod.SkillStates
             //}
             //characterBody.master.GetBody().healthComponent.health = oldHealth;
             new UpdateControllers(characterBody.master.netId, oldHealth).Send(R2API.Networking.NetworkDestination.Clients);
+            masterController.setHealthToValue = true;
+            masterController.oldHealth = oldHealth;
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
