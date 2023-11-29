@@ -20,6 +20,7 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
 
 - v1.0.3
     - Applying fall damage immunity buff wasn't networked correctly (it was, but not really, too complicated to explain). This should be fixed now.
+    - Should set health correctly when transforming between bodies. (No more full heals when transforming, sorry!)
 - v1.0.0 
     - Devour now has **unique buffs for every monster in the base and expansion** (SotV). (Further new enemies may not be supported if created.)
         - We'll update a wiki page later with the list of skills.
@@ -158,6 +159,9 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v1.0.3
+    - Applying fall damage immunity buff wasn't networked correctly (it was, but not really, too complicated to explain). This should be fixed now.
+    - Should set health correctly when transforming between bodies. (No more full heals when transforming, sorry!)
 - v1.0.2
     - Added Flags to prevent fall damage from being registered while dashing into an enemy.
     - Analyse on Players should buff giving crit to attacks instead of debuff.
