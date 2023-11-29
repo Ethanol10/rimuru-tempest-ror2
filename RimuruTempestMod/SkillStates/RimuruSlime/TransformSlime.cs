@@ -1,5 +1,7 @@
 ﻿using EntityStates;
+using R2API.Networking.Interfaces;
 using RimuruMod.Content.BuffControllers;
+using RimuruMod.Modules.Networking;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -14,9 +16,9 @@ namespace RimuruMod.SkillStates
         public override void OnEnter()
         {
             base.OnEnter();
-            oldBody = base.characterBody;
-            oldHealth = oldBody.healthComponent.health;
-            characterBody.master.TransformBody("RimuruHumanBody");
+
+            oldHealth = characterBody.healthComponent.health;
+            new TransformBody(characterBody.master.netId, oldHealth, (int)TransformBody.TargetBody.HUMAN).Send(R2API.Networking.NetworkDestination.Clients);
             AkSoundEngine.PostEvent("RimuruTransform", base.gameObject);
         }
 
@@ -35,13 +37,7 @@ namespace RimuruMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            RimuruBaseBuffController[] array = characterBody.master.GetComponents<RimuruBaseBuffController>();
-            foreach (RimuruBaseBuffController controller in array)
-            {
-                controller.UpdateBody();
-            }
-            characterBody.master.GetBody().healthComponent.health = oldHealth;
-
+            new UpdateControllers(characterBody.master.netId, oldHealth).Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

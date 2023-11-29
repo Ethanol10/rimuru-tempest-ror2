@@ -85,6 +85,8 @@ namespace RimuruMod
             NetworkingAPI.RegisterMessageType<SetDashStateMachine>();
             NetworkingAPI.RegisterMessageType<GravityPulsePullRequest>();
             NetworkingAPI.RegisterMessageType<OrbDamageRequest>();
+            NetworkingAPI.RegisterMessageType<TransformBody>();
+            NetworkingAPI.RegisterMessageType<UpdateControllers>();
 
 
             Hook();
