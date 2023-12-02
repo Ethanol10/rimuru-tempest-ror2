@@ -10,7 +10,7 @@ namespace RimuruMod.Content.BuffControllers
 {
     /*
      Wandering Vagrant
-     Effect: Icicle Lance - Replace Melee with Icicle Lance
+     Effect: Icicle Lance - Melee attacks shoot an icicle lance
      */
 
     public class WanderingVagrantBuffController : RimuruBaseBuffController

@@ -13,7 +13,7 @@ namespace RimuruMod.Content.BuffControllers
 {
     /*
      Scavenger
-     Effect: Creation- duplicate a random item on boss kill
+     Effect: Creation- Duplicate a random item on boss kill
      */
 
     public class ScavengerBuffController : RimuruBaseBuffController

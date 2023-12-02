@@ -10,7 +10,7 @@ namespace RimuruMod.Content.BuffControllers
 {
     /*
      Nullifier
-     Effect: Big brain- Reduce CD on 4th hit
+     Effect: Big Brain- Every 4 hits, reduce all your cooldowns by 1 second
      */
 
     public class NullifierBuffController : RimuruBaseBuffController

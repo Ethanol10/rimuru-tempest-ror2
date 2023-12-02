@@ -12,7 +12,7 @@ namespace RimuruMod.Content.BuffControllers
 {
     /*
      Xi Construct
-     Effect: Singular Barrier- every 10 seconds take no damage
+     Effect: Singular Barrier- Every 10 seconds take no damage
      */
 
     public class XiConstructBuffController : RimuruBaseBuffController

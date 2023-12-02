@@ -20,7 +20,7 @@ namespace RimuruMod.Content.BuffControllers
 {
     /*
      Solus Control Unit
-     Effect: Reverse Gravity manipulation- enemies get knocked up every X seconds
+     Effect: Reverse Gravity manipulation- Enemies get knocked up every 10 seconds
      */
 
     public class SolusControlUnitBuffController : RimuruBaseBuffController
