@@ -9,8 +9,8 @@ using R2API.Networking;
 namespace RimuruMod.Content.BuffControllers
 {
     /*
-     Void Devastator
-     Effect: Void-touched blows: Melee Attacks Apply Collapse
+     Lunar Golem
+     Effect: Crippling Waterblade: Waterblade applies cripple
      */
 
     public class LunarGolemBuffController : RimuruBaseBuffController

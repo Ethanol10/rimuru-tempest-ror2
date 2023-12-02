@@ -10,7 +10,7 @@ namespace RimuruMod.Content.BuffControllers
 {
     /*
      Magma Worm
-     Effect: Fire Manipulation: Melee Attacks Apply Fire
+     Effect: Lightning Manipulation: Pulse lightning around yourself every 2 seconds
      */
 
     public class OverloadingWormBuffController : RimuruBaseBuffController
