@@ -80,7 +80,7 @@ namespace RimuruMod.Modules.Networking
 
                 //Set master body prefab before calling this func.
                 characterMaster.bodyPrefab = newBody;
-                StupidExternalSpawningBodyFunction(characterMaster, newBody);
+                StupidExternalSpawningBodyFunction(characterMaster);
 
                 //Perform Finalization on all clients.
                 new UpdateControllers(netID, health).Send(R2API.Networking.NetworkDestination.Clients);
