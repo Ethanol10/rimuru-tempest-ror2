@@ -78,6 +78,8 @@ namespace RimuruMod.Modules.Networking
                 //Attempt transform
                 //characterMaster.TransformBody(selectedBody);
 
+                //Set master body prefab before calling this func.
+                characterMaster.bodyPrefab = newBody;
                 StupidExternalSpawningBodyFunction(characterMaster, newBody);
 
                 //Perform Finalization on all clients.
@@ -85,7 +87,7 @@ namespace RimuruMod.Modules.Networking
             }
         }
 
-        public CharacterBody StupidExternalSpawningBodyFunction(CharacterMaster master, GameObject bodyPrefab) 
+        public CharacterBody StupidExternalSpawningBodyFunction(CharacterMaster master) 
         {
             Vector3 footPosition = master.GetBody().transform.position;
             Quaternion rotation = master.GetBody().transform.rotation;
@@ -94,9 +96,9 @@ namespace RimuruMod.Modules.Networking
             master.DestroyBody();
 
             //Do spawning thing. This was ripped from Respawn(), but we didn't want to use the metamorphisis stuff so this is why it's a clone.
-            if (bodyPrefab)
+            if (master.bodyPrefab)
             {
-                CharacterBody component = bodyPrefab.GetComponent<CharacterBody>();
+                CharacterBody component = master.bodyPrefab.GetComponent<CharacterBody>();
                 if (component)
                 {
                     Vector3 position = footPosition;
@@ -108,7 +110,7 @@ namespace RimuruMod.Modules.Networking
                 }
                 Debug.LogErrorFormat("Trying to respawn as object {0} who has no Character Body!", new object[]
                 {
-                    bodyPrefab
+                    master.bodyPrefab
                 });
             }
             else 
