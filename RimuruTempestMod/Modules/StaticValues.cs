@@ -151,6 +151,35 @@ namespace RimuruMod.Modules
         // Black Flare
         internal const float blackFlareProcCoefficientBoost = 4f;
 
+        public enum TargetBody : int
+        {
+            HUMAN = 0,
+            SLIME = 1,
+        }
+
+        public static void TransformBodyType(Modules.StaticValues.TargetBody targetBody, CharacterMaster master)
+        {
+            string selectedBody = "";
+            switch (targetBody)
+            {
+                case Modules.StaticValues.TargetBody.HUMAN:
+                    selectedBody = "RimuruHumanBody";
+                    break;
+                case Modules.StaticValues.TargetBody.SLIME:
+                    selectedBody = "RimuruSlimeBody";
+                    break;
+                default:
+                    selectedBody = "RimuruHumanBody";
+                    break;
+            }
+
+            GameObject newBody = BodyCatalog.FindBodyPrefab(selectedBody);
+
+
+            //Attempt transform
+            master.TransformBody(selectedBody);
+        }
+
         //Dictionary containing all created skills for rimuru.
         public static Dictionary<string, Func<CharacterMaster, RimuruBaseBuffController>> rimDic;
 

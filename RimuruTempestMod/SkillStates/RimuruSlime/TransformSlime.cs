@@ -6,6 +6,7 @@ using RimuruMod.Modules.Survivors;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
+using static RimuruMod.Modules.Networking.TransformBody;
 
 namespace RimuruMod.SkillStates
 {
@@ -19,7 +20,12 @@ namespace RimuruMod.SkillStates
             base.OnEnter();
             masterController = characterBody.master.GetComponent<RimuruMasterController>();
             oldHealth = characterBody.healthComponent.health;
-            new TransformBody(characterBody.master.netId, oldHealth, (int)TransformBody.TargetBody.HUMAN).Send(R2API.Networking.NetworkDestination.Clients);
+            //new TransformBody(characterBody.master.netId, oldHealth, (int)TransformBody.TargetBody.HUMAN).Send(R2API.Networking.NetworkDestination.Clients);
+
+            if (NetworkServer.active)
+            {
+                Modules.StaticValues.TransformBodyType(Modules.StaticValues.TargetBody.HUMAN, characterBody.master);
+            }
             AkSoundEngine.PostEvent("RimuruTransform", base.gameObject);
         }
 
