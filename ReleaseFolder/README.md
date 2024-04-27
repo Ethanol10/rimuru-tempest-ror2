@@ -18,8 +18,11 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
 
 ## Latest Changes
 
-- v1.0.4
-    - Removed the need for net messages in transforming body. This should fix the Infinite Item Bug on Rimuru.
+- v1.0.5
+    - Fixing README from using discord as a CDN
+    - Fixed Wisp from not granting the buff on Devour.
+    - Fixed timer not counting pulses correctly on Lemurian Devour buff.
+    - Fixed proc-coefficient from not being applied correctly when devouring a Greater Wisp.
 - v1.0.0 
     - Devour now has **unique buffs for every monster in the base and expansion** (SotV). (Further new enemies may not be supported if created.)
         - We'll update a wiki page later with the list of skills.
@@ -34,7 +37,6 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
         - Devour used to not work with other DoTs as they would take precedence and not give a buff. This was fixed to ensure that devour always get registered and should only grant buffs when you are in slime mode.
 
 ## Popcorn Factory
-
 <details>
 <summary>Check out other mods from the Popcorn Factory team!</summary>
 
@@ -58,31 +60,31 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
 </div>
 <div>
     <a href="https://thunderstore.io/package/TeaL/DekuMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043614036168784/TeaL-DekuMod-3.1.1.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/TeaL-DekuMod-4.1.2.png.128x128_q95.png"><br>
         <p>DekuMod (TeaL)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/Ethanol10/Ganondorf_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613428011079/Ethanol10-Ganondorf_Mod-2.1.5.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/Ethanol10-Ganondorf_Mod-3.1.6.png.128x128_q95.png"><br>
         <p>Ganondorf Mod (Ethanol 10)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/BokChoyWithSoy/Phoenix_Wright_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960054458790850570/BokChoyWithSoy-Phoenix_Wright_Mod-1.6.2.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/BokChoyWithSoy-Phoenix_Wright_Mod-1.8.0.png.128x128_q95.png"><br>
         <p>Phoenix Wright Mod (BokChoyWithSoy)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/PopcornFactory/Wisp_WarframeSurvivorMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613692239942/PopcornFactory-Wisp_WarframeSurvivorMod-1.0.2.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/PopcornFactory-Wisp_WarframeSurvivorMod-3.0.6.png.128x128_q95.png"><br>
         <p>Wisp Mod (Popcorn Factory Team)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/">
-      <img width="130" src="https://cdn.discordapp.com/attachments/928130606662049892/1088442099432706068/PopcornFactory-Arsonist_Mod-1.png"/>
+      <img width="130" src="https://gcdn.thunderstore.io/live/repository/icons/PopcornFactory-Arsonist_Mod-2.1.8.png.128x128_q95.jpg"/>
       <p>Arsonist Mod (Popcorn Factory Team)</p>
     </a>
 </div>	
@@ -95,17 +97,17 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
 </details>
 
 ## Screenshots
-<img src="https://media.discordapp.net/attachments/928130606662049892/1024265447887081492/unknown.png"/>
+<img src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuru1.png"/>
 
-<img src="https://media.discordapp.net/attachments/928130606662049892/1024261205617025054/unknown.png"/>
+<img src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuru2.png"/>
 
-<img src="https://media.discordapp.net/attachments/928130606662049892/1024262811817357312/unknown.png"/>
+<img src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuru3.png"/>
 
-<img src="https://media.discordapp.net/attachments/928130606662049892/1024263038305566794/unknown.png"/>
+<img src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuru4.png"/>
 
 ## Abilities
 ### Passive:
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268869705138196/magiculePropertiesIcon.png"/>
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill1.png"/>
 
 Hitting burning enemies with shock damage stuns and creates an explosion.
 
@@ -116,48 +118,50 @@ Hitting wet enemies with shock damage shocks nearby enemies.
 ### Primary:
 
 #### Human Form: Sword of Tempest
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268870963441664/texSwordSwing.png"/>
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill2.png"/>
 Swing forward for 200% damage, dashing to distant enemies.
 
 #### Slime Form: Devour 
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268869180870666/devourIcon.png"/>
-Devour all enemies in front of you for 100% damage. Gain buffs depending on which enemy type is killed. (We will provide a wiki page for the list of skills down the line! In the meantime, if you have BetterUI you should be able to hover over the buff icon and observe what it does.)
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill3.png"/>
+Devour all enemies in front of you for 100% damage. Gain buffs depending on which enemy type is killed. (Check the wiki page on Thunderstore for more information on these buffs.)
 
 ### Secondary:
 
 #### Human Form: Black Lightning
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268868744646696/blackLightningIcon.png"/>
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill4.png"/>
 Shock all enemies in front of you for 100% damage per tick for 4 seconds.
 
 #### Slime Form: Waterblade
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268872020414514/waterbladeIcon.png"/>
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill5.png"/>
 Fire a Waterblade for 200% damage, applying a wet debuff on them.
 
 ### Utility:
 
 #### Human Form: Spatial Movement
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268870204268544/spatialTeleportIcon.png"/>
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill6.png"/>
 Hold to aim and release to teleport, gaining 300 armor.
 
 #### Slime Form: Analyse
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268872582430770/analyseIcon.png"/>
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill7.png"/>
 Analyze the target, gaining guaranteed crits on them for 6 seconds.
 
 ### Special: Transform
-<img width="200" src="https://cdn.discordapp.com/attachments/928130606662049892/1024268871559037008/texTransformToHuman.png"/>
+<img width="200" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/rimuruskill8.png"/>
 Transform between your slime and human form.
 
 ## Support me on Ko-fi! 
 There's no need to pay for mods, but a coffee would be nice once in awhile!
 
 <a href="https://ko-fi.com/popcornfactory" target="_blank">
-  <img width="400" src="https://cdn.discordapp.com/attachments/928130606662049892/952521134526590996/unknown.png"/>
+  <img width="400" src="https://raw.githubusercontent.com/Ethanol10/rimuru-tempest-ror2/master/ReleaseFolder/kofiImg.png"/>
 </a>
 
 ## Version History:
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v1.0.4
+    - Removed the need for net messages in transforming body. This should fix the Infinite Item Bug on Rimuru.
 - v1.0.3
     - Applying fall damage immunity buff wasn't networked correctly (it was, but not really, too complicated to explain). This should be fixed now.
     - Should set health correctly when transforming between bodies. (No more full heals when transforming, sorry!)

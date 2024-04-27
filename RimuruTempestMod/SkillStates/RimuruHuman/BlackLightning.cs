@@ -156,12 +156,12 @@ namespace RimuruMod.SkillStates
                     attack.origin = FindModelChild(this.muzzleString).position;
                     if (base.characterBody.HasBuff(Modules.Buffs.lightningDamageBoostBuff))
                     {
-                        attack.damage = damageStat * (damageCoefficient * 3);
+                        attack.damage = damageStat * (damageCoefficient * 3f);
                     } else attack.damage = damageStat * damageCoefficient;
                     if (base.characterBody.HasBuff(Modules.Buffs.lightningProcBoostBuff))
                     {
                         attack.procCoefficient = procCoefficient * Modules.StaticValues.blackFlareProcCoefficientBoost;
-                    } else attack.damage = damageStat * damageCoefficient;
+                    } else attack.procCoefficient = damageStat * damageCoefficient;
                     attack.Fire();
                     fireTimer = 0f;
                 }
