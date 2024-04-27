@@ -211,7 +211,7 @@ namespace RimuruMod.Modules
                 { "GeepBody", (CharacterMaster master) => BuffWrapperClass<GupBuffController>.AddBuffComponentToMaster(master) },
                 { "HermitCrabBody", (CharacterMaster master) => BuffWrapperClass<HermitCrabBuffController>.AddBuffComponentToMaster(master) },
                 { "AcidLarvaBody", (CharacterMaster master) => BuffWrapperClass<AcidLarvaBuffController>.AddBuffComponentToMaster(master) },
-                { "wispBody", (CharacterMaster master) => BuffWrapperClass<WispBuffController>.AddBuffComponentToMaster(master) },
+                { "WispBody", (CharacterMaster master) => BuffWrapperClass<WispBuffController>.AddBuffComponentToMaster(master) },
                 { "LunarExploderBody", (CharacterMaster master) => BuffWrapperClass<LunarExploderBuffController>.AddBuffComponentToMaster(master) },
                 { "MiniMushroomBody", (CharacterMaster master) => BuffWrapperClass<MushrumBuffController>.AddBuffComponentToMaster(master) },
                 { "RoboBallMiniBody", (CharacterMaster master) => BuffWrapperClass<SolusProbeBuffController>.AddBuffComponentToMaster(master) },

@@ -26,7 +26,7 @@ namespace RimuruMod.Content.BuffControllers
         public override void Awake()
         {
             base.Awake();
-            isPermaBuff = true;
+            isPermaBuff = false;
             buffdef = Buffs.flameBodyBuff;
         }
 
@@ -55,12 +55,8 @@ namespace RimuruMod.Content.BuffControllers
         {
             base.FixedUpdate();
 
-
-            if (timer < 0f)
-            {
-                timer += Time.fixedDeltaTime;
-            }
-            else if (timer > StaticValues.flameBodyThreshold)
+            timer += Time.fixedDeltaTime;
+            if (timer > StaticValues.flameBodyThreshold)
             {
                 timer = 0f;
                 Burn();
