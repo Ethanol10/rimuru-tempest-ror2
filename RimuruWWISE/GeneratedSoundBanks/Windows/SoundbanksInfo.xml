@@ -1,123 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
 	<RootPaths>
-		<ProjectRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\</ProjectRoot>
-		<SourceFilesRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>F:\Theodore 3\GameDev\Mods\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
-	<StreamedFiles/>
-	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3701367528">
-			<ObjectPath>Init</ObjectPath>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D7BD33C3-62BA-03CA-3841-18CA69A7D61E}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="985987111" Name="Motion Factory Bus"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="796049864" Name="RPM"/>
+				<GameParameter Id="822163944" Name="SS_Air_RPM"/>
+				<GameParameter Id="1029930033" Name="SS_Air_Fury"/>
+				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
+				<GameParameter Id="1524500807" Name="Playback_Rate"/>
+				<GameParameter Id="2648548617" Name="SS_Air_Month"/>
+				<GameParameter Id="3002758120" Name="SS_Air_Freefall"/>
+				<GameParameter Id="3074696722" Name="SS_Air_Size"/>
+				<GameParameter Id="3203397129" Name="SS_Air_TimeOfDay"/>
+				<GameParameter Id="3673881719" Name="Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master"/>
+				<GameParameter Id="3715662592" Name="SS_Air_Storm"/>
+				<GameParameter Id="3847924954" Name="SS_Air_Presence"/>
+				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
+			</GameParameters>
+			<AcousticTextures>
+				<AcousticTexture Id="504532776" Name="Brick">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="12"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="18"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="23"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="513139656" Name="Mountain">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="0"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="841620460" Name="Concrete">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="14"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1755085759" Name="Wood_Deep">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="1"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="8"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="20"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1873957695" Name="Anechoic">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1970351858" Name="Fabric">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="3"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="13"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="48"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="72"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2058049674" Name="Wood">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="32"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="25"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="20"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2412606308" Name="Carpet">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="46"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="45"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="76"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2637588553" Name="Tile">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="67"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="41"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="12"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="0"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2928161104" Name="Curtains">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="7"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="60"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="84"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="3195498748" Name="Cork_Tiles">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="14"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="30"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="73"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="3670307564" Name="Drywall">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="2"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="4168643977" Name="Acoustic_Banner">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="37"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="4262522749" Name="Wood_Bright">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="32"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="25"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="10"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="9"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="2414834810" Language="SFX" Hash="525261359">
-			<ObjectPath>\SoundBanks\Default Work Unit\rimuruSoundbank</ObjectPath>
+		<SoundBank Id="2414834810" Type="User" Language="SFX" Hash="{1598CE3F-1C58-4F2F-28CE-F65D30D3C5DF}">
 			<ShortName>rimuruSoundbank</ShortName>
 			<Path>rimuruSoundbank.bnk</Path>
-			<IncludedEvents>
-				<Event Id="2443408086" Name="RimuruAnalyse" ObjectPath="\Events\Default Work Unit\RimuruAnalyse">
-					<IncludedMemoryFiles>
-						<File Id="1001475546" Language="SFX">
-							<ShortName>Analyse.wav</ShortName>
-							<Path>SFX\Analyse_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+			<Media>
+				<File Id="10585353" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Devour.wav</ShortName>
+					<CachePath>SFX/Devour_56CEF360.wem</CachePath>
+				</File>
+				<File Id="76124911" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>se_common_swing_05.wav</ShortName>
+					<CachePath>SFX/se_common_swing_05_8E324C96.wem</CachePath>
+				</File>
+				<File Id="105924093" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>smashpunch3.wav</ShortName>
+					<CachePath>SFX/smashpunch3_8E324C96.wem</CachePath>
+				</File>
+				<File Id="203161346" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Blink.wav</ShortName>
+					<CachePath>SFX/Blink_8E324C96.wem</CachePath>
+				</File>
+				<File Id="283133327" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Death.wav</ShortName>
+					<CachePath>SFX/Death_8E324C96.wem</CachePath>
+				</File>
+				<File Id="347941923" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Electricity.wav</ShortName>
+					<CachePath>SFX/Electricity_56CEF360.wem</CachePath>
+				</File>
+				<File Id="352215495" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>smashpunch1.wav</ShortName>
+					<CachePath>SFX/smashpunch1_8E324C96.wem</CachePath>
+				</File>
+				<File Id="505624353" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Entrance.wav</ShortName>
+					<CachePath>SFX/Entrance_8E324C96.wem</CachePath>
+				</File>
+				<File Id="653688645" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Water.wav</ShortName>
+					<CachePath>SFX/Water_8E324C96.wem</CachePath>
+				</File>
+				<File Id="675434901" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>smashpunch2.wav</ShortName>
+					<CachePath>SFX/smashpunch2_8E324C96.wem</CachePath>
+				</File>
+				<File Id="980180611" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>se_common_swing_04.wav</ShortName>
+					<CachePath>SFX/se_common_swing_04_8E324C96.wem</CachePath>
+				</File>
+				<File Id="1001475546" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Analyse.wav</ShortName>
+					<CachePath>SFX/Analyse_8E324C96.wem</CachePath>
+				</File>
+				<File Id="1036054571" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Transform.wav</ShortName>
+					<CachePath>SFX/Transform_8E324C96.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="2443408086" Name="RimuruAnalyse">
+					<MediaRefs>
+						<MediaRef Id="1001475546"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="4123273559" Name="RimuruBlink" ObjectPath="\Events\Default Work Unit\RimuruBlink">
-					<IncludedMemoryFiles>
-						<File Id="203161346" Language="SFX">
-							<ShortName>Blink.wav</ShortName>
-							<Path>SFX\Blink_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="4123273559" Name="RimuruBlink">
+					<MediaRefs>
+						<MediaRef Id="203161346"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="3294643755" Name="RimuruDeath" ObjectPath="\Events\Default Work Unit\RimuruDeath">
-					<IncludedMemoryFiles>
-						<File Id="283133327" Language="SFX">
-							<ShortName>Death.wav</ShortName>
-							<Path>SFX\Death_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="3294643755" Name="RimuruDeath">
+					<MediaRefs>
+						<MediaRef Id="283133327"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="999137594" Name="RimuruDevour" ObjectPath="\Events\Default Work Unit\RimuruDevour">
-					<IncludedMemoryFiles>
-						<File Id="10585353" Language="SFX">
-							<ShortName>Devour.wav</ShortName>
-							<Path>SFX\Devour_9EDFC787.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="999137594" Name="RimuruDevour">
+					<MediaRefs>
+						<MediaRef Id="10585353"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="4105614709" Name="RimuruEntrance" ObjectPath="\Events\Default Work Unit\RimuruEntrance">
-					<IncludedMemoryFiles>
-						<File Id="505624353" Language="SFX">
-							<ShortName>Entrance.wav</ShortName>
-							<Path>SFX\Entrance_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="4105614709" Name="RimuruEntrance">
+					<MediaRefs>
+						<MediaRef Id="505624353"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="1221550474" Name="RimuruHit" ObjectPath="\Events\Default Work Unit\RimuruHit">
-					<IncludedMemoryFiles>
-						<File Id="105924093" Language="SFX">
-							<ShortName>smashpunch3.wav</ShortName>
-							<Path>SFX\smashpunch3_3F75BDB9.wem</Path>
-						</File>
-						<File Id="352215495" Language="SFX">
-							<ShortName>smashpunch1.wav</ShortName>
-							<Path>SFX\smashpunch1_3F75BDB9.wem</Path>
-						</File>
-						<File Id="675434901" Language="SFX">
-							<ShortName>smashpunch2.wav</ShortName>
-							<Path>SFX\smashpunch2_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="1221550474" Name="RimuruHit">
+					<MediaRefs>
+						<MediaRef Id="105924093"/>
+						<MediaRef Id="352215495"/>
+						<MediaRef Id="675434901"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="949576350" Name="RimuruSword" ObjectPath="\Events\Default Work Unit\RimuruSword">
-					<IncludedMemoryFiles>
-						<File Id="76124911" Language="SFX">
-							<ShortName>se_common_swing_05.wav</ShortName>
-							<Path>SFX\se_common_swing_05_3F75BDB9.wem</Path>
-						</File>
-						<File Id="980180611" Language="SFX">
-							<ShortName>se_common_swing_04.wav</ShortName>
-							<Path>SFX\se_common_swing_04_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="949576350" Name="RimuruSword">
+					<MediaRefs>
+						<MediaRef Id="76124911"/>
+						<MediaRef Id="980180611"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="270831255" Name="RimuruThunder" ObjectPath="\Events\Default Work Unit\RimuruThunder">
-					<IncludedMemoryFiles>
-						<File Id="347941923" Language="SFX">
-							<ShortName>Electricity.wav</ShortName>
-							<Path>SFX\Electricity_9EDFC787.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="270831255" Name="RimuruThunder">
+					<MediaRefs>
+						<MediaRef Id="347941923"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="3447088453" Name="RimuruTransform" ObjectPath="\Events\Default Work Unit\RimuruTransform">
-					<IncludedMemoryFiles>
-						<File Id="1036054571" Language="SFX">
-							<ShortName>Transform.wav</ShortName>
-							<Path>SFX\Transform_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="3447088453" Name="RimuruTransform">
+					<MediaRefs>
+						<MediaRef Id="1036054571"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="3742025564" Name="RimuruWater" ObjectPath="\Events\Default Work Unit\RimuruWater">
-					<IncludedMemoryFiles>
-						<File Id="653688645" Language="SFX">
-							<ShortName>Water.wav</ShortName>
-							<Path>SFX\Water_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="3742025564" Name="RimuruWater">
+					<MediaRefs>
+						<MediaRef Id="653688645"/>
+					</MediaRefs>
 				</Event>
-			</IncludedEvents>
+			</Events>
 			<GameParameters>
-				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
-				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
+				<GameParameter Id="3673881719" Name="Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master"/>
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
+	<FileHash>{3CC646F3-9278-BA82-927C-A9F9744ACAD5}</FileHash>
 </SoundBanksInfo>

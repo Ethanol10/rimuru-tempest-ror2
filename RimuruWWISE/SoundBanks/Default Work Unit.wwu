@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{2C4875E1-B5B8-4EC0-9940-967778E75372}" SchemaVersion="97">
+<WwiseDocument Type="WorkUnit" ID="{2C4875E1-B5B8-4EC0-9940-967778E75372}" SchemaVersion="119">
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{2C4875E1-B5B8-4EC0-9940-967778E75372}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="rimuruSoundbank" ID="{0CFD95F7-E88B-461D-848F-A3F7725091B1}">
 					<ObjectInclusionList>
-						<ObjectRef Name="RimuruDevour" ID="{D05411C1-C899-41FF-98D0-AC4716F466C8}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruDeath" ID="{06D466CA-E6E8-45A9-A88D-A0CA117D9325}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruAnalyse" ID="{B3FA7F78-2449-4652-B460-7F384D00E3A9}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruTransform" ID="{F7B509E8-4094-46B8-B8D8-73C1325F6F68}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruEntrance" ID="{F12FE582-043C-46CE-AA1D-B8BD5A41EB7F}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruHit" ID="{BD0890CF-421F-47B2-97BE-D48128E89DEB}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruSword" ID="{47ABF596-9EE5-486A-93D0-8F764A749838}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruBlink" ID="{D9F40737-7742-4C14-BAE2-F89DC3C35F81}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruWater" ID="{95CE5E12-7FDA-4CE2-B198-64D371EA49D7}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="RimuruThunder" ID="{93168284-487E-4CE7-9A0F-15C469590674}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
