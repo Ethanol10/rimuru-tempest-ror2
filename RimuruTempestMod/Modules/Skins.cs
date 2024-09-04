@@ -114,7 +114,7 @@ namespace RimuruMod.Modules
                 new SkinDef.MeshReplacement
                 {
                     renderer = rendererinfos[i].renderer,
-                    mesh = Assets.mainAssetBundle.LoadAsset<Mesh>(meshes[i])
+                    mesh = AssetsRimuru.mainAssetBundle.LoadAsset<Mesh>(meshes[i])
                 });
             }
 

@@ -60,10 +60,10 @@ namespace RimuruMod.SkillStates
             this.swingSoundString = "RimuruSword";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            this.swingEffectPrefab = Modules.AssetsRimuru.swordSwingEffect;
+            this.hitEffectPrefab = Modules.AssetsRimuru.swordHitImpactEffect;
 
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
+            this.impactSound = Modules.AssetsRimuru.swordHitSoundEvent.index;
 
             Rimurucon = base.GetComponent<RimuruController>();
             Rimurumastercon = characterBody.master.gameObject.GetComponent<RimuruMasterController>();

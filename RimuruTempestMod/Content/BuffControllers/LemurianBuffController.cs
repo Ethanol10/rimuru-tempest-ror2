@@ -78,7 +78,7 @@ namespace RimuruMod.Content.BuffControllers
 
         public void CreateFlameBodyIndicator()
         {
-            this.flameBodyIndicator = UnityEngine.Object.Instantiate<GameObject>(Assets.flameBodyAuraIndicatorPrefab);
+            this.flameBodyIndicator = UnityEngine.Object.Instantiate<GameObject>(AssetsRimuru.flameBodyAuraIndicatorPrefab);
             this.flameBodyIndicator.SetActive(true);
 
             this.flameBodyIndicator.transform.parent = body.transform;

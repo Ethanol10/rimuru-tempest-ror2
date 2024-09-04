@@ -23,7 +23,7 @@ namespace RimuruMod.Modules.Networking
         GameObject dekubodyObj;
         private BullseyeSearch search;
         private List<HurtBox> trackingTargets;
-        private GameObject blastEffectPrefab = Assets.voidjailerEffect;
+        private GameObject blastEffectPrefab = AssetsRimuru.voidjailerEffect;
 
         public PeformDirectionalForceNetworkRequest()
         {

@@ -40,7 +40,7 @@ namespace RimuruMod.Modules.Survivors
 			isBodyInitialized = false;
 			On.RoR2.GlobalEventManager.OnCharacterDeath += GlobalEventManager_OnCharacterDeath;
 
-		}
+        }
 
 		public void OnDestroy()
 		{
@@ -115,7 +115,7 @@ namespace RimuruMod.Modules.Survivors
                         }
                         AkSoundEngine.PostEvent("RimuruAnalyse", characterBody.gameObject);
 
-                        RoR2.EffectManager.SpawnEffect(Modules.Assets.devourskillgetEffect, new RoR2.EffectData
+                        RoR2.EffectManager.SpawnEffect(Modules.AssetsRimuru.devourskillgetEffect, new RoR2.EffectData
                         {
                             origin = damageReport.victimBody.corePosition + Vector3.up * 2f,
                             scale = 1f,

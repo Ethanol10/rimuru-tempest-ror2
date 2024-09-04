@@ -28,7 +28,7 @@ namespace RimuruMod.SkillStates
         public string muzzleString = "LWrist";
         public uint loopID;
 
-        private GameObject blacklightning = UnityEngine.Object.Instantiate(Modules.Assets.blacklightning);
+        private GameObject blacklightning = UnityEngine.Object.Instantiate(Modules.AssetsRimuru.blacklightning);
         private ParticleSystem mainBlacklightning;
         private BulletAttack attack;
         private BlastAttack blastAttack;
@@ -59,7 +59,7 @@ namespace RimuruMod.SkillStates
             PlayCrossfade("LeftArm, Override", "BlackLightning", "Attack.playbackRate", fireInterval/2, 0.05f);
             this.loopID = AkSoundEngine.PostEvent("RimuruThunder", base.gameObject);
 
-            EffectManager.SimpleMuzzleFlash(Modules.Assets.blacklightning, base.gameObject, muzzleString, false);
+            EffectManager.SimpleMuzzleFlash(Modules.AssetsRimuru.blacklightning, base.gameObject, muzzleString, false);
 
             this.fireTimer = 0f;
 
@@ -95,7 +95,7 @@ namespace RimuruMod.SkillStates
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitEffectPrefab = Modules.Assets.blacklightningimpactEffect,
+                hitEffectPrefab = Modules.AssetsRimuru.blacklightningimpactEffect,
             };
         }
 

@@ -39,7 +39,7 @@ namespace RimuruMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
         public const string MODNAME = "RimuruTempestMod";
-        public const string MODVERSION = "1.0.5";
+        public const string MODVERSION = "1.1.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -54,7 +54,7 @@ namespace RimuruMod
             instance = this;
 
             Log.Init(Logger);
-            Modules.Assets.Initialize(); // load assets and read config
+            Modules.AssetsRimuru.Initialize(); // load assets and read config
             Modules.Config.ReadConfig();
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions")) //risk of options support
             {
@@ -142,7 +142,7 @@ namespace RimuruMod
             {
                 if (item.bodyPrefab.name == "RimuruHumanBody")
                 {
-                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("EmoteRimuru"));
+                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.AssetsRimuru.mainAssetBundle.LoadAsset<GameObject>("EmoteRimuru"));
                 }
             }
         }
@@ -266,7 +266,7 @@ namespace RimuruMod
                         {
                             victimBody.ApplyBuff(Modules.Buffs.WetDebuff.buffIndex, 0, 0);
 
-                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            EffectManager.SpawnEffect(Modules.AssetsRimuru.elderlemurianexplosionEffect, new EffectData
                             {
                                 origin = victimBody.transform.position,
                                 scale = Modules.StaticValues.lemurianfireRadius * body.attackSpeed / 2
@@ -297,7 +297,7 @@ namespace RimuruMod
                         {
                             int buffcount = victimBody.GetBuffCount(RoR2Content.Buffs.OnFire);
 
-                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            EffectManager.SpawnEffect(Modules.AssetsRimuru.elderlemurianexplosionEffect, new EffectData
                             {
                                 origin = victimBody.transform.position,
                                 scale = Modules.StaticValues.lemurianfireRadius/15 * buffcount
@@ -394,7 +394,7 @@ namespace RimuruMod
             {
                 if (self.body)
                 {
-                    this.OverlayFunction(Modules.Assets.SpatialMovementBuffMaterial, self.body.HasBuff(Modules.Buffs.SpatialMovementBuff), self);
+                    this.OverlayFunction(Modules.AssetsRimuru.SpatialMovementBuffMaterial, self.body.HasBuff(Modules.Buffs.SpatialMovementBuff), self);
                 }
             }
         }

@@ -39,8 +39,10 @@ namespace RimuruMod.Content.BuffControllers
                 }
             }
 
-
-            inputBank = body.GetComponent<RoR2.InputBankTest>();
+            if (!body) 
+            {
+                UpdateBody();
+            }
 
             ActiveBuffEffect();
             stopwatch += Time.fixedDeltaTime;

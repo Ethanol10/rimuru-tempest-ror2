@@ -159,7 +159,7 @@ namespace RimuruMod.Modules.Networking
                                 origin = position,
                                 start = start
                             };
-                            EffectManager.SpawnEffect(Modules.Assets.railgunnerSnipeLightTracerEffect, effectData, true);
+                            EffectManager.SpawnEffect(Modules.AssetsRimuru.railgunnerSnipeLightTracerEffect, effectData, true);
                         }
                     }
                 }

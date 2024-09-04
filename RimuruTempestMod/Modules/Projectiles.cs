@@ -43,14 +43,14 @@ namespace RimuruMod.Modules
 
             ProjectileController icicleController = icicleLanceProjectile.GetComponent<ProjectileController>();
 
-            icicleController.ghostPrefab = Modules.Assets.mageIceBombGhost;
+            icicleController.ghostPrefab = Modules.AssetsRimuru.mageIceBombGhost;
 
         }
 
 
         private static void CreateWaterBlade() 
         {
-            waterbladeProjectile = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WaterBlade");
+            waterbladeProjectile = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<GameObject>("WaterBlade");
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(0), "waterblade");
             waterbladeProjectile.AddComponent<NetworkIdentity>();
@@ -78,7 +78,7 @@ namespace RimuruMod.Modules
         {
             overlap.overlapProcCoefficient = 1.0f;
             overlap.damageCoefficient = 1.0f;
-            overlap.impactEffect = Modules.Assets.waterbladeimpactEffect;
+            overlap.impactEffect = Modules.AssetsRimuru.waterbladeimpactEffect;
         }
 
         internal static void InitializeWaterBladeTrajectory(ProjectileSimple simple) 
@@ -122,11 +122,11 @@ namespace RimuruMod.Modules
 
         private static GameObject CreateGhostPrefab(string ghostName)
         {
-            GameObject ghostPrefab = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(ghostName);
+            GameObject ghostPrefab = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<GameObject>(ghostName);
             if (!ghostPrefab.GetComponent<NetworkIdentity>()) ghostPrefab.AddComponent<NetworkIdentity>();
             if (!ghostPrefab.GetComponent<ProjectileGhostController>()) ghostPrefab.AddComponent<ProjectileGhostController>();
 
-            Modules.Assets.ConvertAllRenderersToHopooShader(ghostPrefab);
+            Modules.AssetsRimuru.ConvertAllRenderersToHopooShader(ghostPrefab);
 
             return ghostPrefab;
         }

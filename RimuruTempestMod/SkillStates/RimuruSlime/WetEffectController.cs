@@ -19,7 +19,7 @@ namespace RimuruMod.SkillStates
         {
             charbody = this.gameObject.GetComponent<CharacterBody>();
             float charbodyheight = charbody.corePosition.y - charbody.footPosition.y;
-            effectObj = Object.Instantiate<GameObject>(Modules.Assets.wetEffect, charbody.corePosition + Vector3.up * charbodyheight, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = Object.Instantiate<GameObject>(Modules.AssetsRimuru.wetEffect, charbody.corePosition + Vector3.up * charbodyheight, Quaternion.LookRotation(charbody.characterDirection.forward));
             effectObj.transform.parent = charbody.gameObject.transform;
         }
 

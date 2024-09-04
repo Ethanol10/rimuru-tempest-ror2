@@ -66,7 +66,7 @@ namespace RimuruMod.Content.BuffControllers
 
         public void CreateTarManipIndicator()
         {
-            this.tarManipIndicator = UnityEngine.Object.Instantiate<GameObject>(Assets.tarManipIndicatorPrefab);
+            this.tarManipIndicator = UnityEngine.Object.Instantiate<GameObject>(AssetsRimuru.tarManipIndicatorPrefab);
             this.tarManipIndicator.SetActive(true);
 
             this.tarManipIndicator.transform.parent = body.transform;

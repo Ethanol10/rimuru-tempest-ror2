@@ -102,7 +102,7 @@ namespace RimuruMod.Modules
 
         public static void SetupRiskOfOptions() 
         {
-            Sprite icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texRimuruIcon");
+            Sprite icon = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Sprite>("texRimuruIcon");
             ModSettingsManager.SetModIcon(icon);
 
             //Melee - 01

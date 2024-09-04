@@ -18,9 +18,12 @@ namespace RimuruMod.SkillStates
         public void Start()
         {
             charbody = this.gameObject.GetComponent<CharacterBody>();
-            float charbodyheight = charbody.corePosition.y - charbody.footPosition.y;
-            effectObj = Object.Instantiate<GameObject>(Modules.Assets.analyzeEffect, charbody.corePosition + Vector3.up * charbodyheight * 1.5f, Quaternion.LookRotation(charbody.characterDirection.forward));
-            effectObj.transform.parent = charbody.gameObject.transform;
+            if (charbody) 
+            {
+                float charbodyheight = charbody.corePosition.y - charbody.footPosition.y;
+                effectObj = Object.Instantiate<GameObject>(Modules.AssetsRimuru.analyzeEffect, charbody.corePosition + Vector3.up * charbodyheight * 1.5f, Quaternion.LookRotation(charbody.characterDirection.forward));
+                effectObj.transform.parent = charbody.gameObject.transform;
+            }
         }
         public void FixedUpdate()
         {

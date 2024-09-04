@@ -138,7 +138,7 @@ namespace RimuruMod.Modules.Survivors
                         if (!devoureffectExtendedObj && buttonHeld)
                         {
                             this.loopID = AkSoundEngine.PostEvent("RimuruDevour", base.gameObject);
-                            devoureffectExtendedObj = Instantiate(Modules.Assets.devourExtendedEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                            devoureffectExtendedObj = Instantiate(Modules.AssetsRimuru.devourExtendedEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
                         }
                     }
                     else
@@ -146,7 +146,7 @@ namespace RimuruMod.Modules.Survivors
                         if (!devoureffectObj && buttonHeld)
                         {
                             this.loopID = AkSoundEngine.PostEvent("RimuruDevour", base.gameObject);
-                            devoureffectObj = Instantiate(Modules.Assets.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
+                            devoureffectObj = Instantiate(Modules.AssetsRimuru.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
                         }
                     }
 

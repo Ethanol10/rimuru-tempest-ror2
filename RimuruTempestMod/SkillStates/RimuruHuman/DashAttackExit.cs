@@ -43,10 +43,10 @@ namespace RimuruMod.SkillStates
             this.swingSoundString = "RimuruSword";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            this.swingEffectPrefab = Modules.AssetsRimuru.swordSwingEffect;
+            this.hitEffectPrefab = Modules.AssetsRimuru.swordHitImpactEffect;
 
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
+            this.impactSound = Modules.AssetsRimuru.swordHitSoundEvent.index;
 
             float multiplier = base.attackSpeedStat >= 1f ? base.attackSpeedStat : 1f;
             attackAmount = (int)(baseAttackAmount * multiplier);

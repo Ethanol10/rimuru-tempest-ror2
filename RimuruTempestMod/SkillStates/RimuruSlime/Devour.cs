@@ -60,10 +60,10 @@ namespace RimuruMod.SkillStates
             this.swingSoundString = "RimuruSwordSwing";
             this.hitSoundString = "";
             this.muzzleString = "Spine";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            this.swingEffectPrefab = Modules.AssetsRimuru.swordSwingEffect;
+            this.hitEffectPrefab = Modules.AssetsRimuru.swordHitImpactEffect;
 
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
+            this.impactSound = Modules.AssetsRimuru.swordHitSoundEvent.index;
             base.OnEnter();
             DamageAPI.AddModdedDamageType(this.attack, Modules.Damage.rimuruDevour);
         }

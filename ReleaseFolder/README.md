@@ -18,11 +18,9 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
 
 ## Latest Changes
 
-- v1.0.5
-    - Fixing README from using discord as a CDN
-    - Fixed Wisp from not granting the buff on Devour.
-    - Fixed timer not counting pulses correctly on Lemurian Devour buff.
-    - Fixed proc-coefficient from not being applied correctly when devouring a Greater Wisp.
+- v1.1.0
+    - Added support for SotS
+    - Fixed an issue where errors were spammed transitioning to a new stage with rimuru buffs.
 - v1.0.0 
     - Devour now has **unique buffs for every monster in the base and expansion** (SotV). (Further new enemies may not be supported if created.)
         - We'll update a wiki page later with the list of skills.
@@ -160,6 +158,11 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v1.0.5
+    - Fixing README from using discord as a CDN
+    - Fixed Wisp from not granting the buff on Devour.
+    - Fixed timer not counting pulses correctly on Lemurian Devour buff.
+    - Fixed proc-coefficient from not being applied correctly when devouring a Greater Wisp.
 - v1.0.4
     - Removed the need for net messages in transforming body. This should fix the Infinite Item Bug on Rimuru.
 - v1.0.3

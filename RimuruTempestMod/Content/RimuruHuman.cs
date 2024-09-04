@@ -23,10 +23,10 @@ namespace RimuruMod.Modules.Survivors
             bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME",
             subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
+            characterPortrait = AssetsRimuru.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
             bodyColor = Color.cyan,
 
-            crosshair = Modules.Assets.LoadCrosshair("Standard"),
+            crosshair = Modules.AssetsRimuru.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 120f,
@@ -40,7 +40,7 @@ namespace RimuruMod.Modules.Survivors
 
         //internal static Material RimuruHumanMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
         internal static Material RimuruHumanMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
-        internal static Material RimuruHumanEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+        internal static Material RimuruHumanEmptyMat = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
@@ -103,14 +103,14 @@ namespace RimuruMod.Modules.Survivors
             skillloc.passiveSkill.enabled = true;
             skillloc.passiveSkill.skillNameToken = prefix + "_RIMURU_BODY_PASSIVE_NAME";
             skillloc.passiveSkill.skillDescriptionToken = prefix + "_RIMURU_BODY_PASSIVE_DESCRIPTION";
-            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("magiculePropertiesIcon");
+            skillloc.passiveSkill.icon = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Sprite>("magiculePropertiesIcon");
             #endregion
 
             #region Primary
             //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_RIMURU_BODY_PRIMARY_SLASH_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSwordSwing"),
+                                                                                      Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Sprite>("texSwordSwing"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.RimuruHumanPrimary)),
                                                                                       "Weapon",
                                                                                       true));
@@ -125,7 +125,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_BLACKLIGHTNING_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("blackLightningIcon"),
+                skillIcon = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Sprite>("blackLightningIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.BlackLightning)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -154,7 +154,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_SPATIALMOVEMENT_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("spatialTeleportIcon"),
+                skillIcon = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Sprite>("spatialTeleportIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.SpatialMovement)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -182,7 +182,7 @@ namespace RimuruMod.Modules.Survivors
                 skillName = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
                 skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_NAME",
                 skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_TRANSFORMHUMAN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texTransformToSlime"),
+                skillIcon = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Sprite>("texTransformToSlime"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformHuman)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -221,7 +221,7 @@ namespace RimuruMod.Modules.Survivors
 
             #region DefaultSkin
             Material defaultMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
-            Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+            Material emptyMat = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Material>("EmptyMat");
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
                 defaultMat,
                 defaultMat,
@@ -229,7 +229,7 @@ namespace RimuruMod.Modules.Survivors
 
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("skinIcon"),
+                AssetsRimuru.mainAssetBundle.LoadAsset<Sprite>("skinIcon"),
                 defaultRendererInfo,
                 mainRenderer,
                 model);
@@ -240,17 +240,17 @@ namespace RimuruMod.Modules.Survivors
                 //unnecessary if you don't have multiple skins
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
+                    mesh = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
                     renderer = defaultRendererInfo[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
+                    mesh = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
                     renderer = defaultRendererInfo[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
+                    mesh = Modules.AssetsRimuru.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
                     renderer = defaultRendererInfo[2].renderer
                 }
             };

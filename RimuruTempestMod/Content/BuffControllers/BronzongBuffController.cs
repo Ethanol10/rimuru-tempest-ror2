@@ -61,7 +61,7 @@ namespace RimuruMod.Content.BuffControllers
                             blastAttack.Fire();
 
 
-                            RoR2.EffectManager.SpawnEffect(Assets.GupSpikeEffect, new RoR2.EffectData
+                            RoR2.EffectManager.SpawnEffect(AssetsRimuru.GupSpikeEffect, new RoR2.EffectData
                             {
                                 origin = self.transform.position,
                                 scale = StaticValues.spikedBodyRange,

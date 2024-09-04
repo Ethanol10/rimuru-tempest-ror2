@@ -1,8 +1,8 @@
 {
   "name": "Rimuru_Tempest_Mod",
-  "version_number": "1.0.5",
+  "version_number": "1.1.0",
   "website_url": "https://github.com/Ethanol10/rimuru-tempest-ror2",
-  "description": "I am the slime Rimuru Tempest. I'm not a bad slime! v1.0.0 -> FULL RELEASE: MORE ABILITIES TO MORE ENEMIES! v1.0.5 -> Fixing some buff bugs, README fixes.",
+  "description": "I am the slime Rimuru Tempest. I'm not a bad slime! v1.0.0 -> FULL RELEASE: MORE ABILITIES TO MORE ENEMIES! v1.1.0 Added support for SotS.",
   "dependencies": [
     "bbepis-BepInExPack-5.4.1905",
     "RiskofThunder-HookGenPatcher-1.2.3",
