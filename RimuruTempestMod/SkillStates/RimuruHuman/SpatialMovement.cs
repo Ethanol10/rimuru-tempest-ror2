@@ -8,6 +8,13 @@ namespace RimuruMod.SkillStates
 {
     public class SpatialMovement : BaseSkillState
     {
+        private bool teleportFlag = false;
+        private float teleportTimer = 0f;
+        private float teleportDuration = 0.1f;
+        private Vector3 velocity;
+        private Vector3 teleportLocation = new Vector3(0, 0, 0);
+        private bool exitState = false;
+
         private GameObject aimSphere;
         public float radius = 3f;
         private Ray aimRay;
@@ -58,9 +65,31 @@ namespace RimuruMod.SkillStates
 
             if (base.isAuthority && !base.IsKeyDownAuthority())
             {
-                base.characterMotor.rootMotion += this.aimSphere.transform.position - base.characterBody.corePosition;
-                base.characterMotor.velocity.y = 0f;
+                teleportFlag = true;
+            }
+
+            if (teleportFlag ) 
+            {
+                Teleport();
+            }
+
+            if (exitState) 
+            {
                 this.outer.SetNextStateToMain();
+            }
+        }
+
+        public void Teleport() 
+        {
+            //Set velocity to 0 throughout teleport duration
+            base.characterMotor.velocity.y = 0f;
+            teleportTimer += Time.fixedDeltaTime;
+
+            base.characterMotor.Motor.SetPosition(Vector3.SmoothDamp(base.characterBody.corePosition, aimSphere.transform.position, ref velocity, teleportDuration, 1000f));
+
+            if (teleportTimer >= teleportDuration) 
+            {
+                exitState = true;
             }
         }
 
