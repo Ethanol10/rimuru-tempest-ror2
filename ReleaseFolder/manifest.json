@@ -1,16 +1,16 @@
 {
   "name": "Rimuru_Tempest_Mod",
-  "version_number": "1.1.1",
+  "version_number": "1.1.2",
   "website_url": "https://github.com/Ethanol10/rimuru-tempest-ror2",
-  "description": "I am the slime Rimuru Tempest. I'm not a bad slime! v1.0.0 -> FULL RELEASE: MORE ABILITIES TO MORE ENEMIES! v1.1.1 fixed proc coefficient on lightning, smoothed teleport",
+  "description": "I am the slime Rimuru Tempest. I'm not a bad slime! v1.0.0 -> FULL RELEASE: MORE ABILITIES TO MORE ENEMIES! v1.1.2 Rebuilt the mod to support new signatures, some bug fixes.",
   "dependencies": [
     "bbepis-BepInExPack-5.4.1905",
     "RiskofThunder-HookGenPatcher-1.2.3",
-    "RiskofThunder-R2API_Core-5.0.0",
+    "RiskofThunder-R2API_Core-5.1.5",
     "RiskofThunder-R2API_Prefab-1.0.0",
     "RiskofThunder-R2API_Language-1.0.0",
     "RiskofThunder-R2API_Sound-1.0.0",
     "RiskofThunder-R2API_Networking-1.0.0",
-    "RiskofThunder-R2API_DamageType-1.0.4"
+    "RiskofThunder-R2API_DamageType-1.1.7"
   ]
 }
