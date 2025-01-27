@@ -39,7 +39,6 @@ namespace RimuruMod.Modules
             //iceImpactExplosion.lifetime = 12f;
             //iceImpactExplosion.timerAfterImpact = true;
             //iceImpactExplosion.lifetimeAfterImpact = 0f;
-            //iceImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Freeze2s;
 
             ProjectileController icicleController = icicleLanceProjectile.GetComponent<ProjectileController>();
 
@@ -93,7 +92,7 @@ namespace RimuruMod.Modules
             damageComponent.damage = Modules.Config.waterbladeDamageCoefficient.Value;
             damageComponent.crit = false;
             damageComponent.force = Modules.StaticValues.waterbladeForce;
-            damageComponent.damageType = DamageType.Generic;
+            damageComponent.damageType = new RoR2.DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
         }
 
         internal static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
@@ -116,7 +115,7 @@ namespace RimuruMod.Modules
             projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;
             projectileImpactExplosion.timerAfterImpact = false;
 
-            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Freeze2s;
+            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = new RoR2.DamageTypeCombo(DamageType.Freeze2s, DamageTypeExtended.Generic, DamageSource.NoneSpecified);
             
         }
 

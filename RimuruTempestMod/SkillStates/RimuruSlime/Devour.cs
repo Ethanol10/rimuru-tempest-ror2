@@ -14,23 +14,23 @@ namespace RimuruMod.SkillStates
         public override void OnEnter()
         {
             this.hitboxName = "Devour";
-            this.damageType = DamageType.BonusToLowHealth;
+            this.damageType.damageType = DamageType.BonusToLowHealth;
 
             if (base.characterBody.HasBuff(Modules.Buffs.bleedMeleeBuff))
             {
-                damageType |= DamageType.BleedOnHit;
+                damageType.damageType |= DamageType.BleedOnHit;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
             {
-                damageType |= DamageType.IgniteOnHit;
+                damageType.damageType |= DamageType.IgniteOnHit;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.lightningBuff))
             {
-                damageType |= DamageType.Shock5s;
+                damageType.damageType |= DamageType.Shock5s;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.crippleBuff))
             {
-                damageType |= DamageType.CrippleOnHit;
+                damageType.damageType |= DamageType.CrippleOnHit;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
             {
@@ -42,7 +42,7 @@ namespace RimuruMod.SkillStates
             }
             if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
             {
-                damageType |= DamageType.ApplyMercExpose;
+                damageType.damageType |= DamageType.ApplyMercExpose;
             }
             
             this.procCoefficient = 1f;

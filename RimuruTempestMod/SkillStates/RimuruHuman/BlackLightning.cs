@@ -3,15 +3,13 @@ using RoR2;
 using UnityEngine;
 using RimuruMod.Modules.Survivors;
 using UnityEngine.Networking;
-using RoR2.Audio;
-using static RoR2.BulletAttack;
 
 namespace RimuruMod.SkillStates
 {
     public class BlackLightning : BaseSkillState
     {
         public RimuruController Rimurucon;
-        private DamageType damageType;
+        private DamageTypeCombo damageType;
         private Ray aimRay;
 
 
@@ -42,11 +40,11 @@ namespace RimuruMod.SkillStates
             totalDuration = basetotalDuration;
             fireInterval = basefireInterval / attackSpeedStat;
 
-            damageType = DamageType.Shock5s;
+            damageType = new DamageTypeCombo(DamageType.Shock5s, DamageTypeExtended.Generic, DamageSource.Secondary);
 
             if (base.characterBody.HasBuff(Modules.Buffs.poisonMeleeBuff))
             {
-                damageType |= DamageType.BlightOnHit;
+                damageType.damageType |= DamageType.BlightOnHit;
             }
 
             Rimurucon = gameObject.GetComponent<RimuruController>();

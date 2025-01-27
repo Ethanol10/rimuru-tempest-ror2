@@ -58,7 +58,7 @@ namespace RimuruMod.SkillStates
                 hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == "Sword");
             }
             this.attack = new OverlapAttack();
-            this.attack.damageType = DamageType.Generic;
+            this.attack.damageType = new RoR2.DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Primary);
             this.attack.attacker = base.gameObject;
             this.attack.inflictor = base.gameObject;
             this.attack.teamIndex = base.GetTeam();

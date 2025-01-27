@@ -140,7 +140,7 @@ namespace RimuruMod.Modules.Networking
                             damage = damage,
                             position = singularTarget.transform.position,
                             procCoefficient = 0f,
-                            damageType = DamageType.Generic,
+                            damageType = new RoR2.DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.NoneSpecified),
                             crit = charBody.RollCrit(),
 
                         };

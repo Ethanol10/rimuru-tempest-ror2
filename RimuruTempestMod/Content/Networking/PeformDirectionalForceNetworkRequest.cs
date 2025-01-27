@@ -99,12 +99,13 @@ namespace RimuruMod.Modules.Networking
 
                         DamageInfo damageInfo = new DamageInfo
                         {
+                            // DEKUBODY????
                             attacker = dekubodyObj,
                             inflictor = dekubodyObj,
                             damage = damage,
                             position = singularTarget.transform.position,
                             procCoefficient = 1f,
-                            damageType = DamageType.Generic,
+                            damageType = new RoR2.DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.NoneSpecified),
                             crit = charBody.RollCrit(),
 
                         };

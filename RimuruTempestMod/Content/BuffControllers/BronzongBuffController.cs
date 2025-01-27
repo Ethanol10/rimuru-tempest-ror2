@@ -40,7 +40,7 @@ namespace RimuruMod.Content.BuffControllers
                 {
                     if (self.body)
                     {
-                        bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
+                        bool flag = (damageInfo.damageType.damageType & DamageType.BypassArmor) > DamageType.Generic;
                         if (self.body.HasBuff(Buffs.spikedBodyBuff) && !flag && damageInfo.damage > 0f && damageInfo.attacker != self.body)
                         {
                             RoR2.BlastAttack blastAttack = new RoR2.BlastAttack();
@@ -54,7 +54,7 @@ namespace RimuruMod.Content.BuffControllers
                             blastAttack.falloffModel = RoR2.BlastAttack.FalloffModel.None;
                             blastAttack.baseForce = 100f;
                             blastAttack.teamIndex = RoR2.TeamComponent.GetObjectTeam(self.body.gameObject);
-                            blastAttack.damageType = DamageType.Generic;
+                            blastAttack.damageType = new RoR2.DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.NoneSpecified);
                             blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
 
 

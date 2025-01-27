@@ -39,7 +39,7 @@ namespace RimuruMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
         public const string MODNAME = "RimuruTempestMod";
-        public const string MODVERSION = "1.1.1";
+        public const string MODVERSION = "1.1.2";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -156,7 +156,7 @@ namespace RimuruMod
                     //crit buff
                     if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff) && self.body.teamComponent.teamIndex != TeamIndex.Player)
                     {
-                        if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                        if ((damageInfo.damageType.damageType & DamageType.DoT) != DamageType.DoT)
                         {
 
                             if (Modules.Config.doubleInsteadOfCrit.Value)
@@ -174,7 +174,7 @@ namespace RimuruMod
                     {
                         if (damageInfo.attacker.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff)) 
                         {
-                            if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+                            if ((damageInfo.damageType.damageType & DamageType.DoT) != DamageType.DoT)
                             {
 
                                 if (Modules.Config.doubleInsteadOfCrit.Value)
@@ -205,7 +205,7 @@ namespace RimuruMod
                         DamageType tempDamageType = DamageType.FallDamage | DamageType.NonLethal;
                         DamageType frailtyDamageType = DamageType.FallDamage | DamageType.BypassOneShotProtection;
 
-                        if (damageInfo.damageType == tempDamageType || damageInfo.damageType == frailtyDamageType)
+                        if (damageInfo.damageType.damageType == tempDamageType || damageInfo.damageType.damageType == frailtyDamageType)
                         {
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
@@ -231,7 +231,7 @@ namespace RimuruMod
                     //shock on wet interaction
                     if (victimBody.HasBuff(Modules.Buffs.WetDebuff) && !victimBody.HasBuff(Modules.Buffs.WetLightningDebuff))
                     {
-                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
+                        if (damageInfo.damage > 0 && damageInfo.damageType.damageType == DamageType.Shock5s)
                         {
                             victimBody.ApplyBuff(Modules.Buffs.WetLightningDebuff.buffIndex, 1, 1);
 
@@ -247,7 +247,7 @@ namespace RimuruMod
                                 teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
                                 falloffModel = BlastAttack.FalloffModel.None,
                                 baseDamage = body.damage * Modules.Config.blackLightningDamageCoefficient.Value,
-                                damageType = DamageType.Shock5s,
+                                damageType = new RoR2.DamageTypeCombo(DamageType.Shock5s, DamageTypeExtended.Generic, DamageSource.NoneSpecified),
                                 damageColorIndex = DamageColorIndex.WeakPoint,
                                 baseForce = 0,
                                 position = victimBody.transform.position,
@@ -262,7 +262,7 @@ namespace RimuruMod
                     //fire on wet interaction
                     if (victimBody.HasBuff(Modules.Buffs.WetDebuff))
                     {
-                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.IgniteOnHit)
+                        if (damageInfo.damage > 0 && damageInfo.damageType.damageType == DamageType.IgniteOnHit)
                         {
                             victimBody.ApplyBuff(Modules.Buffs.WetDebuff.buffIndex, 0, 0);
 
@@ -278,7 +278,7 @@ namespace RimuruMod
                                 teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
                                 falloffModel = BlastAttack.FalloffModel.None,
                                 baseDamage = body.damage * Modules.StaticValues.lemurianfireDamageCoefficient,
-                                damageType = DamageType.IgniteOnHit,
+                                damageType = new RoR2.DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.NoneSpecified),
                                 damageColorIndex = DamageColorIndex.Fragile,
                                 baseForce = 0,
                                 position = victimBody.transform.position,
@@ -293,7 +293,7 @@ namespace RimuruMod
                     //lightning on fire interaction
                     if (victimBody.HasBuff(RoR2Content.Buffs.OnFire))
                     {
-                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
+                        if (damageInfo.damage > 0 && damageInfo.damageType.damageType == DamageType.Shock5s)
                         {
                             int buffcount = victimBody.GetBuffCount(RoR2Content.Buffs.OnFire);
 
@@ -309,7 +309,7 @@ namespace RimuruMod
                                 teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
                                 falloffModel = BlastAttack.FalloffModel.None,
                                 baseDamage = body.damage * buffcount,
-                                damageType = DamageType.Stun1s,
+                                damageType = new RoR2.DamageTypeCombo(DamageType.Stun1s, DamageTypeExtended.Generic, DamageSource.NoneSpecified),
                                 damageColorIndex = DamageColorIndex.WeakPoint,
                                 baseForce = 0,
                                 position = victimBody.transform.position,

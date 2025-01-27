@@ -38,7 +38,7 @@ namespace RimuruMod.Content.BuffControllers
             blastAttack.baseDamage = body.damage;
             blastAttack.falloffModel = RoR2.BlastAttack.FalloffModel.None;
             blastAttack.teamIndex = RoR2.TeamComponent.GetObjectTeam(blastAttack.attacker);
-            blastAttack.damageType = DamageType.Shock5s;
+            blastAttack.damageType = new RoR2.DamageTypeCombo(DamageType.Shock5s, DamageTypeExtended.Generic, DamageSource.NoneSpecified);
             blastAttack.attackerFiltering = AttackerFiltering.Default;
             body = gameObject.GetComponent<RoR2.CharacterMaster>().GetBody();
 

@@ -17,30 +17,30 @@ namespace RimuruMod.SkillStates
         {
             this.hitboxName = "Sword";
 
-            this.damageType = DamageType.Generic;
+            this.damageType.damageType = DamageType.Generic;
             if (base.characterBody.HasBuff(Modules.Buffs.bleedMeleeBuff))
             {
-                damageType |= DamageType.BleedOnHit;
+                damageType.damageType |= DamageType.BleedOnHit;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
             {
-                damageType |= DamageType.IgniteOnHit;
+                damageType.damageType |= DamageType.IgniteOnHit;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.poisonMeleeBuff))
             {
-                damageType |= DamageType.BlightOnHit;
+                damageType.damageType |= DamageType.BlightOnHit;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.lightningBuff))
             {
-                damageType |= DamageType.Shock5s;
+                damageType.damageType |= DamageType.Shock5s;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.crippleBuff))
             {
-                damageType |= DamageType.CrippleOnHit;
+                damageType.damageType |= DamageType.CrippleOnHit;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.exposeBuff))
             {
-                damageType |= DamageType.ApplyMercExpose;
+                damageType.damageType |= DamageType.ApplyMercExpose;
             }
             if (base.characterBody.HasBuff(Modules.Buffs.meleeBoostBuff))
             {

@@ -129,7 +129,7 @@ namespace RimuruMod.Modules.Survivors
             if (characterBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
             {
                 bool buttonHeld = false;
-                if (characterBody.inputBank.skill1.down )
+                if (characterBody.inputBank.skill1.down)
                 {
                     buttonHeld = true;
 
@@ -137,6 +137,11 @@ namespace RimuruMod.Modules.Survivors
                     {
                         if (!devoureffectExtendedObj && buttonHeld)
                         {
+                            if (devoureffectObj) 
+                            {
+                                AkSoundEngine.StopPlayingID(this.loopID);
+                                Destroy(devoureffectObj);
+                            }
                             this.loopID = AkSoundEngine.PostEvent("RimuruDevour", base.gameObject);
                             devoureffectExtendedObj = Instantiate(Modules.AssetsRimuru.devourExtendedEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
                         }
@@ -145,6 +150,11 @@ namespace RimuruMod.Modules.Survivors
                     {
                         if (!devoureffectObj && buttonHeld)
                         {
+                            if (devoureffectExtendedObj)
+                            {
+                                AkSoundEngine.StopPlayingID(this.loopID);
+                                Destroy(devoureffectExtendedObj);
+                            }
                             this.loopID = AkSoundEngine.PostEvent("RimuruDevour", base.gameObject);
                             devoureffectObj = Instantiate(Modules.AssetsRimuru.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
                         }

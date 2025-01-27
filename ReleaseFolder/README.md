@@ -18,9 +18,11 @@ Mod was completed with what we envisioned now, thanks to the commissioner, Leape
 
 ## Latest Changes
 
-- v1.1.1
-    - Fixed Proc-coefficient on Black Lightning from defaulting to using damage as a proc coefficient.
-    - Smoothed out teleport instead of instantly teleporting.
+- v1.1.2
+    - Recompiled mod to use new method signatures
+    - Removed error spam on death due to missing body.
+    - Changes to use new DamageTypeCombo field for specific items.
+    - Fixed an issue where Devouring a Gip/Gup for Gluttony skill prevents the devour SFX from ending properly.
 - v1.0.0 
     - Devour now has **unique buffs for every monster in the base and expansion** (SotV). (Further new enemies may not be supported if created.)
         - We'll update a wiki page later with the list of skills.
@@ -158,6 +160,14 @@ There's no need to pay for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand patch notes:</summary>
 
+- v1.1.2
+    - Recompiled mod to use new method signatures
+    - Removed error spam on death due to missing body.
+    - Changes to use new DamageTypeCombo field for specific items.
+    - Fixed an issue where Devouring a Gip/Gup for Gluttony skill prevents the devour SFX from ending properly.
+- v1.1.1
+    - Fixed Proc-coefficient on Black Lightning from defaulting to using damage as a proc coefficient.
+    - Smoothed out teleport instead of instantly teleporting.
 - v1.1.0
     - Added support for SotS
     - Fixed an issue where errors were spammed transitioning to a new stage with rimuru buffs.

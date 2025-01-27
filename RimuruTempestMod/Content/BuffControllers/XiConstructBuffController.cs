@@ -40,7 +40,7 @@ namespace RimuruMod.Content.BuffControllers
                 {
                     if (self.body)
                     {
-                        bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
+                        bool flag = (damageInfo.damageType.damageType & DamageType.BypassArmor) > DamageType.Generic;
                         if (self.body.HasBuff(Buffs.singularBarrierBuff) && !self.body.HasBuff(Buffs.singularBarrierBuffOff) && !flag && damageInfo.damage > 0f && damageInfo.attacker != self.body)
                         {
                             self.body.ApplyBuff(Buffs.singularBarrierBuffOff.buffIndex, 1, StaticValues.singularBarrierInterval);

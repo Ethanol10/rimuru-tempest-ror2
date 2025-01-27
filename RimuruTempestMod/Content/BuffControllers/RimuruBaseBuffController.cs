@@ -72,7 +72,10 @@ namespace RimuruMod.Content.BuffControllers
         public virtual void UpdateBody()
         {
             body = master.GetBody();
-            inputBank = body.GetComponent<RoR2.InputBankTest>();
+            if (body) 
+            {
+                inputBank = body.GetComponent<RoR2.InputBankTest>();
+            }
         }
 
         public virtual void ApplySkillChange()

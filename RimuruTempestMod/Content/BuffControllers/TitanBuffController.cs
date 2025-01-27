@@ -43,7 +43,7 @@ namespace RimuruMod.Content.BuffControllers
 
                 if(attackerbody.HasBuff(Buffs.refractionBuff))
                 {
-                    if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT && damageInfo.procCoefficient > 0f)
+                    if (damageInfo.damage > 0 && (damageInfo.damageType.damageType & DamageType.DoT) != DamageType.DoT && damageInfo.procCoefficient > 0f)
                     {
                         new OrbDamageRequest(victimBody.masterObjectId, damageInfo.damage, attackerbody.masterObjectId).Send(NetworkDestination.Clients);
                     }

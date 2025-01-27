@@ -43,7 +43,7 @@ namespace RimuruMod.Content.BuffControllers
             {
                 var victimBody = victim.GetComponent<RoR2.CharacterBody>();
 
-                if (damageInfo.damage > 0 && (damageInfo.damageType & DamageType.DoT) != DamageType.DoT && damageInfo.procCoefficient > 0f)
+                if (damageInfo.damage > 0 && (damageInfo.damageType.damageType & DamageType.DoT) != DamageType.DoT && damageInfo.procCoefficient > 0f)
                 {
                     new GravityPulsePullRequest(attackerBody.masterObjectId, victimBody.corePosition, Vector3.up, StaticValues.gravityPulseRange, 0f, damageInfo.damage, 360f, true).Send(NetworkDestination.Clients);
 

@@ -23,10 +23,10 @@ namespace RimuruMod.SkillStates
         {
             this.hitboxName = "Sword";
 
-            this.damageType = DamageType.Generic;
+            this.damageType.damageType = DamageType.Generic;
             if (base.characterBody.HasBuff(Modules.Buffs.fireBuff))
             {
-                damageType |= DamageType.IgniteOnHit;
+                damageType.damageType |= DamageType.IgniteOnHit;
             }
             this.damageCoefficient = Modules.Config.swordDamageCoefficient.Value;
             this.procCoefficient = 1f;
